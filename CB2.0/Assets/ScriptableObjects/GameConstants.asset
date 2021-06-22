@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: GameConstants
   m_EditorClassIdentifier: 
   playerMoveSpeed: 3
+  playerDashSpeed: 3
+  playerDashDuration: 0.1

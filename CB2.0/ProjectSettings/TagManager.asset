@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Particles
+  - Player
   - 
   - 
   - 
@@ -40,4 +40,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: 1
+    uniqueID: 770282837
+    locked: 0
+  - name: Particle System
+    uniqueID: 1034026983
+    locked: 0
+  - name: Player
+    uniqueID: 3644097701
+    locked: 0
+  - name: 2
+    uniqueID: 2906454085
+    locked: 0
+  - name: 3
+    uniqueID: 485084459
     locked: 0
