@@ -15,11 +15,14 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 rawInputMovement = Vector3.zero;
 
-    private Vector3 finalInputMovement = Vector3.zero;
+    private Vector3 finalInputMovement = Vector3.zero;  // computed with deltaTime and speed
 
     private bool isIdle = true; // True if the character is IDLE (not moving), else false
+    
 
     private Vector2 direction = Vector2.right; // The direction that the character is facing
+
+    private Vector2 idleDirection = Vector2.down; // The direction when character is idle
 
     private Vector2 dashDirection = Vector2.right; // The dashed direction of the most recent dash
 
@@ -37,9 +40,13 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         direction = GetDirection();
+        if (!(direction.x == 0 && direction.y == 0))
+            idleDirection = direction;
         finalInputMovement =
             rawInputMovement * Time.deltaTime * constants.playerMoveSpeed;
         transform.Translate(finalInputMovement, Space.World);
+        animator.SetFloat("horizontal_idle", idleDirection.x);
+        animator.SetFloat("vertical_idle", idleDirection.y);
         animator.SetFloat("horizontal", finalInputMovement.x);
         animator.SetFloat("vertical", finalInputMovement.y);
         animator.SetFloat("speed", finalInputMovement.magnitude);
@@ -69,9 +76,16 @@ public class PlayerController : MonoBehaviour
         {
             return Vector2.up;
         }
-        else
+        if (
+            Math.Abs(rawInputMovement.x) < Math.Abs(rawInputMovement.y) &&
+            rawInputMovement.y < 0
+        )
         {
             return Vector2.down;
+        }
+        else
+        {
+            return Vector2.zero;
         }
     }
 
