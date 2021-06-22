@@ -10,21 +10,26 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInput playerInput;
 
+    private Animator animator;
+
     private Vector3 rawInputMovement = Vector3.zero;
 
-    // Start is called before the first frame update
+    private Vector3 finalInputMovement = Vector3.zero;
+
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
-        transform
-            .Translate(rawInputMovement *
-            Time.deltaTime *
-            constants.playerMoveSpeed,
-            Space.World);
+        finalInputMovement =
+            rawInputMovement * Time.deltaTime * constants.playerMoveSpeed;
+        transform.Translate(finalInputMovement, Space.World);
+        animator.SetFloat("horizontal", finalInputMovement.x);
+        animator.SetFloat("vertical", finalInputMovement.y);
+        animator.SetFloat("speed", finalInputMovement.magnitude);
     }
 
     public void OnMove(InputAction.CallbackContext context)
