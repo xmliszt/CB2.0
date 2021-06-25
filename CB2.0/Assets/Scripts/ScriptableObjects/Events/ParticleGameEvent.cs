@@ -5,7 +5,7 @@ using UnityEngine;
 [
     CreateAssetMenu(
         fileName = "ParticleGameEvent",
-        menuName = "ScriptableObjects/ParticleGameEvent",
+        menuName = "ScriptableObjects/GameEvents/ParticleGameEvent",
         order = 0)
 ]
 public class ParticleGameEvent : ScriptableObject

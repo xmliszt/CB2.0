@@ -3,7 +3,7 @@ using UnityEngine;
 [
     CreateAssetMenu(
         fileName = "BoolVar",
-        menuName = "ScriptableObjects/BoolVar",
+        menuName = "ScriptableObjects/Variables/BoolVar",
         order = 3)
 ]
 public class BoolVariable : ScriptableObject

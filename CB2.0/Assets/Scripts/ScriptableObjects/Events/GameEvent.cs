@@ -4,8 +4,8 @@ using UnityEngine;
 
 [
     CreateAssetMenu(
-        fileName = "GameEvent",
-        menuName = "ScriptableObjects/GameEvent",
+        fileName = "BasicGameEvent",
+        menuName = "ScriptableObjects/GameEvents/BasicGameEvent",
         order = 0)
 ]
 public class GameEvent : ScriptableObject

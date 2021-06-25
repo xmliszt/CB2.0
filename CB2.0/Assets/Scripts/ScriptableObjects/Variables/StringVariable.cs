@@ -3,7 +3,7 @@ using UnityEngine;
 [
     CreateAssetMenu(
         fileName = "StringVar",
-        menuName = "ScriptableObjects/StringVar",
+        menuName = "ScriptableObjects/Variables/StringVar",
         order = 4)
 ]
 public class StringVariable : ScriptableObject

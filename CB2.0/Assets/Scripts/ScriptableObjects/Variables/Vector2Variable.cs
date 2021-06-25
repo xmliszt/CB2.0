@@ -3,7 +3,7 @@ using UnityEngine;
 [
     CreateAssetMenu(
         fileName = "Vector2",
-        menuName = "ScriptableObjects/Vector2",
+        menuName = "ScriptableObjects/Variables/Vector2",
         order = 5)
 ]
 public class Vector2Variable : ScriptableObject
