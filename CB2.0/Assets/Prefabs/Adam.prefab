@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
+  dashParticleGameEvent: {fileID: 11400000, guid: a39ec24cfd1b1474e8f033d9e2365790, type: 2}
 --- !u!50 &1420202197
 Rigidbody2D:
   serializedVersion: 4

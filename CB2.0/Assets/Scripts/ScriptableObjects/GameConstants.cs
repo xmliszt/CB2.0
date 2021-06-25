@@ -14,4 +14,8 @@ public class GameConstants : ScriptableObject
     public float playerDashSpeed = 2.0f;
 
     public float playerDashDuration = 0.1f; // seconds
+
+    [Header("Particle System Configuration")]
+    
+    public float dashParticleOffset = 0.4f; 
 }

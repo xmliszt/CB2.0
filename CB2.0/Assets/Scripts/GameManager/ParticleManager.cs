@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ParticleManager : Singleton<ParticleManager>
+public class ParticleManager : MonoBehaviour
 {
-    public static ParticleManager _instance;
-
     [System.Serializable]
     public class Particle
     {
@@ -23,10 +21,8 @@ public class ParticleManager : Singleton<ParticleManager>
         dash = 1
     }
 
-    public override void Awake()
+    void Awake()
     {
-        base.Awake();
-        _instance = this;
         particles = new Dictionary<ParticleTag, ParticleSystem>();
         foreach (Particle particle in particleList)
         {

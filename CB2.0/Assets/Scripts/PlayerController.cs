@@ -7,6 +7,10 @@ public class PlayerController : MonoBehaviour
 {
     public GameConstants constants;
 
+    [Header("Game Events Binding")]
+
+    public ParticleGameEvent dashParticleGameEvent;
+
     private PlayerInput playerInput;
 
     private Rigidbody2D rb;
@@ -102,7 +106,7 @@ public class PlayerController : MonoBehaviour
         if (context.started && !isDashing && !isIdle)
         {
             isDashing = true;
-            ParticleManager._instance.PlayParticle(ParticleManager.ParticleTag.dash, transform.position - Vector3.up * 0.4f);
+            dashParticleGameEvent.Fire(ParticleManager.ParticleTag.dash, transform.position - Vector3.up * constants.dashParticleOffset);
             dashDirection = direction; // remember the most recent dash direction for removal
             if (!isIdle) rb.velocity += direction * constants.playerDashSpeed;
             StartCoroutine(removeDash());
