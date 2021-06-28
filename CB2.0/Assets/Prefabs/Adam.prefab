@@ -378,6 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e37154eda3bb84f8d6759d76787332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: 7863ae96c9452014ca08b8a3f80ba374, type: 2}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   inventory: {fileID: 11400000, guid: 7c173ea800f55de4e9b4898aafbd8a76, type: 2}
   swabStick: {fileID: 11400000, guid: 9a38f69746d35454ebfb482ce9d07246, type: 2}

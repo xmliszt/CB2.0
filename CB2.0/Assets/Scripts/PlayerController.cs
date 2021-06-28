@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public PlayerStats playerStats;
     public GameConstants constants;
 
     public PlayerInventory inventory;
@@ -199,8 +200,13 @@ public class PlayerController : MonoBehaviour
                     if (zoneType == ZoneType.submissionStation)
                     {
                         inventory.useItem();
-                        thoughtBubbleRenderer.enabled = false;
+                        inventory.SetItem (trash);
+                        thoughtBubbleRenderer.sprite =
+                            trash.thoughtBubbleSprite;
+                        thoughtBubbleRenderer.enabled = true;
                         Debug.Log("Submit Test Result!");
+                        // Log 1 completed swab test
+                        playerStats.completedSwabTests ++;
                     }
                 }
                 else if (currentItem.itemType == Item.ItemType.trash)
@@ -211,6 +217,8 @@ public class PlayerController : MonoBehaviour
                         inventory.useItem();
                         thoughtBubbleRenderer.enabled = false;
                         Debug.Log("Throw Away Trash!");
+                        // Gain 1 coin!
+                        playerStats.coins ++;
                     }
                 }
             }
@@ -236,13 +244,6 @@ public class PlayerController : MonoBehaviour
                     {
                         onBeforeRetrieveTestResultCheckStation
                             .Fire(transform.GetInstanceID());
-                    }
-                    else if (zoneType == ZoneType.submissionStation)
-                    {
-                        inventory.SetItem (trash);
-                        thoughtBubbleRenderer.sprite =
-                            trash.thoughtBubbleSprite;
-                        thoughtBubbleRenderer.enabled = true;
                     }
                 }
             }
@@ -271,7 +272,6 @@ public class PlayerController : MonoBehaviour
                 zoneType = ZoneType.testStation;
                 break;
             case "SubmissionDesk":
-                Debug.Log("I am at desk");
                 zoneType = ZoneType.submissionStation;
                 break;
         }
