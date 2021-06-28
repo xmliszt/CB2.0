@@ -3,7 +3,7 @@ using UnityEngine;
 [
     CreateAssetMenu(
         fileName = "FloatVar",
-        menuName = "ScriptableObjects/FloatVar",
+        menuName = "ScriptableObjects/Variables/FloatVar",
         order = 2)
 ]
 public class FloatVariable : ScriptableObject

@@ -2,15 +2,15 @@ using UnityEngine;
 
 [
     CreateAssetMenu(
-        fileName = "Vector3",
-        menuName = "ScriptableObjects/Vector3",
-        order = 6)
+        fileName = "Vector2",
+        menuName = "ScriptableObjects/Variables/Vector2",
+        order = 5)
 ]
-public class Vector3Variable : ScriptableObject
+public class Vector2Variable : ScriptableObject
 {
-    private Vector3 _value = Vector3.zero;
+    private Vector2 _value = Vector2.zero;
 
-    public Vector3 Value
+    public Vector2 Value
     {
         get
         {
@@ -18,12 +18,12 @@ public class Vector3Variable : ScriptableObject
         }
     }
 
-    public void Set(Vector3 value)
+    public void Set(Vector2 value)
     {
         _value = value;
     }
 
-    public void Set(Vector3Variable value)
+    public void Set(Vector2Variable value)
     {
         _value = value.Value;
     }
@@ -38,11 +38,6 @@ public class Vector3Variable : ScriptableObject
         return _value.y;
     }
 
-    public float GetZ()
-    {
-        return _value.z;
-    }
-
     public void SetX(float x)
     {
         _value.x = x;
@@ -51,10 +46,5 @@ public class Vector3Variable : ScriptableObject
     public void SetY(float y)
     {
         _value.y = y;
-    }
-
-    public void SetZ(float z)
-    {
-        _value.z = z;
     }
 }
