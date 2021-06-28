@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 {
     public GameConstants constants;
 
+    public Vector2Variable playerFacingDirection;
+
     [Header("Game Events Binding")]
 
     public ParticleGameEvent dashParticleGameEvent;
@@ -23,9 +25,6 @@ public class PlayerController : MonoBehaviour
 
     private bool isIdle = true; // True if the character is IDLE (not moving), else false
     
-
-    private Vector2 direction = Vector2.right; // The direction that the character is facing
-
     private Vector2 idleDirection = Vector2.down; // The direction when character is idle
 
     private Vector2 dashDirection = Vector2.right; // The dashed direction of the most recent dash
@@ -43,9 +42,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        direction = GetDirection();
-        if (!(direction.x == 0 && direction.y == 0))
-            idleDirection = direction;
+        playerFacingDirection.Set(GetDirection());
+        if (!(playerFacingDirection.Value.x == 0 && playerFacingDirection.Value.y == 0))
+            idleDirection = playerFacingDirection.Value;
         finalInputMovement =
             rawInputMovement * Time.deltaTime * constants.playerMoveSpeed;
         transform.Translate(finalInputMovement, Space.World);
@@ -107,8 +106,9 @@ public class PlayerController : MonoBehaviour
         {
             isDashing = true;
             dashParticleGameEvent.Fire(ParticleManager.ParticleTag.dash, transform.position - Vector3.up * constants.dashParticleOffset);
-            dashDirection = direction; // remember the most recent dash direction for removal
-            if (!isIdle) rb.velocity += direction * constants.playerDashSpeed;
+            dashDirection = playerFacingDirection.Value; 
+            // remember the most recent dash direction for removal
+            if (!isIdle) rb.velocity += playerFacingDirection.Value * constants.playerDashSpeed;
             StartCoroutine(removeDash());
         }
     }

@@ -28,4 +28,8 @@ public class GameConstants : ScriptableObject
     [Header("Interactables Configuration")]
 
     public float playerInZoneOpacity = 0.7f;
+
+    [Header("Swab Stick Movement")]
+
+    public float swabStickFlyingSpeed = 5;
 }

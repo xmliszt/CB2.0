@@ -230,7 +230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
-  dashParticleGameEvent: {fileID: 11400000, guid: a39ec24cfd1b1474e8f033d9e2365790, type: 2}
+  playerFacingDirection: {fileID: 11400000, guid: 08238665241ae2442922d32c929db19a, type: 2}
+  dashParticleGameEvent: {fileID: 11400000, guid: b3f39252519740843a5ee14e2800faab, type: 2}
 --- !u!50 &1420202197
 Rigidbody2D:
   serializedVersion: 4
@@ -291,6 +292,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.2649215}
+  m_Offset: {x: 0.052431792, y: -0.34635827}
   serializedVersion: 2
-  m_Radius: 0.25245827
+  m_Radius: 0.18106177
