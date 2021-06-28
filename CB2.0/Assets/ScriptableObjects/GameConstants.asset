@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeb969b3c0f33f41b8704d6ca70a2f4, type: 3}
   m_Name: GameConstants
   m_EditorClassIdentifier: 
+  gameBoundX: 10
+  gameBoundY: 5
   playerMoveSpeed: 3
   playerDashSpeed: 3
   playerDashDuration: 0.1
@@ -19,3 +21,5 @@ MonoBehaviour:
   floatingAmplitude: 0.05
   floatingFrequency: 1
   playerInZoneOpacity: 0.7
+  swabStickFlyingSpeed: 5
+  countdownDuration: 10

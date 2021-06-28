@@ -37,4 +37,8 @@ public class GameConstants : ScriptableObject
     [Header("Swab Stick Movement")]
 
     public float swabStickFlyingSpeed = 5;
+
+    [Header("Test Station Configuration")]
+
+    public float countdownDuration = 5; // seconds
 }

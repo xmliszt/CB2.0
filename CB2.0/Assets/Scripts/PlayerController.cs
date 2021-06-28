@@ -30,6 +30,14 @@ public class PlayerController : MonoBehaviour
     [Header("Game Events Binding")]
     public ParticleGameEvent dashParticleGameEvent;
 
+    public SingleIntegerGameEvent onSubmitTestSample;
+
+    public SingleIntegerGameEvent onRetrieveTestResult;
+
+    public SingleIntegerGameEvent onBeforeSubmitTestSampleCheckStation;
+
+    public SingleIntegerGameEvent onBeforeRetrieveTestResultCheckStation;
+
     private PlayerInput playerInput;
 
     private Rigidbody2D rb;
@@ -181,9 +189,8 @@ public class PlayerController : MonoBehaviour
                     // submit test sample to test station
                     if (zoneType == ZoneType.testStation)
                     {
-                        inventory.useItem();
-                        thoughtBubbleRenderer.enabled = false;
-                        Debug.Log("Submit Test Sample!");
+                        onBeforeSubmitTestSampleCheckStation
+                            .Fire(transform.GetInstanceID());
                     }
                 }
                 else if (currentItem.itemType == Item.ItemType.testResult)
@@ -223,20 +230,20 @@ public class PlayerController : MonoBehaviour
                         inventory.SetItem (swabStick);
                         thoughtBubbleRenderer.sprite =
                             swabStick.thoughtBubbleSprite;
+                        thoughtBubbleRenderer.enabled = true;
                     }
                     else if (zoneType == ZoneType.testStation)
                     {
-                        inventory.SetItem (testResult);
-                        thoughtBubbleRenderer.sprite =
-                            testResult.thoughtBubbleSprite;
+                        onBeforeRetrieveTestResultCheckStation
+                            .Fire(transform.GetInstanceID());
                     }
                     else if (zoneType == ZoneType.submissionStation)
                     {
                         inventory.SetItem (trash);
                         thoughtBubbleRenderer.sprite =
                             trash.thoughtBubbleSprite;
+                        thoughtBubbleRenderer.enabled = true;
                     }
-                    thoughtBubbleRenderer.enabled = true;
                 }
             }
         }
@@ -264,6 +271,7 @@ public class PlayerController : MonoBehaviour
                 zoneType = ZoneType.testStation;
                 break;
             case "SubmissionDesk":
+                Debug.Log("I am at desk");
                 zoneType = ZoneType.submissionStation;
                 break;
         }
@@ -282,6 +290,47 @@ public class PlayerController : MonoBehaviour
             thoughtBubbleRenderer.sprite = testSample.thoughtBubbleSprite;
             thoughtBubbleRenderer.enabled = true;
             swabStickIDs.Remove (swabStickID);
+        }
+    }
+
+    public void OnBeforeCollectTestResultsStationReply(
+        TestStation testStationInfo
+    )
+    {
+        if (testStationInfo.isComplete)
+        {
+            if (testStationInfo.isLocked)
+            {
+                if (transform.GetInstanceID() == testStationInfo.resultOwner[0])
+                {
+                    CollectResult();
+                }
+            }
+            else
+            {
+                CollectResult();
+            }
+        }
+    }
+
+    private void CollectResult()
+    {
+        inventory.SetItem (testResult);
+        thoughtBubbleRenderer.sprite = testResult.thoughtBubbleSprite;
+        thoughtBubbleRenderer.enabled = true;
+        onRetrieveTestResult.Fire(transform.GetInstanceID());
+    }
+
+    public void OnBeforeSubmitTestSampleStationReply(
+        TestStation testStationInfo
+    )
+    {
+        if (!testStationInfo.isLoaded)
+        {
+            inventory.useItem();
+            thoughtBubbleRenderer.enabled = false;
+            onSubmitTestSample.Fire(transform.GetInstanceID());
+            Debug.Log("Submit Test Sample!");
         }
     }
 }

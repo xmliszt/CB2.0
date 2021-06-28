@@ -5,7 +5,7 @@ public class SwabStickMovement : MonoBehaviour
 {
     public GameConstants constants;
 
-    public SwabStickHitGameEvent swabStickHitGameEvent;
+    public SingleIntegerGameEvent swabStickHitGameEvent;
 
     public Vector2Variable playerFacingDirection;
 
