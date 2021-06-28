@@ -161,36 +161,51 @@ public class PlayerController : MonoBehaviour
         {
             if (inventory.hasItem())
             {
-                Item currentItem = inventory.useItem();
+                Item currentItem = inventory.GetCurrentItem();
                 if (currentItem.itemType == Item.ItemType.swabStick)
                 {
-                    GameObject stick = Instantiate(swabStickPrefab,
-                    transform.position + new Vector3(idleDirection.x, idleDirection.y - 0.2f, transform.position.z) * 0.5f,
-                    swabStickPrefab.transform.rotation);
+                    inventory.useItem();
+                    GameObject stick =
+                        Instantiate(swabStickPrefab,
+                        transform.position +
+                        new Vector3(idleDirection.x,
+                            idleDirection.y - 0.2f,
+                            transform.position.z) *
+                        0.5f,
+                        swabStickPrefab.transform.rotation);
                     swabStickIDs.Add(stick.transform.GetInstanceID());
+                    thoughtBubbleRenderer.enabled = false;
                 }
                 else if (currentItem.itemType == Item.ItemType.testSample)
                 {
                     // submit test sample to test station
-                    if (zoneType == ZoneType.testStation) {
+                    if (zoneType == ZoneType.testStation)
+                    {
+                        inventory.useItem();
+                        thoughtBubbleRenderer.enabled = false;
                         Debug.Log("Submit Test Sample!");
                     }
                 }
                 else if (currentItem.itemType == Item.ItemType.testResult)
                 {
                     // submit test result to submission desk
-                    if (zoneType == ZoneType.submissionStation) {
+                    if (zoneType == ZoneType.submissionStation)
+                    {
+                        inventory.useItem();
+                        thoughtBubbleRenderer.enabled = false;
                         Debug.Log("Submit Test Result!");
                     }
                 }
                 else if (currentItem.itemType == Item.ItemType.trash)
                 {
                     // throw the trash and gain coins
-                    if (zoneType == ZoneType.dustbin) {
+                    if (zoneType == ZoneType.dustbin)
+                    {
+                        inventory.useItem();
+                        thoughtBubbleRenderer.enabled = false;
                         Debug.Log("Throw Away Trash!");
                     }
                 }
-                thoughtBubbleRenderer.enabled = false;
             }
         }
     }
@@ -261,11 +276,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnSwabStickHit(int swabStickID)
     {
-        if (swabStickIDs.Contains(swabStickID)) {
-            inventory.SetItem(testSample);
+        if (swabStickIDs.Contains(swabStickID))
+        {
+            inventory.SetItem (testSample);
             thoughtBubbleRenderer.sprite = testSample.thoughtBubbleSprite;
             thoughtBubbleRenderer.enabled = true;
-            swabStickIDs.Remove(swabStickID);
+            swabStickIDs.Remove (swabStickID);
         }
     }
 }
