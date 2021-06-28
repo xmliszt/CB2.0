@@ -68,7 +68,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1388513211
+  m_SortingLayerID: -622952709
   m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 86558d276c5ded5459103e93813498d8, type: 3}
@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1420202197}
   - component: {fileID: 1420202198}
   - component: {fileID: 1420202199}
+  - component: {fileID: 6929948914928955759}
   m_Layer: 7
   m_Name: Adam
   m_TagString: Player
@@ -356,7 +357,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0024646074, y: -0.088725746}
+  m_Offset: {x: -0.0024646074, y: -0.13341549}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -367,7 +368,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.24832729, y: 0.55580497}
+  m_Size: {x: 0.24832729, y: 0.64518446}
   m_EdgeRadius: 0
 --- !u!58 &1420202199
 CircleCollider2D:
@@ -385,3 +386,31 @@ CircleCollider2D:
   m_Offset: {x: 0.052431792, y: -0.34635827}
   serializedVersion: 2
   m_Radius: 0.18106177
+--- !u!114 &6929948914928955759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa0041421649bf4db2282ac0649815a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4a122582a5448d540b52d35381efd7d3, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 562434371}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSwabStickHit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

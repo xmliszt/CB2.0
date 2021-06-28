@@ -58,11 +58,11 @@ TagManager:
   - name: Player
     uniqueID: 3644097701
     locked: 0
-  - name: Bubbles
-    uniqueID: 3672014587
-    locked: 0
   - name: Foreground
     uniqueID: 2906454085
+    locked: 0
+  - name: Bubbles
+    uniqueID: 3672014587
     locked: 0
   - name: UI
     uniqueID: 951167099

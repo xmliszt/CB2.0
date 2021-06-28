@@ -1,8 +1,11 @@
+using System.Collections;
 using UnityEngine;
 
 public class SwabStickMovement : MonoBehaviour
 {
     public GameConstants constants;
+
+    public SwabStickHitGameEvent swabStickHitGameEvent;
 
     public Vector2Variable playerFacingDirection;
 
@@ -44,13 +47,14 @@ public class SwabStickMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) {
+            swabStickHitGameEvent.Fire(transform.GetInstanceID());
+            gameObject.SetActive(false);
             Destroy(gameObject);
         }
         if (other.CompareTag("Wall")) {
             Destroy(gameObject);
         }
     }
-
     private bool IsOutOfBound()
     {
         return (

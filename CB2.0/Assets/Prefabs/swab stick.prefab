@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
+  swabStickHitGameEvent: {fileID: 11400000, guid: 4a122582a5448d540b52d35381efd7d3, type: 2}
   playerFacingDirection: {fileID: 11400000, guid: 08238665241ae2442922d32c929db19a, type: 2}
 --- !u!68 &5853785624507807556
 EdgeCollider2D:

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class MiniGameManager : MonoBehaviour
 {
     public PlayerInventory inventory;
     void Start()

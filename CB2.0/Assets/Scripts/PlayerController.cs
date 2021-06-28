@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -49,6 +50,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isDashing = false; // Whether character is currently dashing
 
+    private List<int> swabStickIDs; // Collection of ID of swab stick object fired by the character and has yet to be destroyed
+
     private ZoneType zoneType = ZoneType.nullType;
 
     private enum ZoneType
@@ -65,6 +68,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
+        swabStickIDs = new List<int>();
         thoughtBubbleRenderer.enabled = false;
     }
 
@@ -160,21 +164,31 @@ public class PlayerController : MonoBehaviour
                 Item currentItem = inventory.useItem();
                 if (currentItem.itemType == Item.ItemType.swabStick)
                 {
-                    Instantiate(swabStickPrefab,
+                    GameObject stick = Instantiate(swabStickPrefab,
                     transform.position + new Vector3(idleDirection.x, idleDirection.y - 0.2f, transform.position.z) * 0.5f,
                     swabStickPrefab.transform.rotation);
+                    swabStickIDs.Add(stick.transform.GetInstanceID());
                 }
                 else if (currentItem.itemType == Item.ItemType.testSample)
                 {
                     // submit test sample to test station
+                    if (zoneType == ZoneType.testStation) {
+                        Debug.Log("Submit Test Sample!");
+                    }
                 }
                 else if (currentItem.itemType == Item.ItemType.testResult)
                 {
                     // submit test result to submission desk
+                    if (zoneType == ZoneType.submissionStation) {
+                        Debug.Log("Submit Test Result!");
+                    }
                 }
                 else if (currentItem.itemType == Item.ItemType.trash)
                 {
                     // throw the trash and gain coins
+                    if (zoneType == ZoneType.dustbin) {
+                        Debug.Log("Throw Away Trash!");
+                    }
                 }
                 thoughtBubbleRenderer.enabled = false;
             }
@@ -243,5 +257,15 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         zoneType = ZoneType.nullType;
+    }
+
+    public void OnSwabStickHit(int swabStickID)
+    {
+        if (swabStickIDs.Contains(swabStickID)) {
+            inventory.SetItem(testSample);
+            thoughtBubbleRenderer.sprite = testSample.thoughtBubbleSprite;
+            thoughtBubbleRenderer.enabled = true;
+            swabStickIDs.Remove(swabStickID);
+        }
     }
 }
