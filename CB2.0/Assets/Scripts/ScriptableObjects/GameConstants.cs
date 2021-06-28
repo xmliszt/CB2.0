@@ -18,4 +18,10 @@ public class GameConstants : ScriptableObject
     [Header("Particle System Configuration")]
     
     public float dashParticleOffset = 0.4f; 
+
+    [Header("Floating Bubble Configuration")]
+
+    public float floatingAmplitude = 0.5f;
+
+    public float floatingFrequency = 1f;
 }
