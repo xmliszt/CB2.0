@@ -8,6 +8,11 @@ using UnityEngine;
 ]
 public class GameConstants : ScriptableObject
 {
+    [Header("Game Generic Configuration")]
+
+    public float gameBoundX = 10;
+    public float gameBoundY = 5;
+
     [Header("Player Configuration")]
     public float playerMoveSpeed = 3.0f;
 

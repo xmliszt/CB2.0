@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 4125103566715261941}
   m_Layer: 0
   m_Name: swab stick collection cabinet
-  m_TagString: SubmissionDesk
+  m_TagString: CollectionPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

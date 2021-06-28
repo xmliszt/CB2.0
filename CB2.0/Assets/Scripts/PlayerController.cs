@@ -7,10 +7,26 @@ public class PlayerController : MonoBehaviour
 {
     public GameConstants constants;
 
+    public PlayerInventory inventory;
+
+    [Header("Item Types")]
+    public Item swabStick;
+
+    public Item testSample;
+
+    public Item testResult;
+
+    public Item trash;
+
+    [Header("Physical Item Prefab")]
+    public GameObject swabStickPrefab;
+
+    [Header("Player Attributes")]
+    public SpriteRenderer thoughtBubbleRenderer;
+
     public Vector2Variable playerFacingDirection;
 
     [Header("Game Events Binding")]
-
     public ParticleGameEvent dashParticleGameEvent;
 
     private PlayerInput playerInput;
@@ -21,30 +37,42 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 rawInputMovement = Vector3.zero;
 
-    private Vector3 finalInputMovement = Vector3.zero;  // computed with deltaTime and speed
+    private Vector3 finalInputMovement = Vector3.zero; // computed with deltaTime and speed
 
     private bool isIdle = true; // True if the character is IDLE (not moving), else false
-    
+
+    private Vector2 direction = Vector2.down;
+
     private Vector2 idleDirection = Vector2.down; // The direction when character is idle
 
     private Vector2 dashDirection = Vector2.right; // The dashed direction of the most recent dash
 
     private bool isDashing = false; // Whether character is currently dashing
 
-    private bool picked = false; // A temporary variable to set up item picked/dropped status for the player
+    private ZoneType zoneType = ZoneType.nullType;
+
+    private enum ZoneType
+    {
+        swabStickCollection = 1,
+        testStation = 2,
+        submissionStation = 3,
+        dustbin = 4,
+        nullType = 5
+    }
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
+        thoughtBubbleRenderer.enabled = false;
     }
 
     private void Update()
     {
-        playerFacingDirection.Set(GetDirection());
-        if (!(playerFacingDirection.Value.x == 0 && playerFacingDirection.Value.y == 0))
-            idleDirection = playerFacingDirection.Value;
+        direction = GetDirection();
+        if (!(direction.x == 0 && direction.y == 0)) idleDirection = direction;
+        playerFacingDirection.Set (idleDirection);
         finalInputMovement =
             rawInputMovement * Time.deltaTime * constants.playerMoveSpeed;
         transform.Translate(finalInputMovement, Space.World);
@@ -105,10 +133,13 @@ public class PlayerController : MonoBehaviour
         if (context.started && !isDashing && !isIdle)
         {
             isDashing = true;
-            dashParticleGameEvent.Fire(ParticleManager.ParticleTag.dash, transform.position - Vector3.up * constants.dashParticleOffset);
-            dashDirection = playerFacingDirection.Value; 
+            dashParticleGameEvent
+                .Fire(ParticleManager.ParticleTag.dash,
+                transform.position - Vector3.up * constants.dashParticleOffset);
+            dashDirection = direction;
+
             // remember the most recent dash direction for removal
-            if (!isIdle) rb.velocity += playerFacingDirection.Value * constants.playerDashSpeed;
+            if (!isIdle) rb.velocity += direction * constants.playerDashSpeed;
             StartCoroutine(removeDash());
         }
     }
@@ -124,13 +155,28 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            if (picked)
+            if (inventory.hasItem())
             {
-                Debug.Log("Player Use Item");
-            }
-            else
-            {
-                Debug.Log("Nothing to use!");
+                Item currentItem = inventory.useItem();
+                if (currentItem.itemType == Item.ItemType.swabStick)
+                {
+                    Instantiate(swabStickPrefab,
+                    transform.position + new Vector3(idleDirection.x, idleDirection.y - 0.2f, transform.position.z) * 0.5f,
+                    swabStickPrefab.transform.rotation);
+                }
+                else if (currentItem.itemType == Item.ItemType.testSample)
+                {
+                    // submit test sample to test station
+                }
+                else if (currentItem.itemType == Item.ItemType.testResult)
+                {
+                    // submit test result to submission desk
+                }
+                else if (currentItem.itemType == Item.ItemType.trash)
+                {
+                    // throw the trash and gain coins
+                }
+                thoughtBubbleRenderer.enabled = false;
             }
         }
     }
@@ -139,15 +185,30 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            if (!picked)
+            if (!inventory.hasItem())
             {
-                picked = true;
-                Debug.Log("Player Pick Up Item");
-            }
-            else
-            {
-                picked = false;
-                Debug.Log("Player Drop Item");
+                if (zoneType != ZoneType.nullType)
+                {
+                    if (zoneType == ZoneType.swabStickCollection)
+                    {
+                        inventory.SetItem (swabStick);
+                        thoughtBubbleRenderer.sprite =
+                            swabStick.thoughtBubbleSprite;
+                    }
+                    else if (zoneType == ZoneType.testStation)
+                    {
+                        inventory.SetItem (testResult);
+                        thoughtBubbleRenderer.sprite =
+                            testResult.thoughtBubbleSprite;
+                    }
+                    else if (zoneType == ZoneType.submissionStation)
+                    {
+                        inventory.SetItem (trash);
+                        thoughtBubbleRenderer.sprite =
+                            trash.thoughtBubbleSprite;
+                    }
+                    thoughtBubbleRenderer.enabled = true;
+                }
             }
         }
     }
@@ -158,5 +219,29 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Player shop(buy) item");
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        switch (other.tag)
+        {
+            case "CollectionPoint":
+                zoneType = ZoneType.swabStickCollection;
+                break;
+            case "Dustbin":
+                zoneType = ZoneType.dustbin;
+                break;
+            case "TestStation":
+                zoneType = ZoneType.testStation;
+                break;
+            case "SubmissionDesk":
+                zoneType = ZoneType.submissionStation;
+                break;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        zoneType = ZoneType.nullType;
     }
 }

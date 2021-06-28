@@ -8,6 +8,7 @@ TagManager:
   - Dustbin
   - TestStation
   - SubmissionDesk
+  - Wall
   layers:
   - Default
   - TransparentFX

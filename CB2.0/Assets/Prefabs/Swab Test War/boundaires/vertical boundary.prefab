@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8381659888900088273}
   - component: {fileID: 8381659888900088274}
-  - component: {fileID: 404638714}
+  - component: {fileID: 210985021973045210}
   m_Layer: 0
   m_Name: vertical boundary
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.97540665, y: 4.4184732}
   m_EdgeRadius: 0
---- !u!50 &404638714
+--- !u!50 &210985021973045210
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8381659888900088272}
-  m_BodyType: 2
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
