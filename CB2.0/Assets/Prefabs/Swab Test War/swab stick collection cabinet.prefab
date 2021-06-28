@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 7023663350389979422}
   - component: {fileID: 7023663350389979425}
   - component: {fileID: 1907560735}
+  - component: {fileID: 4125103566715261941}
   m_Layer: 0
   m_Name: swab stick collection cabinet
   m_TagString: SubmissionDesk
@@ -206,3 +207,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.84, y: 0.84}
   m_EdgeRadius: 0
+--- !u!114 &4125103566715261941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7023663350389979424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cca8605d15fb284a9b948044725ce2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}

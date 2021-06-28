@@ -18,3 +18,4 @@ MonoBehaviour:
   dashParticleOffset: 0.4
   floatingAmplitude: 0.05
   floatingFrequency: 1
+  playerInZoneOpacity: 0.7

@@ -24,4 +24,8 @@ public class GameConstants : ScriptableObject
     public float floatingAmplitude = 0.5f;
 
     public float floatingFrequency = 1f;
+
+    [Header("Interactables Configuration")]
+
+    public float playerInZoneOpacity = 0.7f;
 }
