@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6488087500066331419}
   - component: {fileID: 5853785624507807556}
   m_Layer: 0
-  m_Name: swab stick 2
-  m_TagString: Untagged
+  m_Name: swab stick
+  m_TagString: SwabStick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
-  swabStickHitGameEvent: {fileID: 11400000, guid: 4a122582a5448d540b52d35381efd7d3, type: 2}
-  playerFacingDirection: {fileID: 11400000, guid: 0d4a67127d479c547b93989eb645a40d, type: 2}
+  direction: {x: 0, y: 0}
+  fromPlayer: {fileID: 0}
 --- !u!68 &5853785624507807556
 EdgeCollider2D:
   m_ObjectHideFlags: 0

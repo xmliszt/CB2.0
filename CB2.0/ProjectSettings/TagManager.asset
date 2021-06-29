@@ -9,6 +9,7 @@ TagManager:
   - TestStation
   - SubmissionDesk
   - Wall
+  - SwabStick
   layers:
   - Default
   - TransparentFX

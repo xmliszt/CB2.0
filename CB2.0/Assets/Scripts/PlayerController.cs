@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -26,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Attributes")]
     public SpriteRenderer thoughtBubbleRenderer;
+
+    public SpriteRenderer stunnedIconRenderer;
 
     [Header("Game Events Binding")]
     public ParticleGameEvent dashParticleGameEvent;
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
         GetComponent<Animator>().runtimeAnimatorController =
             playerStats.animatorController;
         thoughtBubbleRenderer.enabled = false;
+        stunnedIconRenderer.enabled = false;
     }
 
     private void Update()
@@ -298,7 +300,27 @@ public class PlayerController : MonoBehaviour
             case "SubmissionDesk":
                 zoneType = ZoneType.submissionStation;
                 break;
+            case "SwabStick":
+                GetStunned();
+                break;
         }
+    }
+
+    private void GetStunned()
+    {
+        stunnedIconRenderer.enabled = true;
+        GetComponent<PlayerInput>().enabled = false;
+        SpriteRenderer _renderer = GetComponent<SpriteRenderer>();
+        _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 0.7f);
+        StartCoroutine(Unfreeze());
+    }
+
+    IEnumerator Unfreeze() {
+        yield return new WaitForSeconds(constants.playerStunnedDuration);
+        GetComponent<PlayerInput>().enabled = true;
+        stunnedIconRenderer.enabled = false;
+        SpriteRenderer _renderer = GetComponent<SpriteRenderer>();
+        _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 1);
     }
 
     private void OnTriggerExit2D(Collider2D other)

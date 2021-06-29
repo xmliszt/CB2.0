@@ -1441,7 +1441,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 69709505f2224c541ab478ea1ada97b0, type: 2}
   - {fileID: 11400000, guid: 19ce60b7501f05742aa49bc01eea368d, type: 2}
   - {fileID: 11400000, guid: cb599b4a3023d8448875da435d94d262, type: 2}
-  inventories: []
+  inventories:
+  - {fileID: 11400000, guid: 7c173ea800f55de4e9b4898aafbd8a76, type: 2}
+  - {fileID: 11400000, guid: 4bbdd9315c8d62f43be05e178b10b8f9, type: 2}
 --- !u!4 &801228906
 Transform:
   m_ObjectHideFlags: 0
