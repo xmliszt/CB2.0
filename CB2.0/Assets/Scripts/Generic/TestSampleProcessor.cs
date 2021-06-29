@@ -10,6 +10,10 @@ public class TestSampleProcessor : MonoBehaviour
 
     public SpriteRenderer indicatorRenderer;
 
+    public SpriteRenderer lockIndicator;
+
+    public SpriteRenderer avatarRenderer;
+
     public Sprite waitingSprite;
 
     public Sprite completeSprite;
@@ -17,6 +21,8 @@ public class TestSampleProcessor : MonoBehaviour
     private void Start()
     {
         indicatorRenderer.enabled = false;
+        lockIndicator.enabled = false;
+        avatarRenderer.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,7 +59,6 @@ public class TestSampleProcessor : MonoBehaviour
             indicatorRenderer.enabled = true;
             indicatorRenderer.sprite = waitingSprite;
             testStationInfo.isLoaded = true;
-            testStationInfo.resultOwner.Add(playerID);
             StartCoroutine(CountDownTimer(constants.countdownDuration));
         }
     }
@@ -71,9 +76,11 @@ public class TestSampleProcessor : MonoBehaviour
         {
             if (testStationInfo.isLocked)
             {
-                if (playerID == testStationInfo.resultOwner[0])
+                if (playerID == testStationInfo.resultOwner)
                 {
                     clearResult();
+                    lockIndicator.enabled = false;
+                    avatarRenderer.enabled = false;
                 }
             }
             else
@@ -89,6 +96,16 @@ public class TestSampleProcessor : MonoBehaviour
         testStationInfo.isLocked = false;
         testStationInfo.isLoaded = false;
         indicatorRenderer.enabled = false;
-        testStationInfo.resultOwner = new List<int>();
+        testStationInfo.resultOwner = 0;
+    }
+
+    public void OnLock(GameObject player)
+    {
+        testStationInfo.isLocked = true;
+        testStationInfo.resultOwner = player.transform.GetInstanceID();
+        Sprite playerAvatar = player.GetComponent<PlayerController>().playerStats.playerAvatar;
+        avatarRenderer.sprite = playerAvatar;
+        lockIndicator.enabled = true;
+        avatarRenderer.enabled = true;   
     }
 }

@@ -11,6 +11,7 @@ TagManager:
   - Wall
   - SwabStick
   - Item
+  - Shop
   layers:
   - Default
   - TransparentFX

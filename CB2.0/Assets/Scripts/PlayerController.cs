@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     public Item trash;
 
+    public Item shopItem;
+
     [Header("Physical Item Prefab")]
     public GameObject swabStickPrefab;
 
@@ -62,12 +64,15 @@ public class PlayerController : MonoBehaviour
         testStation = 2,
         submissionStation = 3,
         dustbin = 4,
-        nullType = 5
+        shop = 5,
+        nullType = 6
     }
 
     private TestSampleProcessor testStationProcessor; // the test station where the player is at
 
     private GameObject pickedItem; // the item player picked up
+
+    private ShopHandler shopHandler;
 
     void Start()
     {
@@ -192,10 +197,22 @@ public class PlayerController : MonoBehaviour
                     {
                         if (!testStationProcessor.testStationInfo.isLoaded)
                         {
-                            testStationProcessor
-                                .OnLoadTestSample(transform.GetInstanceID());
-                            inventory.useItem();
-                            thoughtBubbleRenderer.enabled = false;
+                            if (testStationProcessor.testStationInfo.isLocked)
+                            {
+                                if (
+                                    transform.GetInstanceID() ==
+                                    testStationProcessor
+                                        .testStationInfo
+                                        .resultOwner
+                                )
+                                {
+                                    SubmitTestSample();
+                                }
+                            }
+                            else
+                            {
+                                SubmitTestSample();
+                            }
                         }
                     }
                 }
@@ -228,6 +245,16 @@ public class PlayerController : MonoBehaviour
                         playerStats.coins++;
                     }
                 }
+                else if (currentItem.itemType == Item.ItemType.shopItem)
+                {
+                    if (zoneType == ZoneType.testStation)
+                    {
+                        inventory.useItem();
+                        thoughtBubbleRenderer.enabled = false;
+                        Debug.Log("Used Lock");
+                        testStationProcessor.OnLock (gameObject);
+                    }
+                }
             }
         }
     }
@@ -257,7 +284,7 @@ public class PlayerController : MonoBehaviour
                                     transform.GetInstanceID() ==
                                     testStationProcessor
                                         .testStationInfo
-                                        .resultOwner[0]
+                                        .resultOwner
                                 )
                                 {
                                     PickUpTestResult();
@@ -278,7 +305,7 @@ public class PlayerController : MonoBehaviour
                         thoughtBubbleRenderer.sprite =
                             _item.thoughtBubbleSprite;
                         thoughtBubbleRenderer.enabled = true;
-                        Destroy(pickedItem);
+                        Destroy (pickedItem);
                     }
                 }
             }
@@ -289,6 +316,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnShop(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (!inventory.hasItem() && zoneType == ZoneType.shop)
+            {
+                Debug.Log("Try to buy!");
+                ShopItem boughtItem = shopHandler.BuyItem(gameObject);
+                if (boughtItem != null)
+                {
+                    Debug.Log("Bought!");
+                    inventory.SetItem (shopItem);
+                    thoughtBubbleRenderer.sprite = shopItem.thoughtBubbleSprite;
+                    thoughtBubbleRenderer.enabled = true;
+                }
+            }
+        }
+    }
+
+    private void SubmitTestSample()
+    {
+        testStationProcessor.OnLoadTestSample(transform.GetInstanceID());
+        inventory.useItem();
+        thoughtBubbleRenderer.enabled = false;
+    }
+
     private void DropItem()
     {
         // drop item
@@ -297,7 +350,11 @@ public class PlayerController : MonoBehaviour
             Item _item = inventory.useItem();
             GameObject dropped =
                 Instantiate(droppedItemPrefab,
-                transform.position + new Vector3(idleDirection.x, idleDirection.y, droppedItemPrefab.transform.position.z) * 0.5f,
+                transform.position +
+                new Vector3(idleDirection.x,
+                    idleDirection.y,
+                    droppedItemPrefab.transform.position.z) *
+                0.5f,
                 droppedItemPrefab.transform.rotation);
             dropped.GetComponent<CollectableItem>().SetItem(_item);
             thoughtBubbleRenderer.enabled = false;
@@ -310,14 +367,6 @@ public class PlayerController : MonoBehaviour
         inventory.SetItem (testResult);
         thoughtBubbleRenderer.sprite = testResult.thoughtBubbleSprite;
         thoughtBubbleRenderer.enabled = true;
-    }
-
-    public void OnShop(InputAction.CallbackContext context)
-    {
-        if (context.started)
-        {
-            Debug.Log("Player shop(buy) item");
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -337,6 +386,10 @@ public class PlayerController : MonoBehaviour
                 break;
             case "SubmissionDesk":
                 zoneType = ZoneType.submissionStation;
+                break;
+            case "Shop":
+                zoneType = ZoneType.shop;
+                shopHandler = other.gameObject.GetComponent<ShopHandler>();
                 break;
             case "SwabStick":
                 GetStunned();

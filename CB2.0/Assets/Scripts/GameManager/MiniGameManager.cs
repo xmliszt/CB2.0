@@ -17,7 +17,7 @@ public class MiniGameManager : MonoBehaviour
             testStation.isLoaded = false;
             testStation.isLocked = false;
             testStation.isComplete = false;
-            testStation.resultOwner = new List<int>();
+            testStation.resultOwner = 0;
             testStation.playersInZone = new List<int>();
         }
         foreach (PlayerStats player in players)

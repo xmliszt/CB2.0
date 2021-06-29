@@ -17,7 +17,7 @@ public class TestStation : ScriptableObject
     public bool isComplete = false; // true if the result is ready for collection, false if no result yet
     public List<int> playersInZone;
 
-    public List<int> resultOwner; // only one item: The ID of the player who delivered the test sample, will be used for locking
+    public int resultOwner; // The ID of the player who delivered the test sample, will be used for locking
 
     public bool isLocked = false; // if true, only player with ID == resultOwnerID can retrieve the result
 }

@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f589a6d5dcfacb94fb780302a70367b4, type: 3}
-  m_Name: player 3
+  m_Script: {fileID: 11500000, guid: 709e1801bf0d52843bc746495f4a004b, type: 3}
+  m_Name: lock
   m_EditorClassIdentifier: 
-  playerID: 3
-  playerName: Eva
-  coins: 0
-  completedSwabTests: 0
+  itemSprite: {fileID: 21300000, guid: 74e3b8e93e8e7a44ab51ee1606677599, type: 3}
+  cost: 1
+  unlimited: 1
+  stock: 0

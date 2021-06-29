@@ -13,7 +13,9 @@ public class Item : ScriptableObject
         swabStick = 1,
         testSample = 2,
         testResult = 3,
-        trash = 4
+        trash = 4,
+
+        shopItem = 5,
     }
 
     public ItemType itemType;

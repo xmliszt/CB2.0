@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f589a6d5dcfacb94fb780302a70367b4, type: 3}
-  m_Name: player 4
+  m_Script: {fileID: 11500000, guid: 8f3994d169e3b6b4287ad2794cd77fff, type: 3}
+  m_Name: shopItem
   m_EditorClassIdentifier: 
-  playerID: 4
-  playerName: David
-  coins: 0
-  completedSwabTests: 0
+  itemType: 5
+  itemSprite: {fileID: 21300000, guid: de91ff32c03b9344f833e576bc5922b7, type: 3}
+  thoughtBubbleSprite: {fileID: 21300000, guid: d04a79c8f198b3a478a5c92e502a371b, type: 3}
