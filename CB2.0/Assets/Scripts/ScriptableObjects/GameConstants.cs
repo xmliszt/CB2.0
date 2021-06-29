@@ -41,4 +41,8 @@ public class GameConstants : ScriptableObject
     [Header("Test Station Configuration")]
 
     public float countdownDuration = 5; // seconds
+
+    [Header("Item Spawner Configuration")]
+
+    public float spawnFrequency = 5; // 1 spawn every seconds
 }
