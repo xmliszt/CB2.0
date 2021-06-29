@@ -32,7 +32,10 @@ public class GameConstants : ScriptableObject
 
     [Header("Interactables Configuration")]
 
-    public float playerInZoneOpacity = 0.7f;
+    public float playerInZoneOpacity = 0.7f; // the gameobject will be set to this opacity if the player is in the trigger zone
+
+
+    // **************** Minigame: Swab Test War **********************
 
     [Header("Swab Stick Movement")]
 
@@ -45,4 +48,8 @@ public class GameConstants : ScriptableObject
     [Header("Item Spawner Configuration")]
 
     public float spawnFrequency = 5; // 1 spawn every seconds
+
+    [Header("Coin Reward")]
+    
+    public int coinAwardedPerCompleteTest = 1;
 }

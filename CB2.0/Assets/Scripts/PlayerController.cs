@@ -242,7 +242,7 @@ public class PlayerController : MonoBehaviour
                         Debug.Log("Throw Away Trash!");
 
                         // Gain 1 coin!
-                        playerStats.coins++;
+                        playerStats.coins += constants.coinAwardedPerCompleteTest;
                     }
                 }
                 else if (currentItem.itemType == Item.ItemType.shopItem)
