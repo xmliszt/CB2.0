@@ -387,6 +387,7 @@ MonoBehaviour:
   testResult: {fileID: 11400000, guid: 75d6197c725451840bc3d14015bbe628, type: 2}
   trash: {fileID: 11400000, guid: bafb88e875caadf429c1572589436481, type: 2}
   swabStickPrefab: {fileID: 6488087500066331418, guid: 76e339657038cde4b867e584b7e50570, type: 3}
+  droppedItemPrefab: {fileID: 9030321009598397116, guid: dedf45a66fa3ad54193d015b16af5f84, type: 3}
   thoughtBubbleRenderer: {fileID: 5316216624820595615}
   stunnedIconRenderer: {fileID: 1154388671340012776}
   dashParticleGameEvent: {fileID: 11400000, guid: b3f39252519740843a5ee14e2800faab, type: 2}

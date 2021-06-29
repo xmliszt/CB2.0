@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     [Header("Physical Item Prefab")]
     public GameObject swabStickPrefab;
 
+    public GameObject droppedItemPrefab;
+
     [Header("Player Attributes")]
     public SpriteRenderer thoughtBubbleRenderer;
 
@@ -55,6 +57,7 @@ public class PlayerController : MonoBehaviour
 
     private enum ZoneType
     {
+        droppedItem = 0,
         swabStickCollection = 1,
         testStation = 2,
         submissionStation = 3,
@@ -63,6 +66,8 @@ public class PlayerController : MonoBehaviour
     }
 
     private TestSampleProcessor testStationProcessor; // the test station where the player is at
+
+    private GameObject pickedItem; // the item player picked up
 
     void Start()
     {
@@ -147,11 +152,14 @@ public class PlayerController : MonoBehaviour
             // remember the most recent dash direction for removal
             if (!isIdle)
             {
-                rb.AddForce(dashDirection * constants.playerDashSpeed, ForceMode2D.Impulse);
+                rb
+                    .AddForce(dashDirection * constants.playerDashSpeed,
+                    ForceMode2D.Impulse);
             }
             isDashing = false;
         }
     }
+
     public void OnUse(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -261,8 +269,38 @@ public class PlayerController : MonoBehaviour
                             }
                         }
                     }
+                    else if (zoneType == ZoneType.droppedItem)
+                    {
+                        // pick up dropped item
+                        Item _item =
+                            pickedItem.GetComponent<CollectableItem>().itemMeta;
+                        inventory.SetItem (_item);
+                        thoughtBubbleRenderer.sprite =
+                            _item.thoughtBubbleSprite;
+                        thoughtBubbleRenderer.enabled = true;
+                        Destroy(pickedItem);
+                    }
                 }
             }
+            else
+            {
+                DropItem();
+            }
+        }
+    }
+
+    private void DropItem()
+    {
+        // drop item
+        if (inventory.hasItem())
+        {
+            Item _item = inventory.useItem();
+            GameObject dropped =
+                Instantiate(droppedItemPrefab,
+                transform.position,
+                droppedItemPrefab.transform.rotation);
+            dropped.GetComponent<CollectableItem>().SetItem(_item);
+            thoughtBubbleRenderer.enabled = false;
         }
     }
 
@@ -303,24 +341,38 @@ public class PlayerController : MonoBehaviour
             case "SwabStick":
                 GetStunned();
                 break;
+            case "Item":
+                zoneType = ZoneType.droppedItem;
+                pickedItem = other.gameObject;
+                break;
         }
     }
 
     private void GetStunned()
     {
+        DropItem();
         stunnedIconRenderer.enabled = true;
         GetComponent<PlayerInput>().enabled = false;
         SpriteRenderer _renderer = GetComponent<SpriteRenderer>();
-        _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 0.7f);
+        _renderer.color =
+            new Color(_renderer.color.r,
+                _renderer.color.g,
+                _renderer.color.b,
+                0.7f);
         StartCoroutine(Unfreeze());
     }
 
-    IEnumerator Unfreeze() {
+    IEnumerator Unfreeze()
+    {
         yield return new WaitForSeconds(constants.playerStunnedDuration);
         GetComponent<PlayerInput>().enabled = true;
         stunnedIconRenderer.enabled = false;
         SpriteRenderer _renderer = GetComponent<SpriteRenderer>();
-        _renderer.color = new Color(_renderer.color.r, _renderer.color.g, _renderer.color.b, 1);
+        _renderer.color =
+            new Color(_renderer.color.r,
+                _renderer.color.g,
+                _renderer.color.b,
+                1);
     }
 
     private void OnTriggerExit2D(Collider2D other)
