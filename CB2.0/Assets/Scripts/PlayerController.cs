@@ -297,7 +297,7 @@ public class PlayerController : MonoBehaviour
             Item _item = inventory.useItem();
             GameObject dropped =
                 Instantiate(droppedItemPrefab,
-                transform.position,
+                transform.position + new Vector3(idleDirection.x, idleDirection.y, droppedItemPrefab.transform.position.z) * 0.5f,
                 droppedItemPrefab.transform.rotation);
             dropped.GetComponent<CollectableItem>().SetItem(_item);
             thoughtBubbleRenderer.enabled = false;
