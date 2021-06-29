@@ -15,8 +15,7 @@ MonoBehaviour:
   gameBoundX: 10
   gameBoundY: 5
   playerMoveSpeed: 3
-  playerDashSpeed: 3
-  playerDashDuration: 0.1
+  playerDashSpeed: 10
   dashParticleOffset: 0.4
   floatingAmplitude: 0.05
   floatingFrequency: 1

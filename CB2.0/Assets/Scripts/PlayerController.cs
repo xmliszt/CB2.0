@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public PlayerStats playerStats;
+
     public GameConstants constants;
 
     public PlayerInventory inventory;
@@ -26,18 +27,8 @@ public class PlayerController : MonoBehaviour
     [Header("Player Attributes")]
     public SpriteRenderer thoughtBubbleRenderer;
 
-    public Vector2Variable playerFacingDirection;
-
     [Header("Game Events Binding")]
     public ParticleGameEvent dashParticleGameEvent;
-
-    public SingleIntegerGameEvent onSubmitTestSample;
-
-    public SingleIntegerGameEvent onRetrieveTestResult;
-
-    public SingleIntegerGameEvent onBeforeSubmitTestSampleCheckStation;
-
-    public SingleIntegerGameEvent onBeforeRetrieveTestResultCheckStation;
 
     private PlayerInput playerInput;
 
@@ -59,8 +50,6 @@ public class PlayerController : MonoBehaviour
 
     private bool isDashing = false; // Whether character is currently dashing
 
-    private List<int> swabStickIDs; // Collection of ID of swab stick object fired by the character and has yet to be destroyed
-
     private ZoneType zoneType = ZoneType.nullType;
 
     private enum ZoneType
@@ -72,13 +61,15 @@ public class PlayerController : MonoBehaviour
         nullType = 5
     }
 
+    private TestSampleProcessor testStationProcessor; // the test station where the player is at
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
-        swabStickIDs = new List<int>();
-        GetComponent<Animator>().runtimeAnimatorController = playerStats.animatorController;
+        GetComponent<Animator>().runtimeAnimatorController =
+            playerStats.animatorController;
         thoughtBubbleRenderer.enabled = false;
     }
 
@@ -86,7 +77,6 @@ public class PlayerController : MonoBehaviour
     {
         direction = GetDirection();
         if (!(direction.x == 0 && direction.y == 0)) idleDirection = direction;
-        playerFacingDirection.Set (idleDirection);
         finalInputMovement =
             rawInputMovement * Time.deltaTime * constants.playerMoveSpeed;
         transform.Translate(finalInputMovement, Space.World);
@@ -153,18 +143,13 @@ public class PlayerController : MonoBehaviour
             dashDirection = direction;
 
             // remember the most recent dash direction for removal
-            if (!isIdle) rb.velocity += direction * constants.playerDashSpeed;
-            StartCoroutine(removeDash());
+            if (!isIdle)
+            {
+                rb.AddForce(dashDirection * constants.playerDashSpeed, ForceMode2D.Impulse);
+            }
+            isDashing = false;
         }
     }
-
-    IEnumerator removeDash()
-    {
-        yield return new WaitForSeconds(constants.playerDashDuration);
-        rb.velocity -= dashDirection * constants.playerDashSpeed;
-        isDashing = false;
-    }
-
     public void OnUse(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -183,7 +168,11 @@ public class PlayerController : MonoBehaviour
                             transform.position.z) *
                         0.5f,
                         swabStickPrefab.transform.rotation);
-                    swabStickIDs.Add(stick.transform.GetInstanceID());
+                    SwabStickMovement stickMovementScript =
+                        stick.GetComponent<SwabStickMovement>();
+                    stickMovementScript.fromPlayer = gameObject;
+                    stickMovementScript.direction = idleDirection;
+                    stickMovementScript.StartFlying();
                     thoughtBubbleRenderer.enabled = false;
                 }
                 else if (currentItem.itemType == Item.ItemType.testSample)
@@ -191,8 +180,13 @@ public class PlayerController : MonoBehaviour
                     // submit test sample to test station
                     if (zoneType == ZoneType.testStation)
                     {
-                        onBeforeSubmitTestSampleCheckStation
-                            .Fire(transform.GetInstanceID());
+                        if (!testStationProcessor.testStationInfo.isLoaded)
+                        {
+                            testStationProcessor
+                                .OnLoadTestSample(transform.GetInstanceID());
+                            inventory.useItem();
+                            thoughtBubbleRenderer.enabled = false;
+                        }
                     }
                 }
                 else if (currentItem.itemType == Item.ItemType.testResult)
@@ -206,8 +200,9 @@ public class PlayerController : MonoBehaviour
                             trash.thoughtBubbleSprite;
                         thoughtBubbleRenderer.enabled = true;
                         Debug.Log("Submit Test Result!");
+
                         // Log 1 completed swab test
-                        playerStats.completedSwabTests ++;
+                        playerStats.completedSwabTests++;
                     }
                 }
                 else if (currentItem.itemType == Item.ItemType.trash)
@@ -218,8 +213,9 @@ public class PlayerController : MonoBehaviour
                         inventory.useItem();
                         thoughtBubbleRenderer.enabled = false;
                         Debug.Log("Throw Away Trash!");
+
                         // Gain 1 coin!
-                        playerStats.coins ++;
+                        playerStats.coins++;
                     }
                 }
             }
@@ -243,12 +239,37 @@ public class PlayerController : MonoBehaviour
                     }
                     else if (zoneType == ZoneType.testStation)
                     {
-                        onBeforeRetrieveTestResultCheckStation
-                            .Fire(transform.GetInstanceID());
+                        if (testStationProcessor.testStationInfo.isComplete)
+                        {
+                            if (testStationProcessor.testStationInfo.isLocked)
+                            {
+                                if (
+                                    transform.GetInstanceID() ==
+                                    testStationProcessor
+                                        .testStationInfo
+                                        .resultOwner[0]
+                                )
+                                {
+                                    PickUpTestResult();
+                                }
+                            }
+                            else
+                            {
+                                PickUpTestResult();
+                            }
+                        }
                     }
                 }
             }
         }
+    }
+
+    private void PickUpTestResult()
+    {
+        testStationProcessor.OnRetrieveTestResult(transform.GetInstanceID());
+        inventory.SetItem (testResult);
+        thoughtBubbleRenderer.sprite = testResult.thoughtBubbleSprite;
+        thoughtBubbleRenderer.enabled = true;
     }
 
     public void OnShop(InputAction.CallbackContext context)
@@ -271,6 +292,8 @@ public class PlayerController : MonoBehaviour
                 break;
             case "TestStation":
                 zoneType = ZoneType.testStation;
+                testStationProcessor =
+                    other.gameObject.GetComponent<TestSampleProcessor>();
                 break;
             case "SubmissionDesk":
                 zoneType = ZoneType.submissionStation;
@@ -283,55 +306,10 @@ public class PlayerController : MonoBehaviour
         zoneType = ZoneType.nullType;
     }
 
-    public void OnSwabStickHit(int swabStickID)
+    public void OnSwabStickHit()
     {
-        if (swabStickIDs.Contains(swabStickID))
-        {
-            inventory.SetItem (testSample);
-            thoughtBubbleRenderer.sprite = testSample.thoughtBubbleSprite;
-            thoughtBubbleRenderer.enabled = true;
-            swabStickIDs.Remove (swabStickID);
-        }
-    }
-
-    public void OnBeforeCollectTestResultsStationReply(
-        TestStation testStationInfo
-    )
-    {
-        if (testStationInfo.isComplete)
-        {
-            if (testStationInfo.isLocked)
-            {
-                if (transform.GetInstanceID() == testStationInfo.resultOwner[0])
-                {
-                    CollectResult();
-                }
-            }
-            else
-            {
-                CollectResult();
-            }
-        }
-    }
-
-    private void CollectResult()
-    {
-        inventory.SetItem (testResult);
-        thoughtBubbleRenderer.sprite = testResult.thoughtBubbleSprite;
+        inventory.SetItem (testSample);
+        thoughtBubbleRenderer.sprite = testSample.thoughtBubbleSprite;
         thoughtBubbleRenderer.enabled = true;
-        onRetrieveTestResult.Fire(transform.GetInstanceID());
-    }
-
-    public void OnBeforeSubmitTestSampleStationReply(
-        TestStation testStationInfo
-    )
-    {
-        if (!testStationInfo.isLoaded)
-        {
-            inventory.useItem();
-            thoughtBubbleRenderer.enabled = false;
-            onSubmitTestSample.Fire(transform.GetInstanceID());
-            Debug.Log("Submit Test Sample!");
-        }
     }
 }

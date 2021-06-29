@@ -16,9 +16,7 @@ public class GameConstants : ScriptableObject
     [Header("Player Configuration")]
     public float playerMoveSpeed = 3.0f;
 
-    public float playerDashSpeed = 2.0f;
-
-    public float playerDashDuration = 0.1f; // seconds
+    public float playerDashSpeed = 10.0f;
 
     [Header("Particle System Configuration")]
     

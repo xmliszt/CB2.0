@@ -5,16 +5,17 @@ public class SwabStickMovement : MonoBehaviour
 {
     public GameConstants constants;
 
-    public SingleIntegerGameEvent swabStickHitGameEvent;
+    public Vector2 direction;
 
-    public Vector2Variable playerFacingDirection;
+    public GameObject fromPlayer;
 
-    private Vector2 direction;
-
-    private void Start()
+    public void StartFlying()
     {
-        direction = playerFacingDirection.Value;
+        StartCoroutine(Fly());
+    }
 
+    IEnumerator Fly()
+    {
         // rotate the stick, default facing left
         if (direction == Vector2.up)
         {
@@ -28,33 +29,39 @@ public class SwabStickMovement : MonoBehaviour
         {
             transform.Rotate(0, 0, 90, Space.World);
         }
+        while (true)
+        {
+            yield return null;
+            transform
+                .Translate(Vector3.left *
+                constants.swabStickFlyingSpeed *
+                Time.deltaTime);
+
+            if (IsOutOfBound()) Destroy(gameObject);
+        }
     }
 
-    void Update()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        transform
-            .Translate(Vector3.left *
-            constants.swabStickFlyingSpeed *
-            Time.deltaTime);
-
-        if (IsOutOfBound()) Destroy(gameObject);
+        if (other.collider.CompareTag("Wall"))
+        {
+            Destroy (gameObject);
+        }
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        if (other.collider.CompareTag("Wall")) {
-            Destroy(gameObject);
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            fromPlayer.GetComponent<PlayerController>().OnSwabStickHit();
+            Destroy (gameObject);
+        }
+        if (other.CompareTag("Wall"))
+        {
+            Destroy (gameObject);
         }
     }
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.CompareTag("Player")) {
-            swabStickHitGameEvent.Fire(transform.GetInstanceID());
-            gameObject.SetActive(false);
-            Destroy(gameObject);
-        }
-        if (other.CompareTag("Wall")) {
-            Destroy(gameObject);
-        }
-    }
+
     private bool IsOutOfBound()
     {
         return (

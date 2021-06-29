@@ -5,10 +5,13 @@ public class MiniGameManager : MonoBehaviour
 {
     public PlayerStats[] players;
     public TestStation[] testStations;
-    public PlayerInventory inventory;
+    public PlayerInventory[] inventories;
     void Start()
     {
-        inventory.ClearItem();
+        foreach (PlayerInventory inventory in inventories)
+        {
+            inventory.ClearItem();
+        }
         foreach (TestStation testStation in testStations)
         {
             testStation.isLoaded = false;

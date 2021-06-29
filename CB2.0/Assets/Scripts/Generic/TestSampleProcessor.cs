@@ -6,10 +6,6 @@ public class TestSampleProcessor : MonoBehaviour
 {
     public GameConstants constants;
 
-    public TestStationInfoGameEvent infoCheckBeforeSubmitTestSample;
-
-    public TestStationInfoGameEvent infoCheckBeforeResultRetrieval;
-
     public TestStation testStationInfo;
 
     public SpriteRenderer indicatorRenderer;
@@ -94,21 +90,5 @@ public class TestSampleProcessor : MonoBehaviour
         testStationInfo.isLoaded = false;
         indicatorRenderer.enabled = false;
         testStationInfo.resultOwner = new List<int>();
-    }
-
-    public void ReturnTestStationInfoBeforeSubmitTestSample(int playerID)
-    {
-        if (testStationInfo.playersInZone.Contains(playerID))
-        {
-            infoCheckBeforeSubmitTestSample.Fire (testStationInfo);
-        }
-    }
-
-    public void ReturnTestStationInfoBeforeResultRetrieval(int playerID)
-    {
-        if (testStationInfo.playersInZone.Contains(playerID))
-        {
-            infoCheckBeforeResultRetrieval.Fire (testStationInfo);
-        }
     }
 }
