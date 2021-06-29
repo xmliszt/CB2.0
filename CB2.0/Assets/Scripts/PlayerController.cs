@@ -354,7 +354,7 @@ public class PlayerController : MonoBehaviour
                 new Vector3(idleDirection.x,
                     idleDirection.y,
                     droppedItemPrefab.transform.position.z) *
-                0.5f,
+                0.2f,
                 droppedItemPrefab.transform.rotation);
             dropped.GetComponent<CollectableItem>().SetItem(_item);
             thoughtBubbleRenderer.enabled = false;
@@ -369,25 +369,29 @@ public class PlayerController : MonoBehaviour
         thoughtBubbleRenderer.enabled = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         switch (other.tag)
         {
             case "CollectionPoint":
+            Debug.Log("Enter collection point");
                 zoneType = ZoneType.swabStickCollection;
                 break;
             case "Dustbin":
                 zoneType = ZoneType.dustbin;
                 break;
             case "TestStation":
+            Debug.Log("Enter test station");
                 zoneType = ZoneType.testStation;
                 testStationProcessor =
                     other.gameObject.GetComponent<TestSampleProcessor>();
                 break;
             case "SubmissionDesk":
+                Debug.Log("Enter submission desk");
                 zoneType = ZoneType.submissionStation;
                 break;
             case "Shop":
+            Debug.Log("Enter shop");
                 zoneType = ZoneType.shop;
                 shopHandler = other.gameObject.GetComponent<ShopHandler>();
                 break;
@@ -430,6 +434,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log("Enter null");
         zoneType = ZoneType.nullType;
     }
 

@@ -15,10 +15,13 @@ MonoBehaviour:
   gameBoundX: 10
   gameBoundY: 5
   playerMoveSpeed: 3
-  playerDashSpeed: 10
+  playerDashSpeed: 8
+  playerStunnedDuration: 3
   dashParticleOffset: 0.4
   floatingAmplitude: 0.05
   floatingFrequency: 1
   playerInZoneOpacity: 0.7
-  swabStickFlyingSpeed: 5
+  swabStickFlyingSpeed: 10
   countdownDuration: 10
+  spawnFrequency: 5
+  coinAwardedPerCompleteTest: 1
