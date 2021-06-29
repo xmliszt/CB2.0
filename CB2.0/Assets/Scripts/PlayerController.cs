@@ -78,6 +78,7 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
         swabStickIDs = new List<int>();
+        GetComponent<Animator>().runtimeAnimatorController = playerStats.animatorController;
         thoughtBubbleRenderer.enabled = false;
     }
 
