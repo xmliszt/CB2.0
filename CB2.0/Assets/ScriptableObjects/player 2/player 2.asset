@@ -17,5 +17,6 @@ MonoBehaviour:
   playerAccent: {r: 1, g: 0.98899376, b: 0.43867922, a: 1}
   playerAvatar: {fileID: 21300000, guid: 2059c02864ed6ef4cbf3ede41fe4b8d4, type: 3}
   animatorController: {fileID: 9100000, guid: cdd965f843f1c224281552cf0d0ce914, type: 2}
+  inventory: {fileID: 11400000, guid: 4bbdd9315c8d62f43be05e178b10b8f9, type: 2}
   coins: 0
   completedSwabTests: 0

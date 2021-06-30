@@ -18,6 +18,8 @@ public class PlayerStats : ScriptableObject
 
    public RuntimeAnimatorController animatorController;
 
+   public PlayerInventory inventory;
+
    public int coins;
 
    public int completedSwabTests;

@@ -19,17 +19,9 @@ public class @GameControls : IInputActionCollection, IDisposable
             ""id"": ""15e7ee15-ffb2-4636-ad3a-1c1d753eaa22"",
             ""actions"": [
                 {
-                    ""name"": ""move"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""8613cedc-1f43-4fd2-8131-458e1dcc02e2"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""dash"",
+                    ""name"": ""pick/drop"",
                     ""type"": ""Button"",
-                    ""id"": ""f6c0006d-4f97-4efe-bc8e-608952c258c9"",
+                    ""id"": ""f6cab9d2-190f-47ae-8309-1821e4ee654f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -37,23 +29,31 @@ public class @GameControls : IInputActionCollection, IDisposable
                 {
                     ""name"": ""use"",
                     ""type"": ""Button"",
-                    ""id"": ""8b30095e-8a3c-49f5-be8d-231d64a8ce01"",
+                    ""id"": ""a4e3b9ad-8089-4e85-b30f-6ce37700d5f1"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""pick/drop"",
+                    ""name"": ""dash"",
                     ""type"": ""Button"",
-                    ""id"": ""92ef2e6a-f46a-4ab2-9be3-5ccb075cbebb"",
+                    ""id"": ""097a889b-ad83-4223-936e-1ee3cd934b16"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""move"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""4e24c216-918f-4eee-9298-eb1a19895cb9"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
                 },
                 {
                     ""name"": ""shop"",
                     ""type"": ""Button"",
-                    ""id"": ""0b7017e6-3db1-423b-a55b-ae969b53d812"",
+                    ""id"": ""e244ebdd-9f7d-4329-9dde-bd3c459f709e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -62,18 +62,40 @@ public class @GameControls : IInputActionCollection, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""cc238556-64e7-4ae8-b639-2e90a5431056"",
+                    ""id"": ""7ba06224-ab37-4eb7-9637-de9516ad30ca"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Player 1;Player 2;Player 3;Player 4"",
+                    ""action"": ""shop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4dc1c433-c18f-4556-8bcd-ab414ecdf290"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""keyboard"",
+                    ""action"": ""shop"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""14944c21-3160-47af-b019-9301f58de6d2"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""controller"",
+                    ""groups"": ""Player 1;Player 2;Player 3;Player 4"",
                     ""action"": ""move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": ""WASD"",
-                    ""id"": ""fdc8c643-6b7e-487c-8e07-045245b8de2a"",
+                    ""id"": ""43e5feb8-3878-4447-b8a3-d1aa82716725"",
                     ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -84,7 +106,7 @@ public class @GameControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""fb2edd2f-fa9b-4ccc-949c-04b7381c12a5"",
+                    ""id"": ""4f76f6e4-53da-478a-9553-1bc4947ade44"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -95,7 +117,7 @@ public class @GameControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""c1a1de11-27ad-4dae-bcd6-333078da9b2a"",
+                    ""id"": ""3d9f6054-f2d9-46d3-af37-963571f7e0a7"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -106,7 +128,7 @@ public class @GameControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""left"",
-                    ""id"": ""4b63bee4-8e22-4a16-a4ac-3d56efb2c6fb"",
+                    ""id"": ""93bbb2e8-337b-4f58-a6e8-d85b299af619"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -117,7 +139,7 @@ public class @GameControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""right"",
-                    ""id"": ""fceefab9-879c-4d5d-b341-c28cd358e632"",
+                    ""id"": ""d820ebe7-ef77-40e2-8ec9-73f3357878aa"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -128,29 +150,29 @@ public class @GameControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8a5310a5-7ee3-4931-89fc-e65de2e6be90"",
+                    ""id"": ""af0f93e1-e40f-48be-b2b7-bac158b0ceb9"",
                     ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""controller"",
+                    ""groups"": ""Player 1;Player 2;Player 3;Player 4"",
                     ""action"": ""dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c0d28a67-2b12-4eb5-b9d5-4a3927883eb2"",
+                    ""id"": ""80eb328a-a238-4454-b61d-f4445113ab99"",
                     ""path"": ""<Gamepad>/rightShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""controller"",
+                    ""groups"": ""Player 1;Player 2;Player 3;Player 4"",
                     ""action"": ""dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8fa82e92-7ea8-4909-bcb0-f038af4e96fb"",
+                    ""id"": ""66669358-f8d5-4c1c-9134-dfb5e23aacb0"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -161,18 +183,18 @@ public class @GameControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""ea195df4-2602-44c9-8c89-49c988eb59e3"",
+                    ""id"": ""8bc4ded6-f994-4d8c-8315-fd739aeb54d8"",
                     ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""controller"",
+                    ""groups"": ""Player 1;Player 2;Player 3;Player 4"",
                     ""action"": ""use"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""866025a3-d929-4111-bc41-a5c432a94bc3"",
+                    ""id"": ""22233c4d-25c7-42a1-9c99-29ff2136e8f4"",
                     ""path"": ""<Keyboard>/k"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -183,45 +205,23 @@ public class @GameControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e1b36df1-297e-4843-ae04-aa005a99ac5f"",
+                    ""id"": ""b0e5ff73-5666-4f2c-aadd-6682ff843170"",
                     ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""controller"",
+                    ""groups"": ""Player 1;Player 2;Player 3;Player 4"",
                     ""action"": ""pick/drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a0957bea-1795-4eb4-ba36-8262dcfd1dc5"",
+                    ""id"": ""40a62a76-ce50-444a-a6e2-5af3920ed193"",
                     ""path"": ""<Keyboard>/j"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""keyboard"",
                     ""action"": ""pick/drop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""582b3c19-7f7a-41f1-bc42-5fc81dbcd5e0"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""controller"",
-                    ""action"": ""shop"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7392bcdb-c060-41a5-af74-6348a0a3d5ac"",
-                    ""path"": ""<Keyboard>/l"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard"",
-                    ""action"": ""shop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -230,8 +230,8 @@ public class @GameControls : IInputActionCollection, IDisposable
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""controller"",
-            ""bindingGroup"": ""controller"",
+            ""name"": ""Player 1"",
+            ""bindingGroup"": ""Player 1"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Gamepad>"",
@@ -250,15 +250,48 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Player 2"",
+            ""bindingGroup"": ""Player 2"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Player 3"",
+            ""bindingGroup"": ""Player 3"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Player 4"",
+            ""bindingGroup"": ""Player 4"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
         // gameplay
         m_gameplay = asset.FindActionMap("gameplay", throwIfNotFound: true);
-        m_gameplay_move = m_gameplay.FindAction("move", throwIfNotFound: true);
-        m_gameplay_dash = m_gameplay.FindAction("dash", throwIfNotFound: true);
-        m_gameplay_use = m_gameplay.FindAction("use", throwIfNotFound: true);
         m_gameplay_pickdrop = m_gameplay.FindAction("pick/drop", throwIfNotFound: true);
+        m_gameplay_use = m_gameplay.FindAction("use", throwIfNotFound: true);
+        m_gameplay_dash = m_gameplay.FindAction("dash", throwIfNotFound: true);
+        m_gameplay_move = m_gameplay.FindAction("move", throwIfNotFound: true);
         m_gameplay_shop = m_gameplay.FindAction("shop", throwIfNotFound: true);
     }
 
@@ -309,19 +342,19 @@ public class @GameControls : IInputActionCollection, IDisposable
     // gameplay
     private readonly InputActionMap m_gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
-    private readonly InputAction m_gameplay_move;
-    private readonly InputAction m_gameplay_dash;
-    private readonly InputAction m_gameplay_use;
     private readonly InputAction m_gameplay_pickdrop;
+    private readonly InputAction m_gameplay_use;
+    private readonly InputAction m_gameplay_dash;
+    private readonly InputAction m_gameplay_move;
     private readonly InputAction m_gameplay_shop;
     public struct GameplayActions
     {
         private @GameControls m_Wrapper;
         public GameplayActions(@GameControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @move => m_Wrapper.m_gameplay_move;
-        public InputAction @dash => m_Wrapper.m_gameplay_dash;
-        public InputAction @use => m_Wrapper.m_gameplay_use;
         public InputAction @pickdrop => m_Wrapper.m_gameplay_pickdrop;
+        public InputAction @use => m_Wrapper.m_gameplay_use;
+        public InputAction @dash => m_Wrapper.m_gameplay_dash;
+        public InputAction @move => m_Wrapper.m_gameplay_move;
         public InputAction @shop => m_Wrapper.m_gameplay_shop;
         public InputActionMap Get() { return m_Wrapper.m_gameplay; }
         public void Enable() { Get().Enable(); }
@@ -332,18 +365,18 @@ public class @GameControls : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
             {
-                @move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                @move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                @move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                @dash.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDash;
-                @dash.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDash;
-                @dash.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDash;
-                @use.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUse;
-                @use.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUse;
-                @use.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUse;
                 @pickdrop.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPickdrop;
                 @pickdrop.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPickdrop;
                 @pickdrop.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPickdrop;
+                @use.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUse;
+                @use.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUse;
+                @use.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUse;
+                @dash.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDash;
+                @dash.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDash;
+                @dash.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDash;
+                @move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                @move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
+                @move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 @shop.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShop;
                 @shop.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShop;
                 @shop.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShop;
@@ -351,18 +384,18 @@ public class @GameControls : IInputActionCollection, IDisposable
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @move.started += instance.OnMove;
-                @move.performed += instance.OnMove;
-                @move.canceled += instance.OnMove;
-                @dash.started += instance.OnDash;
-                @dash.performed += instance.OnDash;
-                @dash.canceled += instance.OnDash;
-                @use.started += instance.OnUse;
-                @use.performed += instance.OnUse;
-                @use.canceled += instance.OnUse;
                 @pickdrop.started += instance.OnPickdrop;
                 @pickdrop.performed += instance.OnPickdrop;
                 @pickdrop.canceled += instance.OnPickdrop;
+                @use.started += instance.OnUse;
+                @use.performed += instance.OnUse;
+                @use.canceled += instance.OnUse;
+                @dash.started += instance.OnDash;
+                @dash.performed += instance.OnDash;
+                @dash.canceled += instance.OnDash;
+                @move.started += instance.OnMove;
+                @move.performed += instance.OnMove;
+                @move.canceled += instance.OnMove;
                 @shop.started += instance.OnShop;
                 @shop.performed += instance.OnShop;
                 @shop.canceled += instance.OnShop;
@@ -370,13 +403,13 @@ public class @GameControls : IInputActionCollection, IDisposable
         }
     }
     public GameplayActions @gameplay => new GameplayActions(this);
-    private int m_controllerSchemeIndex = -1;
-    public InputControlScheme controllerScheme
+    private int m_Player1SchemeIndex = -1;
+    public InputControlScheme Player1Scheme
     {
         get
         {
-            if (m_controllerSchemeIndex == -1) m_controllerSchemeIndex = asset.FindControlSchemeIndex("controller");
-            return asset.controlSchemes[m_controllerSchemeIndex];
+            if (m_Player1SchemeIndex == -1) m_Player1SchemeIndex = asset.FindControlSchemeIndex("Player 1");
+            return asset.controlSchemes[m_Player1SchemeIndex];
         }
     }
     private int m_keyboardSchemeIndex = -1;
@@ -388,12 +421,39 @@ public class @GameControls : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_keyboardSchemeIndex];
         }
     }
+    private int m_Player2SchemeIndex = -1;
+    public InputControlScheme Player2Scheme
+    {
+        get
+        {
+            if (m_Player2SchemeIndex == -1) m_Player2SchemeIndex = asset.FindControlSchemeIndex("Player 2");
+            return asset.controlSchemes[m_Player2SchemeIndex];
+        }
+    }
+    private int m_Player3SchemeIndex = -1;
+    public InputControlScheme Player3Scheme
+    {
+        get
+        {
+            if (m_Player3SchemeIndex == -1) m_Player3SchemeIndex = asset.FindControlSchemeIndex("Player 3");
+            return asset.controlSchemes[m_Player3SchemeIndex];
+        }
+    }
+    private int m_Player4SchemeIndex = -1;
+    public InputControlScheme Player4Scheme
+    {
+        get
+        {
+            if (m_Player4SchemeIndex == -1) m_Player4SchemeIndex = asset.FindControlSchemeIndex("Player 4");
+            return asset.controlSchemes[m_Player4SchemeIndex];
+        }
+    }
     public interface IGameplayActions
     {
-        void OnMove(InputAction.CallbackContext context);
-        void OnDash(InputAction.CallbackContext context);
-        void OnUse(InputAction.CallbackContext context);
         void OnPickdrop(InputAction.CallbackContext context);
+        void OnUse(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
         void OnShop(InputAction.CallbackContext context);
     }
 }

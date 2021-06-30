@@ -16,6 +16,7 @@ MonoBehaviour:
   playerName: Amelia
   playerAccent: {r: 0.43921566, g: 0.8694644, b: 1, a: 1}
   playerAvatar: {fileID: 21300000, guid: 15df2e56fa34f734c8be2977c93c6943, type: 3}
-  animatorController: {fileID: 9100000, guid: cdd965f843f1c224281552cf0d0ce914, type: 2}
+  animatorController: {fileID: 9100000, guid: ae6d7b810ad429a4e87fbaacda5dd064, type: 2}
+  inventory: {fileID: 11400000, guid: fe3fcb0cf55a94e4aaf04fea0e639284, type: 2}
   coins: 0
   completedSwabTests: 0

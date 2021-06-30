@@ -161,7 +161,7 @@ SpriteRenderer:
   m_SortingLayerID: -650869595
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 5897630255396575594, guid: 5d51d41a74003ab459575491e22dc515, type: 3}
+  m_Sprite: {fileID: 4497975458485472474, guid: b75be83d46062c64eace91ddce3b8e97, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 7f4632852079edc4f89d56c667377d3d, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -283,7 +283,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 562434371}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnMove
+        m_MethodName: OnPickDrop
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -293,24 +293,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 8613cedc-1f43-4fd2-8131-458e1dcc02e2
-    m_ActionName: gameplay/move[/XInputControllerWindows/leftStick]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 562434371}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnDash
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f6c0006d-4f97-4efe-bc8e-608952c258c9
-    m_ActionName: gameplay/dash[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder]
+    m_ActionId: f6cab9d2-190f-47ae-8309-1821e4ee654f
+    m_ActionName: gameplay/pick/drop[/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 562434371}
@@ -325,13 +309,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 8b30095e-8a3c-49f5-be8d-231d64a8ce01
+    m_ActionId: a4e3b9ad-8089-4e85-b30f-6ce37700d5f1
     m_ActionName: gameplay/use[/XInputControllerWindows/buttonWest]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 562434371}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnPickDrop
+        m_MethodName: OnDash
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -341,8 +325,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 92ef2e6a-f46a-4ab2-9be3-5ccb075cbebb
-    m_ActionName: gameplay/pick[/XInputControllerWindows/buttonSouth]
+    m_ActionId: 097a889b-ad83-4223-936e-1ee3cd934b16
+    m_ActionName: gameplay/dash[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 562434371}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4e24c216-918f-4eee-9298-eb1a19895cb9
+    m_ActionName: gameplay/move[/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 562434371}
@@ -357,10 +357,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 0b7017e6-3db1-423b-a55b-ae969b53d812
+    m_ActionId: e244ebdd-9f7d-4329-9dde-bd3c459f709e
     m_ActionName: gameplay/shop[/XInputControllerWindows/buttonNorth]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: Player 1
   m_DefaultActionMap: gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -376,9 +376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e37154eda3bb84f8d6759d76787332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 8c121b204a3abc5498941aea02a93471, type: 2}
+  playerStats: {fileID: 11400000, guid: 7863ae96c9452014ca08b8a3f80ba374, type: 2}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
-  inventory: {fileID: 11400000, guid: fe3fcb0cf55a94e4aaf04fea0e639284, type: 2}
   swabStick: {fileID: 11400000, guid: 9a38f69746d35454ebfb482ce9d07246, type: 2}
   testSample: {fileID: 11400000, guid: 133741681dca81f4ca5ed444d8241d85, type: 2}
   testResult: {fileID: 11400000, guid: 75d6197c725451840bc3d14015bbe628, type: 2}

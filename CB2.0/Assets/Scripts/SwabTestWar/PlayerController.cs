@@ -9,8 +9,6 @@ public class PlayerController : MonoBehaviour
 
     public GameConstants constants;
 
-    public PlayerInventory inventory;
-
     [Header("Item Types")]
     public Item swabStick;
 
@@ -74,11 +72,14 @@ public class PlayerController : MonoBehaviour
 
     private ShopHandler shopHandler;
 
+    private PlayerInventory inventory;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
+        inventory = playerStats.inventory;
         GetComponent<Animator>().runtimeAnimatorController =
             playerStats.animatorController;
         thoughtBubbleRenderer.enabled = false;
@@ -136,17 +137,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnMove(InputAction.CallbackContext context)
+    public void OnMove(InputValue context)
     {
         isIdle = false;
-        Vector2 movement = context.ReadValue<Vector2>();
+        Vector2 movement = context.Get<Vector2>();
         rawInputMovement =
             new Vector3(movement.x, movement.y, transform.position.z);
     }
 
-    public void OnDash(InputAction.CallbackContext context)
+    public void OnDash()
     {
-        if (context.started && !isDashing && !isIdle)
+        if (!isDashing && !isIdle)
         {
             isDashing = true;
             dashParticleGameEvent
@@ -165,169 +166,152 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnUse(InputAction.CallbackContext context)
+    public void OnUse()
     {
-        if (context.started)
+        if (inventory.hasItem())
         {
-            if (inventory.hasItem())
+            Item currentItem = inventory.GetCurrentItem();
+            if (currentItem.itemType == Item.ItemType.swabStick)
             {
-                Item currentItem = inventory.GetCurrentItem();
-                if (currentItem.itemType == Item.ItemType.swabStick)
+                inventory.useItem();
+                GameObject stick =
+                    Instantiate(swabStickPrefab,
+                    transform.position +
+                    new Vector3(idleDirection.x,
+                        idleDirection.y - 0.2f,
+                        transform.position.z) *
+                    0.5f,
+                    swabStickPrefab.transform.rotation);
+                SwabStickMovement stickMovementScript =
+                    stick.GetComponent<SwabStickMovement>();
+                stickMovementScript.fromPlayer = gameObject;
+                stickMovementScript.direction = idleDirection;
+                stickMovementScript.StartFlying();
+                thoughtBubbleRenderer.enabled = false;
+            }
+            else if (currentItem.itemType == Item.ItemType.testSample)
+            {
+                // submit test sample to test station
+                if (zoneType == ZoneType.testStation)
                 {
-                    inventory.useItem();
-                    GameObject stick =
-                        Instantiate(swabStickPrefab,
-                        transform.position +
-                        new Vector3(idleDirection.x,
-                            idleDirection.y - 0.2f,
-                            transform.position.z) *
-                        0.5f,
-                        swabStickPrefab.transform.rotation);
-                    SwabStickMovement stickMovementScript =
-                        stick.GetComponent<SwabStickMovement>();
-                    stickMovementScript.fromPlayer = gameObject;
-                    stickMovementScript.direction = idleDirection;
-                    stickMovementScript.StartFlying();
-                    thoughtBubbleRenderer.enabled = false;
-                }
-                else if (currentItem.itemType == Item.ItemType.testSample)
-                {
-                    // submit test sample to test station
-                    if (zoneType == ZoneType.testStation)
+                    if (!testStationProcessor.testStationInfo.isLoaded)
                     {
-                        if (!testStationProcessor.testStationInfo.isLoaded)
+                        if (testStationProcessor.testStationInfo.isLocked)
                         {
-                            if (testStationProcessor.testStationInfo.isLocked)
-                            {
-                                if (
-                                    transform.GetInstanceID() ==
-                                    testStationProcessor
-                                        .testStationInfo
-                                        .resultOwner
-                                )
-                                {
-                                    SubmitTestSample();
-                                }
-                            }
-                            else
+                            if (
+                                transform.GetInstanceID() ==
+                                testStationProcessor.testStationInfo.resultOwner
+                            )
                             {
                                 SubmitTestSample();
                             }
                         }
+                        else
+                        {
+                            SubmitTestSample();
+                        }
                     }
                 }
-                else if (currentItem.itemType == Item.ItemType.testResult)
+            }
+            else if (currentItem.itemType == Item.ItemType.testResult)
+            {
+                // submit test result to submission desk
+                if (zoneType == ZoneType.submissionStation)
                 {
-                    // submit test result to submission desk
-                    if (zoneType == ZoneType.submissionStation)
-                    {
-                        inventory.useItem();
-                        inventory.SetItem (trash);
-                        thoughtBubbleRenderer.sprite =
-                            trash.thoughtBubbleSprite;
-                        thoughtBubbleRenderer.enabled = true;
+                    inventory.useItem();
+                    inventory.SetItem (trash);
+                    thoughtBubbleRenderer.sprite = trash.thoughtBubbleSprite;
+                    thoughtBubbleRenderer.enabled = true;
 
-                        // Log 1 completed swab test
-                        playerStats.completedSwabTests++;
-                    }
+                    // Log 1 completed swab test
+                    playerStats.completedSwabTests++;
                 }
-                else if (currentItem.itemType == Item.ItemType.trash)
+            }
+            else if (currentItem.itemType == Item.ItemType.trash)
+            {
+                // throw the trash and gain coins
+                if (zoneType == ZoneType.dustbin)
                 {
-                    // throw the trash and gain coins
-                    if (zoneType == ZoneType.dustbin)
-                    {
-                        inventory.useItem();
-                        thoughtBubbleRenderer.enabled = false;
+                    inventory.useItem();
+                    thoughtBubbleRenderer.enabled = false;
 
-                        // Gain 1 coin!
-                        playerStats.coins +=
-                            constants.coinAwardedPerCompleteTest;
-                    }
+                    // Gain 1 coin!
+                    playerStats.coins += constants.coinAwardedPerCompleteTest;
                 }
-                else if (currentItem.itemType == Item.ItemType.shopItem)
+            }
+            else if (currentItem.itemType == Item.ItemType.shopItem)
+            {
+                if (zoneType == ZoneType.testStation)
                 {
-                    if (zoneType == ZoneType.testStation)
-                    {
-                        inventory.useItem();
-                        thoughtBubbleRenderer.enabled = false;
-                        testStationProcessor.OnLock (gameObject);
-                    }
+                    inventory.useItem();
+                    thoughtBubbleRenderer.enabled = false;
+                    testStationProcessor.OnLock (gameObject);
                 }
             }
         }
     }
 
-    public void OnPickDrop(InputAction.CallbackContext context)
+    public void OnPickdrop()
     {
-        if (context.started)
+        if (!inventory.hasItem())
         {
-            if (!inventory.hasItem())
+            if (zoneType != ZoneType.nullType)
             {
-                if (zoneType != ZoneType.nullType)
+                if (zoneType == ZoneType.swabStickCollection)
                 {
-                    if (zoneType == ZoneType.swabStickCollection)
+                    inventory.SetItem (swabStick);
+                    thoughtBubbleRenderer.sprite =
+                        swabStick.thoughtBubbleSprite;
+                    thoughtBubbleRenderer.enabled = true;
+                }
+                else if (zoneType == ZoneType.testStation)
+                {
+                    if (testStationProcessor.testStationInfo.isComplete)
                     {
-                        inventory.SetItem (swabStick);
-                        thoughtBubbleRenderer.sprite =
-                            swabStick.thoughtBubbleSprite;
-                        thoughtBubbleRenderer.enabled = true;
-                    }
-                    else if (zoneType == ZoneType.testStation)
-                    {
-                        if (testStationProcessor.testStationInfo.isComplete)
+                        if (testStationProcessor.testStationInfo.isLocked)
                         {
-                            if (testStationProcessor.testStationInfo.isLocked)
-                            {
-                                if (
-                                    transform.GetInstanceID() ==
-                                    testStationProcessor
-                                        .testStationInfo
-                                        .resultOwner
-                                )
-                                {
-                                    PickUpTestResult();
-                                }
-                            }
-                            else
+                            if (
+                                transform.GetInstanceID() ==
+                                testStationProcessor.testStationInfo.resultOwner
+                            )
                             {
                                 PickUpTestResult();
                             }
                         }
-                    }
-                    else if (zoneType == ZoneType.droppedItem)
-                    {
-                        // pick up dropped item
-                        Item _item =
-                            pickedItem.GetComponent<CollectableItem>().itemMeta;
-                        inventory.SetItem (_item);
-                        thoughtBubbleRenderer.sprite =
-                            _item.thoughtBubbleSprite;
-                        thoughtBubbleRenderer.enabled = true;
-                        Destroy (pickedItem);
+                        else
+                        {
+                            PickUpTestResult();
+                        }
                     }
                 }
+                else if (zoneType == ZoneType.droppedItem)
+                {
+                    // pick up dropped item
+                    Item _item =
+                        pickedItem.GetComponent<CollectableItem>().itemMeta;
+                    inventory.SetItem (_item);
+                    thoughtBubbleRenderer.sprite = _item.thoughtBubbleSprite;
+                    thoughtBubbleRenderer.enabled = true;
+                    Destroy (pickedItem);
+                }
             }
-            else
-            {
-                DropItem();
-            }
+        }
+        else
+        {
+            DropItem();
         }
     }
 
-    public void OnShop(InputAction.CallbackContext context)
+    public void OnShop()
     {
-        if (context.started)
+        if (!inventory.hasItem() && zoneType == ZoneType.shop)
         {
-            if (!inventory.hasItem() && zoneType == ZoneType.shop)
+            ShopItem boughtItem = shopHandler.BuyItem(gameObject);
+            if (boughtItem != null)
             {
-                Debug.Log (shopHandler);
-                ShopItem boughtItem = shopHandler.BuyItem(gameObject);
-                if (boughtItem != null)
-                {
-                    inventory.SetItem (shopItem);
-                    thoughtBubbleRenderer.sprite = shopItem.thoughtBubbleSprite;
-                    thoughtBubbleRenderer.enabled = true;
-                }
+                inventory.SetItem (shopItem);
+                thoughtBubbleRenderer.sprite = shopItem.thoughtBubbleSprite;
+                thoughtBubbleRenderer.enabled = true;
             }
         }
     }
@@ -366,9 +350,9 @@ public class PlayerController : MonoBehaviour
         thoughtBubbleRenderer.enabled = true;
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        switch (other.gameObject.tag)
+        switch (other.tag)
         {
             case "CollectionPoint":
                 zoneType = ZoneType.swabStickCollection;

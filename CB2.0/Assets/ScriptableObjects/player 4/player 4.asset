@@ -16,6 +16,7 @@ MonoBehaviour:
   playerName: Ash
   playerAccent: {r: 1, g: 0.43921566, b: 0.61432946, a: 1}
   playerAvatar: {fileID: 21300000, guid: 0e9b960a6f34a9d4ab6de67db34129bc, type: 3}
-  animatorController: {fileID: 9100000, guid: cdd965f843f1c224281552cf0d0ce914, type: 2}
+  animatorController: {fileID: 9100000, guid: cd8cb49495147dc4ea7a16edde501c7e, type: 2}
+  inventory: {fileID: 11400000, guid: 3cbf39d9764af5c4e99de1019a999a91, type: 2}
   coins: 0
   completedSwabTests: 0

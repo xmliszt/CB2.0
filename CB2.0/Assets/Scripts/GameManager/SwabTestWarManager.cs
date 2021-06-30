@@ -1,17 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MiniGameManager : MonoBehaviour
+public class SwabTestWarManager : MonoBehaviour
 {
     public PlayerStats[] players;
     public TestStation[] testStations;
-    public PlayerInventory[] inventories;
     void Start()
     {
-        foreach (PlayerInventory inventory in inventories)
-        {
-            inventory.ClearItem();
-        }
         foreach (TestStation testStation in testStations)
         {
             testStation.isLoaded = false;
@@ -24,6 +19,7 @@ public class MiniGameManager : MonoBehaviour
         {
             player.coins = 0;
             player.completedSwabTests = 0;
+            player.inventory.ClearItem();
         }
     }
 }
