@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isDashing = false; // Whether character is currently dashing
 
+    private bool autoPickEnabled = true;
+
     private ZoneType zoneType = ZoneType.nullType;
 
     private enum ZoneType
@@ -99,6 +101,17 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("vertical", finalInputMovement.y);
         animator.SetFloat("speed", finalInputMovement.magnitude);
         if (finalInputMovement.magnitude == 0) isIdle = true;
+
+        // auto pick up
+        if (zoneType == ZoneType.droppedItem && !inventory.hasItem() && autoPickEnabled)
+        {
+            // pick up dropped item
+            Item _item = pickedItem.GetComponent<CollectableItem>().itemMeta;
+            inventory.SetItem (_item);
+            thoughtBubbleRenderer.sprite = _item.thoughtBubbleSprite;
+            thoughtBubbleRenderer.enabled = true;
+            Destroy (pickedItem);
+        }
     }
 
     private Vector2 GetDirection()
@@ -284,22 +297,21 @@ public class PlayerController : MonoBehaviour
                         }
                     }
                 }
-                else if (zoneType == ZoneType.droppedItem)
-                {
-                    // pick up dropped item
-                    Item _item =
-                        pickedItem.GetComponent<CollectableItem>().itemMeta;
-                    inventory.SetItem (_item);
-                    thoughtBubbleRenderer.sprite = _item.thoughtBubbleSprite;
-                    thoughtBubbleRenderer.enabled = true;
-                    Destroy (pickedItem);
-                }
             }
         }
         else
         {
             DropItem();
+            // disable auto pick up for a short while
+            autoPickEnabled = false;
+            StartCoroutine(EnableAutoPickUp());
         }
+    }
+
+    IEnumerator EnableAutoPickUp()
+    {
+        yield return new WaitForSeconds(1);
+        autoPickEnabled = true;
     }
 
     public void OnShop()
