@@ -98,9 +98,6 @@ GameObject:
   - component: {fileID: 1420202199}
   - component: {fileID: 562434370}
   - component: {fileID: 562434371}
-  - component: {fileID: 587746951}
-  - component: {fileID: 3266950963675953895}
-  - component: {fileID: 86825398569404109}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -164,7 +161,7 @@ SpriteRenderer:
   m_SortingLayerID: -650869595
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4000505234502777961, guid: f67c404d45a38f847ac0de56c3ba3e8d, type: 3}
+  m_Sprite: {fileID: 5897630255396575594, guid: 5d51d41a74003ab459575491e22dc515, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -363,7 +360,7 @@ MonoBehaviour:
     m_ActionId: 0b7017e6-3db1-423b-a55b-ae969b53d812
     m_ActionName: gameplay/shop[/XInputControllerWindows/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: controller
+  m_DefaultControlScheme: 
   m_DefaultActionMap: gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -379,9 +376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e37154eda3bb84f8d6759d76787332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 7863ae96c9452014ca08b8a3f80ba374, type: 2}
+  playerStats: {fileID: 11400000, guid: 8c121b204a3abc5498941aea02a93471, type: 2}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
-  inventory: {fileID: 11400000, guid: 7c173ea800f55de4e9b4898aafbd8a76, type: 2}
+  inventory: {fileID: 11400000, guid: fe3fcb0cf55a94e4aaf04fea0e639284, type: 2}
   swabStick: {fileID: 11400000, guid: 9a38f69746d35454ebfb482ce9d07246, type: 2}
   testSample: {fileID: 11400000, guid: 133741681dca81f4ca5ed444d8241d85, type: 2}
   testResult: {fileID: 11400000, guid: 75d6197c725451840bc3d14015bbe628, type: 2}
@@ -392,90 +389,6 @@ MonoBehaviour:
   thoughtBubbleRenderer: {fileID: 5316216624820595615}
   stunnedIconRenderer: {fileID: 1154388671340012776}
   dashParticleGameEvent: {fileID: 11400000, guid: b3f39252519740843a5ee14e2800faab, type: 2}
---- !u!114 &587746951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5928543010023413209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daa0041421649bf4db2282ac0649815a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 4a122582a5448d540b52d35381efd7d3, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 562434371}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnSwabStickHit
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &3266950963675953895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5928543010023413209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e6136fd8e1085043b91baed6f4dc1a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: ff710aeeb995797459fcc914d811cfde, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 562434371}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnBeforeSubmitTestSampleStationReply
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &86825398569404109
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5928543010023413209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e6136fd8e1085043b91baed6f4dc1a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 8a4629dab8140064f9b02ff284b449ec, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 562434371}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnBeforeCollectTestResultsStationReply
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &7101595919442080812
 GameObject:
   m_ObjectHideFlags: 0
