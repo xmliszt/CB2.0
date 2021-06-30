@@ -3,13 +3,8 @@ using UnityEngine;
 public class ZoneDetection : MonoBehaviour
 {
     public GameConstants constants;
-    private SpriteRenderer spriteRenderer;
-
-    void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
+    public SpriteRenderer spriteRenderer;
+    
     private void OnTriggerStay2D(Collider2D other) {
         if (other.CompareTag("Player")) {
             Color newColor = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, constants.playerInZoneOpacity);

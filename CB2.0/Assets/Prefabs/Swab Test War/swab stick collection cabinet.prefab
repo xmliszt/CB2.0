@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
+  spriteRenderer: {fileID: 1839641956}
 --- !u!212 &1839641956
 SpriteRenderer:
   m_ObjectHideFlags: 0

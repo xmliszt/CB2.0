@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1128891825}
   - component: {fileID: 1128891824}
   m_Layer: 0
-  m_Name: Player Stats
+  m_Name: Player Stats UI
   m_TagString: Stats
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
