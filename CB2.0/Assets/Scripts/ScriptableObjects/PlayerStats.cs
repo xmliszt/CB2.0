@@ -12,6 +12,8 @@ public class PlayerStats : ScriptableObject
 
    public string playerName;
 
+   public Color playerAccent;
+
    public Sprite playerAvatar;
 
    public RuntimeAnimatorController animatorController;

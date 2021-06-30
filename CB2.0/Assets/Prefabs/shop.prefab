@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2113450207}
   - component: {fileID: 2113450206}
   - component: {fileID: 2113450205}
+  - component: {fileID: 3734910812202462324}
   m_Layer: 0
   m_Name: zone
   m_TagString: Shop
@@ -123,6 +124,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.78, y: 0.48007107}
   m_EdgeRadius: 0
+--- !u!114 &3734910812202462324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113450203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30125406f888d5740b11229e4855ea9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shopItem: {fileID: 11400000, guid: 022eb9cc8ca552b44902629d76aa1115, type: 2}
+  indicator: {fileID: 177572418583643384}
 --- !u!1 &397733114778875000
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,10 +219,9 @@ GameObject:
   m_Component:
   - component: {fileID: 397733116088316781}
   - component: {fileID: 397733116088316784}
-  - component: {fileID: 382565103}
   m_Layer: 0
   m_Name: shop
-  m_TagString: Shop
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,20 +269,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.78, y: 0.3689705}
   m_EdgeRadius: 0
---- !u!114 &382565103
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 397733116088316785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30125406f888d5740b11229e4855ea9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shopItem: {fileID: 11400000, guid: 022eb9cc8ca552b44902629d76aa1115, type: 2}
-  indicator: {fileID: 177572418583643384}
 --- !u!1 &3946487382086342398
 GameObject:
   m_ObjectHideFlags: 0

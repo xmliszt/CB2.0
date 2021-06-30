@@ -226,7 +226,6 @@ public class PlayerController : MonoBehaviour
                         thoughtBubbleRenderer.sprite =
                             trash.thoughtBubbleSprite;
                         thoughtBubbleRenderer.enabled = true;
-                        Debug.Log("Submit Test Result!");
 
                         // Log 1 completed swab test
                         playerStats.completedSwabTests++;
@@ -239,10 +238,10 @@ public class PlayerController : MonoBehaviour
                     {
                         inventory.useItem();
                         thoughtBubbleRenderer.enabled = false;
-                        Debug.Log("Throw Away Trash!");
 
                         // Gain 1 coin!
-                        playerStats.coins += constants.coinAwardedPerCompleteTest;
+                        playerStats.coins +=
+                            constants.coinAwardedPerCompleteTest;
                     }
                 }
                 else if (currentItem.itemType == Item.ItemType.shopItem)
@@ -251,7 +250,6 @@ public class PlayerController : MonoBehaviour
                     {
                         inventory.useItem();
                         thoughtBubbleRenderer.enabled = false;
-                        Debug.Log("Used Lock");
                         testStationProcessor.OnLock (gameObject);
                     }
                 }
@@ -322,11 +320,10 @@ public class PlayerController : MonoBehaviour
         {
             if (!inventory.hasItem() && zoneType == ZoneType.shop)
             {
-                Debug.Log("Try to buy!");
+                Debug.Log (shopHandler);
                 ShopItem boughtItem = shopHandler.BuyItem(gameObject);
                 if (boughtItem != null)
                 {
-                    Debug.Log("Bought!");
                     inventory.SetItem (shopItem);
                     thoughtBubbleRenderer.sprite = shopItem.thoughtBubbleSprite;
                     thoughtBubbleRenderer.enabled = true;
@@ -371,27 +368,23 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        switch (other.tag)
+        switch (other.gameObject.tag)
         {
             case "CollectionPoint":
-            Debug.Log("Enter collection point");
                 zoneType = ZoneType.swabStickCollection;
                 break;
             case "Dustbin":
                 zoneType = ZoneType.dustbin;
                 break;
             case "TestStation":
-            Debug.Log("Enter test station");
                 zoneType = ZoneType.testStation;
                 testStationProcessor =
                     other.gameObject.GetComponent<TestSampleProcessor>();
                 break;
             case "SubmissionDesk":
-                Debug.Log("Enter submission desk");
                 zoneType = ZoneType.submissionStation;
                 break;
             case "Shop":
-            Debug.Log("Enter shop");
                 zoneType = ZoneType.shop;
                 shopHandler = other.gameObject.GetComponent<ShopHandler>();
                 break;
@@ -434,7 +427,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Enter null");
         zoneType = ZoneType.nullType;
     }
 

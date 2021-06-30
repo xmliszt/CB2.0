@@ -12,6 +12,7 @@ TagManager:
   - SwabStick
   - Item
   - Shop
+  - Stats
   layers:
   - Default
   - TransparentFX

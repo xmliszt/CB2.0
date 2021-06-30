@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de359c46794d98446ac763b41f6e71b4, type: 3}
+  m_Name: TestStation 4
+  m_EditorClassIdentifier: 
+  id: 4
+  isLoaded: 0
+  isComplete: 0
+  playersInZone: 
+  resultOwner: 0
+  isLocked: 0
