@@ -7,6 +7,8 @@ public class UIUpdater : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text completeTestText;
 
+    public TMP_Text playerIndicatorText;
+
     public Image playerAvatar;
     public Image panelBackground;
 
@@ -21,6 +23,10 @@ public class UIUpdater : MonoBehaviour
         float height = rt.sizeDelta.y;
         boxCollider2D = GetComponent<BoxCollider2D>();
         boxCollider2D.size = new Vector2(width, height);
+
+        // set player indicator
+        playerIndicatorText.text = string.Format("{0}P", playerStats.playerID);
+        playerIndicatorText.color = playerStats.playerAccent;
 
         // set avatar
         playerAvatar.sprite = playerStats.playerAvatar;

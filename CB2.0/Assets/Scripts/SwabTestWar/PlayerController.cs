@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     public PlayerStats playerStats;
+
+    public TMP_Text playerUIIndicatorText;
 
     public GameConstants constants;
 
@@ -88,6 +91,8 @@ public class PlayerController : MonoBehaviour
             playerStats.animatorController;
         thoughtBubbleRenderer.enabled = false;
         stunnedIconRenderer.enabled = false;
+        playerUIIndicatorText.text = string.Format("{0}P", playerStats.playerID);
+        playerUIIndicatorText.color = playerStats.playerAccent;
     }
 
     private void Update()
@@ -154,6 +159,13 @@ public class PlayerController : MonoBehaviour
         {
             return Vector2.zero;
         }
+    }
+
+    public void OnShow()
+    {
+        Debug.Log(string.Format("Showing {0}P", playerStats.playerID));
+        playerUIIndicatorText.text = string.Format("{0}P", playerStats.playerID);
+        playerUIIndicatorText.color = playerStats.playerAccent;
     }
 
     public void OnMove(InputValue context)
