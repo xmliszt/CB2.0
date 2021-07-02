@@ -163,7 +163,6 @@ public class PlayerController : MonoBehaviour
 
     public void OnShow()
     {
-        Debug.Log(string.Format("Showing {0}P", playerStats.playerID));
         playerUIIndicatorText.text = string.Format("{0}P", playerStats.playerID);
         playerUIIndicatorText.color = playerStats.playerAccent;
     }
@@ -403,10 +402,9 @@ public class PlayerController : MonoBehaviour
         thoughtBubbleRenderer.enabled = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void SetZone(string zoneTag, GameObject zoneObject)
     {
-        Debug.Log(other);
-        switch (other.tag)
+        switch (zoneTag)
         {
             case "CollectionPoint":
                 zoneType = ZoneType.swabStickCollection;
@@ -417,21 +415,24 @@ public class PlayerController : MonoBehaviour
             case "TestStation":
                 zoneType = ZoneType.testStation;
                 testStationProcessor =
-                    other.gameObject.GetComponent<TestSampleProcessor>();
+                    zoneObject.GetComponent<TestSampleProcessor>();
                 break;
             case "SubmissionDesk":
                 zoneType = ZoneType.submissionStation;
                 break;
             case "Shop":
                 zoneType = ZoneType.shop;
-                shopHandler = other.gameObject.GetComponent<ShopHandler>();
+                shopHandler = zoneObject.GetComponent<ShopHandler>();
                 break;
             case "SwabStick":
                 GetStunned();
                 break;
             case "Item":
                 zoneType = ZoneType.droppedItem;
-                pickedItem = other.gameObject;
+                pickedItem = zoneObject;
+                break;
+            case "null":
+                zoneType = ZoneType.nullType;
                 break;
         }
     }
@@ -463,12 +464,6 @@ public class PlayerController : MonoBehaviour
                 _renderer.color.g,
                 _renderer.color.b,
                 1);
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        Debug.Log("Exit");
-        zoneType = ZoneType.nullType;
     }
 
     public void OnSwabStickHit()
