@@ -13,6 +13,7 @@ TagManager:
   - Item
   - Shop
   - Stats
+  - Interactable
   layers:
   - Default
   - TransparentFX
