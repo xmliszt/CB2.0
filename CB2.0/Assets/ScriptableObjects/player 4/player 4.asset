@@ -19,4 +19,4 @@ MonoBehaviour:
   animatorController: {fileID: 9100000, guid: cd8cb49495147dc4ea7a16edde501c7e, type: 2}
   inventory: {fileID: 11400000, guid: 3cbf39d9764af5c4e99de1019a999a91, type: 2}
   coins: 0
-  completedSwabTests: 0
+  score: 14

@@ -40,6 +40,6 @@ public class UIUpdater : MonoBehaviour
     void Update()
     {
         scoreText.text = string.Format("Coins: {0}", playerStats.coins);
-        completeTestText.text = string.Format("Swab Test Done: {0}", playerStats.completedSwabTests);
+        completeTestText.text = string.Format("Swab Test Done: {0}", playerStats.score);
     }
 }

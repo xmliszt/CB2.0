@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        isStunned = true;   // player can only move when the UI "READY-START" has finished playing
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
@@ -123,6 +124,12 @@ public class PlayerController : MonoBehaviour
             thoughtBubbleRenderer.enabled = true;
             Destroy (pickedItem);
         }
+    }
+
+    // Call this after "READY-START" UI finished playing, controlled by Game Event
+    public void EnablePlayerMovement()
+    {
+        isStunned = false;  // set to false so that player can move
     }
 
     private Vector2 GetDirection()
@@ -266,7 +273,7 @@ public class PlayerController : MonoBehaviour
                         thoughtBubbleRenderer.enabled = true;
 
                         // Log 1 completed swab test
-                        playerStats.completedSwabTests++;
+                        playerStats.score++;
                     }
                 }
                 else if (currentItem.itemType == Item.ItemType.trash)
