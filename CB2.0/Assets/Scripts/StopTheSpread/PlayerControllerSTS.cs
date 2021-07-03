@@ -10,6 +10,8 @@ public class PlayerControllerSTS : MonoBehaviour
 
     public GameConstants constants;
 
+    public STSInteractables stsInteractables;
+
     [Header("Item Types")]
     public Item swabStick;
 
@@ -64,7 +66,7 @@ public class PlayerControllerSTS : MonoBehaviour
 
     private bool playerDoingActivity = false;
 
-    
+
 
     private enum ZoneType
     {
@@ -75,7 +77,14 @@ public class PlayerControllerSTS : MonoBehaviour
         dustbin = 4,
         shop = 5,
         nullType = 6,
-        interactable = 7
+        interactable = 7,
+
+        dumbbell = 10,
+        computer = 11,
+        karaoke = 12,
+        food = 13,
+        grocer = 14,
+        NPCCustomer = 15
     }
 
     private TestSampleProcessor testStationProcessor; // the test station where the player is at
@@ -120,10 +129,10 @@ public class PlayerControllerSTS : MonoBehaviour
         {
             // pick up dropped item
             Item _item = pickedItem.GetComponent<CollectableItem>().itemMeta;
-            inventory.SetItem (_item);
+            inventory.SetItem(_item);
             thoughtBubbleRenderer.sprite = _item.thoughtBubbleSprite;
             thoughtBubbleRenderer.enabled = true;
-            Destroy (pickedItem);
+            Destroy(pickedItem);
         }
     }
 
@@ -199,12 +208,12 @@ public class PlayerControllerSTS : MonoBehaviour
     {
         completionBar.gameObject.SetActive(true);
         playerDoingActivity = true;
-        
+
         // wait for 3 seconds, check every 0.5s if the person is out of the box
-        for(int i = 0; i < 6; i++)
+        for (int i = 0; i < stsInteractables.intervals; i++)
         {
-            completionBar.value += 0.5f;
-            yield return new WaitForSeconds(0.5f);
+            completionBar.value += stsInteractables.doingActivityInterval;
+            yield return new WaitForSeconds(stsInteractables.doingActivityInterval);
             if (zoneType == ZoneType.nullType)
             {
                 Debug.Log("Player stopped halfway");
@@ -220,14 +229,19 @@ public class PlayerControllerSTS : MonoBehaviour
         completionBar.value = 0;
         completionBar.gameObject.SetActive(false);
         playerDoingActivity = false;
+        Debug.Log("Player completed activity");
     }
 
     public void OnUse()
     {
-        if(zoneType == ZoneType.interactable)
+        // should be using Enum.IsDefined, but then cause cannot check Enum of different type so using this inefficient method as of now
+        if (zoneType == ZoneType.dumbbell || zoneType == ZoneType.computer || zoneType == ZoneType.karaoke || zoneType == ZoneType.food || zoneType == ZoneType.grocer || zoneType == ZoneType.NPCCustomer)
         {
-            Debug.Log("Using activity");
-            StartCoroutine(UsingInteractable());
+            if (!playerDoingActivity)
+            {
+                Debug.Log("Using activity");
+                StartCoroutine(UsingInteractable());
+            }
         }
 
         if (inventory.hasItem())
@@ -411,40 +425,36 @@ public class PlayerControllerSTS : MonoBehaviour
         thoughtBubbleRenderer.enabled = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void PlayerOnTriggerEnterInteractable(String otherTag)
     {
-        switch (other.tag)
+        switch (otherTag)
         {
-            case "CollectionPoint":
-                zoneType = ZoneType.swabStickCollection;
+            case "Dumbbell":
+                zoneType = ZoneType.dumbbell;
                 break;
-            case "Dustbin":
-                zoneType = ZoneType.dustbin;
+            case "Computer":
+                zoneType = ZoneType.computer;
                 break;
-            case "TestStation":
-                zoneType = ZoneType.testStation;
-                testStationProcessor =
-                    other.gameObject.GetComponent<TestSampleProcessor>();
+            case "Karaoke":
+                zoneType = ZoneType.karaoke;
                 break;
-            case "SubmissionDesk":
-                zoneType = ZoneType.submissionStation;
+            case "Food":
+                zoneType = ZoneType.food;
                 break;
-            case "Shop":
-                zoneType = ZoneType.shop;
-                shopHandler = other.gameObject.GetComponent<ShopHandler>();
+            case "Grocer":
+                zoneType = ZoneType.grocer;
                 break;
-            case "SwabStick":
-                GetStunned();
-                break;
-            case "Item":
-                zoneType = ZoneType.droppedItem;
-                pickedItem = other.gameObject;
-                break;
-            case "Interactable":
-                zoneType = ZoneType.interactable;
+            case "NPCCustomer":
+                zoneType = ZoneType.NPCCustomer;
                 break;
         }
     }
+
+    public void PlayerOnTriggerExitInteractable()
+    {
+        zoneType = ZoneType.nullType;
+    }
+
 
     private void GetStunned()
     {
@@ -473,10 +483,10 @@ public class PlayerControllerSTS : MonoBehaviour
                 1);
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    /*private void OnTriggerExit2D(Collider2D other)
     {
         zoneType = ZoneType.nullType;
-    }
+    }*/
 
     public void OnSwabStickHit()
     {
