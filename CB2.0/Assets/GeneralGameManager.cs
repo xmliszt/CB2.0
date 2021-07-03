@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class GeneralGameManager : MonoBehaviour
 {
+    private PlayerInput[] playerInputsList = new PlayerInput[4];
     public PlayerStats[] playerStatsList;
 
     private void Start() {
@@ -19,6 +20,7 @@ public class GeneralGameManager : MonoBehaviour
     {
         int playerID = playerInput.playerIndex + 1;
         PlayerStats assignedPlayerStats = SwitchPlayerProfile(playerID);
+        playerInputsList[playerInput.playerIndex] = playerInput;
         EnablePlayerController(playerInput.gameObject, ControllerType.GameLobbyController, assignedPlayerStats);
     }
 
@@ -27,6 +29,23 @@ public class GeneralGameManager : MonoBehaviour
         int playerID = playerInput.playerIndex + 1;
         ClearPlayerProfileAssignment(playerID);
     }    
+
+    public void OnPlayerSwitchProfile(int playerID)
+    {
+        GameObject player = playerInputsList[playerID - 1].gameObject;
+
+        PlayerStats playerStats = SwitchPlayerProfile(playerID);
+
+        // Set player stats for all controllers
+        player.GetComponent<PlayerStatsManager>().SetPlayerStats(playerStats);
+    }
+
+    public void OnPlayerChangeZone(int playerID, string zoneType, GameObject zoneObject)
+    {
+        GameObject player = playerInputsList[playerID - 1].gameObject;
+
+        player.GetComponent<PlayerZoneManager>().SetZone(zoneType, zoneObject);
+    }
 
     private enum ControllerType
     {
@@ -50,8 +69,7 @@ public class GeneralGameManager : MonoBehaviour
         swabTestPlayerController.enabled = false;
 
         // Set player stats for all controllers
-        gameLobbyPlayerController.SetPlayerStats(playerStats);
-        swabTestPlayerController.SetPlayerStats(playerStats);
+        player.GetComponent<PlayerStatsManager>().SetPlayerStats(playerStats);
 
         switch (_type)
         {

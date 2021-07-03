@@ -11,7 +11,6 @@ public class GameLobbyPlayerController : MonoBehaviour
     public GameConstants constants;
 
     [Header("Item Scriptable Objects")]
-
     public Item swabStick;
 
     public Item shopItem;
@@ -27,11 +26,12 @@ public class GameLobbyPlayerController : MonoBehaviour
     public SpriteRenderer stunnedIconRenderer;
 
     [Header("Game Events Binding")]
+
+    public SingleIntegerGameEvent onPlayerChangeProfile;
     public ParticleGameEvent dashParticleGameEvent;
 
     private PlayerInput playerInput;
 
-    private PlayerStats playerStats;
     private Rigidbody2D rb;
 
     private Animator animator;
@@ -54,19 +54,6 @@ public class GameLobbyPlayerController : MonoBehaviour
 
     private bool autoPickEnabled = true;
 
-    private ZoneType zoneType = ZoneType.nullType;
-
-    private enum ZoneType
-    {
-        droppedItem = 0,
-        swabStickCollection = 1,
-        testStation = 2,
-        submissionStation = 3,
-        dustbin = 4,
-        shop = 5,
-        nullType = 6
-    }
-
     private TestSampleProcessor testStationProcessor; // the test station where the player is at
 
     private GameObject pickedItem; // the item player picked up
@@ -74,27 +61,36 @@ public class GameLobbyPlayerController : MonoBehaviour
     private ShopHandler shopHandler;
 
     private PlayerInventory inventory;
-    private void Awake() {
+
+    private PlayerStatsManager playerStatsManager;
+
+    private PlayerZoneManager playerZoneManager;
+
+    private void Awake()
+    {
+        playerStatsManager = GetComponent<PlayerStatsManager>();
+        playerZoneManager = GetComponent<PlayerZoneManager>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        animator.runtimeAnimatorController =
-            playerStats.animatorController;
-        inventory = playerStats.inventory;
+        animator.runtimeAnimatorController = playerStatsManager.GetPlayerStats().animatorController;
+        inventory = playerStatsManager.GetPlayerStats().inventory;
         playerInput = GetComponent<PlayerInput>();
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         isDisabled = true;
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         isDisabled = false; // player can only move when the UI "READY-START" has finished playing
         thoughtBubbleRenderer.enabled = false;
         stunnedIconRenderer.enabled = false;
         playerUIIndicatorText.text =
-            string.Format("{0}P", playerStats.playerID);
-        playerUIIndicatorText.color = playerStats.playerAccent;
-        GetComponent<SpriteOutlined>().EnableOutline(playerStats);
+            string.Format("{0}P", playerStatsManager.GetPlayerStats().playerID);
+        playerUIIndicatorText.color = playerStatsManager.GetPlayerStats().playerAccent;
+        GetComponent<SpriteOutlined>().EnableOutline(playerStatsManager.GetPlayerStats());
     }
 
     private void Update()
@@ -110,26 +106,6 @@ public class GameLobbyPlayerController : MonoBehaviour
         animator.SetFloat("vertical", finalInputMovement.y);
         animator.SetFloat("speed", finalInputMovement.magnitude);
         if (finalInputMovement.magnitude == 0) isIdle = true;
-
-        // auto pick up
-        if (
-            zoneType == ZoneType.droppedItem &&
-            !inventory.hasItem() &&
-            autoPickEnabled
-        )
-        {
-            // pick up dropped item
-            Item _item = pickedItem.GetComponent<CollectableItem>().itemMeta;
-            inventory.SetItem (_item);
-            thoughtBubbleRenderer.sprite = _item.thoughtBubbleSprite;
-            thoughtBubbleRenderer.enabled = true;
-            Destroy (pickedItem);
-        }
-    }
-
-    public void SetPlayerStats(PlayerStats _playerStats)
-    {  
-        playerStats = _playerStats;
     }
 
     // Call this after "READY-START" UI finished playing, controlled by Game Event
@@ -214,162 +190,21 @@ public class GameLobbyPlayerController : MonoBehaviour
     {
         if (!isDisabled)
         {
-            if (inventory.hasItem())
+            if (playerZoneManager.GetZone() == PlayerZoneManager.ZoneType.clothChanger)
             {
-                Item currentItem = inventory.GetCurrentItem();
-                if (currentItem.itemType == Item.ItemType.swabStick)
-                {
-                    inventory.useItem();
-                    GameObject stick =
-                        Instantiate(swabStickPrefab,
-                        transform.position +
-                        new Vector3(idleDirection.x,
-                            idleDirection.y - 0.2f,
-                            transform.position.z) *
-                        0.5f,
-                        swabStickPrefab.transform.rotation);
-                    SwabStickMovement stickMovementScript =
-                        stick.GetComponent<SwabStickMovement>();
-                    stickMovementScript.fromPlayer = gameObject;
-                    stickMovementScript.direction = idleDirection;
-                    stickMovementScript.StartFlying();
-                    thoughtBubbleRenderer.enabled = false;
-                }
+                onPlayerChangeProfile.Fire(playerStatsManager.GetPlayerStats().playerID);
             }
         }
     }
 
     public void OnPickdrop()
     {
-        if (!isDisabled)
-        {
-            if (!inventory.hasItem())
-            {
-                if (zoneType != ZoneType.nullType)
-                {
-                    if (zoneType == ZoneType.swabStickCollection)
-                    {
-                        inventory.SetItem (swabStick);
-                        thoughtBubbleRenderer.sprite =
-                            swabStick.thoughtBubbleSprite;
-                        thoughtBubbleRenderer.enabled = true;
-                    }
-                }
-            }
-            else
-            {
-                DropItem();
-
-                // disable auto pick up for a short while
-                autoPickEnabled = false;
-                StartCoroutine(EnableAutoPickUp(1));
-            }
-        }
-    }
-
-    IEnumerator EnableAutoPickUp(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        autoPickEnabled = true;
     }
 
     public void OnShop()
     {
         if (!isDisabled)
         {
-            if (!inventory.hasItem() && zoneType == ZoneType.shop)
-            {
-                ShopItem boughtItem = shopHandler.BuyItem(gameObject);
-                if (boughtItem != null)
-                {
-                    inventory.SetItem (shopItem);
-                    thoughtBubbleRenderer.sprite = shopItem.thoughtBubbleSprite;
-                    thoughtBubbleRenderer.enabled = true;
-                }
-            }
         }
-    }
-
-    private void SubmitTestSample()
-    {
-        testStationProcessor.OnLoadTestSample(transform.GetInstanceID());
-        inventory.useItem();
-        thoughtBubbleRenderer.enabled = false;
-    }
-
-    private void DropItem()
-    {
-        // drop item
-        if (inventory.hasItem())
-        {
-            Item _item = inventory.useItem();
-            GameObject dropped =
-                Instantiate(droppedItemPrefab,
-                transform.position +
-                new Vector3(idleDirection.x,
-                    idleDirection.y,
-                    droppedItemPrefab.transform.position.z) *
-                0.2f,
-                droppedItemPrefab.transform.rotation);
-            dropped.GetComponent<CollectableItem>().SetItem(_item);
-            thoughtBubbleRenderer.enabled = false;
-        }
-    }
-
-    public void SetZone(string zoneTag, GameObject zoneObject)
-    {
-        switch (zoneTag)
-        {
-            case "CollectionPoint":
-                zoneType = ZoneType.swabStickCollection;
-                break;
-            case "Shop":
-                zoneType = ZoneType.shop;
-                shopHandler = zoneObject.GetComponent<ShopHandler>();
-                break;
-            case "SwabStick":
-                GetStunned();
-                break;
-            case "Item":
-                zoneType = ZoneType.droppedItem;
-                pickedItem = zoneObject;
-                break;
-            case "null":
-                zoneType = ZoneType.nullType;
-                break;
-        }
-    }
-
-    private void GetStunned()
-    {
-        DropItem();
-        autoPickEnabled = false;
-        StartCoroutine(EnableAutoPickUp(constants.playerStunnedDuration));
-        stunnedIconRenderer.enabled = true;
-        SpriteRenderer _renderer = GetComponent<SpriteRenderer>();
-        isDisabled = true;
-        _renderer.color =
-            new Color(_renderer.color.r,
-                _renderer.color.g,
-                _renderer.color.b,
-                0.7f);
-        StartCoroutine(Unfreeze());
-    }
-
-    IEnumerator Unfreeze()
-    {
-        yield return new WaitForSeconds(constants.playerStunnedDuration);
-        isDisabled = false;
-        stunnedIconRenderer.enabled = false;
-        SpriteRenderer _renderer = GetComponent<SpriteRenderer>();
-        _renderer.color =
-            new Color(_renderer.color.r,
-                _renderer.color.g,
-                _renderer.color.b,
-                1);
-    }
-
-    public void OnSwabStickHit()
-    {
     }
 }

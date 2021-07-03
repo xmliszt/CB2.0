@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class ZoneDetection : MonoBehaviour
 {
+    public ZoneChangeGameEvent zoneChangeGameEvent;
+
     public GameConstants constants;
     public SpriteRenderer spriteRenderer;
     
@@ -10,8 +12,8 @@ public class ZoneDetection : MonoBehaviour
             Color newColor = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, constants.playerInZoneOpacity);
             spriteRenderer.color = newColor;
             GameObject player = other.gameObject;
-            SwabTestPlayerController controllerScript = player.GetComponent<SwabTestPlayerController>();
-            controllerScript.SetZone(gameObject.tag, gameObject);
+
+            zoneChangeGameEvent.Fire(player.GetComponent<PlayerStatsManager>().GetPlayerStats().playerID, gameObject.tag, gameObject);
         }
     }
 
@@ -19,8 +21,8 @@ public class ZoneDetection : MonoBehaviour
         if (other.CompareTag("Player")) {
             spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1);
             GameObject player = other.gameObject;
-            SwabTestPlayerController controllerScript = player.GetComponent<SwabTestPlayerController>();
-            controllerScript.SetZone("null", gameObject);
+            
+            zoneChangeGameEvent.Fire(player.GetComponent<PlayerStatsManager>().GetPlayerStats().playerID,"null", gameObject);
         }
     }
 }

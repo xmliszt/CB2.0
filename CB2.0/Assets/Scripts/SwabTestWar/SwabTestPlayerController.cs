@@ -1,12 +1,11 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using TMPro;
 
 public class SwabTestPlayerController : MonoBehaviour
 {
-
     public TMP_Text playerUIIndicatorText;
 
     public GameConstants constants;
@@ -38,7 +37,6 @@ public class SwabTestPlayerController : MonoBehaviour
     private PlayerInput playerInput;
 
     private Rigidbody2D rb;
-    private PlayerStats playerStats;
 
     private Animator animator;
 
@@ -60,47 +58,46 @@ public class SwabTestPlayerController : MonoBehaviour
 
     private bool autoPickEnabled = true;
 
-    private ZoneType zoneType = ZoneType.nullType;
+    public TestSampleProcessor testStationProcessor; // the test station where the player is at
 
-    private enum ZoneType
-    {
-        droppedItem = 0,
-        swabStickCollection = 1,
-        testStation = 2,
-        submissionStation = 3,
-        dustbin = 4,
-        shop = 5,
-        nullType = 6
-    }
+    public ShopHandler shopHandler;
 
-    private TestSampleProcessor testStationProcessor; // the test station where the player is at
-
-    private GameObject pickedItem; // the item player picked up
-
-    private ShopHandler shopHandler;
+    public GameObject pickedItem; // the item player picked up
 
     private PlayerInventory inventory;
 
-    private void Awake() {
+    private PlayerStatsManager playerStatsManager;
+
+    private PlayerZoneManager playerZoneManager;
+
+    private void Awake()
+    {
+        playerStatsManager = GetComponent<PlayerStatsManager>();
+        playerZoneManager = GetComponent<PlayerZoneManager>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         animator.runtimeAnimatorController =
-            playerStats.animatorController;
-        inventory = playerStats.inventory;
+            playerStatsManager.GetPlayerStats().animatorController;
+        inventory = playerStatsManager.GetPlayerStats().inventory;
     }
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
         isStunned = true;
     }
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         isStunned = false;
         playerInput = GetComponent<PlayerInput>();
         thoughtBubbleRenderer.enabled = false;
         stunnedIconRenderer.enabled = false;
-        playerUIIndicatorText.text = string.Format("{0}P", playerStats.playerID);
-        playerUIIndicatorText.color = playerStats.playerAccent;
-        GetComponent<SpriteOutlined>().EnableOutline(playerStats);
+        playerUIIndicatorText.text =
+            string.Format("{0}P", playerStatsManager.GetPlayerStats().playerID);
+        playerUIIndicatorText.color =
+            playerStatsManager.GetPlayerStats().playerAccent;
+        GetComponent<SpriteOutlined>()
+            .EnableOutline(playerStatsManager.GetPlayerStats());
     }
 
     private void Update()
@@ -119,7 +116,8 @@ public class SwabTestPlayerController : MonoBehaviour
 
         // auto pick up
         if (
-            zoneType == ZoneType.droppedItem &&
+            playerZoneManager.GetZone() ==
+            PlayerZoneManager.ZoneType.droppedItem &&
             !inventory.hasItem() &&
             autoPickEnabled
         )
@@ -133,20 +131,10 @@ public class SwabTestPlayerController : MonoBehaviour
         }
     }
 
-    public void SetPlayerStats(PlayerStats _playerStats)
-    {  
-        playerStats = _playerStats;
-    }
-
-    public PlayerStats GetPlayerStats()
-    {
-        return playerStats;
-    }
-
     // Call this after "READY-START" UI finished playing, controlled by Game Event
     public void EnablePlayerMovement()
     {
-        isStunned = false;  // set to false so that player can move
+        isStunned = false; // set to false so that player can move
     }
 
     private Vector2 GetDirection()
@@ -187,8 +175,10 @@ public class SwabTestPlayerController : MonoBehaviour
 
     public void OnShow()
     {
-        playerUIIndicatorText.text = string.Format("{0}P", playerStats.playerID);
-        playerUIIndicatorText.color = playerStats.playerAccent;
+        playerUIIndicatorText.text =
+            string.Format("{0}P", playerStatsManager.GetPlayerStats().playerID);
+        playerUIIndicatorText.color =
+            playerStatsManager.GetPlayerStats().playerAccent;
     }
 
     public void OnMove(InputValue context)
@@ -255,7 +245,10 @@ public class SwabTestPlayerController : MonoBehaviour
                 else if (currentItem.itemType == Item.ItemType.testSample)
                 {
                     // submit test sample to test station
-                    if (zoneType == ZoneType.testStation)
+                    if (
+                        playerZoneManager.GetZone() ==
+                        PlayerZoneManager.ZoneType.testStation
+                    )
                     {
                         if (!testStationProcessor.testStationInfo.isLoaded)
                         {
@@ -281,7 +274,10 @@ public class SwabTestPlayerController : MonoBehaviour
                 else if (currentItem.itemType == Item.ItemType.testResult)
                 {
                     // submit test result to submission desk
-                    if (zoneType == ZoneType.submissionStation)
+                    if (
+                        playerZoneManager.GetZone() ==
+                        PlayerZoneManager.ZoneType.submissionStation
+                    )
                     {
                         inventory.useItem();
                         inventory.SetItem (trash);
@@ -290,25 +286,31 @@ public class SwabTestPlayerController : MonoBehaviour
                         thoughtBubbleRenderer.enabled = true;
 
                         // Log 1 completed swab test
-                        playerStats.score++;
+                        playerStatsManager.GetPlayerStats().score++;
                     }
                 }
                 else if (currentItem.itemType == Item.ItemType.trash)
                 {
                     // throw the trash and gain coins
-                    if (zoneType == ZoneType.dustbin)
+                    if (
+                        playerZoneManager.GetZone() ==
+                        PlayerZoneManager.ZoneType.dustbin
+                    )
                     {
                         inventory.useItem();
                         thoughtBubbleRenderer.enabled = false;
 
                         // Gain 1 coin!
-                        playerStats.coins +=
+                        playerStatsManager.GetPlayerStats().coins +=
                             constants.coinAwardedPerCompleteTest;
                     }
                 }
                 else if (currentItem.itemType == Item.ItemType.shopItem)
                 {
-                    if (zoneType == ZoneType.testStation)
+                    if (
+                        playerZoneManager.GetZone() ==
+                        PlayerZoneManager.ZoneType.testStation
+                    )
                     {
                         inventory.useItem();
                         thoughtBubbleRenderer.enabled = false;
@@ -325,16 +327,25 @@ public class SwabTestPlayerController : MonoBehaviour
         {
             if (!inventory.hasItem())
             {
-                if (zoneType != ZoneType.nullType)
+                if (
+                    playerZoneManager.GetZone() !=
+                    PlayerZoneManager.ZoneType.nullType
+                )
                 {
-                    if (zoneType == ZoneType.swabStickCollection)
+                    if (
+                        playerZoneManager.GetZone() ==
+                        PlayerZoneManager.ZoneType.swabStickCollection
+                    )
                     {
                         inventory.SetItem (swabStick);
                         thoughtBubbleRenderer.sprite =
                             swabStick.thoughtBubbleSprite;
                         thoughtBubbleRenderer.enabled = true;
                     }
-                    else if (zoneType == ZoneType.testStation)
+                    else if (
+                        playerZoneManager.GetZone() ==
+                        PlayerZoneManager.ZoneType.testStation
+                    )
                     {
                         if (testStationProcessor.testStationInfo.isComplete)
                         {
@@ -379,7 +390,10 @@ public class SwabTestPlayerController : MonoBehaviour
     {
         if (!isStunned)
         {
-            if (!inventory.hasItem() && zoneType == ZoneType.shop)
+            if (
+                !inventory.hasItem() &&
+                playerZoneManager.GetZone() == PlayerZoneManager.ZoneType.shop
+            )
             {
                 ShopItem boughtItem = shopHandler.BuyItem(gameObject);
                 if (boughtItem != null)
@@ -426,42 +440,7 @@ public class SwabTestPlayerController : MonoBehaviour
         thoughtBubbleRenderer.enabled = true;
     }
 
-    public void SetZone(string zoneTag, GameObject zoneObject)
-    {
-        switch (zoneTag)
-        {
-            case "CollectionPoint":
-                zoneType = ZoneType.swabStickCollection;
-                break;
-            case "Dustbin":
-                zoneType = ZoneType.dustbin;
-                break;
-            case "TestStation":
-                zoneType = ZoneType.testStation;
-                testStationProcessor =
-                    zoneObject.GetComponent<TestSampleProcessor>();
-                break;
-            case "SubmissionDesk":
-                zoneType = ZoneType.submissionStation;
-                break;
-            case "Shop":
-                zoneType = ZoneType.shop;
-                shopHandler = zoneObject.GetComponent<ShopHandler>();
-                break;
-            case "SwabStick":
-                GetStunned();
-                break;
-            case "Item":
-                zoneType = ZoneType.droppedItem;
-                pickedItem = zoneObject;
-                break;
-            case "null":
-                zoneType = ZoneType.nullType;
-                break;
-        }
-    }
-
-    private void GetStunned()
+    public void GetStunned()
     {
         DropItem();
         autoPickEnabled = false;

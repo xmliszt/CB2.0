@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: 562434371}
   - component: {fileID: 789055899533834128}
   - component: {fileID: 4663360309773489266}
+  - component: {fileID: 8525827130420829609}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -615,7 +616,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 079497c5e126ba548a7405b0c91f7666, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 7863ae96c9452014ca08b8a3f80ba374, type: 2}
   outlineSize: 4
 --- !u!114 &497552964
 MonoBehaviour:
@@ -689,6 +689,7 @@ MonoBehaviour:
   droppedItemPrefab: {fileID: 9030321009598397116, guid: dedf45a66fa3ad54193d015b16af5f84, type: 3}
   thoughtBubbleRenderer: {fileID: 5316216624820595615}
   stunnedIconRenderer: {fileID: 1154388671340012776}
+  onPlayerChangeProfile: {fileID: 11400000, guid: 903bb142c1a0cb3488d4295dda7fe04d, type: 2}
   dashParticleGameEvent: {fileID: 11400000, guid: b3f39252519740843a5ee14e2800faab, type: 2}
 --- !u!114 &4663360309773489266
 MonoBehaviour:
@@ -700,6 +701,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1f72b587eff5bb4f9108c9fa24f2b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8525827130420829609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db432c467482c304ab12dfbbf34f82a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &7101595919442080812
