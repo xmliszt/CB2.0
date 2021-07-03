@@ -658,7 +658,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e37154eda3bb84f8d6759d76787332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerUIIndicatorText: {fileID: 87406235}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   swabStick: {fileID: 11400000, guid: 9a38f69746d35454ebfb482ce9d07246, type: 2}
   testSample: {fileID: 11400000, guid: 133741681dca81f4ca5ed444d8241d85, type: 2}
@@ -685,7 +684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbffb74091872c04e82869bca71caa8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerUIIndicatorText: {fileID: 87406235}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   swabStick: {fileID: 11400000, guid: 9a38f69746d35454ebfb482ce9d07246, type: 2}
   shopItem: {fileID: 11400000, guid: ca0036860ffcde649b82597943d6bac6, type: 2}
@@ -719,6 +717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db432c467482c304ab12dfbbf34f82a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerUIIndicatorText: {fileID: 87406235}
 --- !u!114 &4651673285783923620
 MonoBehaviour:
   m_ObjectHideFlags: 0

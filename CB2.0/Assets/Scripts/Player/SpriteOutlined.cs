@@ -9,11 +9,12 @@ public class SpriteOutlined : MonoBehaviour {
 
     private SpriteRenderer spriteRenderer;
 
+    private PlayerStats playerStats;
+
     public void EnableOutline(PlayerStats playerStats)
     {
         color = playerStats.playerAccent;
         spriteRenderer = GetComponent<SpriteRenderer>();
-
         UpdateOutline(true);
     }
 

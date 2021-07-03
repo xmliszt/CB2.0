@@ -6,8 +6,6 @@ using UnityEngine.InputSystem;
 
 public class SwabTestPlayerController : MonoBehaviour
 {
-    public TMP_Text playerUIIndicatorText;
-
     public GameConstants constants;
 
     [Header("Item Types")]
@@ -92,10 +90,6 @@ public class SwabTestPlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         thoughtBubbleRenderer.enabled = false;
         stunnedIconRenderer.enabled = false;
-        playerUIIndicatorText.text =
-            string.Format("{0}P", playerStatsManager.GetPlayerStats().playerID);
-        playerUIIndicatorText.color =
-            playerStatsManager.GetPlayerStats().playerAccent;
         GetComponent<SpriteOutlined>()
             .EnableOutline(playerStatsManager.GetPlayerStats());
     }
@@ -172,15 +166,6 @@ public class SwabTestPlayerController : MonoBehaviour
             return Vector2.zero;
         }
     }
-
-    public void OnShow()
-    {
-        playerUIIndicatorText.text =
-            string.Format("{0}P", playerStatsManager.GetPlayerStats().playerID);
-        playerUIIndicatorText.color =
-            playerStatsManager.GetPlayerStats().playerAccent;
-    }
-
     public void OnMove(InputValue context)
     {
         if (!isStunned)

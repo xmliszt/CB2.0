@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class GameLobbyPlayerController : MonoBehaviour
 {
-    public TMP_Text playerUIIndicatorText;
+    
 
     public GameConstants constants;
 
@@ -26,8 +26,8 @@ public class GameLobbyPlayerController : MonoBehaviour
     public SpriteRenderer stunnedIconRenderer;
 
     [Header("Game Events Binding")]
-
     public SingleIntegerGameEvent onPlayerChangeProfile;
+
     public ParticleGameEvent dashParticleGameEvent;
 
     private PlayerInput playerInput;
@@ -72,7 +72,6 @@ public class GameLobbyPlayerController : MonoBehaviour
         playerZoneManager = GetComponent<PlayerZoneManager>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        animator.runtimeAnimatorController = playerStatsManager.GetPlayerStats().animatorController;
         inventory = playerStatsManager.GetPlayerStats().inventory;
         playerInput = GetComponent<PlayerInput>();
     }
@@ -87,14 +86,14 @@ public class GameLobbyPlayerController : MonoBehaviour
         isDisabled = false; // player can only move when the UI "READY-START" has finished playing
         thoughtBubbleRenderer.enabled = false;
         stunnedIconRenderer.enabled = false;
-        playerUIIndicatorText.text =
-            string.Format("{0}P", playerStatsManager.GetPlayerStats().playerID);
-        playerUIIndicatorText.color = playerStatsManager.GetPlayerStats().playerAccent;
-        GetComponent<SpriteOutlined>().EnableOutline(playerStatsManager.GetPlayerStats());
+        GetComponent<SpriteOutlined>()
+            .EnableOutline(playerStatsManager.GetPlayerStats());
     }
 
     private void Update()
     {
+        animator.runtimeAnimatorController =
+            playerStatsManager.GetPlayerStats().animatorController;
         direction = GetDirection();
         if (!(direction.x == 0 && direction.y == 0)) idleDirection = direction;
         finalInputMovement =
@@ -190,15 +189,23 @@ public class GameLobbyPlayerController : MonoBehaviour
     {
         if (!isDisabled)
         {
-            if (playerZoneManager.GetZone() == PlayerZoneManager.ZoneType.clothChanger)
+            Debug.Log(playerZoneManager.GetZone());
+            if (
+                playerZoneManager.GetZone() ==
+                PlayerZoneManager.ZoneType.clothChanger
+            )
             {
-                onPlayerChangeProfile.Fire(playerStatsManager.GetPlayerStats().playerID);
+                onPlayerChangeProfile
+                    .Fire(playerStatsManager.GetPlayerStats().playerID);
             }
         }
     }
 
     public void OnPickdrop()
     {
+        if (!isDisabled)
+        {
+        }
     }
 
     public void OnShop()

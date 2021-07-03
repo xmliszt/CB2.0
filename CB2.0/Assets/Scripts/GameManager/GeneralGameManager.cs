@@ -6,9 +6,11 @@ using UnityEngine.InputSystem;
 public class GeneralGameManager : MonoBehaviour
 {
     private PlayerInput[] playerInputsList = new PlayerInput[4];
+
     public PlayerStats[] playerStatsList;
 
-    private void Start() {
+    private void Start()
+    {
         foreach (PlayerStats playerStats in playerStatsList)
         {
             playerStats.selected = false;
@@ -19,28 +21,28 @@ public class GeneralGameManager : MonoBehaviour
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         int playerID = playerInput.playerIndex + 1;
-        PlayerStats assignedPlayerStats = SwitchPlayerProfile(playerID);
         playerInputsList[playerInput.playerIndex] = playerInput;
-        EnablePlayerController(playerInput.gameObject, ControllerType.GameLobbyController, assignedPlayerStats);
+        SwitchPlayerProfile (playerID);
+        EnablePlayerController(playerInput.gameObject,
+        ControllerType.GameLobbyController);
     }
 
     public void OnPlayerLeft(PlayerInput playerInput)
     {
         int playerID = playerInput.playerIndex + 1;
-        ClearPlayerProfileAssignment(playerID);
-    }    
+        ClearPlayerProfileAssignment (playerID);
+    }
 
     public void OnPlayerSwitchProfile(int playerID)
     {
-        GameObject player = playerInputsList[playerID - 1].gameObject;
-
-        PlayerStats playerStats = SwitchPlayerProfile(playerID);
-
-        // Set player stats for all controllers
-        player.GetComponent<PlayerStatsManager>().SetPlayerStats(playerStats);
+        SwitchPlayerProfile (playerID);
     }
 
-    public void OnPlayerChangeZone(int playerID, string zoneType, GameObject zoneObject)
+    public void OnPlayerChangeZone(
+        int playerID,
+        string zoneType,
+        GameObject zoneObject
+    )
     {
         GameObject player = playerInputsList[playerID - 1].gameObject;
 
@@ -57,7 +59,7 @@ public class GeneralGameManager : MonoBehaviour
     }
 
     // Enable a controller script for the player according to minigame he/she is at
-    private void EnablePlayerController(GameObject player, ControllerType _type, PlayerStats playerStats)
+    private void EnablePlayerController(GameObject player, ControllerType _type)
     {
         GameLobbyPlayerController gameLobbyPlayerController =
             player.GetComponent<GameLobbyPlayerController>();
@@ -67,9 +69,6 @@ public class GeneralGameManager : MonoBehaviour
         // Disable all controllers first
         gameLobbyPlayerController.enabled = false;
         swabTestPlayerController.enabled = false;
-
-        // Set player stats for all controllers
-        player.GetComponent<PlayerStatsManager>().SetPlayerStats(playerStats);
 
         switch (_type)
         {
@@ -85,32 +84,48 @@ public class GeneralGameManager : MonoBehaviour
     // Switch a character for a given player
     // Will set the current player's character to be unselected, remove playerID
     // Choose the next available character to assign to this player
-    public PlayerStats SwitchPlayerProfile(int playerID)
+    public void SwitchPlayerProfile(int playerID)
     {
         PlayerStats selectedPlayerStats = null;
-        foreach (PlayerStats playerStats in playerStatsList)
+
+        int lastIdx = -1;
+
+        for (int idx = 0; idx < playerStatsList.Length; idx ++)
         {
+            PlayerStats playerStats = playerStatsList[idx];
             if (playerStats.playerID == playerID)
             {
-                // deselect current
                 playerStats.selected = false;
                 playerStats.playerID = 0;
+                lastIdx = idx;
             }
-            else if (!playerStats.selected)
+        }
+
+        lastIdx ++;
+
+        for (int i = 0; i < playerStatsList.Length - 2; i ++)
+        {
+            if (lastIdx == playerStatsList.Length) lastIdx = 0;
+            PlayerStats playerStats = playerStatsList[lastIdx];
+            if (!playerStats.selected)
             {
+                Debug.Log("Selected " + playerStats.name);
                 playerStats.playerID = playerID;
                 playerStats.selected = true;
                 selectedPlayerStats = playerStats;
                 break;
             }
+            lastIdx ++;
         }
-        return selectedPlayerStats;
+        playerInputsList[playerID - 1]
+            .GetComponent<PlayerStatsManager>()
+            .SetPlayerStats(selectedPlayerStats);
     }
 
     // Call this when a player left the game
     public void ClearPlayerProfileAssignment(int playerID)
     {
-         foreach (PlayerStats playerStats in playerStatsList)
+        foreach (PlayerStats playerStats in playerStatsList)
         {
             if (playerStats.playerID == playerID)
             {
@@ -134,7 +149,7 @@ public class GeneralGameManager : MonoBehaviour
     // Call this when whole game restarted
     public void ResetPlayerStatsCompletely()
     {
-         foreach (PlayerStats playerStats in playerStatsList)
+        foreach (PlayerStats playerStats in playerStatsList)
         {
             playerStats.selected = false;
             playerStats.playerID = 0;
