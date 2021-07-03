@@ -12,7 +12,7 @@ public class ShopHandler : MonoBehaviour
 
     public ShopItem BuyItem(GameObject player)
     {
-        PlayerStats playerStats = player.GetComponent<PlayerController>().playerStats;
+        PlayerStats playerStats = player.GetComponent<SwabTestPlayerController>().GetPlayerStats();
         
         if (playerStats.coins >= shopItem.cost)
         {

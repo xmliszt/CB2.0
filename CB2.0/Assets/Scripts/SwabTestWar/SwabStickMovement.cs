@@ -53,7 +53,7 @@ public class SwabStickMovement : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            fromPlayer.GetComponent<PlayerController>().OnSwabStickHit();
+            fromPlayer.GetComponent<SwabTestPlayerController>().OnSwabStickHit();
             Destroy (gameObject);
         }
         if (other.CompareTag("Wall"))

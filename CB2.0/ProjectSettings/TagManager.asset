@@ -13,6 +13,9 @@ TagManager:
   - Item
   - Shop
   - Stats
+  - Reception
+  - ClothChanger
+  - MusicChanger
   layers:
   - Default
   - TransparentFX

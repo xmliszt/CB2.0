@@ -331,9 +331,11 @@ GameObject:
   - component: {fileID: 1420202198}
   - component: {fileID: 1420202199}
   - component: {fileID: 562434370}
-  - component: {fileID: 562434371}
   - component: {fileID: 1084135326}
   - component: {fileID: 497552964}
+  - component: {fileID: 562434371}
+  - component: {fileID: 789055899533834128}
+  - component: {fileID: 4663360309773489266}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -597,35 +599,10 @@ MonoBehaviour:
     m_ActionId: e244ebdd-9f7d-4329-9dde-bd3c459f709e
     m_ActionName: gameplay/shop[/XInputControllerWindows/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: Player 1
+  m_DefaultControlScheme: 
   m_DefaultActionMap: gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &562434371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5928543010023413209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09e37154eda3bb84f8d6759d76787332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: 7863ae96c9452014ca08b8a3f80ba374, type: 2}
-  playerUIIndicatorText: {fileID: 87406235}
-  constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
-  swabStick: {fileID: 11400000, guid: 9a38f69746d35454ebfb482ce9d07246, type: 2}
-  testSample: {fileID: 11400000, guid: 133741681dca81f4ca5ed444d8241d85, type: 2}
-  testResult: {fileID: 11400000, guid: 75d6197c725451840bc3d14015bbe628, type: 2}
-  trash: {fileID: 11400000, guid: bafb88e875caadf429c1572589436481, type: 2}
-  shopItem: {fileID: 11400000, guid: ca0036860ffcde649b82597943d6bac6, type: 2}
-  swabStickPrefab: {fileID: 6488087500066331418, guid: 76e339657038cde4b867e584b7e50570, type: 3}
-  droppedItemPrefab: {fileID: 9030321009598397116, guid: dedf45a66fa3ad54193d015b16af5f84, type: 3}
-  thoughtBubbleRenderer: {fileID: 5316216624820595615}
-  stunnedIconRenderer: {fileID: 1154388671340012776}
-  dashParticleGameEvent: {fileID: 11400000, guid: b3f39252519740843a5ee14e2800faab, type: 2}
 --- !u!114 &1084135326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,6 +645,63 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &562434371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e37154eda3bb84f8d6759d76787332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUIIndicatorText: {fileID: 87406235}
+  constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
+  swabStick: {fileID: 11400000, guid: 9a38f69746d35454ebfb482ce9d07246, type: 2}
+  testSample: {fileID: 11400000, guid: 133741681dca81f4ca5ed444d8241d85, type: 2}
+  testResult: {fileID: 11400000, guid: 75d6197c725451840bc3d14015bbe628, type: 2}
+  trash: {fileID: 11400000, guid: bafb88e875caadf429c1572589436481, type: 2}
+  shopItem: {fileID: 11400000, guid: ca0036860ffcde649b82597943d6bac6, type: 2}
+  swabStickPrefab: {fileID: 6488087500066331418, guid: 76e339657038cde4b867e584b7e50570, type: 3}
+  droppedItemPrefab: {fileID: 9030321009598397116, guid: dedf45a66fa3ad54193d015b16af5f84, type: 3}
+  thoughtBubbleRenderer: {fileID: 5316216624820595615}
+  stunnedIconRenderer: {fileID: 1154388671340012776}
+  dashParticleGameEvent: {fileID: 11400000, guid: b3f39252519740843a5ee14e2800faab, type: 2}
+--- !u!114 &789055899533834128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbffb74091872c04e82869bca71caa8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUIIndicatorText: {fileID: 87406235}
+  constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
+  swabStick: {fileID: 11400000, guid: 9a38f69746d35454ebfb482ce9d07246, type: 2}
+  shopItem: {fileID: 11400000, guid: ca0036860ffcde649b82597943d6bac6, type: 2}
+  swabStickPrefab: {fileID: 6488087500066331418, guid: 76e339657038cde4b867e584b7e50570, type: 3}
+  droppedItemPrefab: {fileID: 9030321009598397116, guid: dedf45a66fa3ad54193d015b16af5f84, type: 3}
+  thoughtBubbleRenderer: {fileID: 5316216624820595615}
+  stunnedIconRenderer: {fileID: 1154388671340012776}
+  dashParticleGameEvent: {fileID: 11400000, guid: b3f39252519740843a5ee14e2800faab, type: 2}
+--- !u!114 &4663360309773489266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f72b587eff5bb4f9108c9fa24f2b10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7101595919442080812
 GameObject:
   m_ObjectHideFlags: 0

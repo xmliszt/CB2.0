@@ -103,7 +103,7 @@ public class TestSampleProcessor : MonoBehaviour
     {
         testStationInfo.isLocked = true;
         testStationInfo.resultOwner = player.transform.GetInstanceID();
-        Sprite playerAvatar = player.GetComponent<PlayerController>().playerStats.playerAvatar;
+        Sprite playerAvatar = player.GetComponent<SwabTestPlayerController>().GetPlayerStats().playerAvatar;
         avatarRenderer.sprite = playerAvatar;
         lockIndicator.enabled = true;
         avatarRenderer.enabled = true;   

@@ -3,21 +3,21 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class SpriteOutlined : MonoBehaviour {
 
-    public PlayerStats playerStats;
     private Color color;
     [Range(0, 16)]
     public int outlineSize = 1;
 
     private SpriteRenderer spriteRenderer;
 
-    void OnEnable() {
+    public void EnableOutline(PlayerStats playerStats)
+    {
         color = playerStats.playerAccent;
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         UpdateOutline(true);
     }
 
-    void OnDisable() {
+    public void DisableOutline() {
         UpdateOutline(false);
     }
 
