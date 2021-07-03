@@ -8,6 +8,10 @@ using UnityEngine;
 ]
 public class GameConstants : ScriptableObject
 {
+    [Header("Player Configuration")]
+
+    public int minigameCountdownTime = 60 * 3; // in seconds
+
     [Header("Game Generic Configuration")]
 
     public float gameBoundX = 10;
