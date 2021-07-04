@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
 
     private SwabTestControlHandler swabTestControlHandler;
 
-    private void Awake()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -47,10 +47,6 @@ public class PlayerController : MonoBehaviour
         playerStatsManager = GetComponent<PlayerStatsManager>();
         swabTestControlHandler = GetComponent<SwabTestControlHandler>();
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
-    }
-
-    private void Start()
-    {
         animator.runtimeAnimatorController =
             playerStatsManager.GetPlayerStats().animatorController;
     }
@@ -147,17 +143,19 @@ public class PlayerController : MonoBehaviour
 
     public void OnUse(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.performed)
         {
             if (!disabled)
             {
                 switch (gameStats.GetCurrentScene())
                 {
                     case GameStats.Scene.gameLobby:
-                        gameLobbyControlHandler.OnUse();
+                        if (gameLobbyControlHandler)
+                            gameLobbyControlHandler.OnUse();
                         break;
                     case GameStats.Scene.swabTestWar:
-                        swabTestControlHandler.OnUse();
+                        if (swabTestControlHandler)
+                            swabTestControlHandler.OnUse();
                         break;
                     default:
                         break;
@@ -175,7 +173,8 @@ public class PlayerController : MonoBehaviour
                 switch (gameStats.GetCurrentScene())
                 {
                     case GameStats.Scene.swabTestWar:
-                        swabTestControlHandler.onPickUpDrop();
+                        if (swabTestControlHandler)
+                            swabTestControlHandler.onPickUpDrop();
                         break;
                     default:
                         break;
@@ -193,7 +192,8 @@ public class PlayerController : MonoBehaviour
                 switch (gameStats.GetCurrentScene())
                 {
                     case GameStats.Scene.swabTestWar:
-                        swabTestControlHandler.onShop();
+                        if (swabTestControlHandler)
+                            swabTestControlHandler.onShop();
                         break;
                     default:
                         break;

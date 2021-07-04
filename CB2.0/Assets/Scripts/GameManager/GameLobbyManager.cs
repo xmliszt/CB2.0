@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class GeneralGameManager : MonoBehaviour
+public class GameLobbyManager : MonoBehaviour
 {
     // The list of player profiles to select from
     public PlayerStats[] playerProfiles;
@@ -27,7 +27,7 @@ public class GeneralGameManager : MonoBehaviour
     private void Start()
     {
         playerObjects = new Dictionary<int, Transform>();
-        playerInputManager = GetComponent<PlayerInputManager>();
+        playerInputManager = PlayerInputManager.instance;
         gameStats.SetCurrentScene(GameStats.Scene.gameLobby);
         foreach (PlayerStats playerStats in playerProfiles)
         {
@@ -39,6 +39,7 @@ public class GeneralGameManager : MonoBehaviour
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         int playerID = playerInput.playerIndex + 1;
+        Debug.Log(string.Format("Player {0} joined", playerID));
         playerObjects[playerID] = playerInput.gameObject.transform;
         PlayerStats newPlayerStats = SwitchPlayerProfile(playerID); // assign one profile to the joined player
         players.AddPlayer (newPlayerStats, playerInput);
@@ -155,9 +156,6 @@ public class GeneralGameManager : MonoBehaviour
 
     public void OnPlayerRelocate(int playerID, Vector3 location)
     {
-        Debug
-            .Log(string
-                .Format("Player {0} relocate to {1}", playerID, location));
         playerObjects[playerID].position = location;
     }
 }
