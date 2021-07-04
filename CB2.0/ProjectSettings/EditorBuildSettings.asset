@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CharacterMovementDemo.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/GameLobby.unity
+    guid: 398f08205d44e804e877ea30bb64491f
+  - enabled: 1
+    path: Assets/Scenes/SwabTestWar.unity
+    guid: 6dc12788614e687479ba97c9abcce8f7
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 69f6217b8052ccb4cb71570c3ebbd344, type: 2}

@@ -13,7 +13,7 @@ class RankComparer : IComparer<PlayerStats>
 [System.Serializable]
 public class RankHandler : MonoBehaviour
 {
-    public List<PlayerStats> playerStatsList;
+    public Players players;
 
     public GameObject playerInfoPanel;
 
@@ -23,11 +23,19 @@ public class RankHandler : MonoBehaviour
 
     private CanvasGroup gameoverUI;
 
+    private List<PlayerStats> playerStatsList;
+
     private void Start() {
+        playerStatsList = new List<PlayerStats>();
         gameoverUI = GetComponent<CanvasGroup>();
         gameoverUI.alpha = 0;
         playerInfoRows = playerInfoPanel.GetComponentsInChildren<CanvasGroup>();
         playerInfoEditors = playerInfoPanel.GetComponentsInChildren<PlayerInfoEditor>();
+        foreach(KeyValuePair<int, PlayerInfo> player in players.GetPlayers())
+        {
+            PlayerStats playerStats = player.Value.playerStats;
+            playerStatsList.Add(playerStats);
+        }
         foreach (CanvasGroup playerInfoRow in playerInfoRows)
         {
             playerInfoRow.alpha = 0;

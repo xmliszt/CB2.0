@@ -1,9 +1,8 @@
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class SpriteOutlined : MonoBehaviour {
-
-    private Color color;
+public class SpriteOutlined : MonoBehaviour
+{
     [Range(0, 16)]
     public int outlineSize = 1;
 
@@ -11,27 +10,37 @@ public class SpriteOutlined : MonoBehaviour {
 
     private PlayerStats playerStats;
 
+    private Color color;
+
+    private bool outline;
+
+    private void Start()
+    {
+        outline = true;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     public void EnableOutline(PlayerStats playerStats)
     {
         color = playerStats.playerAccent;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        UpdateOutline(true);
+        outline = true;
     }
 
-    public void DisableOutline() {
-        UpdateOutline(false);
+    public void DisableOutline()
+    {
+        outline = false;
     }
 
-    void Update() {
-        UpdateOutline(true);
-    }
-
-    void UpdateOutline(bool outline) {
-        MaterialPropertyBlock mpb = new MaterialPropertyBlock();
-        spriteRenderer.GetPropertyBlock(mpb);
-        mpb.SetFloat("_Outline", outline ? 1f : 0);
-        mpb.SetColor("_OutlineColor", color);
-        mpb.SetFloat("_OutlineSize", outlineSize);
-        spriteRenderer.SetPropertyBlock(mpb);
+    void Update()
+    {
+        if (spriteRenderer)
+        {
+            MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+            spriteRenderer.GetPropertyBlock (mpb);
+            mpb.SetFloat("_Outline", outline ? 1f : 0);
+            mpb.SetColor("_OutlineColor", color);
+            mpb.SetFloat("_OutlineSize", outlineSize);
+            spriteRenderer.SetPropertyBlock (mpb);
+        }
     }
 }

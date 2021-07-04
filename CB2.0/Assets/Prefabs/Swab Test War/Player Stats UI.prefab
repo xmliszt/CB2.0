@@ -250,12 +250,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49f963977e4cdee41b7e55e439b47bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerID: 1
+  players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
   scoreText: {fileID: 5469270826855753903}
   completeTestText: {fileID: 5469270826661026902}
   playerIndicatorText: {fileID: 1624360211}
   playerAvatar: {fileID: 5469270827088452754}
   panelBackground: {fileID: 5469270826262230630}
-  playerStats: {fileID: 11400000, guid: 7863ae96c9452014ca08b8a3f80ba374, type: 2}
 --- !u!61 &5038839414950098215
 BoxCollider2D:
   m_ObjectHideFlags: 0

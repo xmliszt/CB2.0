@@ -44,14 +44,6 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
-                },
-                {
-                    "name": "show",
-                    "type": "Button",
-                    "id": "f0f653bb-5b5d-48a9-bc1f-9b39f81ba57f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold"
                 }
             ],
             "bindings": [
@@ -61,7 +53,7 @@
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
+                    "groups": "Gamepad",
                     "action": "shop",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -83,7 +75,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
+                    "groups": "Gamepad",
                     "action": "move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -149,7 +141,7 @@
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
+                    "groups": "Gamepad",
                     "action": "dash",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -160,7 +152,7 @@
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
+                    "groups": "Gamepad",
                     "action": "dash",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -182,7 +174,7 @@
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
+                    "groups": "Gamepad",
                     "action": "use",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -204,7 +196,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
+                    "groups": "Gamepad",
                     "action": "pick/drop",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -219,36 +211,14 @@
                     "action": "pick/drop",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "50a9945a-f015-4e62-a894-87e33019ee7e",
-                    "path": "<Keyboard>/i",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "keyboard",
-                    "action": "show",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1b70fd99-8a6f-4b0e-8dd1-d5173e5497b8",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
-                    "action": "show",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
     ],
     "controlSchemes": [
         {
-            "name": "Player 1",
-            "bindingGroup": "Player 1",
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
@@ -263,40 +233,7 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Player 2",
-            "bindingGroup": "Player 2",
-            "devices": [
-                {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Player 3",
-            "bindingGroup": "Player 3",
-            "devices": [
-                {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Player 4",
-            "bindingGroup": "Player 4",
-            "devices": [
-                {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": false,
+                    "isOptional": true,
                     "isOR": false
                 }
             ]

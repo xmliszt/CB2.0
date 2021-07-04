@@ -17,7 +17,7 @@ public class PlayerZoneManager : MonoBehaviour
         shop = 6,
         clothChanger = 7,
         reception = 8,
-        musicChanger = 9,
+        musicChanger = 9
     }
 
     public ZoneType GetZone()
@@ -38,9 +38,9 @@ public class PlayerZoneManager : MonoBehaviour
             case "TestStation":
                 zoneType = ZoneType.testStation;
                 gameObject
-                    .GetComponent<SwabTestPlayerController>()
-                    .testStationProcessor =
-                    zoneObject.GetComponent<TestSampleProcessor>();
+                    .GetComponent<SwabTestControlHandler>()
+                    .SetTestStationProcessor(zoneObject
+                        .GetComponent<TestSampleProcessor>());
                 break;
             case "SubmissionDesk":
                 zoneType = ZoneType.submissionStation;
@@ -48,18 +48,16 @@ public class PlayerZoneManager : MonoBehaviour
             case "Shop":
                 zoneType = ZoneType.shop;
                 gameObject
-                    .GetComponent<SwabTestPlayerController>()
-                    .shopHandler = zoneObject.GetComponent<ShopHandler>();
+                    .GetComponent<SwabTestControlHandler>()
+                    .SetShopHandler(zoneObject.GetComponent<ShopHandler>());
+
                 break;
             case "SwabStick":
-                gameObject
-                    .GetComponent<SwabTestPlayerController>()
-                    .GetStunned();
+                gameObject.GetComponent<SwabTestControlHandler>().GetStunned();
                 break;
             case "Item":
                 zoneType = ZoneType.droppedItem;
-                gameObject.GetComponent<SwabTestPlayerController>().pickedItem =
-                    zoneObject;
+                gameObject.GetComponent<SwabTestControlHandler>().SetPickedItem(zoneObject);
                 break;
             case "ClothChanger":
                 zoneType = ZoneType.clothChanger;

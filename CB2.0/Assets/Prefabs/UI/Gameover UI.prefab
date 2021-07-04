@@ -530,11 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99465b0d4818ca4d93c4a2eb2e20e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStatsList:
-  - {fileID: 11400000, guid: 7863ae96c9452014ca08b8a3f80ba374, type: 2}
-  - {fileID: 11400000, guid: 2ce66a47f85f2864a831bcc1ca2b7b9e, type: 2}
-  - {fileID: 11400000, guid: 8c121b204a3abc5498941aea02a93471, type: 2}
-  - {fileID: 11400000, guid: bc4244fe3ed76274198eb2e416b3b8c8, type: 2}
+  players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
   playerInfoPanel: {fileID: 4728250661960227263}
 --- !u!114 &1781059803
 MonoBehaviour:
