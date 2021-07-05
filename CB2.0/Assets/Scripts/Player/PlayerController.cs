@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
                     dashDirection = direction;
 
                     // remember the most recent dash direction for removal
-                    if (!isIdle)
+                    if (!isIdle && rb)
                     {
                         rb
                             .AddForce(dashDirection * constants.playerDashSpeed,

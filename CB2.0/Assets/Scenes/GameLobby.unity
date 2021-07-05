@@ -1064,6 +1064,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3483710355379515712, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: singlePlayerDemo
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3483710355379515714, guid: 736db9b9d134e294784893312f61d194, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1107,6 +1111,10 @@ PrefabInstance:
     - target: {fileID: 3483710355379515714, guid: 736db9b9d134e294784893312f61d194, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483710355379515715, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: m_AllowJoining
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3483710355379515717, guid: 736db9b9d134e294784893312f61d194, type: 3}
       propertyPath: m_Name

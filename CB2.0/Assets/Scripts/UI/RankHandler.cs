@@ -71,7 +71,7 @@ public class RankHandler : MonoBehaviour
         for (int i = 0; i < playerStatsList.Count; i ++)
         {
             playerInfoEditors[i].SetPlayerStats(playerStatsList[i]);
-            Fade(playerInfoRows[i], 0, 1, 1f);
+            StartCoroutine(Fade(playerInfoRows[i], 0, 1, 1f));
             yield return new WaitForSeconds(0.5f);
         }
     }
