@@ -22,5 +22,5 @@ public class PlayerStats : ScriptableObject
 
    public int coins;
 
-   public int completedSwabTests;
+   public int score;
 }

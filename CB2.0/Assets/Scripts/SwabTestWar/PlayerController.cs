@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
     public PlayerStats playerStats;
+
+    public TMP_Text playerUIIndicatorText;
 
     public GameConstants constants;
 
@@ -45,6 +48,8 @@ public class PlayerController : MonoBehaviour
 
     private bool isIdle = true; // True if the character is IDLE (not moving), else false
 
+    private bool isStunned = false; // True if the character is tunned
+
     private Vector2 direction = Vector2.down;
 
     private Vector2 idleDirection = Vector2.down; // The direction when character is idle
@@ -78,6 +83,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        isStunned = true;   // player can only move when the UI "READY-START" has finished playing
         rb = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
@@ -86,6 +92,8 @@ public class PlayerController : MonoBehaviour
             playerStats.animatorController;
         thoughtBubbleRenderer.enabled = false;
         stunnedIconRenderer.enabled = false;
+        playerUIIndicatorText.text = string.Format("{0}P", playerStats.playerID);
+        playerUIIndicatorText.color = playerStats.playerAccent;
     }
 
     private void Update()
@@ -103,7 +111,11 @@ public class PlayerController : MonoBehaviour
         if (finalInputMovement.magnitude == 0) isIdle = true;
 
         // auto pick up
-        if (zoneType == ZoneType.droppedItem && !inventory.hasItem() && autoPickEnabled)
+        if (
+            zoneType == ZoneType.droppedItem &&
+            !inventory.hasItem() &&
+            autoPickEnabled
+        )
         {
             // pick up dropped item
             Item _item = pickedItem.GetComponent<CollectableItem>().itemMeta;
@@ -112,6 +124,12 @@ public class PlayerController : MonoBehaviour
             thoughtBubbleRenderer.enabled = true;
             Destroy (pickedItem);
         }
+    }
+
+    // Call this after "READY-START" UI finished playing, controlled by Game Event
+    public void EnablePlayerMovement()
+    {
+        isStunned = false;  // set to false so that player can move
     }
 
     private Vector2 GetDirection()
@@ -150,115 +168,135 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnShow()
+    {
+        playerUIIndicatorText.text = string.Format("{0}P", playerStats.playerID);
+        playerUIIndicatorText.color = playerStats.playerAccent;
+    }
+
     public void OnMove(InputValue context)
     {
-        isIdle = false;
-        Vector2 movement = context.Get<Vector2>();
-        rawInputMovement =
-            new Vector3(movement.x, movement.y, transform.position.z);
+        if (!isStunned)
+        {
+            isIdle = false;
+            Vector2 movement = context.Get<Vector2>();
+            rawInputMovement =
+                new Vector3(movement.x, movement.y, transform.position.z);
+        }
     }
 
     public void OnDash()
     {
-        if (!isDashing && !isIdle)
+        if (!isStunned)
         {
-            isDashing = true;
-            dashParticleGameEvent
-                .Fire(ParticleManager.ParticleTag.dash,
-                transform.position - Vector3.up * constants.dashParticleOffset);
-            dashDirection = direction;
-
-            // remember the most recent dash direction for removal
-            if (!isIdle)
+            if (!isDashing && !isIdle)
             {
-                rb
-                    .AddForce(dashDirection * constants.playerDashSpeed,
-                    ForceMode2D.Impulse);
+                isDashing = true;
+                dashParticleGameEvent
+                    .Fire(ParticleManager.ParticleTag.dash,
+                    transform.position -
+                    Vector3.up * constants.dashParticleOffset);
+                dashDirection = direction;
+
+                // remember the most recent dash direction for removal
+                if (!isIdle)
+                {
+                    rb
+                        .AddForce(dashDirection * constants.playerDashSpeed,
+                        ForceMode2D.Impulse);
+                }
+                isDashing = false;
             }
-            isDashing = false;
         }
     }
 
     public void OnUse()
     {
-        if (inventory.hasItem())
+        if (!isStunned)
         {
-            Item currentItem = inventory.GetCurrentItem();
-            if (currentItem.itemType == Item.ItemType.swabStick)
+            if (inventory.hasItem())
             {
-                inventory.useItem();
-                GameObject stick =
-                    Instantiate(swabStickPrefab,
-                    transform.position +
-                    new Vector3(idleDirection.x,
-                        idleDirection.y - 0.2f,
-                        transform.position.z) *
-                    0.5f,
-                    swabStickPrefab.transform.rotation);
-                SwabStickMovement stickMovementScript =
-                    stick.GetComponent<SwabStickMovement>();
-                stickMovementScript.fromPlayer = gameObject;
-                stickMovementScript.direction = idleDirection;
-                stickMovementScript.StartFlying();
-                thoughtBubbleRenderer.enabled = false;
-            }
-            else if (currentItem.itemType == Item.ItemType.testSample)
-            {
-                // submit test sample to test station
-                if (zoneType == ZoneType.testStation)
+                Item currentItem = inventory.GetCurrentItem();
+                if (currentItem.itemType == Item.ItemType.swabStick)
                 {
-                    if (!testStationProcessor.testStationInfo.isLoaded)
+                    inventory.useItem();
+                    GameObject stick =
+                        Instantiate(swabStickPrefab,
+                        transform.position +
+                        new Vector3(idleDirection.x,
+                            idleDirection.y - 0.2f,
+                            transform.position.z) *
+                        0.5f,
+                        swabStickPrefab.transform.rotation);
+                    SwabStickMovement stickMovementScript =
+                        stick.GetComponent<SwabStickMovement>();
+                    stickMovementScript.fromPlayer = gameObject;
+                    stickMovementScript.direction = idleDirection;
+                    stickMovementScript.StartFlying();
+                    thoughtBubbleRenderer.enabled = false;
+                }
+                else if (currentItem.itemType == Item.ItemType.testSample)
+                {
+                    // submit test sample to test station
+                    if (zoneType == ZoneType.testStation)
                     {
-                        if (testStationProcessor.testStationInfo.isLocked)
+                        if (!testStationProcessor.testStationInfo.isLoaded)
                         {
-                            if (
-                                transform.GetInstanceID() ==
-                                testStationProcessor.testStationInfo.resultOwner
-                            )
+                            if (testStationProcessor.testStationInfo.isLocked)
+                            {
+                                if (
+                                    transform.GetInstanceID() ==
+                                    testStationProcessor
+                                        .testStationInfo
+                                        .resultOwner
+                                )
+                                {
+                                    SubmitTestSample();
+                                }
+                            }
+                            else
                             {
                                 SubmitTestSample();
                             }
                         }
-                        else
-                        {
-                            SubmitTestSample();
-                        }
                     }
                 }
-            }
-            else if (currentItem.itemType == Item.ItemType.testResult)
-            {
-                // submit test result to submission desk
-                if (zoneType == ZoneType.submissionStation)
+                else if (currentItem.itemType == Item.ItemType.testResult)
                 {
-                    inventory.useItem();
-                    inventory.SetItem (trash);
-                    thoughtBubbleRenderer.sprite = trash.thoughtBubbleSprite;
-                    thoughtBubbleRenderer.enabled = true;
+                    // submit test result to submission desk
+                    if (zoneType == ZoneType.submissionStation)
+                    {
+                        inventory.useItem();
+                        inventory.SetItem (trash);
+                        thoughtBubbleRenderer.sprite =
+                            trash.thoughtBubbleSprite;
+                        thoughtBubbleRenderer.enabled = true;
 
-                    // Log 1 completed swab test
-                    playerStats.completedSwabTests++;
+                        // Log 1 completed swab test
+                        playerStats.score++;
+                    }
                 }
-            }
-            else if (currentItem.itemType == Item.ItemType.trash)
-            {
-                // throw the trash and gain coins
-                if (zoneType == ZoneType.dustbin)
+                else if (currentItem.itemType == Item.ItemType.trash)
                 {
-                    inventory.useItem();
-                    thoughtBubbleRenderer.enabled = false;
+                    // throw the trash and gain coins
+                    if (zoneType == ZoneType.dustbin)
+                    {
+                        inventory.useItem();
+                        thoughtBubbleRenderer.enabled = false;
 
-                    // Gain 1 coin!
-                    playerStats.coins += constants.coinAwardedPerCompleteTest;
+                        // Gain 1 coin!
+                        playerStats.coins +=
+                            constants.coinAwardedPerCompleteTest;
+                    }
                 }
-            }
-            else if (currentItem.itemType == Item.ItemType.shopItem)
-            {
-                if (zoneType == ZoneType.testStation)
+                else if (currentItem.itemType == Item.ItemType.shopItem)
                 {
-                    inventory.useItem();
-                    thoughtBubbleRenderer.enabled = false;
-                    testStationProcessor.OnLock (gameObject);
+                    if (zoneType == ZoneType.testStation)
+                    {
+                        inventory.useItem();
+                        thoughtBubbleRenderer.enabled = false;
+                        testStationProcessor.OnLock (gameObject);
+                    }
                 }
             }
         }
@@ -266,64 +304,73 @@ public class PlayerController : MonoBehaviour
 
     public void OnPickdrop()
     {
-        if (!inventory.hasItem())
+        if (!isStunned)
         {
-            if (zoneType != ZoneType.nullType)
+            if (!inventory.hasItem())
             {
-                if (zoneType == ZoneType.swabStickCollection)
+                if (zoneType != ZoneType.nullType)
                 {
-                    inventory.SetItem (swabStick);
-                    thoughtBubbleRenderer.sprite =
-                        swabStick.thoughtBubbleSprite;
-                    thoughtBubbleRenderer.enabled = true;
-                }
-                else if (zoneType == ZoneType.testStation)
-                {
-                    if (testStationProcessor.testStationInfo.isComplete)
+                    if (zoneType == ZoneType.swabStickCollection)
                     {
-                        if (testStationProcessor.testStationInfo.isLocked)
+                        inventory.SetItem (swabStick);
+                        thoughtBubbleRenderer.sprite =
+                            swabStick.thoughtBubbleSprite;
+                        thoughtBubbleRenderer.enabled = true;
+                    }
+                    else if (zoneType == ZoneType.testStation)
+                    {
+                        if (testStationProcessor.testStationInfo.isComplete)
                         {
-                            if (
-                                transform.GetInstanceID() ==
-                                testStationProcessor.testStationInfo.resultOwner
-                            )
+                            if (testStationProcessor.testStationInfo.isLocked)
+                            {
+                                if (
+                                    transform.GetInstanceID() ==
+                                    testStationProcessor
+                                        .testStationInfo
+                                        .resultOwner
+                                )
+                                {
+                                    PickUpTestResult();
+                                }
+                            }
+                            else
                             {
                                 PickUpTestResult();
                             }
                         }
-                        else
-                        {
-                            PickUpTestResult();
-                        }
                     }
                 }
             }
-        }
-        else
-        {
-            DropItem();
-            // disable auto pick up for a short while
-            autoPickEnabled = false;
-            StartCoroutine(EnableAutoPickUp());
+            else
+            {
+                DropItem();
+
+                // disable auto pick up for a short while
+                autoPickEnabled = false;
+                StartCoroutine(EnableAutoPickUp(1));
+            }
         }
     }
 
-    IEnumerator EnableAutoPickUp()
+    IEnumerator EnableAutoPickUp(float delay)
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(delay);
         autoPickEnabled = true;
     }
 
     public void OnShop()
     {
-        if (!inventory.hasItem() && zoneType == ZoneType.shop)
+        if (!isStunned)
         {
-            ShopItem boughtItem = shopHandler.BuyItem(gameObject);
-            if (boughtItem != null)
+            if (!inventory.hasItem() && zoneType == ZoneType.shop)
             {
-                inventory.SetItem (shopItem);
-                thoughtBubbleRenderer.sprite = shopItem.thoughtBubbleSprite;
-                thoughtBubbleRenderer.enabled = true;
+                ShopItem boughtItem = shopHandler.BuyItem(gameObject);
+                if (boughtItem != null)
+                {
+                    inventory.SetItem (shopItem);
+                    thoughtBubbleRenderer.sprite = shopItem.thoughtBubbleSprite;
+                    thoughtBubbleRenderer.enabled = true;
+                }
             }
         }
     }
@@ -362,9 +409,9 @@ public class PlayerController : MonoBehaviour
         thoughtBubbleRenderer.enabled = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void SetZone(string zoneTag, GameObject zoneObject)
     {
-        switch (other.tag)
+        switch (zoneTag)
         {
             case "CollectionPoint":
                 zoneType = ZoneType.swabStickCollection;
@@ -375,21 +422,24 @@ public class PlayerController : MonoBehaviour
             case "TestStation":
                 zoneType = ZoneType.testStation;
                 testStationProcessor =
-                    other.gameObject.GetComponent<TestSampleProcessor>();
+                    zoneObject.GetComponent<TestSampleProcessor>();
                 break;
             case "SubmissionDesk":
                 zoneType = ZoneType.submissionStation;
                 break;
             case "Shop":
                 zoneType = ZoneType.shop;
-                shopHandler = other.gameObject.GetComponent<ShopHandler>();
+                shopHandler = zoneObject.GetComponent<ShopHandler>();
                 break;
             case "SwabStick":
                 GetStunned();
                 break;
             case "Item":
                 zoneType = ZoneType.droppedItem;
-                pickedItem = other.gameObject;
+                pickedItem = zoneObject;
+                break;
+            case "null":
+                zoneType = ZoneType.nullType;
                 break;
         }
     }
@@ -397,9 +447,11 @@ public class PlayerController : MonoBehaviour
     private void GetStunned()
     {
         DropItem();
+        autoPickEnabled = false;
+        StartCoroutine(EnableAutoPickUp(constants.playerStunnedDuration));
         stunnedIconRenderer.enabled = true;
-        GetComponent<PlayerInput>().enabled = false;
         SpriteRenderer _renderer = GetComponent<SpriteRenderer>();
+        isStunned = true;
         _renderer.color =
             new Color(_renderer.color.r,
                 _renderer.color.g,
@@ -411,7 +463,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator Unfreeze()
     {
         yield return new WaitForSeconds(constants.playerStunnedDuration);
-        GetComponent<PlayerInput>().enabled = true;
+        isStunned = false;
         stunnedIconRenderer.enabled = false;
         SpriteRenderer _renderer = GetComponent<SpriteRenderer>();
         _renderer.color =
@@ -419,11 +471,6 @@ public class PlayerController : MonoBehaviour
                 _renderer.color.g,
                 _renderer.color.b,
                 1);
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        zoneType = ZoneType.nullType;
     }
 
     public void OnSwabStickHit()
