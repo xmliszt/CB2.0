@@ -1,0 +1,7356 @@
+fileFormatVersion: 2
+guid: c0c4b3f9ed9a6424382d9fb39f369099
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7748198840934463092
+    second: 19_Hospital_Shadowless_32x32_0
+  - first:
+      213: -1179672432175604734
+    second: 19_Hospital_Shadowless_32x32_1
+  - first:
+      213: 3670614264539810474
+    second: 19_Hospital_Shadowless_32x32_2
+  - first:
+      213: 8344095413526372808
+    second: 19_Hospital_Shadowless_32x32_3
+  - first:
+      213: -6406767289522714210
+    second: 19_Hospital_Shadowless_32x32_4
+  - first:
+      213: 5448352855170359148
+    second: 19_Hospital_Shadowless_32x32_5
+  - first:
+      213: -3868929237344461359
+    second: 19_Hospital_Shadowless_32x32_6
+  - first:
+      213: -7369962931641530133
+    second: 19_Hospital_Shadowless_32x32_7
+  - first:
+      213: -4251225056757169467
+    second: 19_Hospital_Shadowless_32x32_8
+  - first:
+      213: 835887419104110373
+    second: 19_Hospital_Shadowless_32x32_9
+  - first:
+      213: -8413417119039366873
+    second: 19_Hospital_Shadowless_32x32_10
+  - first:
+      213: 3970467223904193913
+    second: 19_Hospital_Shadowless_32x32_11
+  - first:
+      213: -7822946239293911223
+    second: 19_Hospital_Shadowless_32x32_12
+  - first:
+      213: 6235826195423768354
+    second: 19_Hospital_Shadowless_32x32_13
+  - first:
+      213: -5210895623386619763
+    second: 19_Hospital_Shadowless_32x32_14
+  - first:
+      213: -8608956916127502061
+    second: 19_Hospital_Shadowless_32x32_15
+  - first:
+      213: 8079848096745825695
+    second: 19_Hospital_Shadowless_32x32_16
+  - first:
+      213: -6530671863354821190
+    second: 19_Hospital_Shadowless_32x32_17
+  - first:
+      213: 6284535042585425409
+    second: 19_Hospital_Shadowless_32x32_18
+  - first:
+      213: -2932733191485999393
+    second: 19_Hospital_Shadowless_32x32_19
+  - first:
+      213: 2920998172632055699
+    second: 19_Hospital_Shadowless_32x32_20
+  - first:
+      213: -445058055219127655
+    second: 19_Hospital_Shadowless_32x32_21
+  - first:
+      213: -1079492900968598993
+    second: 19_Hospital_Shadowless_32x32_22
+  - first:
+      213: -604363783201778353
+    second: 19_Hospital_Shadowless_32x32_23
+  - first:
+      213: 7081845749766478857
+    second: 19_Hospital_Shadowless_32x32_24
+  - first:
+      213: 5103425130599306288
+    second: 19_Hospital_Shadowless_32x32_25
+  - first:
+      213: 9175904940852597982
+    second: 19_Hospital_Shadowless_32x32_26
+  - first:
+      213: 5844171530834348558
+    second: 19_Hospital_Shadowless_32x32_27
+  - first:
+      213: -3354159625481886589
+    second: 19_Hospital_Shadowless_32x32_28
+  - first:
+      213: -7282247090283464694
+    second: 19_Hospital_Shadowless_32x32_29
+  - first:
+      213: -7066249012784352762
+    second: 19_Hospital_Shadowless_32x32_30
+  - first:
+      213: -5506260696965017662
+    second: 19_Hospital_Shadowless_32x32_31
+  - first:
+      213: 5000424947371007180
+    second: 19_Hospital_Shadowless_32x32_32
+  - first:
+      213: -7004748557681349965
+    second: 19_Hospital_Shadowless_32x32_33
+  - first:
+      213: 1753917809916617174
+    second: 19_Hospital_Shadowless_32x32_34
+  - first:
+      213: 2370420485350956383
+    second: 19_Hospital_Shadowless_32x32_35
+  - first:
+      213: 7943608379057168548
+    second: 19_Hospital_Shadowless_32x32_36
+  - first:
+      213: -6147451251416739283
+    second: 19_Hospital_Shadowless_32x32_37
+  - first:
+      213: -1619683750766195901
+    second: 19_Hospital_Shadowless_32x32_38
+  - first:
+      213: -769511038403053573
+    second: 19_Hospital_Shadowless_32x32_39
+  - first:
+      213: 7860196240042107654
+    second: 19_Hospital_Shadowless_32x32_40
+  - first:
+      213: 6367090804677796030
+    second: 19_Hospital_Shadowless_32x32_41
+  - first:
+      213: -8016395160943545124
+    second: 19_Hospital_Shadowless_32x32_42
+  - first:
+      213: 6275246603829783244
+    second: 19_Hospital_Shadowless_32x32_43
+  - first:
+      213: -6714595861563352753
+    second: 19_Hospital_Shadowless_32x32_44
+  - first:
+      213: -446059627882955472
+    second: 19_Hospital_Shadowless_32x32_45
+  - first:
+      213: 3496211042504856968
+    second: 19_Hospital_Shadowless_32x32_46
+  - first:
+      213: 4480274812168977568
+    second: 19_Hospital_Shadowless_32x32_47
+  - first:
+      213: 4597680927765229446
+    second: 19_Hospital_Shadowless_32x32_48
+  - first:
+      213: 2412607456731647343
+    second: 19_Hospital_Shadowless_32x32_49
+  - first:
+      213: -7774584948625765254
+    second: 19_Hospital_Shadowless_32x32_50
+  - first:
+      213: 2476575365728726654
+    second: 19_Hospital_Shadowless_32x32_51
+  - first:
+      213: 4615128471723441085
+    second: 19_Hospital_Shadowless_32x32_52
+  - first:
+      213: -2672718021006710030
+    second: 19_Hospital_Shadowless_32x32_53
+  - first:
+      213: 7579178879098271225
+    second: 19_Hospital_Shadowless_32x32_54
+  - first:
+      213: -6034949603252815524
+    second: 19_Hospital_Shadowless_32x32_55
+  - first:
+      213: -4245983084394200797
+    second: 19_Hospital_Shadowless_32x32_56
+  - first:
+      213: -2806799098942067175
+    second: 19_Hospital_Shadowless_32x32_57
+  - first:
+      213: -6265387011695802288
+    second: 19_Hospital_Shadowless_32x32_58
+  - first:
+      213: 549451494957050593
+    second: 19_Hospital_Shadowless_32x32_59
+  - first:
+      213: -4763523486322268337
+    second: 19_Hospital_Shadowless_32x32_60
+  - first:
+      213: 6569411196776934129
+    second: 19_Hospital_Shadowless_32x32_61
+  - first:
+      213: -2375219574255287923
+    second: 19_Hospital_Shadowless_32x32_62
+  - first:
+      213: 6892523946386396137
+    second: 19_Hospital_Shadowless_32x32_63
+  - first:
+      213: -6627770915374650883
+    second: 19_Hospital_Shadowless_32x32_64
+  - first:
+      213: -7428263865475657664
+    second: 19_Hospital_Shadowless_32x32_65
+  - first:
+      213: 5131757036870929788
+    second: 19_Hospital_Shadowless_32x32_66
+  - first:
+      213: 8120085005447473996
+    second: 19_Hospital_Shadowless_32x32_67
+  - first:
+      213: -644296229257762199
+    second: 19_Hospital_Shadowless_32x32_68
+  - first:
+      213: -8144571120275335854
+    second: 19_Hospital_Shadowless_32x32_69
+  - first:
+      213: 7364944738517839604
+    second: 19_Hospital_Shadowless_32x32_70
+  - first:
+      213: -60792695789393724
+    second: 19_Hospital_Shadowless_32x32_71
+  - first:
+      213: 2809015588995094472
+    second: 19_Hospital_Shadowless_32x32_72
+  - first:
+      213: -5503043433285487457
+    second: 19_Hospital_Shadowless_32x32_73
+  - first:
+      213: -5247960651539959001
+    second: 19_Hospital_Shadowless_32x32_74
+  - first:
+      213: -2740163377273726611
+    second: 19_Hospital_Shadowless_32x32_75
+  - first:
+      213: 3817599618352960084
+    second: 19_Hospital_Shadowless_32x32_76
+  - first:
+      213: -9219460247079067950
+    second: 19_Hospital_Shadowless_32x32_77
+  - first:
+      213: 6415368076778386879
+    second: 19_Hospital_Shadowless_32x32_78
+  - first:
+      213: 4180158868699874844
+    second: 19_Hospital_Shadowless_32x32_79
+  - first:
+      213: -934127615476176727
+    second: 19_Hospital_Shadowless_32x32_80
+  - first:
+      213: 7788706298242665684
+    second: 19_Hospital_Shadowless_32x32_81
+  - first:
+      213: 1056961543547097074
+    second: 19_Hospital_Shadowless_32x32_82
+  - first:
+      213: -7657575485780070016
+    second: 19_Hospital_Shadowless_32x32_83
+  - first:
+      213: 1121733766905446491
+    second: 19_Hospital_Shadowless_32x32_84
+  - first:
+      213: -3588434981978973267
+    second: 19_Hospital_Shadowless_32x32_85
+  - first:
+      213: 132234508536432297
+    second: 19_Hospital_Shadowless_32x32_86
+  - first:
+      213: 4024489299821812177
+    second: 19_Hospital_Shadowless_32x32_87
+  - first:
+      213: -5385431641808427046
+    second: 19_Hospital_Shadowless_32x32_88
+  - first:
+      213: -621415275411170870
+    second: 19_Hospital_Shadowless_32x32_89
+  - first:
+      213: -8356082333552314001
+    second: 19_Hospital_Shadowless_32x32_90
+  - first:
+      213: -6432123726491885526
+    second: 19_Hospital_Shadowless_32x32_91
+  - first:
+      213: -3631305503101852930
+    second: 19_Hospital_Shadowless_32x32_92
+  - first:
+      213: -2157383142513934273
+    second: 19_Hospital_Shadowless_32x32_93
+  - first:
+      213: -7774733406343526156
+    second: 19_Hospital_Shadowless_32x32_94
+  - first:
+      213: -6478116512939357607
+    second: 19_Hospital_Shadowless_32x32_95
+  - first:
+      213: -7242514447026272725
+    second: 19_Hospital_Shadowless_32x32_96
+  - first:
+      213: 6335545100173297370
+    second: 19_Hospital_Shadowless_32x32_97
+  - first:
+      213: -8790120484709431689
+    second: 19_Hospital_Shadowless_32x32_98
+  - first:
+      213: -1588092037432442664
+    second: 19_Hospital_Shadowless_32x32_99
+  - first:
+      213: -3687638596490414491
+    second: 19_Hospital_Shadowless_32x32_100
+  - first:
+      213: 7775719454904279699
+    second: 19_Hospital_Shadowless_32x32_101
+  - first:
+      213: 6752561066883411035
+    second: 19_Hospital_Shadowless_32x32_102
+  - first:
+      213: -8111400105731103896
+    second: 19_Hospital_Shadowless_32x32_103
+  - first:
+      213: 6904435131593719961
+    second: 19_Hospital_Shadowless_32x32_104
+  - first:
+      213: -3397975236749172016
+    second: 19_Hospital_Shadowless_32x32_105
+  - first:
+      213: 8977676454777265553
+    second: 19_Hospital_Shadowless_32x32_106
+  - first:
+      213: 1085763396180090525
+    second: 19_Hospital_Shadowless_32x32_107
+  - first:
+      213: 298165825452274594
+    second: 19_Hospital_Shadowless_32x32_108
+  - first:
+      213: -1696428273451079567
+    second: 19_Hospital_Shadowless_32x32_109
+  - first:
+      213: -9013533861167954368
+    second: 19_Hospital_Shadowless_32x32_110
+  - first:
+      213: 5233597522908560792
+    second: 19_Hospital_Shadowless_32x32_111
+  - first:
+      213: -3040066875875698955
+    second: 19_Hospital_Shadowless_32x32_112
+  - first:
+      213: 7755728279744566754
+    second: 19_Hospital_Shadowless_32x32_113
+  - first:
+      213: 55569920033028672
+    second: 19_Hospital_Shadowless_32x32_114
+  - first:
+      213: 8801856702910240106
+    second: 19_Hospital_Shadowless_32x32_115
+  - first:
+      213: 5825047390537542634
+    second: 19_Hospital_Shadowless_32x32_116
+  - first:
+      213: 4154159499199306263
+    second: 19_Hospital_Shadowless_32x32_117
+  - first:
+      213: -1882491198352777258
+    second: 19_Hospital_Shadowless_32x32_118
+  - first:
+      213: 6502324007411641570
+    second: 19_Hospital_Shadowless_32x32_119
+  - first:
+      213: 4182408683384715306
+    second: 19_Hospital_Shadowless_32x32_120
+  - first:
+      213: -480102040653800887
+    second: 19_Hospital_Shadowless_32x32_121
+  - first:
+      213: -1849972034647725035
+    second: 19_Hospital_Shadowless_32x32_122
+  - first:
+      213: -3591164282489515878
+    second: 19_Hospital_Shadowless_32x32_123
+  - first:
+      213: -3187365271509861674
+    second: 19_Hospital_Shadowless_32x32_124
+  - first:
+      213: 4876951711149431227
+    second: 19_Hospital_Shadowless_32x32_125
+  - first:
+      213: -1358593626486547732
+    second: 19_Hospital_Shadowless_32x32_126
+  - first:
+      213: -7467329697483718709
+    second: 19_Hospital_Shadowless_32x32_127
+  - first:
+      213: 1209722568509028259
+    second: 19_Hospital_Shadowless_32x32_128
+  - first:
+      213: 2961660090736367607
+    second: 19_Hospital_Shadowless_32x32_129
+  - first:
+      213: 495919531642864079
+    second: 19_Hospital_Shadowless_32x32_130
+  - first:
+      213: 9104993775269642702
+    second: 19_Hospital_Shadowless_32x32_131
+  - first:
+      213: -7149053965071437142
+    second: 19_Hospital_Shadowless_32x32_132
+  - first:
+      213: -8216387647190458592
+    second: 19_Hospital_Shadowless_32x32_133
+  - first:
+      213: -3560754730535648278
+    second: 19_Hospital_Shadowless_32x32_134
+  - first:
+      213: -5818253525687702636
+    second: 19_Hospital_Shadowless_32x32_135
+  - first:
+      213: -7608942707714458197
+    second: 19_Hospital_Shadowless_32x32_136
+  - first:
+      213: -5385383548315516408
+    second: 19_Hospital_Shadowless_32x32_137
+  - first:
+      213: 7540405296368619802
+    second: 19_Hospital_Shadowless_32x32_138
+  - first:
+      213: -843284148533891233
+    second: 19_Hospital_Shadowless_32x32_139
+  - first:
+      213: 6211641841845145905
+    second: 19_Hospital_Shadowless_32x32_140
+  - first:
+      213: 7973317269156662042
+    second: 19_Hospital_Shadowless_32x32_141
+  - first:
+      213: 5107661676730990368
+    second: 19_Hospital_Shadowless_32x32_142
+  - first:
+      213: 6383973041530316652
+    second: 19_Hospital_Shadowless_32x32_143
+  - first:
+      213: 4680971967711508021
+    second: 19_Hospital_Shadowless_32x32_144
+  - first:
+      213: 3389020713925659945
+    second: 19_Hospital_Shadowless_32x32_145
+  - first:
+      213: 3913269761663469336
+    second: 19_Hospital_Shadowless_32x32_146
+  - first:
+      213: 9046949498327730859
+    second: 19_Hospital_Shadowless_32x32_147
+  - first:
+      213: -4517623836864291469
+    second: 19_Hospital_Shadowless_32x32_148
+  - first:
+      213: -4272348383756975921
+    second: 19_Hospital_Shadowless_32x32_149
+  - first:
+      213: 3973720822372186091
+    second: 19_Hospital_Shadowless_32x32_150
+  - first:
+      213: 2618379178820645732
+    second: 19_Hospital_Shadowless_32x32_151
+  - first:
+      213: 3830609413526959310
+    second: 19_Hospital_Shadowless_32x32_152
+  - first:
+      213: 4674716306143717007
+    second: 19_Hospital_Shadowless_32x32_153
+  - first:
+      213: 6249415471822892821
+    second: 19_Hospital_Shadowless_32x32_154
+  - first:
+      213: -7580347712155326347
+    second: 19_Hospital_Shadowless_32x32_155
+  - first:
+      213: -3484083971976375218
+    second: 19_Hospital_Shadowless_32x32_156
+  - first:
+      213: 3200417930333317376
+    second: 19_Hospital_Shadowless_32x32_157
+  - first:
+      213: 9139995113968765376
+    second: 19_Hospital_Shadowless_32x32_158
+  - first:
+      213: 7819173690256481580
+    second: 19_Hospital_Shadowless_32x32_159
+  - first:
+      213: -5660236875620533248
+    second: 19_Hospital_Shadowless_32x32_160
+  - first:
+      213: 1642008310497118308
+    second: 19_Hospital_Shadowless_32x32_161
+  - first:
+      213: 4367669636772380134
+    second: 19_Hospital_Shadowless_32x32_162
+  - first:
+      213: 4616700041693215364
+    second: 19_Hospital_Shadowless_32x32_163
+  - first:
+      213: -5695914472235128378
+    second: 19_Hospital_Shadowless_32x32_164
+  - first:
+      213: 9007089761836515771
+    second: 19_Hospital_Shadowless_32x32_165
+  - first:
+      213: -5426463222627673757
+    second: 19_Hospital_Shadowless_32x32_166
+  - first:
+      213: 3811912921443147826
+    second: 19_Hospital_Shadowless_32x32_167
+  - first:
+      213: 5129309789575231901
+    second: 19_Hospital_Shadowless_32x32_168
+  - first:
+      213: 4045730025278019416
+    second: 19_Hospital_Shadowless_32x32_169
+  - first:
+      213: 1986251051073552437
+    second: 19_Hospital_Shadowless_32x32_170
+  - first:
+      213: 1244643597762033035
+    second: 19_Hospital_Shadowless_32x32_171
+  - first:
+      213: 6532874761485153595
+    second: 19_Hospital_Shadowless_32x32_172
+  - first:
+      213: -1617815388941922050
+    second: 19_Hospital_Shadowless_32x32_173
+  - first:
+      213: 62390550677784493
+    second: 19_Hospital_Shadowless_32x32_174
+  - first:
+      213: 9110729193247303688
+    second: 19_Hospital_Shadowless_32x32_175
+  - first:
+      213: -3866606285064829405
+    second: 19_Hospital_Shadowless_32x32_176
+  - first:
+      213: -254021231356917710
+    second: 19_Hospital_Shadowless_32x32_177
+  - first:
+      213: -8589379389417952058
+    second: 19_Hospital_Shadowless_32x32_178
+  - first:
+      213: 8496675017389132519
+    second: 19_Hospital_Shadowless_32x32_179
+  - first:
+      213: -555256330543054779
+    second: 19_Hospital_Shadowless_32x32_180
+  - first:
+      213: 7240212593846066220
+    second: 19_Hospital_Shadowless_32x32_181
+  - first:
+      213: 6780585609591923714
+    second: 19_Hospital_Shadowless_32x32_182
+  - first:
+      213: -1932966832358698560
+    second: 19_Hospital_Shadowless_32x32_183
+  - first:
+      213: 6380856557367256338
+    second: 19_Hospital_Shadowless_32x32_184
+  - first:
+      213: 1763982855567611929
+    second: 19_Hospital_Shadowless_32x32_185
+  - first:
+      213: -1535613762209399039
+    second: 19_Hospital_Shadowless_32x32_186
+  - first:
+      213: -2882019264356832222
+    second: 19_Hospital_Shadowless_32x32_187
+  - first:
+      213: 8751429527833602450
+    second: 19_Hospital_Shadowless_32x32_188
+  - first:
+      213: -111349077359085999
+    second: 19_Hospital_Shadowless_32x32_189
+  - first:
+      213: 686682994987127989
+    second: 19_Hospital_Shadowless_32x32_190
+  - first:
+      213: 6342321329279091049
+    second: 19_Hospital_Shadowless_32x32_191
+  - first:
+      213: 4604391091533085433
+    second: 19_Hospital_Shadowless_32x32_192
+  - first:
+      213: -5504652789037133371
+    second: 19_Hospital_Shadowless_32x32_193
+  - first:
+      213: 4275946369725970684
+    second: 19_Hospital_Shadowless_32x32_194
+  - first:
+      213: 2846826523747929080
+    second: 19_Hospital_Shadowless_32x32_195
+  - first:
+      213: -7208609321595859374
+    second: 19_Hospital_Shadowless_32x32_196
+  - first:
+      213: -8828200690480520653
+    second: 19_Hospital_Shadowless_32x32_197
+  - first:
+      213: 8463418546539816882
+    second: 19_Hospital_Shadowless_32x32_198
+  - first:
+      213: -9083325550795851457
+    second: 19_Hospital_Shadowless_32x32_199
+  - first:
+      213: 4105615239493425720
+    second: 19_Hospital_Shadowless_32x32_200
+  - first:
+      213: 6642444401426676536
+    second: 19_Hospital_Shadowless_32x32_201
+  - first:
+      213: -3465901147364156213
+    second: 19_Hospital_Shadowless_32x32_202
+  - first:
+      213: 1745255663624490929
+    second: 19_Hospital_Shadowless_32x32_203
+  - first:
+      213: 4988312455906566167
+    second: 19_Hospital_Shadowless_32x32_204
+  - first:
+      213: 5752846221583341525
+    second: 19_Hospital_Shadowless_32x32_205
+  - first:
+      213: 8429260052468455003
+    second: 19_Hospital_Shadowless_32x32_206
+  - first:
+      213: 9020722735774123506
+    second: 19_Hospital_Shadowless_32x32_207
+  - first:
+      213: 3424514234255825363
+    second: 19_Hospital_Shadowless_32x32_208
+  - first:
+      213: 4496680514419543634
+    second: 19_Hospital_Shadowless_32x32_209
+  - first:
+      213: 8472849216860026238
+    second: 19_Hospital_Shadowless_32x32_210
+  - first:
+      213: -4002270849987480088
+    second: 19_Hospital_Shadowless_32x32_211
+  - first:
+      213: -4578869076313270525
+    second: 19_Hospital_Shadowless_32x32_212
+  - first:
+      213: 1361629363010649377
+    second: 19_Hospital_Shadowless_32x32_213
+  - first:
+      213: -5566326068959876358
+    second: 19_Hospital_Shadowless_32x32_214
+  - first:
+      213: 7689384039110532925
+    second: 19_Hospital_Shadowless_32x32_215
+  - first:
+      213: -8861043265873603967
+    second: 19_Hospital_Shadowless_32x32_216
+  - first:
+      213: 1173015861522466323
+    second: 19_Hospital_Shadowless_32x32_217
+  - first:
+      213: -6210650032906369191
+    second: 19_Hospital_Shadowless_32x32_218
+  - first:
+      213: -8849362417810870016
+    second: 19_Hospital_Shadowless_32x32_219
+  - first:
+      213: 3089184490729535861
+    second: 19_Hospital_Shadowless_32x32_220
+  - first:
+      213: -3593442322955459772
+    second: 19_Hospital_Shadowless_32x32_221
+  - first:
+      213: -8154007714581918568
+    second: 19_Hospital_Shadowless_32x32_222
+  - first:
+      213: -8112982380648606894
+    second: 19_Hospital_Shadowless_32x32_223
+  - first:
+      213: -6602174269206255053
+    second: 19_Hospital_Shadowless_32x32_224
+  - first:
+      213: 6397496593521655698
+    second: 19_Hospital_Shadowless_32x32_225
+  - first:
+      213: -4583395668778288920
+    second: 19_Hospital_Shadowless_32x32_226
+  - first:
+      213: -984990870637758282
+    second: 19_Hospital_Shadowless_32x32_227
+  - first:
+      213: -1837238240783723841
+    second: 19_Hospital_Shadowless_32x32_228
+  - first:
+      213: 8582521687094133042
+    second: 19_Hospital_Shadowless_32x32_229
+  - first:
+      213: -7703340089301233072
+    second: 19_Hospital_Shadowless_32x32_230
+  - first:
+      213: 3773763063475515085
+    second: 19_Hospital_Shadowless_32x32_231
+  - first:
+      213: 4075077107215606621
+    second: 19_Hospital_Shadowless_32x32_232
+  - first:
+      213: 8167798271480793802
+    second: 19_Hospital_Shadowless_32x32_233
+  - first:
+      213: 6725592895418238646
+    second: 19_Hospital_Shadowless_32x32_234
+  - first:
+      213: 2632118574751472829
+    second: 19_Hospital_Shadowless_32x32_235
+  - first:
+      213: 5762619994916629866
+    second: 19_Hospital_Shadowless_32x32_236
+  - first:
+      213: 6518055635269515349
+    second: 19_Hospital_Shadowless_32x32_237
+  - first:
+      213: -5492102692531211448
+    second: 19_Hospital_Shadowless_32x32_238
+  - first:
+      213: -7955190013532029653
+    second: 19_Hospital_Shadowless_32x32_239
+  - first:
+      213: 4531887467982118088
+    second: 19_Hospital_Shadowless_32x32_240
+  - first:
+      213: 7980790489647995427
+    second: 19_Hospital_Shadowless_32x32_241
+  - first:
+      213: -5170271257605703816
+    second: 19_Hospital_Shadowless_32x32_242
+  - first:
+      213: -3863717198740679833
+    second: 19_Hospital_Shadowless_32x32_243
+  - first:
+      213: 1639915381501338850
+    second: 19_Hospital_Shadowless_32x32_244
+  - first:
+      213: 705749288842710137
+    second: 19_Hospital_Shadowless_32x32_245
+  - first:
+      213: -1113263572845489685
+    second: 19_Hospital_Shadowless_32x32_246
+  - first:
+      213: -6834493113389062458
+    second: 19_Hospital_Shadowless_32x32_247
+  - first:
+      213: 8389231596386410646
+    second: 19_Hospital_Shadowless_32x32_248
+  - first:
+      213: 6222509129534687821
+    second: 19_Hospital_Shadowless_32x32_249
+  - first:
+      213: -879317317043619064
+    second: 19_Hospital_Shadowless_32x32_250
+  - first:
+      213: -2383357515667982193
+    second: 19_Hospital_Shadowless_32x32_251
+  - first:
+      213: -5742920988557971504
+    second: 19_Hospital_Shadowless_32x32_252
+  - first:
+      213: 4111816463407904051
+    second: 19_Hospital_Shadowless_32x32_253
+  - first:
+      213: -6999428012626814432
+    second: 19_Hospital_Shadowless_32x32_254
+  - first:
+      213: 7750895483034695112
+    second: 19_Hospital_Shadowless_32x32_255
+  - first:
+      213: 369240614633328402
+    second: 19_Hospital_Shadowless_32x32_256
+  - first:
+      213: 7885675197995995772
+    second: 19_Hospital_Shadowless_32x32_257
+  - first:
+      213: 2655548775867772422
+    second: 19_Hospital_Shadowless_32x32_258
+  - first:
+      213: 5423949474583065608
+    second: 19_Hospital_Shadowless_32x32_259
+  - first:
+      213: 8532437310054834509
+    second: 19_Hospital_Shadowless_32x32_260
+  - first:
+      213: -6508929889175976128
+    second: 19_Hospital_Shadowless_32x32_261
+  - first:
+      213: -6064246761529058895
+    second: 19_Hospital_Shadowless_32x32_262
+  - first:
+      213: 653907698842922892
+    second: 19_Hospital_Shadowless_32x32_263
+  - first:
+      213: -7399071207441235921
+    second: 19_Hospital_Shadowless_32x32_264
+  - first:
+      213: -1363850451093629830
+    second: 19_Hospital_Shadowless_32x32_265
+  - first:
+      213: 5567419832808422413
+    second: 19_Hospital_Shadowless_32x32_266
+  - first:
+      213: 4421045830727494093
+    second: 19_Hospital_Shadowless_32x32_267
+  - first:
+      213: -4797323300361275145
+    second: 19_Hospital_Shadowless_32x32_268
+  - first:
+      213: -2180198497962751698
+    second: 19_Hospital_Shadowless_32x32_269
+  - first:
+      213: 2218784501519235877
+    second: 19_Hospital_Shadowless_32x32_270
+  - first:
+      213: -5023897473733633121
+    second: 19_Hospital_Shadowless_32x32_271
+  - first:
+      213: 1750565449732937967
+    second: 19_Hospital_Shadowless_32x32_272
+  - first:
+      213: -7522299688168997843
+    second: 19_Hospital_Shadowless_32x32_273
+  - first:
+      213: 2522120557960704449
+    second: 19_Hospital_Shadowless_32x32_274
+  - first:
+      213: 8603328056193085817
+    second: 19_Hospital_Shadowless_32x32_275
+  - first:
+      213: 1791635684449432382
+    second: 19_Hospital_Shadowless_32x32_276
+  - first:
+      213: 1490626930380679748
+    second: 19_Hospital_Shadowless_32x32_277
+  - first:
+      213: 1756409397016690485
+    second: 19_Hospital_Shadowless_32x32_278
+  - first:
+      213: -187411066257532667
+    second: 19_Hospital_Shadowless_32x32_279
+  - first:
+      213: -703602745007746207
+    second: 19_Hospital_Shadowless_32x32_280
+  - first:
+      213: 1706064922389549829
+    second: 19_Hospital_Shadowless_32x32_281
+  - first:
+      213: 207123059180780207
+    second: 19_Hospital_Shadowless_32x32_282
+  - first:
+      213: 3041351399278405185
+    second: 19_Hospital_Shadowless_32x32_283
+  - first:
+      213: 3959991358452242520
+    second: 19_Hospital_Shadowless_32x32_284
+  - first:
+      213: 7256973146460681276
+    second: 19_Hospital_Shadowless_32x32_285
+  - first:
+      213: 4646386337590766820
+    second: 19_Hospital_Shadowless_32x32_286
+  - first:
+      213: 6951853470731747663
+    second: 19_Hospital_Shadowless_32x32_287
+  - first:
+      213: 445397950501753631
+    second: 19_Hospital_Shadowless_32x32_288
+  - first:
+      213: 7225228140780705648
+    second: 19_Hospital_Shadowless_32x32_289
+  - first:
+      213: 1854862896730464741
+    second: 19_Hospital_Shadowless_32x32_290
+  - first:
+      213: 8515978534457571963
+    second: 19_Hospital_Shadowless_32x32_291
+  - first:
+      213: -9016154855536456268
+    second: 19_Hospital_Shadowless_32x32_292
+  - first:
+      213: -7847847149996009745
+    second: 19_Hospital_Shadowless_32x32_293
+  - first:
+      213: -6153212229035972888
+    second: 19_Hospital_Shadowless_32x32_294
+  - first:
+      213: -432936518048736271
+    second: 19_Hospital_Shadowless_32x32_295
+  - first:
+      213: 735964036278853630
+    second: 19_Hospital_Shadowless_32x32_296
+  - first:
+      213: 9014068853943460449
+    second: 19_Hospital_Shadowless_32x32_297
+  - first:
+      213: 4696849883962939910
+    second: 19_Hospital_Shadowless_32x32_298
+  - first:
+      213: -2580777615258949913
+    second: 19_Hospital_Shadowless_32x32_299
+  - first:
+      213: -6787742554562369882
+    second: 19_Hospital_Shadowless_32x32_300
+  - first:
+      213: -7268348550140008613
+    second: 19_Hospital_Shadowless_32x32_301
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3454
+        width: 63
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 476fdfa4bc1278b60800000000000000
+      internalID: 7748198840934463092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 3428
+        width: 448
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20c1ad05c26f0afe0800000000000000
+      internalID: -1179672432175604734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_2
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 3409
+        width: 21
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa8061d934a0f230800000000000000
+      internalID: 3670614264539810474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_3
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 3421
+        width: 29
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c1a437d19e2cc370800000000000000
+      internalID: 8344095413526372808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_4
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 3407
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e99086d38179617a0800000000000000
+      internalID: -6406767289522714210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_5
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 3413
+        width: 36
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6f1a6f1e007c9b40800000000000000
+      internalID: 5448352855170359148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3340
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ddd5fa6b5dce4ac0800000000000000
+      internalID: -3868929237344461359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3358
+        width: 25
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8c5bbe2c1a8b990800000000000000
+      internalID: -7369962931641530133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_8
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 3358
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c2cfb7b55d9005c0800000000000000
+      internalID: -4251225056757169467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_9
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 3358
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5272befcd2ba99b00800000000000000
+      internalID: 835887419104110373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_10
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 3332
+        width: 408
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 729d778d4b98d3b80800000000000000
+      internalID: -8413417119039366873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_11
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 3327
+        width: 65
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97d042957eee91730800000000000000
+      internalID: 3970467223904193913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3254
+        width: 95
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94f88e5d7df4f6390800000000000000
+      internalID: -7822946239293911223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_13
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 3251
+        width: 64
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22f2f4bc2ea1a8650800000000000000
+      internalID: 6235826195423768354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_14
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 3251
+        width: 62
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80276ef90e2fa7b0800000000000000
+      internalID: -5210895623386619763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_15
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 3251
+        width: 62
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 311f3970c47d68880800000000000000
+      internalID: -8608956916127502061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_16
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 3224
+        width: 222
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f95a6adf803612070800000000000000
+      internalID: 8079848096745825695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3224
+        width: 64
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab5f8109a846e55a0800000000000000
+      internalID: -6530671863354821190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_18
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 3138
+        width: 281
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1067cc70357273750800000000000000
+      internalID: 6284535042585425409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_19
+      rect:
+        serializedVersion: 2
+        x: 363
+        y: 3138
+        width: 21
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6ba7c53b6dc47d0800000000000000
+      internalID: -2932733191485999393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_20
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 3156
+        width: 62
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f7c45ac58798820800000000000000
+      internalID: 2920998172632055699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3160
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99adc3a8e06d2d9f0800000000000000
+      internalID: -445058055219127655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_22
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 3038
+        width: 58
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f22f53c0deed401f0800000000000000
+      internalID: -1079492900968598993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3096
+        width: 32
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f45952b575edc97f0800000000000000
+      internalID: -604363783201778353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_24
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 3084
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90cd0fc2035c74260800000000000000
+      internalID: 7081845749766478857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_25
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 3088
+        width: 48
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0345c2ffd1203d640800000000000000
+      internalID: 5103425130599306288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_26
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 3072
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed4554c7dec575f70800000000000000
+      internalID: 9175904940852597982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_27
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 3072
+        width: 85
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a05d52b0baa1150800000000000000
+      internalID: 5844171530834348558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_28
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 3072
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 384e13b7791a371d0800000000000000
+      internalID: -3354159625481886589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_29
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 3071
+        width: 28
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a083809bad240fa90800000000000000
+      internalID: -7282247090283464694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_30
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 3048
+        width: 53
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 602b88226f3afed90800000000000000
+      internalID: -7066249012784352762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_31
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 3024
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf84bcc115d593b0800000000000000
+      internalID: -5506260696965017662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_32
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 2988
+        width: 63
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cccdc0a0ff3156540800000000000000
+      internalID: 5000424947371007180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_33
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 2990
+        width: 48
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba297eac422ace90800000000000000
+      internalID: -7004748557681349965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_34
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 3009
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d1af4994fa275810800000000000000
+      internalID: 1753917809916617174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_35
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 3009
+        width: 85
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5d17a55fdc65e020800000000000000
+      internalID: 2370420485350956383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_36
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 3009
+        width: 26
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a0e484dbbd5d3e60800000000000000
+      internalID: 7943608379057168548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_37
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 3005
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d22564d48addfaaa0800000000000000
+      internalID: -6147451251416739283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_38
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 2993
+        width: 48
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34bcb1bc53ab589e0800000000000000
+      internalID: -1619683750766195901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_39
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 2992
+        width: 96
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf77e31a9c52255f0800000000000000
+      internalID: -769511038403053573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_40
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 2942
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6032290d5d6051d60800000000000000
+      internalID: 7860196240042107654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_41
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 2930
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb0e9714a537c5850800000000000000
+      internalID: 6367090804677796030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_42
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 2942
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd4bcc4e21b00c090800000000000000
+      internalID: -8016395160943545124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_43
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 2918
+        width: 29
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cca204bd987261750800000000000000
+      internalID: 6275246603829783244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_44
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 2943
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f49553da3a6f0d2a0800000000000000
+      internalID: -6714595861563352753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_45
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 2943
+        width: 85
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03db46bb1274fc9f0800000000000000
+      internalID: -446059627882955472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_46
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2943
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 885dc406b69058030800000000000000
+      internalID: 3496211042504856968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_47
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 2942
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ac367344322d2e30800000000000000
+      internalID: 4480274812168977568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_48
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 2928
+        width: 48
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68fe80ab17e3ecf30800000000000000
+      internalID: 4597680927765229446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_49
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 2928
+        width: 96
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6dc2f803bd4b7120800000000000000
+      internalID: 2412607456731647343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_50
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 2882
+        width: 31
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7c00154e202b1490800000000000000
+      internalID: -7774584948625765254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_51
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 2882
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7e6eb57c209e5220800000000000000
+      internalID: 2476575365728726654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_52
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 2856
+        width: 33
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbbfddd94ea3c0040800000000000000
+      internalID: 4615128471723441085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_53
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 2882
+        width: 31
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fa2c1dde1998ead0800000000000000
+      internalID: -2672718021006710030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_54
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 2882
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f5bbc9c807ae2960800000000000000
+      internalID: 7579178879098271225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_55
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 2880
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c593bb47f4d8f3ca0800000000000000
+      internalID: -6034949603252815524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_56
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 2880
+        width: 85
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 321cd5481ec3315c0800000000000000
+      internalID: -4245983084394200797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_57
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2880
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91eebaf271f3c09d0800000000000000
+      internalID: -2806799098942067175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_58
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 2878
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 058868355bfdc09a0800000000000000
+      internalID: -6265387011695802288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_59
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 2636
+        width: 91
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eae83a393b00a700800000000000000
+      internalID: 549451494957050593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2851
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f47e78e90a094edb0800000000000000
+      internalID: -4763523486322268337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_61
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 2851
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1faec5f5dac3b2b50800000000000000
+      internalID: 6569411196776934129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_62
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 2851
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8185f4b166890fd0800000000000000
+      internalID: -2375219574255287923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_63
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2851
+        width: 31
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e31c36d20a27af50800000000000000
+      internalID: 6892523946386396137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_64
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 2816
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df9ad68c77d6504a0800000000000000
+      internalID: -6627770915374650883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_65
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 2794
+        width: 85
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0401478fe5189e890800000000000000
+      internalID: -7428263865475657664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_66
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2816
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7d8d48f5d9a73740800000000000000
+      internalID: 5131757036870929788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_67
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 2847
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b2ca75a4650b070800000000000000
+      internalID: 8120085005447473996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_68
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2782
+        width: 222
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96aa7fc3efffe07f0800000000000000
+      internalID: -644296229257762199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_69
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 2814
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2555518c7bba8fe80800000000000000
+      internalID: -8144571120275335854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_70
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 2572
+        width: 79
+        height: 279
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4feecb1f73a853660800000000000000
+      internalID: 7364944738517839604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_71
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 2784
+        width: 33
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c8e8828d55082ff0800000000000000
+      internalID: -60792695789393724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_72
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 2761
+        width: 41
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7569e9bc0abf620800000000000000
+      internalID: 2809015588995094472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_73
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 2782
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94f87f572341a3b0800000000000000
+      internalID: -5503043433285487457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_74
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2656
+        width: 21
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 723bbb1a79f7b27b0800000000000000
+      internalID: -5247960651539959001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_75
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 2656
+        width: 17
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6990172debf8f9d0800000000000000
+      internalID: -2740163377273726611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_76
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 2734
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 452589a50a6daf430800000000000000
+      internalID: 3817599618352960084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_77
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2734
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2de540880c5ed0080800000000000000
+      internalID: -9219460247079067950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_78
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 2749
+        width: 61
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb5b1c79647f70950800000000000000
+      internalID: 6415368076778386879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_79
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 2730
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c160e89f758e20a30800000000000000
+      internalID: 4180158868699874844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_80
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 2749
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a8e8a802ef4903f0800000000000000
+      internalID: -934127615476176727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_81
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 2610
+        width: 33
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc0a96ac1b071c60800000000000000
+      internalID: 7788706298242665684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_82
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 2667
+        width: 43
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ff8f508ce41bae00800000000000000
+      internalID: 1056961543547097074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_83
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 2698
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 081f651daa3dab590800000000000000
+      internalID: -7657575485780070016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_84
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 2718
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b50c5f4fae2319f00800000000000000
+      internalID: 1121733766905446491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_85
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 2670
+        width: 53
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dabde8f6561533ec0800000000000000
+      internalID: -3588434981978973267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_86
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 2670
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a6cc5cb59ac5d100800000000000000
+      internalID: 132234508536432297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_87
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 2667
+        width: 41
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d95d3e02bbd9d730800000000000000
+      internalID: 4024489299821812177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_88
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 2686
+        width: 41
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad72cdb747a1345b0800000000000000
+      internalID: -5385431641808427046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_89
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2527
+        width: 17
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac99d13791a4067f0800000000000000
+      internalID: -621415275411170870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_90
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 2527
+        width: 17
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6972bad36b390c80800000000000000
+      internalID: -8356082333552314001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_91
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 2526
+        width: 58
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20e613bc818cb6a0800000000000000
+      internalID: -6432123726491885526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_92
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 2526
+        width: 59
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef261b862e20b9dc0800000000000000
+      internalID: -3631305503101852930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_93
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 2526
+        width: 58
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f308a02567f6f02e0800000000000000
+      internalID: -2157383142513934273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_94
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 2572
+        width: 77
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f80883c8299a1490800000000000000
+      internalID: -7774733406343526156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_95
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 2603
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95a48a0aa5b1916a0800000000000000
+      internalID: -6478116512939357607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_96
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 2509
+        width: 65
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b264d50ab7b6d7b90800000000000000
+      internalID: -7242514447026272725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_97
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 2572
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6cb4293b06ce750800000000000000
+      internalID: 6335545100173297370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_98
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 2534
+        width: 30
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7768200cdf7330680800000000000000
+      internalID: -8790120484709431689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_99
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 2529
+        width: 56
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d0863eb4b6f5f9e0800000000000000
+      internalID: -1588092037432442664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_100
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 2534
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5663b240c30e2dcc0800000000000000
+      internalID: -3687638596490414491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_101
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 2541
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 392e9ae85a7e8eb60800000000000000
+      internalID: 7775719454904279699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_102
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2408
+        width: 30
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5ce7b3838ae5bd50800000000000000
+      internalID: 6752561066883411035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_103
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 2478
+        width: 75
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 863e4d274948e6f80800000000000000
+      internalID: -8111400105731103896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_104
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 2478
+        width: 76
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9900f51cb2b71df50800000000000000
+      internalID: 6904435131593719961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_105
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 2503
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d2edf18687f7d0d0800000000000000
+      internalID: -3397975236749172016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_106
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 2493
+        width: 60
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19d136b7b2d179c70800000000000000
+      internalID: 8977676454777265553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_107
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 2357
+        width: 162
+        height: 179
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e9f636e08611f00800000000000000
+      internalID: 1085763396180090525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_108
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 2443
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a37e3e0d3c432400800000000000000
+      internalID: 298165825452274594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_109
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 2404
+        width: 75
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178e40e29731578e0800000000000000
+      internalID: -1696428273451079567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_110
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 2404
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046012285be79e280800000000000000
+      internalID: -9013533861167954368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_111
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 2443
+        width: 97
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89d3452e73971a840800000000000000
+      internalID: 5233597522908560792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_112
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2289
+        width: 32
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f65ff988438fc5d0800000000000000
+      internalID: -3040066875875698955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_113
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2354
+        width: 26
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e550a067c1e1ab60800000000000000
+      internalID: 7755728279744566754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_114
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 2354
+        width: 28
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04af3cf3c8c65c000800000000000000
+      internalID: 55569920033028672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_115
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 2340
+        width: 75
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a651bdc790a762a70800000000000000
+      internalID: 8801856702910240106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_116
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 2340
+        width: 76
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aeb6ec04db9b6d050800000000000000
+      internalID: 5825047390537542634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_117
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 2342
+        width: 85
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71ad61a0e0a86a930800000000000000
+      internalID: 4154159499199306263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_118
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 2380
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6df126d9a3c00e5e0800000000000000
+      internalID: -1882491198352777258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_119
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 2289
+        width: 33
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ece344eb35ec3a50800000000000000
+      internalID: 6502324007411641570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_120
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 2289
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28b7a6c986ea0a30800000000000000
+      internalID: 4182408683384715306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_121
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2216
+        width: 160
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ad3eadcb55659f0800000000000000
+      internalID: -480102040653800887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_122
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 2290
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51c6a6e6c349356e0800000000000000
+      internalID: -1849972034647725035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_123
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 2297
+        width: 46
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a905424ac1f992ec0800000000000000
+      internalID: -3591164282489515878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_124
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 2297
+        width: 46
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dafc364c2434c3d0800000000000000
+      internalID: -3187365271509861674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_125
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 2302
+        width: 128
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb99bc9fdb96ea340800000000000000
+      internalID: 4876951711149431227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_126
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2239
+        width: 54
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cead82b7b4e452de0800000000000000
+      internalID: -1358593626486547732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_127
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 2270
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcff1c82437be5890800000000000000
+      internalID: -7467329697483718709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_128
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 2232
+        width: 95
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a7f0c4444cc9c010800000000000000
+      internalID: 1209722568509028259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_129
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 2184
+        width: 63
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f7dac5392ee91920800000000000000
+      internalID: 2961660090736367607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_130
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 2184
+        width: 64
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc140c0cf2cd1e600800000000000000
+      internalID: 495919531642864079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_131
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 2239
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec10719299f6b5e70800000000000000
+      internalID: 9104993775269642702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_132
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 2206
+        width: 45
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa2b1dbcb4579cc90800000000000000
+      internalID: -7149053965071437142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_133
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 2182
+        width: 36
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f1e4897f689fd80800000000000000
+      internalID: -8216387647190458592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_134
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 2206
+        width: 63
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae381223078a59ec0800000000000000
+      internalID: -3560754730535648278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_135
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 2173
+        width: 45
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49b683cae39614fa0800000000000000
+      internalID: -5818253525687702636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_136
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 2173
+        width: 40
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bad7166dbea976690800000000000000
+      internalID: -7608942707714458197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_137
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 2173
+        width: 40
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802cb6f12364345b0800000000000000
+      internalID: -5385383548315516408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_138
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 2173
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1196809aa6e4a860800000000000000
+      internalID: 7540405296368619802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_139
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2124
+        width: 64
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5f6be9e88d0c44f0800000000000000
+      internalID: -843284148533891233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_140
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 2089
+        width: 48
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 131122f285f243650800000000000000
+      internalID: 6211641841845145905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_141
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 2089
+        width: 50
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1b0295dfc9e6ae60800000000000000
+      internalID: 7973317269156662042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_142
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 2089
+        width: 45
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02f3d62cb3f02e640800000000000000
+      internalID: 5107661676730990368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_143
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 2089
+        width: 48
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c67a51458ad689850800000000000000
+      internalID: 6383973041530316652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_144
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 2110
+        width: 38
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 536710b243726f040800000000000000
+      internalID: 4680971967711508021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_145
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 2094
+        width: 42
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92dcafd2268380f20800000000000000
+      internalID: 3389020713925659945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_146
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 2080
+        width: 66
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8178a366d1abe4630800000000000000
+      internalID: 3913269761663469336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_147
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2014
+        width: 64
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baa09bcc2a83d8d70800000000000000
+      internalID: 9046949498327730859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_148
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 1991
+        width: 53
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37dddd64e0d2e41c0800000000000000
+      internalID: -4517623836864291469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_149
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1983
+        width: 53
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc08375e7c195b4c0800000000000000
+      internalID: -4272348383756975921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_150
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 1870
+        width: 322
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be73116c80e752730800000000000000
+      internalID: 3973720822372186091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_151
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1869
+        width: 21
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46332e88df9565420800000000000000
+      internalID: 2618379178820645732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_152
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1934
+        width: 52
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec4ba8657fe092530800000000000000
+      internalID: 3830609413526959310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_153
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 1934
+        width: 24
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f862c6576bdefd040800000000000000
+      internalID: 4674716306143717007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_154
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 1862
+        width: 88
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51f65d3c2426ab650800000000000000
+      internalID: 6249415471822892821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_155
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1869
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578690f0be13dc690800000000000000
+      internalID: -7580347712155326347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_156
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 1869
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4457b2461c06afc0800000000000000
+      internalID: -3484083971976375218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_157
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 1869
+        width: 24
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 009ee4ea62b2a6c20800000000000000
+      internalID: 3200417930333317376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_158
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1732
+        width: 153
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c90ae06129c7de70800000000000000
+      internalID: 9139995113968765376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_159
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1732
+        width: 151
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2d51d42b09438c60800000000000000
+      internalID: 7819173690256481580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_160
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1792
+        width: 62
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c32140d8cc271b0800000000000000
+      internalID: -5660236875620533248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_161
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1778
+        width: 61
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4688b61dbd599c610800000000000000
+      internalID: 1642008310497118308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_162
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1745
+        width: 58
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6edb31cc4641d9c30800000000000000
+      internalID: 4367669636772380134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_163
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1668
+        width: 64
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48ab7a34a30d11040800000000000000
+      internalID: 4616700041693215364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_164
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1668
+        width: 162
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c92b6b37fb04f0b0800000000000000
+      internalID: -5695914472235128378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_165
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 1668
+        width: 163
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb1c252ba6c9ffc70800000000000000
+      internalID: 9007089761836515771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_166
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1488
+        width: 130
+        height: 177
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3695e8c137451b4b0800000000000000
+      internalID: -5426463222627673757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_167
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 1632
+        width: 14
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 230275d0b92a6e430800000000000000
+      internalID: 3811912921443147826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_168
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1630
+        width: 24
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d99b09ec318fe2740800000000000000
+      internalID: 5129309789575231901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_169
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1618
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85714d5d502552830800000000000000
+      internalID: 4045730025278019416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_170
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 1630
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5304cfdaec4909b10800000000000000
+      internalID: 1986251051073552437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_171
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 1601
+        width: 96
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b85f19cf1ccd54110800000000000000
+      internalID: 1244643597762033035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_172
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 1616
+        width: 29
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b35ff60abfe69aa50800000000000000
+      internalID: 6532874761485153595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_173
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 1598
+        width: 30
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef0d4fda97d5c89e0800000000000000
+      internalID: -1617815388941922050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_174
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1574
+        width: 57
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da78d7210e7add000800000000000000
+      internalID: 62390550677784493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_175
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1598
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80869483eefcf6e70800000000000000
+      internalID: 9110729193247303688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_176
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 1567
+        width: 30
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3260b64e11e075ac0800000000000000
+      internalID: -3866606285064829405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_177
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1567
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23840933909897cf0800000000000000
+      internalID: -254021231356917710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_178
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 1555
+        width: 42
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cc6eac24f46cc880800000000000000
+      internalID: -8589379389417952058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_179
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 1482
+        width: 194
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea4a6739e04ae570800000000000000
+      internalID: 8496675017389132519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_180
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 1510
+        width: 59
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 540c1ba2f455b48f0800000000000000
+      internalID: -555256330543054779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_181
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1534
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c118a6ef66a7460800000000000000
+      internalID: 7240212593846066220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_182
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 1534
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2042ad4dfaa791e50800000000000000
+      internalID: 6780585609591923714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_183
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 1342
+        width: 132
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c1d5a248e8bc25e0800000000000000
+      internalID: -1932966832358698560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_184
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 1446
+        width: 157
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 215e8905b3b5d8850800000000000000
+      internalID: 6380856557367256338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_185
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1417
+        width: 28
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9189cf7af0dea7810800000000000000
+      internalID: 1763982855567611929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_186
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1390
+        width: 52
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10fbe475b6760bae0800000000000000
+      internalID: -1535613762209399039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_187
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 1378
+        width: 74
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22cad28afb20108d0800000000000000
+      internalID: -2882019264356832222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_188
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1378
+        width: 76
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299e26bd9c2537970800000000000000
+      internalID: 8751429527833602450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_189
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 1360
+        width: 36
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156b1f5aa98647ef0800000000000000
+      internalID: -111349077359085999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_190
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1386
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b45285bb86978900800000000000000
+      internalID: 686682994987127989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_191
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 1374
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 961401b55a3740850800000000000000
+      internalID: 6342321329279091049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_192
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1342
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa7dc97d4516ef30800000000000000
+      internalID: 4604391091533085433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_193
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 1338
+        width: 28
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c11499047b8b93b0800000000000000
+      internalID: -5504652789037133371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_194
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 1338
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf8332e7196375b30800000000000000
+      internalID: 4275946369725970684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_195
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1338
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fbc725e3a5f18720800000000000000
+      internalID: 2846826523747929080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_196
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1331
+        width: 30
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25e85bdc300e5fb90800000000000000
+      internalID: -7208609321595859374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_197
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 1331
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 332ec0eee3eeb7580800000000000000
+      internalID: -8828200690480520653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_198
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1266
+        width: 192
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b765f3b35a147570800000000000000
+      internalID: 8463418546539816882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_199
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 1249
+        width: 289
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f39759d798b81f180800000000000000
+      internalID: -9083325550795851457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_200
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1139
+        width: 126
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83a9f6ece431af830800000000000000
+      internalID: 4105615239493425720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_201
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1202
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83bb15b6df3be2c50800000000000000
+      internalID: 6642444401426676536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_202
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 1202
+        width: 29
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcc9db40545a6efc0800000000000000
+      internalID: -3465901147364156213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_203
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1202
+        width: 30
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf839087c4683810800000000000000
+      internalID: 1745255663624490929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_204
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 1123
+        width: 289
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 710a7fadfbb0a3540800000000000000
+      internalID: 4988312455906566167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_205
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1139
+        width: 31
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d75cec982736df40800000000000000
+      internalID: 5752846221583341525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_206
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1135
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56d5ca8b5fbaf470800000000000000
+      internalID: 8429260052468455003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_207
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 1001
+        width: 162
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f54b1bc88b003d70800000000000000
+      internalID: 9020722735774123506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_208
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1061
+        width: 46
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d9561d5d81568f20800000000000000
+      internalID: 3424514234255825363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_209
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1063
+        width: 40
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25ec56a7a1b676e30800000000000000
+      internalID: 4496680514419543634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_210
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 1066
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e75736eb87b959570800000000000000
+      internalID: 8472849216860026238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_211
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 1061
+        width: 47
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e5789bedd31578c0800000000000000
+      internalID: -4002270849987480088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_212
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 1063
+        width: 41
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3079351c5d69470c0800000000000000
+      internalID: -4578869076313270525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_213
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 998
+        width: 46
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12dbdf101ba75e210800000000000000
+      internalID: 1361629363010649377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_214
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 999
+        width: 40
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa66a39eef60c2b0800000000000000
+      internalID: -5566326068959876358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_215
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 1001
+        width: 38
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3fddb02b0e26ba60800000000000000
+      internalID: 7689384039110532925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_216
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 998
+        width: 47
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1829c36f810470580800000000000000
+      internalID: -8861043265873603967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_217
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 999
+        width: 41
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31602fd06b3674010800000000000000
+      internalID: 1173015861522466323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_218
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 948
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 957095453b65fc9a0800000000000000
+      internalID: -6210650032906369191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_219
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 958
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 001f0b554cfb03580800000000000000
+      internalID: -8849362417810870016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_220
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 948
+        width: 54
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57974975decfeda20800000000000000
+      internalID: 3089184490729535861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_221
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 910
+        width: 124
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 443a2630f37812ec0800000000000000
+      internalID: -3593442322955459772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_222
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 877
+        width: 69
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89ccc847f2527de80800000000000000
+      internalID: -8154007714581918568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_223
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 930
+        width: 52
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 253df6c5285e86f80800000000000000
+      internalID: -8112982380648606894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_224
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 877
+        width: 95
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33aacb26b7d5064a0800000000000000
+      internalID: -6602174269206255053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_225
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 941
+        width: 33
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f31a4a14978c850800000000000000
+      internalID: 6397496593521655698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_226
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 884
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e8f7615ce18460c0800000000000000
+      internalID: -4583395668778288920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_227
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 895
+        width: 27
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b832a8950c9452f0800000000000000
+      internalID: -984990870637758282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_228
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 884
+        width: 54
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb2925add81d086e0800000000000000
+      internalID: -1837238240783723841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_229
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 865
+        width: 52
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2310554900e3b1770800000000000000
+      internalID: 8582521687094133042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_230
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 877
+        width: 33
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0529c29b00d381590800000000000000
+      internalID: -7703340089301233072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_231
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 820
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcea2f013891f5430800000000000000
+      internalID: 3773763063475515085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_232
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 829
+        width: 27
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d53a9efc9059d8830800000000000000
+      internalID: 4075077107215606621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_233
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 820
+        width: 54
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca89a8c049d95170800000000000000
+      internalID: 8167798271480793802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_234
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 814
+        width: 124
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b68b4bca1b165d50800000000000000
+      internalID: 6725592895418238646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_235
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 814
+        width: 31
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbcd4cee5e9278420800000000000000
+      internalID: 2632118574751472829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_236
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 814
+        width: 31
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6da19c8a50f8ff40800000000000000
+      internalID: 5762619994916629866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_237
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 802
+        width: 52
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 558f87ee019c47a50800000000000000
+      internalID: 6518055635269515349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_238
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 814
+        width: 128
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 843f5b513b128c3b0800000000000000
+      internalID: -5492102692531211448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_239
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 755
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2d30b2c4dc799190800000000000000
+      internalID: -7955190013532029653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_240
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 766
+        width: 27
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc5e1324af74ee30800000000000000
+      internalID: 4531887467982118088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_241
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 755
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ad8429aa671ce60800000000000000
+      internalID: 7980790489647995427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_242
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 769
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 877fff93fa18f38b0800000000000000
+      internalID: -5170271257605703816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_243
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 769
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7639e78bda1516ac0800000000000000
+      internalID: -3863717198740679833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_244
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 769
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e42610d95622c610800000000000000
+      internalID: 1639915381501338850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_245
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 766
+        width: 29
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97c44fd2d335bc900800000000000000
+      internalID: 705749288842710137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_246
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 766
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be19927cda4ec80f0800000000000000
+      internalID: -1113263572845489685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_247
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 766
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c6679c59b00721a0800000000000000
+      internalID: -6834493113389062458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_248
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 738
+        width: 52
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 690681950b98c6470800000000000000
+      internalID: 8389231596386410646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_249
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 740
+        width: 59
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4a4a85c51bca5650800000000000000
+      internalID: 6222509129534687821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_250
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 745
+        width: 61
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80bf3c81f890cc3f0800000000000000
+      internalID: -879317317043619064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_251
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 692
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f883ad197fc9ceed0800000000000000
+      internalID: -2383357515667982193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_252
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 702
+        width: 27
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dfedd7c9cb0d40b0800000000000000
+      internalID: -5742920988557971504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_253
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 692
+        width: 54
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 335f703c94b101930800000000000000
+      internalID: 4111816463407904051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_254
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 714
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ad57c9e490dde90800000000000000
+      internalID: -6999428012626814432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_255
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 714
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c576753066b09b60800000000000000
+      internalID: 7750895483034695112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_256
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 714
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21fcdd7f16ecf1500800000000000000
+      internalID: 369240614633328402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_257
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 606
+        width: 90
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c72d8aeffcb8f6d60800000000000000
+      internalID: 7885675197995995772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_258
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 676
+        width: 59
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60e625dba876ad420800000000000000
+      internalID: 2655548775867772422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_259
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 682
+        width: 61
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 804b0305f4db54b40800000000000000
+      internalID: 5423949474583065608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_260
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 639
+        width: 27
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d41ab16d68e496670800000000000000
+      internalID: 8532437310054834509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_261
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 651
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0474eb760c2aba5a0800000000000000
+      internalID: -6508929889175976128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_262
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 651
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b95fbc33b777dba0800000000000000
+      internalID: -6064246761529058895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_263
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 675
+        width: 52
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8fec696695231900800000000000000
+      internalID: 653907698842922892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_264
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 628
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2005a450f7315990800000000000000
+      internalID: -7399071207441235921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_265
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 608
+        width: 27
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a74decf9d31a21de0800000000000000
+      internalID: -1363850451093629830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_266
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 628
+        width: 54
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0cb20a27d2734d40800000000000000
+      internalID: 5567419832808422413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_267
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 609
+        width: 52
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc9eb3462c5ba5d30800000000000000
+      internalID: 4421045830727494093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_268
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 611
+        width: 59
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f8f24920eb7c6db0800000000000000
+      internalID: -4797323300361275145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_269
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 618
+        width: 61
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29071d64016eb1e0800000000000000
+      internalID: -2180198497962751698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_270
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 288
+        width: 161
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52b323e9fb4bace10800000000000000
+      internalID: 2218784501519235877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_271
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 585
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9bdf1a8dd7874ab0800000000000000
+      internalID: -5023897473733633121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_272
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 446
+        width: 102
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe8576b60024b4810800000000000000
+      internalID: 1750565449732937967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_273
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 554
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2cb7a8d94c6b9790800000000000000
+      internalID: -7522299688168997843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_274
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 554
+        width: 25
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c135f1e84f500320800000000000000
+      internalID: 2522120557960704449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_275
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 554
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9717a83e849256770800000000000000
+      internalID: 8603328056193085817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_276
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 288
+        width: 99
+        height: 298
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e33b58a992b2dd810800000000000000
+      internalID: 1791635684449432382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_277
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 559
+        width: 31
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44aa8f5ab45cfa410800000000000000
+      internalID: 1490626930380679748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_278
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 573
+        width: 50
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f765d6a05006810800000000000000
+      internalID: 1756409397016690485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_279
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 496
+        width: 130
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5091eb0d0ae266df0800000000000000
+      internalID: -187411066257532667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_280
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 490
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 163d2d0080d4c36f0800000000000000
+      internalID: -703602745007746207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_281
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 490
+        width: 25
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50398cef1092da710800000000000000
+      internalID: 1706064922389549829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_282
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 437
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: faa334f2359dfd200800000000000000
+      internalID: 207123059180780207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_283
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 425
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 146602fdbfc053a20800000000000000
+      internalID: 3041351399278405185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_284
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 427
+        width: 52
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 858992ad827b4f630800000000000000
+      internalID: 3959991358452242520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_285
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 400
+        width: 14
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c34765ba0a2f5b460800000000000000
+      internalID: 7256973146460681276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_286
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 400
+        width: 13
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec6355a1c74b7040800000000000000
+      internalID: 4646386337590766820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_287
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 400
+        width: 16
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41488d26e1f97060800000000000000
+      internalID: 6951853470731747663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_288
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 400
+        width: 32
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f13185f731f5e2600800000000000000
+      internalID: 445397950501753631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_289
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 386
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 077d36096ba254460800000000000000
+      internalID: 7225228140780705648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_290
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 279
+        width: 53
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e1eba22afbcdb910800000000000000
+      internalID: 1854862896730464741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_291
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 334
+        width: 149
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7af1358b55de2670800000000000000
+      internalID: 8515978534457571963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_292
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 345
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd06d3bdee20e280800000000000000
+      internalID: -9016154855536456268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_293
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 192
+        width: 48
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe61de4c898d61390800000000000000
+      internalID: -7847847149996009745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_294
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 224
+        width: 48
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e6a8bc24166b9aa0800000000000000
+      internalID: -6153212229035972888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_295
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 279
+        width: 52
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fb1967d786edf9f0800000000000000
+      internalID: -432936518048736271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_296
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 128
+        width: 87
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eff1dd5446ba63a00800000000000000
+      internalID: 735964036278853630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_297
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 116
+        width: 226
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16266343dd7681d70800000000000000
+      internalID: 9014068853943460449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_298
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 228
+        width: 153
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a12f0a5109e2140800000000000000
+      internalID: 4696849883962939910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_299
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 226
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6e536be6c3f2cd0800000000000000
+      internalID: -2580777615258949913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_300
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 223
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a6e1801c181dc1a0800000000000000
+      internalID: -6787742554562369882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 19_Hospital_Shadowless_32x32_301
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 160
+        width: 129
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b57ed25c083a12b90800000000000000
+      internalID: -7268348550140008613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
