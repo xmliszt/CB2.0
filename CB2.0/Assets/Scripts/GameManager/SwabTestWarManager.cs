@@ -1,13 +1,32 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
+[System.Serializable]
+public class PlayerLocation
+{
+    public int playerID;
+
+    public Transform location;
+}
 public class SwabTestWarManager : MonoBehaviour
 {
+    public PlayerRelocateGameEvent playerRelocateGameEvent;
+    public PlayerLocation[] playerLocations;
+    public GameObject playerPrefab;
+    public Players players;
     public GameEvent OnStartPlayStart;
-    public PlayerStats[] players;
     public TestStation[] testStations;
     void Start()
     {
+        foreach(KeyValuePair<int, PlayerInfo> player in players.GetPlayers())
+        {
+            int playerID = player.Key;
+            PlayerInfo playerInfo = player.Value;
+            PlayerStats playerStats = playerInfo.playerStats;
+            Vector3 playerSpawnPosition = GetPlayerLocation(playerID);
+            playerRelocateGameEvent.Fire(playerID, playerSpawnPosition);
+        }
         OnStartPlayStart.Fire();
         foreach (TestStation testStation in testStations)
         {
@@ -17,11 +36,17 @@ public class SwabTestWarManager : MonoBehaviour
             testStation.resultOwner = 0;
             testStation.playersInZone = new List<int>();
         }
-        foreach (PlayerStats player in players)
+    }
+
+    private Vector3 GetPlayerLocation(int playerID)
+    {
+        foreach(PlayerLocation playerLocation in playerLocations)
         {
-            player.coins = 0;
-            player.score = 0;
-            player.inventory.ClearItem();
+            if (playerLocation.playerID == playerID)
+            {
+                return playerLocation.location.position;
+            }
         }
+        return Vector3.zero;
     }
 }
