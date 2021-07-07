@@ -1,0 +1,684 @@
+fileFormatVersion: 2
+guid: a5accc218c142134c80d4a8582cb2f81
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6183765917983399250
+    second: Adam_shopping_cart_48x48_0
+  - first:
+      213: 3751768322845283762
+    second: Adam_shopping_cart_48x48_1
+  - first:
+      213: -8094822525224020454
+    second: Adam_shopping_cart_48x48_2
+  - first:
+      213: -4800599692600613306
+    second: Adam_shopping_cart_48x48_3
+  - first:
+      213: 7841508034453394546
+    second: Adam_shopping_cart_48x48_4
+  - first:
+      213: -2381909810750862850
+    second: Adam_shopping_cart_48x48_5
+  - first:
+      213: -761892323918257525
+    second: Adam_shopping_cart_48x48_6
+  - first:
+      213: 1583129367975548505
+    second: Adam_shopping_cart_48x48_7
+  - first:
+      213: -986324949666190978
+    second: Adam_shopping_cart_48x48_8
+  - first:
+      213: -761775266391626048
+    second: Adam_shopping_cart_48x48_9
+  - first:
+      213: -2273343403408366524
+    second: Adam_shopping_cart_48x48_10
+  - first:
+      213: 395603247328790182
+    second: Adam_shopping_cart_48x48_11
+  - first:
+      213: -3128217233057653480
+    second: Adam_shopping_cart_48x48_12
+  - first:
+      213: 5596616632717556207
+    second: Adam_shopping_cart_48x48_13
+  - first:
+      213: -5821794515630350984
+    second: Adam_shopping_cart_48x48_14
+  - first:
+      213: -3679548221360114384
+    second: Adam_shopping_cart_48x48_15
+  - first:
+      213: -5930904941477221341
+    second: Adam_shopping_cart_48x48_16
+  - first:
+      213: -4493342549783327704
+    second: Adam_shopping_cart_48x48_17
+  - first:
+      213: 1091590901937354464
+    second: Adam_shopping_cart_48x48_18
+  - first:
+      213: 6695441880812249356
+    second: Adam_shopping_cart_48x48_19
+  - first:
+      213: 7026761200372978740
+    second: Adam_shopping_cart_48x48_20
+  - first:
+      213: 7159365525439007560
+    second: Adam_shopping_cart_48x48_21
+  - first:
+      213: 3984140243321843440
+    second: Adam_shopping_cart_48x48_22
+  - first:
+      213: 1362479812525145269
+    second: Adam_shopping_cart_48x48_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_0
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 16
+        width: 51
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25d5193e65621d550800000000000000
+      internalID: 6183765917983399250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_1
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 20
+        width: 50
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b591c27965f01430800000000000000
+      internalID: 3751768322845283762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_2
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 16
+        width: 51
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1611303dc969af80800000000000000
+      internalID: -8094822525224020454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_3
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 16
+        width: 51
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 646e0b5a308d06db0800000000000000
+      internalID: -4800599692600613306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_4
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 20
+        width: 50
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27457f0e202a2dc60800000000000000
+      internalID: 7841508034453394546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_5
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 16
+        width: 51
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef94d23a5a1c1fed0800000000000000
+      internalID: -2381909810750862850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_6
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 2
+        width: 51
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8261c3d7f63d65f0800000000000000
+      internalID: -761892323918257525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_7
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 2
+        width: 51
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 956dbabb5c768f510800000000000000
+      internalID: 1583129367975548505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_8
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 2
+        width: 50
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e79aa0e1faedf42f0800000000000000
+      internalID: -986324949666190978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_9
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 2
+        width: 51
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ce6c086e61ad65f0800000000000000
+      internalID: -761775266391626048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_10
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 2
+        width: 51
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 444ed5328367370e0800000000000000
+      internalID: -2273343403408366524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_11
+      rect:
+        serializedVersion: 2
+        x: 1082
+        y: 2
+        width: 50
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a60605be077d7500800000000000000
+      internalID: 395603247328790182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_12
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 16
+        width: 51
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81dd75320075694d0800000000000000
+      internalID: -3128217233057653480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_13
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 20
+        width: 50
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe93c21ec2d2bad40800000000000000
+      internalID: 5596616632717556207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_14
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 16
+        width: 51
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87d1984bbb4d43fa0800000000000000
+      internalID: -5821794515630350984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_15
+      rect:
+        serializedVersion: 2
+        x: 1463
+        y: 16
+        width: 51
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 035f8e3436e9fecc0800000000000000
+      internalID: -3679548221360114384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_16
+      rect:
+        serializedVersion: 2
+        x: 1559
+        y: 20
+        width: 50
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32c24a6016131bda0800000000000000
+      internalID: -5930904941477221341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_17
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 16
+        width: 51
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c440af1c074a1c0800000000000000
+      internalID: -4493342549783327704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_18
+      rect:
+        serializedVersion: 2
+        x: 1753
+        y: 2
+        width: 51
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e6360e442c162f00800000000000000
+      internalID: 1091590901937354464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_19
+      rect:
+        serializedVersion: 2
+        x: 1850
+        y: 0
+        width: 51
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c016618aaecfaec50800000000000000
+      internalID: 6695441880812249356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_20
+      rect:
+        serializedVersion: 2
+        x: 1942
+        y: 2
+        width: 51
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4349ab51512148160800000000000000
+      internalID: 7026761200372978740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_21
+      rect:
+        serializedVersion: 2
+        x: 2039
+        y: 2
+        width: 51
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b48f0730d2b5360800000000000000
+      internalID: 7159365525439007560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_22
+      rect:
+        serializedVersion: 2
+        x: 2135
+        y: 0
+        width: 50
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fe698241728a4730800000000000000
+      internalID: 3984140243321843440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Adam_shopping_cart_48x48_23
+      rect:
+        serializedVersion: 2
+        x: 2234
+        y: 2
+        width: 50
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bcb337bb2088e210800000000000000
+      internalID: 1362479812525145269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
