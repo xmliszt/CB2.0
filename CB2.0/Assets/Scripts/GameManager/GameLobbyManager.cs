@@ -26,6 +26,7 @@ public class GameLobbyManager : MonoBehaviour
 
     private void Start()
     {
+        ResetPlayerStatsCompletely();
         playerObjects = new Dictionary<int, Transform>();
         playerInputManager = PlayerInputManager.instance;
         gameStats.SetCurrentScene(GameStats.Scene.gameLobby);
