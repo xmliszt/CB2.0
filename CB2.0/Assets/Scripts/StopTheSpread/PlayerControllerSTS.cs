@@ -300,7 +300,7 @@ public class PlayerControllerSTS : MonoBehaviour
                     thoughtBubbleRenderer.enabled = true;
 
                     // Log 1 completed swab test
-                    playerStats.completedSwabTests++;
+                    //playerStats.completedSwabTests++;
                 }
             }
             else if (currentItem.itemType == Item.ItemType.trash)
