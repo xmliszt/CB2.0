@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     private SwabTestControlHandler swabTestControlHandler;
 
+    private int movementFactor = 1; // used to stop or resume movement of character. 0 will stop, 1 will resume
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,7 +58,7 @@ public class PlayerController : MonoBehaviour
         direction = GetDirection();
         if (!(direction.x == 0 && direction.y == 0)) idleDirection = direction;
         finalInputMovement =
-            rawInputMovement * Time.deltaTime * constants.playerMoveSpeed;
+            rawInputMovement * Time.deltaTime * constants.playerMoveSpeed * movementFactor;
         transform.Translate(finalInputMovement, Space.World);
         animator.SetFloat("horizontal_idle", idleDirection.x);
         animator.SetFloat("vertical_idle", idleDirection.y);
@@ -215,5 +217,15 @@ public class PlayerController : MonoBehaviour
     public void DisableController()
     {
         disabled = true;
+    }
+
+    public void DisableMovement()
+    {
+        movementFactor = 0;
+    }
+
+    public void EnableMovement()
+    {
+        movementFactor = 1;
     }
 }

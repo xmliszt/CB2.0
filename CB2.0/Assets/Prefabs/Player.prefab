@@ -679,7 +679,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 562434371}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: DisableController
+        m_MethodName: DisableMovement
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
