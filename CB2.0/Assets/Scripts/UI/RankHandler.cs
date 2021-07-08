@@ -46,6 +46,20 @@ public class RankHandler : MonoBehaviour
     {
         RankComparer comparer = new RankComparer();
         playerStatsList.Sort(comparer);
+
+        int _rank = 1;
+        playerStatsList[0].SetRank(_rank);
+        _rank = 2;
+        for (int i = 1; i < playerStatsList.Count; i ++)
+        {
+            if (playerStatsList[i].score == playerStatsList[i-1].score)
+            {
+                playerStatsList[i].SetRank(playerStatsList[i-1].GetRank());
+            } else {
+                playerStatsList[i].SetRank(_rank);
+            }
+            _rank ++;
+        }
     }
 
     public void ShowGameOver()

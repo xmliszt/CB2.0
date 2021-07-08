@@ -70,7 +70,6 @@ public class SwabTestControlHandler : MonoBehaviour
         )
         {
             // pick up dropped item
-            Debug.Log(pickedItem);
             Item _item = pickedItem.GetComponent<CollectableItem>().itemMeta;
             inventory.SetItem (_item);
             thoughtBubbleRenderer.sprite = _item.thoughtBubbleSprite;
