@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cca8605d15fb284a9b948044725ce2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoneChangeGameEvent: {fileID: 11400000, guid: 22557c6adc9431b40a4cdb793028b00b, type: 2}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   spriteRenderer: {fileID: 3849729144600574860}
 --- !u!1 &9034509594650855237

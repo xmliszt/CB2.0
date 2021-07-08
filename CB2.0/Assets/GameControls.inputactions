@@ -53,7 +53,7 @@
                     "path": "<Gamepad>/buttonNorth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
+                    "groups": "Gamepad",
                     "action": "shop",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -75,7 +75,7 @@
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
+                    "groups": "Gamepad",
                     "action": "move",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -141,7 +141,7 @@
                     "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
+                    "groups": "Gamepad",
                     "action": "dash",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -152,7 +152,7 @@
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
+                    "groups": "Gamepad",
                     "action": "dash",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -174,7 +174,7 @@
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
+                    "groups": "Gamepad",
                     "action": "use",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -196,7 +196,7 @@
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Player 1;Player 2;Player 3;Player 4",
+                    "groups": "Gamepad",
                     "action": "pick/drop",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -217,8 +217,8 @@
     ],
     "controlSchemes": [
         {
-            "name": "Player 1",
-            "bindingGroup": "Player 1",
+            "name": "Gamepad",
+            "bindingGroup": "Gamepad",
             "devices": [
                 {
                     "devicePath": "<Gamepad>",
@@ -233,39 +233,6 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Player 2",
-            "bindingGroup": "Player 2",
-            "devices": [
-                {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Player 3",
-            "bindingGroup": "Player 3",
-            "devices": [
-                {
-                    "devicePath": "<Gamepad>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        },
-        {
-            "name": "Player 4",
-            "bindingGroup": "Player 4",
-            "devices": [
-                {
-                    "devicePath": "<Gamepad>",
                     "isOptional": false,
                     "isOR": false
                 }

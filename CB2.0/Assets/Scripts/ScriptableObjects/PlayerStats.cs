@@ -1,5 +1,39 @@
 using UnityEngine;
 
+[System.Serializable]
+public class PlayerInventory
+{
+    public PlayerInventory()
+    {
+        item = null;
+    }
+    public Item item;
+
+    public Item GetCurrentItem()
+    {
+        return item;
+    }
+
+    public void SetItem(Item _item)
+    {
+        item = _item;
+    }
+
+    public void ClearItem() {
+        item = null;
+    }
+
+    public Item useItem() {
+        Item _item = item;
+        item = null;
+        return _item;
+    }
+
+    public bool hasItem() {
+        return item != null;
+    }
+}
+
 [
     CreateAssetMenu(
         fileName = "PlayerStats",
@@ -12,15 +46,17 @@ public class PlayerStats : ScriptableObject
 
    public string playerName;
 
+   public bool selected; // is this character profile selected by a player?
+
    public Color playerAccent;
 
    public Sprite playerAvatar;
 
    public RuntimeAnimatorController animatorController;
 
-   public PlayerInventory inventory;
+   public PlayerInventory inventory = new PlayerInventory();
 
    public int coins;
 
-   public int completedSwabTests;
+   public int score;
 }
