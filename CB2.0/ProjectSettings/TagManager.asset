@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - CollectionPoint
+  - Dustbin
+  - TestStation
+  - SubmissionDesk
+  - Wall
+  - SwabStick
+  - Item
+  - Shop
+  - Stats
+  - Reception
+  - ClothChanger
+  - MusicChanger
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Particles
+  - Player
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 770282837
+    locked: 0
+  - name: Particle System
+    uniqueID: 1034026983
+    locked: 0
+  - name: Interactables
+    uniqueID: 485084459
+    locked: 0
+  - name: Player
+    uniqueID: 3644097701
+    locked: 0
+  - name: Foreground
+    uniqueID: 2906454085
+    locked: 0
+  - name: Bubbles
+    uniqueID: 3672014587
+    locked: 0
+  - name: UI
+    uniqueID: 951167099
+    locked: 0
