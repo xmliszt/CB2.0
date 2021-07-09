@@ -70,7 +70,6 @@ public class SwabTestControlHandler : MonoBehaviour
         )
         {
             // pick up dropped item
-            Debug.Log(pickedItem);
             Item _item = pickedItem.GetComponent<CollectableItem>().itemMeta;
             inventory.SetItem (_item);
             thoughtBubbleRenderer.sprite = _item.thoughtBubbleSprite;
@@ -297,6 +296,7 @@ public class SwabTestControlHandler : MonoBehaviour
         StartCoroutine(EnableAutoPickUp(constants.playerStunnedDuration));
         stunnedIconRenderer.enabled = true;
         SpriteRenderer _renderer = GetComponent<SpriteRenderer>();
+        playerController.DisableMovement();
         playerController.DisableController();
         _renderer.color =
             new Color(_renderer.color.r,
@@ -310,6 +310,7 @@ public class SwabTestControlHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(constants.playerStunnedDuration);
         playerController.EnableController();
+        playerController.EnableMovement();
         stunnedIconRenderer.enabled = false;
         SpriteRenderer _renderer = GetComponent<SpriteRenderer>();
         _renderer.color =

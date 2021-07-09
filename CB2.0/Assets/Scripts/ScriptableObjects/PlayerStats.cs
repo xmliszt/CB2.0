@@ -59,4 +59,16 @@ public class PlayerStats : ScriptableObject
    public int coins;
 
    public int score;
+
+   private int rank;
+
+   public int GetRank()
+   {
+       return rank;
+   }
+
+   public void SetRank(int _rank)
+   {
+       rank = _rank;
+   }
 }

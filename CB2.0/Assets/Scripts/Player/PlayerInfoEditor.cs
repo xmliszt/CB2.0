@@ -22,11 +22,13 @@ public class PlayerInfoEditor : MonoBehaviour
         else
         {
             GetComponent<CanvasGroup>().alpha = 1;
+            rank.text = playerStats.GetRank().ToString();
             rank.color = playerStats.playerAccent;
             avatar.sprite = playerStats.playerAvatar;
             playerID.text = string.Format("{0}P", playerStats.playerID);
             playerID.color = playerStats.playerAccent;
             playerScore.text = playerStats.score.ToString();
+            playerScore.fontSize = 100 - (playerStats.GetRank() - 1) * 10;
         }
     }
 }

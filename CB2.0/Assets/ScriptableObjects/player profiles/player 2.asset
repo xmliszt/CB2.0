@@ -21,4 +21,4 @@ MonoBehaviour:
   inventory:
     item: {fileID: 0}
   coins: 0
-  score: 0
+  score: 5
