@@ -7,7 +7,7 @@ public class PlayerStatsManager : MonoBehaviour
 {
     public TMP_Text playerUIIndicatorText;
    
-   public Animator playerAnimator;
+    public Animator playerAnimator;
     private PlayerStats playerStats;
     
     public void SetPlayerStats(PlayerStats _playerStats)

@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public PlayerStats playerStats;
+
     public GameStats gameStats;
 
     public GameConstants constants;
@@ -47,10 +49,12 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
+        playerStatsManager.SetPlayerStats(playerStats);
         swabTestControlHandler = GetComponent<SwabTestControlHandler>();
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
         animator.runtimeAnimatorController =
             playerStatsManager.GetPlayerStats().animatorController;
+        
     }
 
     private void Update()

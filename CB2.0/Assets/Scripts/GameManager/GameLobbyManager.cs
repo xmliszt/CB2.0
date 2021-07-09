@@ -143,15 +143,15 @@ public class GameLobbyManager : MonoBehaviour
     // Call this to start the minigame
     public void OnStartMiniGame()
     {
-        if (playerInputManager.playerCount < 2)
+        if (playerInputManager.playerCount < 1)
         {
             Debug.Log("cannot start game. need at least 2 players");
         }
         else
         {
             SceneManager
-                .LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            gameStats.SetCurrentScene(GameStats.Scene.swabTestWar);
+                .LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+            gameStats.SetCurrentScene(GameStats.Scene.unlimitedGroupSize);
         }
     }
 
