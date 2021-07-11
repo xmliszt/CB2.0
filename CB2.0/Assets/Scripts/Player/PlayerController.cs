@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isIdle = true; // True if the character is IDLE (not moving), else false
 
-    private bool disabled = false; // True if the character is tunned
+    private bool disabled = false; // True if the character is stunned
 
     private Vector2 direction = Vector2.down;
 
@@ -221,6 +221,28 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void OnHold(InputAction.CallbackContext context)
+    {   
+        if (context.performed)
+        {
+            if (!disabled)
+            {
+                switch (gameStats.GetCurrentScene())
+                {
+                    case GameStats.Scene.swabTestWar:
+                        break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnHold(context);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        
     }
 
     public Vector2 GetIdleDirection()

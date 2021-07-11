@@ -367,7 +367,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 721470331}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.69, y: -0.13, z: 0}
+  m_LocalPosition: {x: 0.63, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 506340512}
@@ -1000,7 +1000,7 @@ GameObject:
   - component: {fileID: 1887202308}
   - component: {fileID: 1887202311}
   - component: {fileID: 1887202310}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TableTennis
   m_TagString: Entertainments
   m_Icon: {fileID: 0}

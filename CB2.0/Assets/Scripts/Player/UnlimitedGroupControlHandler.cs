@@ -9,8 +9,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     [Header("Grab Attributes")]
     public Transform grabDetect;
-    public Transform itemHolder;
-    public float rayDist; // To move to game constant
+    public bool held = false;
 
     private ShopHandler shopHandler;
 
@@ -23,8 +22,6 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
     private PlayerZoneManager playerZoneManager;
 
     private PlayerController playerController;
-
-    private bool held = false;
 
     private int layerMask;
 
@@ -55,10 +52,12 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         {
             
             if (held) {
-                grabCheck.collider.gameObject.transform.parent = itemHolder;
-                grabCheck.collider.gameObject.transform.position = itemHolder.position;
-            } else {
-                grabCheck.collider.gameObject.transform.parent = null;
+                EntertainmentController entertainmentScript = 
+                grabCheck.collider.gameObject.GetComponent<EntertainmentController>();
+
+                entertainmentScript.fromPlayer = gameObject;
+                entertainmentScript.MoveItem();
+
             }
             
         }
@@ -80,7 +79,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     }
 
-    public void onHold(InputAction.CallbackContext context)
+    public void OnHold(InputAction.CallbackContext context)
     {   
         held = context.ReadValueAsButton();
     }
