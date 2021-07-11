@@ -63,6 +63,4 @@ public class GameConstants : ScriptableObject
 
     public float castRadius = 0.3f;
 
-    public int castLayerMask = 7;
-
 }

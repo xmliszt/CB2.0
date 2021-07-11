@@ -26,6 +26,8 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     private bool held = false;
 
+    private int layerMask;
+
 
 
     private void Awake()
@@ -33,6 +35,9 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerZoneManager = GetComponent<PlayerZoneManager>();
+
+        layerMask = LayerMask.GetMask("Entertainments");
+
     }
 
     private void Start()
@@ -42,9 +47,9 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     private void Update()
     {
-        // RaycastHit2D grabCheck = Physics2D.Raycast(grabDetect.position, Vector2.right * transform.localScale, rayDist);
+        
         RaycastHit2D grabCheck = 
-        Physics2D.CircleCast(grabDetect.position, constants.castRadius, Vector2.down * transform.localScale, constants.castRadius, constants.castLayerMask);
+        Physics2D.CircleCast(grabDetect.position, constants.castRadius, Vector2.down * transform.localScale, constants.castRadius, layerMask);
 
         if(grabCheck.collider != null && grabCheck.collider.tag == "Entertainments")
         {
