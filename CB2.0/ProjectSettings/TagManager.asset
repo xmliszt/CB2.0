@@ -16,6 +16,7 @@ TagManager:
   - Reception
   - ClothChanger
   - MusicChanger
+  - Entertainments
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - UI
   - Particles
   - Player
-  - 
+  - Entertainments
   - 
   - 
   - 

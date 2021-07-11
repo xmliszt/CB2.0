@@ -56,4 +56,13 @@ public class GameConstants : ScriptableObject
     [Header("Coin Reward")]
     
     public int coinAwardedPerCompleteTest = 1;
+
+    // **************** Minigame: Unlimited Group Size **********************
+
+    [Header("Player Raycast")]
+
+    public float castRadius = 0.3f;
+
+    public int castLayerMask = 7;
+
 }

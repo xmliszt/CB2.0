@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour
 
     private SwabTestControlHandler swabTestControlHandler;
 
+    private UnlimitedGroupControlHandler unlimitedGroupControlHandler;
+
     private int movementFactor = 1; // used to stop or resume movement of character. 0 will stop, 1 will resume
 
     private void Start()
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
         playerStatsManager.SetPlayerStats(playerStats);
         swabTestControlHandler = GetComponent<SwabTestControlHandler>();
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
+        unlimitedGroupControlHandler = GetComponent<UnlimitedGroupControlHandler>();
         animator.runtimeAnimatorController =
             playerStatsManager.GetPlayerStats().animatorController;
         
@@ -163,6 +166,10 @@ public class PlayerController : MonoBehaviour
                         if (swabTestControlHandler)
                             swabTestControlHandler.OnUse();
                         break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnUse();
+                        break;
                     default:
                         break;
                 }
@@ -182,6 +189,10 @@ public class PlayerController : MonoBehaviour
                         if (swabTestControlHandler)
                             swabTestControlHandler.onPickUpDrop();
                         break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnUse();
+                        break;
                     default:
                         break;
                 }
@@ -200,6 +211,10 @@ public class PlayerController : MonoBehaviour
                     case GameStats.Scene.swabTestWar:
                         if (swabTestControlHandler)
                             swabTestControlHandler.onShop();
+                        break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnUse();
                         break;
                     default:
                         break;
