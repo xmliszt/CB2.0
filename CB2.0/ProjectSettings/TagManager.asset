@@ -16,6 +16,12 @@ TagManager:
   - Reception
   - ClothChanger
   - MusicChanger
+  - Dumbbell
+  - Karaoke
+  - Food
+  - Computer
+  - Interactable
+  - ToiletPaper
   layers:
   - Default
   - TransparentFX

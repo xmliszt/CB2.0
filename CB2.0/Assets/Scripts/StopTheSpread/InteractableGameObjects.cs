@@ -20,17 +20,15 @@ public class InteractableGameObjects : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerControllerSTS>().PlayerOnTriggerEnterInteractable(this.tag);
+            other.gameObject.GetComponent<STSControlHandler>().PlayerOnTriggerEnterInteractable(this.tag);
         }
-        Debug.Log("on triggeerr");
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerControllerSTS>().PlayerOnTriggerExitInteractable();
+            other.gameObject.GetComponent<STSControlHandler>().PlayerOnTriggerExitInteractable();
         }
-        Debug.Log("exit");
     }
 }

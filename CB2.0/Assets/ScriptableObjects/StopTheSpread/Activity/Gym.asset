@@ -9,9 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e46f8e39fa9c29e4ba42a12580dc343f, type: 3}
-  m_Name: STSInteractables
+  m_Script: {fileID: 11500000, guid: f1126b52a360a1a42a8b00bc3e16cfed, type: 3}
+  m_Name: Gym
   m_EditorClassIdentifier: 
-  maxSliderVal: 3
-  doingActivityInterval: 0.25
-  intervals: 12
+  stsActivityType: 1
+  thoughtBubbleSprite: {fileID: 21300000, guid: 23a14a6861840ae4d815c8569dc3feda, type: 3}
