@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerControllerSTS : MonoBehaviour
 {
-    public PlayerStats playerStats;
+    //public PlayerStats playerStats;
 
     public GameConstants constants;
 
@@ -46,8 +46,8 @@ public class PlayerControllerSTS : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         animator = GetComponent<Animator>();
         
-        GetComponent<Animator>().runtimeAnimatorController =
-            playerStats.animatorController;
+        //GetComponent<Animator>().runtimeAnimatorController =
+        //    playerStats.animatorController;
         stunnedIconRenderer.enabled = false;
     }
 

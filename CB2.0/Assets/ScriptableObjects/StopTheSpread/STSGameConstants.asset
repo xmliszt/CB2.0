@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: STSGameConstants
   m_EditorClassIdentifier: 
   activityDelay: 5
+  maxSliderVal: 3
+  doingActivityInterval: 0.25
+  intervals: 12
+  activityCooldownTime: 10

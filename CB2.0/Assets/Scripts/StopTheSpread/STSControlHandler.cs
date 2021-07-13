@@ -6,6 +6,8 @@ using System;
 
 public class STSControlHandler : MonoBehaviour
 {
+    private bool activityOnCooldown = false;
+
     public STSGameConstants stsGameConstants;
 
     [SerializeField] private Slider completionBar;
@@ -31,6 +33,8 @@ public class STSControlHandler : MonoBehaviour
 
     private bool playerDoingActivity = false;
 
+    private PlayerStatsManager playerStatsManager;
+
     private enum ZoneType
     {
         dumbbell = 0,
@@ -46,6 +50,7 @@ public class STSControlHandler : MonoBehaviour
     private void Awake()
     {
         playerControllerSTS = GetComponent<PlayerControllerSTS>();
+        playerStatsManager = GetComponent<PlayerStatsManager>();
         delay = stsGameConstants.activityDelay;
 
         allActivities = new STSActivity[4] { gym, computer, karaoke, toiletPaper };
@@ -57,6 +62,9 @@ public class STSControlHandler : MonoBehaviour
         desiredActivity = UnityEngine.Random.Range(0, 4);
         thoughtBubbleRenderer.sprite = allActivities[desiredActivity].thoughtBubbleSprite;
 
+        GetComponent<SpriteOutlined>()
+            .EnableOutline(playerStatsManager.GetPlayerStats());
+
         completionBar.value = 0;
         completionBar.gameObject.SetActive(false);
     }
@@ -64,13 +72,16 @@ public class STSControlHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void generateActivity()
     {
         desiredActivity = UnityEngine.Random.Range(0, 4);
+        
         thoughtBubbleRenderer.sprite = allActivities[desiredActivity].thoughtBubbleSprite;
+        thoughtBubbleRenderer.enabled = true;
+        activityOnCooldown = false;
     }
 
     public void OnUse()
@@ -83,25 +94,25 @@ public class STSControlHandler : MonoBehaviour
                 switch (zoneType)
                 {
                     case ZoneType.dumbbell:
-                        if (desiredActivity == 0)
+                        if (desiredActivity == 0 && !activityOnCooldown)
                         {
                             StartCoroutine(UsingInteractable());
                         }
                         break;
                     case ZoneType.computer:
-                        if (desiredActivity == 1)
+                        if (desiredActivity == 1 && !activityOnCooldown)
                         {
                             StartCoroutine(UsingInteractable());
                         }
                         break;
                     case ZoneType.karaoke:
-                        if (desiredActivity == 2)
+                        if (desiredActivity == 2 && !activityOnCooldown)
                         {
                             StartCoroutine(UsingInteractable());
                         }
                         break;
                     case ZoneType.toiletPaper:
-                        if (desiredActivity == 3)
+                        if (desiredActivity == 3 && !activityOnCooldown)
                         {
                             StartCoroutine(UsingInteractable());
                         }
@@ -109,6 +120,12 @@ public class STSControlHandler : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator ActivityCooldown()
+    {
+        yield return new WaitForSeconds(stsGameConstants.activityCooldownTime);
+        generateActivity();
     }
 
     IEnumerator UsingInteractable()
@@ -137,13 +154,15 @@ public class STSControlHandler : MonoBehaviour
         completionBar.value = 0;
         completionBar.gameObject.SetActive(false);
 
-        //thoughtBubbleRenderer.enabled = false;
+        thoughtBubbleRenderer.enabled = false;
         playerDoingActivity = false;
-        
-        generateActivity();
 
+        playerStatsManager.GetPlayerStats().score++;
         Debug.Log("Player completed activity");
 
+        activityOnCooldown = true;
+
+        StartCoroutine(ActivityCooldown());
     }
 
     public void PlayerOnTriggerEnterInteractable(String otherTag)
