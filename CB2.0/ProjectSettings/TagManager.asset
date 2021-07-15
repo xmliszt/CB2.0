@@ -22,6 +22,10 @@ TagManager:
   - Computer
   - Interactable
   - ToiletPaper
+  - NPCPizza
+  - NPCCake
+  - GrocerPizza
+  - GrocerCake
   layers:
   - Default
   - TransparentFX
