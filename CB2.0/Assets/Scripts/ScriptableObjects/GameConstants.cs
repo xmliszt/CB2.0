@@ -63,4 +63,8 @@ public class GameConstants : ScriptableObject
 
     public float castRadius = 0.3f;
 
+    [Header("Entertainment Spawn")]
+    
+    public float entertainmentSpawnFreq = 5;
+
 }
