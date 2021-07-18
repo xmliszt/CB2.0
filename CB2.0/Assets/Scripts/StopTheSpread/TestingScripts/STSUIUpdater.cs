@@ -26,9 +26,10 @@ public class STSUIUpdater : MonoBehaviour
 
     private void Start()
     {
-        //if (players.GetPlayers().ContainsKey(playerID))
-        //{
-           /* playerStats = players.GetPlayers()[playerID].playerStats;
+        GetComponent<CanvasGroup>().alpha = 0;
+        /*if (players.GetPlayers().ContainsKey(playerID))
+        {
+            playerStats = players.GetPlayers()[playerID].playerStats;
 
             _enabled = true;
 
@@ -50,24 +51,36 @@ public class STSUIUpdater : MonoBehaviour
             // set background color
             panelBackground.color = playerStats.playerAccent;
             Color tmp = panelBackground.color;
-            panelBackground.color = new Color(tmp.r, tmp.g, tmp.b, 0.3f);*/
-        //}
-        //else
-        //{
-        //    _enabled = false;
-        //    GetComponent<CanvasGroup>().alpha = 0;
-        //}
+            panelBackground.color = new Color(tmp.r, tmp.g, tmp.b, 0.3f);
+        }
+        else
+        {
+            _enabled = false;
+            GetComponent<CanvasGroup>().alpha = 0;
+        }*/
     }
 
     void Update()
     {
-        if (players.GetPlayers().ContainsKey(playerID))
+        if (_enabled)
         {
-            playerStats = players.GetPlayers()[playerID].playerStats;
-            scoreText.text = string.Format("Coins: {0}", playerStats.coins);
-            completeTestText.text =
-                string.Format("Activities Done: {0}", playerStats.score);
+            if (players.GetPlayers().ContainsKey(playerID))
+            {
+                playerStats = players.GetPlayers()[playerID].playerStats;
+                scoreText.text = string.Format("Coins: {0}", playerStats.coins);
+                completeTestText.text =
+                    string.Format("Activities Done: {0}", playerStats.score);
+            }
         }
+    }
 
+    public void OnThisPlayerJoined(int joinedID, Vector3 playerLocation)
+    {
+        if(playerID == joinedID)
+        {
+            Debug.Log("Player ID: " + playerID);
+            _enabled = true;
+            GetComponent<CanvasGroup>().alpha = 1;
+        }
     }
 }

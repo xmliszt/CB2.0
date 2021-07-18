@@ -9,14 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd19fdd7077f0664f98835bcf7eff2bf, type: 3}
-  m_Name: STSGameConstants
+  m_Script: {fileID: 11500000, guid: ba36b9725ba2b814192d1428861d7dcc, type: 3}
+  m_Name: STSPlayerInventory
   m_EditorClassIdentifier: 
-  activityDelay: 5
-  maxSliderVal: 3
-  doingActivityInterval: 0.25
-  intervals: 12
-  activityCooldownTime: 10
-  customerHungryTime: 5
-  AISpeed: 2
-  AIFastSpeed: 4
+  inventoryItemType: 0

@@ -16,4 +16,10 @@ public class STSGameConstants : ScriptableObject
     public int intervals = 12; // intervals = maxSliderVal / doingActivityInterval
 
     public int activityCooldownTime = 5;
+
+    public int customerHungryTime = 5;
+
+    public float AISpeed = 4.0f;
+
+    public float AIFastSpeed = 4.0f;
 }

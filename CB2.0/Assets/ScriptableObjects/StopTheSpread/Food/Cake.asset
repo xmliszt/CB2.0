@@ -9,14 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd19fdd7077f0664f98835bcf7eff2bf, type: 3}
-  m_Name: STSGameConstants
+  m_Script: {fileID: 11500000, guid: 608661ab3a08d5f4991d245c6535258d, type: 3}
+  m_Name: Cake
   m_EditorClassIdentifier: 
-  activityDelay: 5
-  maxSliderVal: 3
-  doingActivityInterval: 0.25
-  intervals: 12
-  activityCooldownTime: 10
-  customerHungryTime: 5
-  AISpeed: 2
-  AIFastSpeed: 4
+  foodType: 2
+  itemSprite: {fileID: 21300000, guid: 9ae0d10761d99d84a91e3e01264ad0a9, type: 3}
+  thoughtBubbleSprite: {fileID: 21300000, guid: 9a5c6b3c4cfcdd144a85a65dab2e29bf, type: 3}

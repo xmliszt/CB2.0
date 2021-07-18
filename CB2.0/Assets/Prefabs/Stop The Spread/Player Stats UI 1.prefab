@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 5038839414950098215}
   - component: {fileID: 1128891825}
   - component: {fileID: 1128891824}
+  - component: {fileID: 6502323050993142859}
   m_Layer: 0
   m_Name: Player Stats UI 1
   m_TagString: Stats
@@ -307,6 +308,34 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6502323050993142859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5469270825942417719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55d3926dbbfd0aa4e99a64a61b05b17f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: d03950de31d0eb642b710c82271c407e, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2643783407680269471}
+        m_TargetAssemblyTypeName: STSUIUpdater, Assembly-CSharp
+        m_MethodName: OnThisPlayerJoined
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5469270826262230616
 GameObject:
   m_ObjectHideFlags: 0
