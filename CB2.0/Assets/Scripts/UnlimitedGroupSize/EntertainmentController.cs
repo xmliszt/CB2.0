@@ -17,6 +17,7 @@ public class EntertainmentController : MonoBehaviour
 
     private GameObject npcUI;
 
+    private UnlimitedGroupControlHandler ugsHandler;
     
     private int generateAttractLevel() {
         float rand = Random.value;
@@ -83,10 +84,26 @@ public class EntertainmentController : MonoBehaviour
         if (other.CompareTag("Entertainments"))
         {
             
-            UnlimitedGroupControlHandler unlimitedHandlerScript = 
-            fromPlayer.GetComponent<UnlimitedGroupControlHandler>();
+            ugsHandler = fromPlayer.GetComponent<UnlimitedGroupControlHandler>();
             
-            unlimitedHandlerScript.held = false;
+            ugsHandler.held = false;
         }
+    }
+
+    public void addScore(GameObject player) {
+        Debug.Log("Add Player Score");
+
+        ugsHandler = player.GetComponent<UnlimitedGroupControlHandler>();
+        ugsHandler.updateScore(attractLevel);
+
+    }
+
+    public void removeScore(GameObject player) {
+        Debug.Log("Remove Player Score");
+
+        ugsHandler = player.GetComponent<UnlimitedGroupControlHandler>();
+        int subtractScore = attractLevel * -1;
+        ugsHandler.updateScore(subtractScore);
+
     }
 }

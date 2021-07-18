@@ -25,6 +25,8 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     private int layerMask;
 
+    private EntertainmentController entertainmentController;
+
 
 
     private void Awake()
@@ -52,11 +54,10 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         {
             
             if (held) {
-                EntertainmentController entertainmentScript = 
-                grabCheck.collider.gameObject.GetComponent<EntertainmentController>();
+                entertainmentController = grabCheck.collider.gameObject.GetComponent<EntertainmentController>();
 
-                entertainmentScript.fromPlayer = gameObject;
-                entertainmentScript.MoveItem();
+                entertainmentController.fromPlayer = gameObject;
+                entertainmentController.MoveItem();
 
             }
             
@@ -92,5 +93,10 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
     public void SetShopHandler(ShopHandler _shopHandler)
     {
         shopHandler = _shopHandler;
+    }
+
+    public void updateScore(int score) {
+        playerStatsManager.GetPlayerStats().score += score;
+        Debug.Log(playerStatsManager.GetPlayerStats().score);
     }
 }
