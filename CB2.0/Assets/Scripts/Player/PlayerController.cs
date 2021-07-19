@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     private SwabTestControlHandler swabTestControlHandler;
 
+    private STSControlHandler stsControlHandler;
+
     private int movementFactor = 1; // used to stop or resume movement of character. 0 will stop, 1 will resume
 
     private void Start()
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         swabTestControlHandler = GetComponent<SwabTestControlHandler>();
+        stsControlHandler = GetComponent<STSControlHandler>();
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
         animator.runtimeAnimatorController =
             playerStatsManager.GetPlayerStats().animatorController;
@@ -159,6 +162,10 @@ public class PlayerController : MonoBehaviour
                         if (swabTestControlHandler)
                             swabTestControlHandler.OnUse();
                         break;
+                    case GameStats.Scene.stopTheSpread:
+                        if (stsControlHandler)
+                            stsControlHandler.OnUse();
+                        break;
                     default:
                         break;
                 }
@@ -178,6 +185,10 @@ public class PlayerController : MonoBehaviour
                         if (swabTestControlHandler)
                             swabTestControlHandler.onPickUpDrop();
                         break;
+                    case GameStats.Scene.stopTheSpread:
+                        if (stsControlHandler)
+                            stsControlHandler.onPickUpDrop();
+                        break;
                     default:
                         break;
                 }
@@ -196,6 +207,10 @@ public class PlayerController : MonoBehaviour
                     case GameStats.Scene.swabTestWar:
                         if (swabTestControlHandler)
                             swabTestControlHandler.onShop();
+                        break;
+                    case GameStats.Scene.stopTheSpread:
+                        if (stsControlHandler)
+                            stsControlHandler.onShop();
                         break;
                     default:
                         break;

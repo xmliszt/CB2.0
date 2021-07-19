@@ -680,7 +680,7 @@ GameObject:
   - component: {fileID: 2701387785197593697}
   - component: {fileID: 3025591827491950646}
   - component: {fileID: -8920273202990522459}
-  - component: {fileID: 4910804434187016554}
+  - component: {fileID: 2316422399109100714}
   m_Layer: 7
   m_Name: Player 1
   m_TagString: Player
@@ -853,7 +853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 7f4632852079edc4f89d56c667377d3d, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -867,9 +867,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2316422399109100714}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OnPickDrop
+        m_MethodName: OnPickdrop
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -883,7 +883,7 @@ MonoBehaviour:
     m_ActionName: gameplay/pick/drop[/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2316422399109100714}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnUse
         m_Mode: 0
@@ -899,7 +899,7 @@ MonoBehaviour:
     m_ActionName: gameplay/use[/XInputControllerWindows/buttonWest]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2316422399109100714}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnDash
         m_Mode: 0
@@ -915,7 +915,7 @@ MonoBehaviour:
     m_ActionName: gameplay/dash[/XInputControllerWindows/leftShoulder,/XInputControllerWindows/rightShoulder]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2316422399109100714}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnMove
         m_Mode: 0
@@ -931,7 +931,7 @@ MonoBehaviour:
     m_ActionName: gameplay/move[/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2316422399109100714}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: OnShop
         m_Mode: 0
@@ -983,11 +983,14 @@ MonoBehaviour:
   toiletPaper: {fileID: 11400000, guid: 5ba21f72f31597e44b77a67b86d77218, type: 2}
   doingNothing: {fileID: 11400000, guid: 96544ca7618859a48bfa2ad748728596, type: 2}
   thoughtBubbleRenderer: {fileID: 7977887251141374544}
+  stunnedIconRenderer: {fileID: 1154388671340012776}
   stsInventory: {fileID: 11400000, guid: 74d8b3db86992584ea7327fea47d9d8a, type: 2}
   Pizza: {fileID: 11400000, guid: bb6ef4a3fd7e19046bbaf34bf20fdd13, type: 2}
   Cake: {fileID: 11400000, guid: bb683ce3267a6444084e676beec6d2d1, type: 2}
   PizzaSprite: {fileID: 1785186026586070903}
   CakeSprite: {fileID: 5733283989063340777}
+  droppedPizzaPrefab: {fileID: 5612514872177990907, guid: 5c136cba944160941a72347e381bcce6, type: 3}
+  droppedCakePrefab: {fileID: 4037778933554880268, guid: a53427640e8e451499b6e14014b72658, type: 3}
 --- !u!114 &-8920273202990522459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,7 +1005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUIIndicatorText: {fileID: 5504465468189612345}
   playerAnimator: {fileID: 5928543010023413210}
---- !u!114 &4910804434187016554
+--- !u!114 &2316422399109100714
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1011,11 +1014,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5928543010023413209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a765d739dc9b6b14897c6d675ba4bd22, type: 3}
+  m_Script: {fileID: 11500000, guid: 09e37154eda3bb84f8d6759d76787332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
-  stunnedIconRenderer: {fileID: 1154388671340012776}
   dashParticleGameEvent: {fileID: 11400000, guid: b3f39252519740843a5ee14e2800faab, type: 2}
 --- !u!1 &7101595919442080812
 GameObject:

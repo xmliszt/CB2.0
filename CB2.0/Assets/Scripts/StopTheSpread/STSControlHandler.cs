@@ -26,9 +26,11 @@ public class STSControlHandler : MonoBehaviour
     [Header("Player Attributes")]
     public SpriteRenderer thoughtBubbleRenderer;
 
+    public SpriteRenderer stunnedIconRenderer;
+
     public STSPlayerInventory stsInventory;
 
-    private PlayerControllerSTS playerControllerSTS;
+    private PlayerController playerController;
 
     private int desiredActivity;
 
@@ -49,6 +51,15 @@ public class STSControlHandler : MonoBehaviour
     public SpriteRenderer PizzaSprite;
     public SpriteRenderer CakeSprite;
 
+    private STSItem stsItem;
+
+    [Header("Physical Item Prefab")]
+    public GameObject droppedPizzaPrefab;
+    public GameObject droppedCakePrefab;
+
+
+    private bool autoPickEnabled = true;
+
     private enum ZoneType
     {
         dumbbell = 0,
@@ -59,13 +70,15 @@ public class STSControlHandler : MonoBehaviour
         grocerPizza = 5,
         npcCake = 6,
         npcPizza = 7,
-        nullType = 8
+        droppedCake = 8,
+        droppedPizza = 9,
+        nullType = 10
     }
 
 
     private void Awake()
     {
-        playerControllerSTS = GetComponent<PlayerControllerSTS>();
+        playerController = GetComponent<PlayerController>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         delay = stsGameConstants.activityDelay;
 
@@ -78,6 +91,8 @@ public class STSControlHandler : MonoBehaviour
         desiredActivity = UnityEngine.Random.Range(0, 4);
         thoughtBubbleRenderer.sprite = allActivities[desiredActivity].thoughtBubbleSprite;
 
+        stunnedIconRenderer.enabled = false;
+
         GetComponent<SpriteOutlined>()
             .EnableOutline(playerStatsManager.GetPlayerStats());
 
@@ -88,6 +103,8 @@ public class STSControlHandler : MonoBehaviour
         PizzaSprite.enabled = false;
 
         stsInventory.holdingItem = false;
+
+        stsItem = stsInventory.stsItem;
     }
 
     // Update is called once per frame
@@ -111,35 +128,6 @@ public class STSControlHandler : MonoBehaviour
 
     public void OnUse()
     {
-        // Check taking item from grocer
-        if(zoneType == ZoneType.grocerCake)
-        {
-            // can only pick up if player not holding anything
-            if(!stsInventory.holdingItem)
-            {
-                stsInventory.holdingItem = true;
-                stsInventory.inventoryItemType = STSPlayerInventory.InventoryItemType.cake;
-                
-                CakeSprite.enabled = true;
-                
-                thoughtBubbleRenderer.enabled = false;
-                playerDoingActivity = true;
-            }
-        }
-        if(zoneType == ZoneType.grocerPizza)
-        {
-            if (!stsInventory.holdingItem)
-            {
-                stsInventory.holdingItem = true;
-                stsInventory.inventoryItemType = STSPlayerInventory.InventoryItemType.pizza;
-                
-                PizzaSprite.enabled = true;
-                
-                thoughtBubbleRenderer.enabled = false;
-                playerDoingActivity = true;
-            }
-        }
-
         if(zoneType == ZoneType.npcCake)
         {
             Debug.Log(stsInventory.inventoryItemType);
@@ -214,6 +202,112 @@ public class STSControlHandler : MonoBehaviour
                         break;
                 }
             }
+        }
+    }
+
+    public void onShop()
+    {
+        Debug.Log("STS Shop used");
+    }
+
+    public void onPickUpDrop()
+    {
+        // if not holding item, check
+        if (!stsInventory.holdingItem)
+        {
+            // Check taking item from grocer
+            if (zoneType == ZoneType.grocerCake)
+            {
+                stsItem.SetFood(Cake);
+                stsInventory.holdingItem = true;
+                stsInventory.inventoryItemType = STSPlayerInventory.InventoryItemType.cake;
+
+                CakeSprite.enabled = true;
+
+                thoughtBubbleRenderer.enabled = false;
+                playerDoingActivity = true;
+            }
+            if (zoneType == ZoneType.grocerPizza)
+            {
+                stsItem.SetFood(Pizza);
+                stsInventory.holdingItem = true;
+                stsInventory.inventoryItemType = STSPlayerInventory.InventoryItemType.pizza;
+
+                PizzaSprite.enabled = true;
+
+                thoughtBubbleRenderer.enabled = false;
+                playerDoingActivity = true;
+            }
+
+
+            // try to pick up dropped food item
+            if(zoneType == ZoneType.droppedCake)
+            {
+                InteractableObject.GetComponent<InteractableGameObjects>().DestroyThis();
+                stsItem.SetFood(Cake);
+                stsInventory.holdingItem = true;
+                stsInventory.inventoryItemType = STSPlayerInventory.InventoryItemType.cake;
+
+                CakeSprite.enabled = true;
+
+                thoughtBubbleRenderer.enabled = false;
+                playerDoingActivity = true;
+            }
+
+            if(zoneType == ZoneType.droppedPizza)
+            {
+                InteractableObject.GetComponent<InteractableGameObjects>().DestroyThis();
+                stsItem.SetFood(Pizza);
+                stsInventory.holdingItem = true;
+                stsInventory.inventoryItemType = STSPlayerInventory.InventoryItemType.pizza;
+
+                PizzaSprite.enabled = true;
+
+                thoughtBubbleRenderer.enabled = false;
+                playerDoingActivity = true;
+            }
+        }
+        // if holding item, drop it
+        else
+        {
+            DropItem();
+            autoPickEnabled = false;
+            StartCoroutine(EnableAutoPickUp(1));
+        }
+
+    }
+
+    IEnumerator EnableAutoPickUp(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        autoPickEnabled = true;
+    }
+
+    private void DropItem()
+    {
+        if (stsInventory.holdingItem)
+        {
+            STSFood _food = stsItem.UseFood();
+            GameObject droppedFoodPrefab;
+            
+            if((int)_food.foodType == 1) { droppedFoodPrefab = droppedPizzaPrefab; }
+            else { droppedFoodPrefab = droppedCakePrefab; }
+
+            Vector2 idleDirection = playerController.GetIdleDirection();
+            GameObject dropped =
+                Instantiate(droppedFoodPrefab,
+                transform.position +
+                new Vector3(idleDirection.x,
+                    idleDirection.y,
+                    droppedFoodPrefab.transform.position.z) *
+                0.2f,
+                droppedFoodPrefab.transform.rotation);
+            dropped.GetComponent<CollectableFood>().SetFood(_food);
+
+            CakeSprite.enabled = false;
+            PizzaSprite.enabled = false;
+
+            stsInventory.holdingItem = false;
         }
     }
 
@@ -299,6 +393,12 @@ public class STSControlHandler : MonoBehaviour
                 break;
             case "NPCPizza":
                 zoneType = ZoneType.npcPizza;
+                break;
+            case "DroppedCake":
+                zoneType = ZoneType.droppedCake;
+                break;
+            case "DroppedPizza":
+                zoneType = ZoneType.droppedPizza;
                 break;
         }
     }

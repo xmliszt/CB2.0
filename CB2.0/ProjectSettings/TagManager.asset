@@ -26,6 +26,8 @@ TagManager:
   - NPCCake
   - GrocerPizza
   - GrocerCake
+  - DroppedPizza
+  - DroppedCake
   layers:
   - Default
   - TransparentFX

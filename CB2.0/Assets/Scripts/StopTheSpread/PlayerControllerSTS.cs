@@ -133,4 +133,8 @@ public class PlayerControllerSTS : MonoBehaviour
             isDashing = false;
         }
     }
+    public Vector2 GetIdleDirection()
+    {
+        return idleDirection;
+    }
 }

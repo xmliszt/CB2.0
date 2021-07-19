@@ -35,6 +35,11 @@ public class InteractableGameObjects : MonoBehaviour
         }
     }
 
+    public void DestroyThis()
+    {
+        Destroy(gameObject);
+    }
+
     public int PlayerUsing()
     {
         // returns 0 if no one using, and player can use
