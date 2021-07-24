@@ -5,6 +5,7 @@ using UnityEngine;
 public class EntertainmentDetection : MonoBehaviour
 {
 
+    // TODO: To take player from some sort of manager
     public GameObject player;
 
     private bool zoneFull = false;
