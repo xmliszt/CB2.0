@@ -19,7 +19,9 @@ public class STSControlHandler : MonoBehaviour
     public STSActivity computer;
     public STSActivity karaoke;
     public STSActivity toiletPaper;
+    public STSActivity birthday;
     public STSActivity doingNothing;
+    public STSActivity otherPeopleBirthday;
 
     private STSActivity[] allActivities;
 
@@ -30,6 +32,8 @@ public class STSControlHandler : MonoBehaviour
 
     public STSPlayerInventory stsInventory;
 
+    public Image completionBarFill;
+
     private PlayerController playerController;
 
     private int desiredActivity;
@@ -39,6 +43,9 @@ public class STSControlHandler : MonoBehaviour
     private bool playerDoingActivity = false;
 
     private PlayerStatsManager playerStatsManager;
+    private int playerID;
+
+    private bool birthdayEventOngoing = false;
 
     private GameObject pickedItem;
 
@@ -105,6 +112,10 @@ public class STSControlHandler : MonoBehaviour
         stsInventory.holdingItem = false;
 
         stsItem = stsInventory.stsItem;
+
+        playerID = playerStatsManager.GetPlayerStats().playerID;
+
+        completionBarFill.color = playerStatsManager.GetPlayerStats().playerAccent;
     }
 
     // Update is called once per frame
@@ -115,15 +126,18 @@ public class STSControlHandler : MonoBehaviour
 
     private void generateActivity()
     {
-        Debug.Log("Generating new activity");
-        desiredActivity = UnityEngine.Random.Range(0, 4);
-        
-        thoughtBubbleRenderer.sprite = allActivities[desiredActivity].thoughtBubbleSprite;
-        if (!playerDoingActivity)
+        if (!birthdayEventOngoing)
         {
-            thoughtBubbleRenderer.enabled = true;
+            Debug.Log("Generating new activity");
+            desiredActivity = UnityEngine.Random.Range(0, 4);
+
+            thoughtBubbleRenderer.sprite = allActivities[desiredActivity].thoughtBubbleSprite;
+            if (!playerDoingActivity)
+            {
+                thoughtBubbleRenderer.enabled = true;
+            }
+            activityOnCooldown = false;
         }
-        activityOnCooldown = false;
     }
 
     public void OnUse()
@@ -313,7 +327,10 @@ public class STSControlHandler : MonoBehaviour
 
     IEnumerator ActivityCooldown()
     {
-        thoughtBubbleRenderer.sprite = doingNothing.thoughtBubbleSprite;
+        if (!birthdayEventOngoing)
+        {
+            thoughtBubbleRenderer.sprite = doingNothing.thoughtBubbleSprite;
+        }
         yield return new WaitForSeconds(stsGameConstants.activityCooldownTime);
         generateActivity();
     }
@@ -351,7 +368,6 @@ public class STSControlHandler : MonoBehaviour
         completionBar.value = 0;
         completionBar.gameObject.SetActive(false);
 
-        thoughtBubbleRenderer.enabled = false;
         playerDoingActivity = false;
 
         playerStatsManager.GetPlayerStats().score++;
@@ -407,5 +423,60 @@ public class STSControlHandler : MonoBehaviour
     {
         zoneType = ZoneType.nullType;
         InteractableObject = null;
+    }
+
+    // Birthday event will override all other activities
+    public void BirthdayEventActivated(int birthdayChild)
+    {
+        birthdayEventOngoing = true;
+        GetComponentInChildren<STSTimer>().BirthdayEventActivated();
+        // it's my birthday
+        if(birthdayChild == playerID)
+        {
+            Debug.Log("its my birthday");
+            thoughtBubbleRenderer.sprite = birthday.thoughtBubbleSprite;
+            thoughtBubbleRenderer.enabled = true;
+            activityOnCooldown = true;
+        }
+        
+        // not my birthday, put some other player sprite
+        else
+        {
+            thoughtBubbleRenderer.sprite = otherPeopleBirthday.thoughtBubbleSprite;
+            thoughtBubbleRenderer.enabled = true;
+            activityOnCooldown = true;
+        }
+
+        StartCoroutine(BirthdayTimeout());
+    }
+    
+    // method to be called when celebrations are over so player don't have to wait 8 * birthdayInterval
+    public void birthdayCelebrationsCompleted()
+    {
+        if (birthdayEventOngoing)
+        {
+            ResetBirthdayValues();
+        }
+    }
+    private void ResetBirthdayValues()
+    {
+        if (birthdayEventOngoing)
+        {
+            GetComponentInChildren<STSTimer>().BirthdayEventCompleted();
+            activityOnCooldown = false;
+            birthdayEventOngoing = false;
+            generateActivity();
+        }
+    }
+
+    IEnumerator BirthdayTimeout()
+    {
+        yield return new WaitForSeconds(stsGameConstants.birthdayInterval * 8);
+        ResetBirthdayValues();
+    }
+
+    public int GetPlayerID()
+    {
+        return playerID;
     }
 }

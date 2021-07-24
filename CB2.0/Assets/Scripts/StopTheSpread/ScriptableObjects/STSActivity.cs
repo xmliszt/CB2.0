@@ -15,7 +15,8 @@ public class STSActivity : ScriptableObject
         computer = 2,
         karaoke = 3,
         toiletPaper = 4,
-        doingNothing = 5
+        birthday = 5,
+        doingNothing = 6
     }
 
     public STSActivityType stsActivityType;

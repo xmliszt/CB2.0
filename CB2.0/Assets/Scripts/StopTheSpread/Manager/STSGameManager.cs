@@ -34,6 +34,11 @@ public class STSGameManager : MonoBehaviour
         gameStats.SetCurrentScene(GameStats.Scene.stopTheSpread);    
     }
 
+    public int GetNumberPlayers()
+    {
+        return playerObjects.Count;
+    }
+
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         int playerID = playerInput.playerIndex + 1;
