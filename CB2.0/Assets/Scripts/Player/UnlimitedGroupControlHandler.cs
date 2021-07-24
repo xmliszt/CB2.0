@@ -54,13 +54,22 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         {
             
             if (held) {
-                entertainmentController = grabCheck.collider.gameObject.GetComponent<EntertainmentController>();
+                // Slow down player & Disable dash
+                playerController.SlowMovement(0.3f);
+                playerController.DisableDash();
 
+                // Move entertainment object
+                entertainmentController = grabCheck.collider.gameObject.GetComponent<EntertainmentController>();
                 entertainmentController.fromPlayer = gameObject;
                 entertainmentController.MoveItem();
 
             }
             
+        }
+        if (!held) {
+            // Player resumes normal speed and dash
+            playerController.EnableMovement();
+            playerController.EnableDash();
         }
     }
 

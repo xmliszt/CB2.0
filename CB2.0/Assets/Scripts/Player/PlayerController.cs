@@ -43,7 +43,9 @@ public class PlayerController : MonoBehaviour
 
     private UnlimitedGroupControlHandler unlimitedGroupControlHandler;
 
-    private int movementFactor = 1; // used to stop or resume movement of character. 0 will stop, 1 will resume
+    private float movementFactor = 1.0f; // used to stop or resume movement of character. 0 will stop, 1 will resume
+
+    private bool dashDisabled = false;
 
     private void Start()
     {
@@ -126,7 +128,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (!disabled)
+            if (!disabled && !dashDisabled)
             {
                 if (!isDashing && !isIdle)
                 {
@@ -262,11 +264,26 @@ public class PlayerController : MonoBehaviour
 
     public void DisableMovement()
     {
-        movementFactor = 0;
+        movementFactor = 0.0f;
     }
 
     public void EnableMovement()
     {
-        movementFactor = 1;
+        movementFactor = 1.0f;
+    }
+
+    public void SlowMovement(float factor)
+    {
+        movementFactor = factor;
+    }
+
+    public void DisableDash()
+    {
+        dashDisabled = true;
+    }
+
+    public void EnableDash()
+    {
+        dashDisabled = false;
     }
 }
