@@ -8,7 +8,7 @@ public class STSAIController : MonoBehaviour
     public Transform target;
     private Rigidbody2D rb;
 
-    public float nextWaypointDistance = 0.01f;
+    public float nextWaypointDistance = 0.1f;
 
     public Transform childSprite;
 
@@ -46,14 +46,16 @@ public class STSAIController : MonoBehaviour
     {
         if (seeker.IsDone())
         {
-            /*if (patrolMode)
+            if (patrolMode)
             {
-                if (curWaypoint > numWaypoints)
-                    curWaypoint = 0;
-                //seeker.StartPath(transform.position, STSWayPoints[curWaypoint].position, OnPathComplete);
+                if (curWaypoint >= numWaypoints) { curWaypoint = 0; }
+                float distanceToDestination = Vector2.Distance(rb.position, STSWayPoints[curWaypoint].position);
+                if (distanceToDestination < 0.5f)
+                {
+                    curWaypoint++;
+                }
                 target = STSWayPoints[curWaypoint];
-                curWaypoint++;
-            }*/
+            }
 
             seeker.StartPath(transform.position, target.position, OnPathComplete);
         }
@@ -70,6 +72,27 @@ public class STSAIController : MonoBehaviour
 
     void UpdateFacingDirection()
     {
+        /*// down, up, left, right
+        if (!patrolMode)
+        {
+            if (AIDirection == 3 || AIDirection == 2)
+            {
+                if (target.position.y > transform.position.y || target.position.y < transform.position.y)
+                {
+                    var eulerRot = Quaternion.Euler(0, 0, transform.rotation.z + 3.0f);
+                    transform.rotation = eulerRot;
+                    childSprite.localRotation = Quaternion.Euler(0, 0, childSprite.rotation.z - 3.0f);
+                }
+
+                if (target.position.y < transform.position.y || target.position.y > transform.position.y)
+                {
+                    var eulerRot = Quaternion.Euler(0, 0, transform.rotation.z + 3.0f);
+                    transform.rotation = eulerRot;
+                    childSprite.localRotation = Quaternion.Euler(0, 0, childSprite.rotation.z - 3.0f);
+                }
+            }
+        }*/
+       
         if (AIDirection == 0)
         {
             var eulerRot = Quaternion.Euler(0, 0, 0);
@@ -77,7 +100,7 @@ public class STSAIController : MonoBehaviour
             childSprite.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
-        if(AIDirection == 1)
+        if (AIDirection == 1)
         {
             var eulerRot = Quaternion.Euler(-180.0f, 0, 0);
             transform.rotation = eulerRot;
@@ -107,7 +130,7 @@ public class STSAIController : MonoBehaviour
             return;
         }
 
-        if(currentWaypoint >= path.vectorPath.Count)
+        if (currentWaypoint >= path.vectorPath.Count)
         {
             reachedEndOfPath = true;
             return;
@@ -180,7 +203,7 @@ public class STSAIController : MonoBehaviour
             animator.SetFloat("right", 0);
         }
 
-        if (changeDirection == 3)
+        if (changeDirection == 5)
         {
             UpdateFacingDirection();
         }
@@ -188,7 +211,7 @@ public class STSAIController : MonoBehaviour
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
 
         if(distance < nextWaypointDistance)
-        {            
+        {
             currentWaypoint++;
         }
 
@@ -199,6 +222,7 @@ public class STSAIController : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            patrolMode = false;
             target = collision.transform;
         }
     }
@@ -207,8 +231,7 @@ public class STSAIController : MonoBehaviour
     {
         if(collision.transform == target)
         {
-            Debug.Log("left");
-            //target = null;
+            patrolMode = true;
         }
     }
 }

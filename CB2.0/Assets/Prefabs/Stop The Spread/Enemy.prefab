@@ -134,8 +134,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10, y: -132.5}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -10.0077, y: -133.615}
+  m_SizeDelta: {x: 1.3597, y: 1.892}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5737436279973567023
 CanvasRenderer:
@@ -273,6 +273,7 @@ MonoBehaviour:
   childSprite: {fileID: 7208038362373509950}
   animator: {fileID: 7208038362373509949}
   stsGameConstants: {fileID: 11400000, guid: e3ab69074ca3dd94da1cdd8d42748062, type: 2}
+  STSWayPoints: []
 --- !u!60 &7208038361440692003
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -298,9 +299,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.69645023, y: -2.7369876}
+    - - {x: 0.944153, y: -4.9972754}
       - {x: 0.00021064281, y: -0.11722389}
-      - {x: -0.70140535, y: -2.7377303}
+      - {x: -0.94910824, y: -4.9825373}
 --- !u!50 &6704426479595958990
 Rigidbody2D:
   serializedVersion: 4
