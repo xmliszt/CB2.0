@@ -11,6 +11,9 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
     public Transform grabDetect;
     public bool held = false;
 
+    [Header("Player Attributes")]
+    public SpriteRenderer thoughtBubbleRenderer;
+
     private ShopHandler shopHandler;
 
     private GameObject pickedItem; // the item player picked up
@@ -27,6 +30,8 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     private EntertainmentController entertainmentController;
 
+    private bool available = true;
+
 
 
     private void Awake()
@@ -41,7 +46,10 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     private void Start()
     {
-
+        thoughtBubbleRenderer.enabled = false;
+        GetComponent<SpriteOutlined>()
+            .EnableOutline(playerStatsManager.GetPlayerStats());
+        inventory = playerStatsManager.GetPlayerStats().inventory;
     }
 
     private void Update()
@@ -53,23 +61,48 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         if(grabCheck.collider != null && grabCheck.collider.tag == "Entertainments")
         {
             
-            if (held) {
+            if (available) {
+                entertainmentController = grabCheck.collider.gameObject.GetComponent<EntertainmentController>();
+                entertainmentController.fromPlayer = gameObject;
+                entertainmentController.SetSpriteOutline();
+                available = false;
+            }
+            
+            // Can check if entertainment controller is "held" too
+            if (held && entertainmentController) {
                 // Slow down player & Disable dash
                 playerController.SlowMovement(0.3f);
                 playerController.DisableDash();
 
                 // Move entertainment object
-                entertainmentController = grabCheck.collider.gameObject.GetComponent<EntertainmentController>();
-                entertainmentController.fromPlayer = gameObject;
                 entertainmentController.MoveItem();
 
             }
             
         }
+        // Object out of range: Deselect 
+        else {
+            if (entertainmentController != null) {
+                entertainmentController.DisableSpriteOutline();
+                entertainmentController = null;
+                available = true;
+            }
+        }
+
+        // Edge case where player is detecting another entertainment: Deselect
+        if (grabCheck.collider != null && 
+        grabCheck.collider.tag == "Entertainments" && 
+        entertainmentController != grabCheck.collider.gameObject.GetComponent<EntertainmentController>()) {
+            entertainmentController.DisableSpriteOutline();
+            entertainmentController = null;
+            available = true;
+        }
+
         if (!held) {
             // Player resumes normal speed and dash
             playerController.EnableMovement();
             playerController.EnableDash();
+
         }
     }
 

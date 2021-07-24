@@ -5,10 +5,9 @@ using UnityEngine;
 public class EntertainmentController : MonoBehaviour
 {
     [Header("Player")]
-    public GameObject fromPlayer;
+    public GameObject fromPlayer = null;
 
     [Header("UI")]   
-    public Color color;
     public GameObject[] npcList;
 
     private SpriteRenderer entertainmentSprite;
@@ -18,6 +17,8 @@ public class EntertainmentController : MonoBehaviour
     private GameObject npcUI;
 
     private UnlimitedGroupControlHandler ugsHandler;
+
+    private SpriteOutlined entertainmentOutline;
     
     private int generateAttractLevel() {
         float rand = Random.value;
@@ -49,6 +50,9 @@ public class EntertainmentController : MonoBehaviour
             npcList[i].SetActive(true);
         }
 
+        entertainmentOutline = GetComponent<SpriteOutlined>();
+        entertainmentOutline.DisableOutline();
+
     }
 
 
@@ -56,41 +60,28 @@ public class EntertainmentController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(fromPlayer == null) {
+            GetComponent<SpriteOutlined>().DisableOutline();
+        }
     }
 
     public void MoveItem()
-    {
-        // TODO: Outline the items
-        
-        // PlayerStats playerStats = gameObject.GetComponent<PlayerStats>();
-        
-        // bool outline = true;
-        // int outlineSize = 16;
-        
-        // MaterialPropertyBlock mpb = new MaterialPropertyBlock();
-        // entertainmentSprite.GetPropertyBlock (mpb);
-        // mpb.SetFloat("_Outline", outline ? 1f : 0);
-        // mpb.SetColor("_OutlineColor", color);
-        // mpb.SetFloat("_OutlineSize", outlineSize);
-        // entertainmentSprite.SetPropertyBlock (mpb);
-        
+    {       
         gameObject.transform.position =
         new Vector2(fromPlayer.transform.position.x + 0.6f, fromPlayer.transform.position.y);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Entertainments"))
+        if (other.CompareTag("Entertainments") && fromPlayer)
         {
             
             ugsHandler = fromPlayer.GetComponent<UnlimitedGroupControlHandler>();
-            
             ugsHandler.held = false;
         }
     }
 
-    public void addScore(GameObject player) {
+    public void AddScore(GameObject player) {
         Debug.Log("Add Player Score");
 
         ugsHandler = player.GetComponent<UnlimitedGroupControlHandler>();
@@ -98,12 +89,21 @@ public class EntertainmentController : MonoBehaviour
 
     }
 
-    public void removeScore(GameObject player) {
+    public void RemoveScore(GameObject player) {
         Debug.Log("Remove Player Score");
 
         ugsHandler = player.GetComponent<UnlimitedGroupControlHandler>();
         int subtractScore = attractLevel * -1;
         ugsHandler.updateScore(subtractScore);
 
+    }
+
+    public void SetSpriteOutline() {
+        entertainmentOutline
+        .EnableOutline(fromPlayer.GetComponent<PlayerStatsManager>().GetPlayerStats());
+    }
+
+    public void DisableSpriteOutline() {
+        entertainmentOutline.DisableOutline();
     }
 }

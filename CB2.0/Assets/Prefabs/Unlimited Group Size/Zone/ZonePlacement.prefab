@@ -502,7 +502,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3697547986312947289}
   m_Layer: 0
-  m_Name: ZoneA
+  m_Name: ZonePlacement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

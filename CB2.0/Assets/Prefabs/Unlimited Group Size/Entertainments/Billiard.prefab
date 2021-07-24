@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1569145699004709420}
   - component: {fileID: 1569145699004709411}
   - component: {fileID: 1569145699004709421}
+  - component: {fileID: 1574537490}
   m_Layer: 8
   m_Name: Billiard
   m_TagString: Entertainments
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b8648d9167f40294ea200389e2c33f9b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -173,13 +174,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fromPlayer: {fileID: 0}
-  color: {r: 1, g: 0, b: 0, a: 0}
   npcList:
   - {fileID: 353014764787575669}
   - {fileID: 7949305409841488110}
   - {fileID: 9124027200979525087}
   - {fileID: 8124975595589640685}
   - {fileID: 8045206357162398145}
+--- !u!114 &1574537490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569145699004709414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079497c5e126ba548a7405b0c91f7666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineSize: 16
 --- !u!1001 &7333513833412016886
 PrefabInstance:
   m_ObjectHideFlags: 0

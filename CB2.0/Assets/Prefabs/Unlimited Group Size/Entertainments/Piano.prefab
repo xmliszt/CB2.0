@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b8648d9167f40294ea200389e2c33f9b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -174,7 +174,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fromPlayer: {fileID: 0}
-  color: {r: 1, g: 0, b: 0, a: 0}
   npcList:
   - {fileID: 899355630833457948}
   - {fileID: 7407459347326013575}

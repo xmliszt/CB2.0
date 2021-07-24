@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4246576425814561995}
   - component: {fileID: 9108229235310211330}
   - component: {fileID: 3110557846064184707}
+  - component: {fileID: 963209810}
   m_Layer: 8
   m_Name: Arcade
   m_TagString: Entertainments
@@ -55,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b8648d9167f40294ea200389e2c33f9b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -173,13 +174,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fromPlayer: {fileID: 5928543010023413209, guid: 96096627dfb6dee47b0ecfb8cd094df4, type: 3}
-  color: {r: 0, g: 0, b: 0, a: 0}
   npcList:
   - {fileID: 3187274075686202841}
   - {fileID: 5083661053695796802}
   - {fileID: 6215635480018754419}
   - {fileID: 6349204309118379841}
   - {fileID: 5150712119713781613}
+--- !u!114 &963209810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6633528816092672290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079497c5e126ba548a7405b0c91f7666, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineSize: 4
 --- !u!1001 &5555346367638436954
 PrefabInstance:
   m_ObjectHideFlags: 0

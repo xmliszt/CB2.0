@@ -31,7 +31,7 @@ public class EntertainmentDetection : MonoBehaviour
 
             // Update score
             entertainmentController = other.gameObject.GetComponent<EntertainmentController>();
-            entertainmentController.addScore(player);
+            entertainmentController.AddScore(player);
 
         }    
     }
@@ -43,7 +43,7 @@ public class EntertainmentDetection : MonoBehaviour
             Debug.Log("ENTERTAINMENT LEAVE ZONE");
 
             // Remove score
-            entertainmentController.removeScore(player);
+            entertainmentController.RemoveScore(player);
         }
     }
 }
