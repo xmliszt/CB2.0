@@ -58,7 +58,8 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         inventory = playerStatsManager.GetPlayerStats().inventory;
 
         // To Change
-        playerStatsManager.GetPlayerStats().coins += 100;
+        playerStatsManager.GetPlayerStats().score = 0;
+        playerStatsManager.GetPlayerStats().coins = 100;
     }
 
     private void Update()
