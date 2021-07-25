@@ -7,6 +7,10 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 {
     public GameConstants constants;
 
+    [Header("Item Types")]
+
+    public Item shopItem;
+
     [Header("Grab Attributes")]
     public Transform grabDetect;
     public bool held = false;
@@ -50,6 +54,9 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         GetComponent<SpriteOutlined>()
             .EnableOutline(playerStatsManager.GetPlayerStats());
         inventory = playerStatsManager.GetPlayerStats().inventory;
+
+        // To Change
+        playerStatsManager.GetPlayerStats().coins += 100;
     }
 
     private void Update()
@@ -111,15 +118,33 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     }
 
-    public void onPickUpDrop()
+    public void OnPickUpDrop()
     {
 
     }
 
 
-    public void onShop()
+    public void OnShop()
     {
+        if (
+            !inventory.hasItem() &&
+            playerZoneManager.GetZone() == PlayerZoneManager.ZoneType.shop
+        )
+        {
+            Debug.Log("IM USING SHOP");
+            ShopItem boughtItem = shopHandler.BuyItem(gameObject);
+            if (boughtItem != null)
+            {
+                inventory.SetItem (shopItem);
 
+                Debug.Log("ITEM BOUGHT");
+
+                thoughtBubbleRenderer.sprite = shopItem.thoughtBubbleSprite;
+                thoughtBubbleRenderer.enabled = true;
+
+                Debug.Log(playerStatsManager.GetPlayerStats().coins);
+            }
+        }
     }
 
     public void OnHold(InputAction.CallbackContext context)
