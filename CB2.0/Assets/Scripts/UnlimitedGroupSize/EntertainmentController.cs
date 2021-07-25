@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class EntertainmentController : MonoBehaviour
 {
+    public GameConstants constants;
+
     [Header("Player")]
     public GameObject fromPlayer = null;
+
+    [Header("Entertainment Attributes")]
+    public bool locked = false;
+
+    public bool upgraded = false;
 
     [Header("UI")]   
     public GameObject[] npcList;
@@ -24,7 +31,7 @@ public class EntertainmentController : MonoBehaviour
 
     private SpriteOutlined entertainmentOutline;
 
-    private bool locked = false;
+    private GameObject zoneObject = null;
     
     private int generateAttractLevel() {
         float rand = Random.value;
@@ -90,6 +97,7 @@ public class EntertainmentController : MonoBehaviour
     }
 
     public void AddScore(GameObject player) {
+        zoneObject = player;
         Debug.Log("Add Player Score");
 
         ugsHandler = player.GetComponent<UnlimitedGroupControlHandler>();
@@ -98,6 +106,7 @@ public class EntertainmentController : MonoBehaviour
     }
 
     public void RemoveScore(GameObject player) {
+        zoneObject = null;
         Debug.Log("Remove Player Score");
 
         ugsHandler = player.GetComponent<UnlimitedGroupControlHandler>();
@@ -118,5 +127,16 @@ public class EntertainmentController : MonoBehaviour
     public void SetLock() {
         locked = true;
         lockObject.SetActive(true);
+    }
+
+    public void SetUpgrade() {
+        upgraded = true;
+        upgradeObject.SetActive(true);
+        
+
+        if (zoneObject) {
+            AddScore(zoneObject);
+        }
+        attractLevel *= constants.upgradeMultiplier;
     }
 }

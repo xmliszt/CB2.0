@@ -15,3 +15,4 @@ MonoBehaviour:
   itemType: 5
   itemSprite: {fileID: 21300000, guid: de91ff32c03b9344f833e576bc5922b7, type: 3}
   thoughtBubbleSprite: {fileID: 21300000, guid: d04a79c8f198b3a478a5c92e502a371b, type: 3}
+  itemName: lock

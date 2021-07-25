@@ -173,7 +173,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8908ce7531234e6449d40ddf3294e962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   fromPlayer: {fileID: 0}
+  locked: 0
+  upgraded: 0
   npcList:
   - {fileID: 2891402595568734954}
   - {fileID: 4798551862096992625}
@@ -181,7 +184,7 @@ MonoBehaviour:
   - {fileID: 6631493380112341106}
   - {fileID: 4854927505293109342}
   lockObject: {fileID: 4030611466196209727}
-  upgradeObject: {fileID: 0}
+  upgradeObject: {fileID: 8254761655434410005}
 --- !u!114 &1724868390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -212,6 +215,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1514451628801465115, guid: 7511fe8d821dfc242b7a1503ed3d3eb5, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1566397392005261510, guid: 7511fe8d821dfc242b7a1503ed3d3eb5, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1971118271928035113, guid: 7511fe8d821dfc242b7a1503ed3d3eb5, type: 3}
@@ -381,5 +388,10 @@ GameObject:
 --- !u!1 &4030611466196209727 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9145753552868053846, guid: 7511fe8d821dfc242b7a1503ed3d3eb5, type: 3}
+  m_PrefabInstance: {fileID: 5261230911743738729}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8254761655434410005 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4291200776755526524, guid: 7511fe8d821dfc242b7a1503ed3d3eb5, type: 3}
   m_PrefabInstance: {fileID: 5261230911743738729}
   m_PrefabAsset: {fileID: 0}

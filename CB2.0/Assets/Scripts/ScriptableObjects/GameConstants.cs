@@ -67,4 +67,8 @@ public class GameConstants : ScriptableObject
     
     public float entertainmentSpawnFreq = 5;
 
+    [Header("Entertainment Upgrade")]
+
+    public int upgradeMultiplier = 2;
+
 }

@@ -128,15 +128,22 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                         
                         
                         // Check the item type
-                        if (currentItem.itemSprite.name == "lock item")
+                        if (currentItem.itemName == "lock" && !entertainmentController.locked)
+                        {
+                            // Check if entertainment already has existing lock
+                            entertainmentController.SetLock();
+                            inventory.useItem();
+                            thoughtBubbleRenderer.enabled = false;
+                            Debug.Log("USED LOCK");
+                        }
+                        else if (currentItem.itemName == "upgrade" && !entertainmentController.upgraded)
                         {
                             // Check if entertainment already has the existing upgrade
-                            entertainmentController.SetLock();
+                            entertainmentController.SetUpgrade();
+                            inventory.useItem();
+                            thoughtBubbleRenderer.enabled = false;
+                            Debug.Log("USED UPGRADE");
                         }
-                        
-                        inventory.useItem();
-                        thoughtBubbleRenderer.enabled = false;
-                        Debug.Log("USED LOCK");
                         
                     }
                     break;
