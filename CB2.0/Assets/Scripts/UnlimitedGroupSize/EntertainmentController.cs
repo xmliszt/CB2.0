@@ -10,6 +10,10 @@ public class EntertainmentController : MonoBehaviour
     [Header("UI")]   
     public GameObject[] npcList;
 
+    public GameObject lockObject;
+
+    public GameObject upgradeObject;
+
     private SpriteRenderer entertainmentSprite;
 
     private int attractLevel;
@@ -19,6 +23,8 @@ public class EntertainmentController : MonoBehaviour
     private UnlimitedGroupControlHandler ugsHandler;
 
     private SpriteOutlined entertainmentOutline;
+
+    private bool locked = false;
     
     private int generateAttractLevel() {
         float rand = Random.value;
@@ -67,8 +73,10 @@ public class EntertainmentController : MonoBehaviour
 
     public void MoveItem()
     {       
-        gameObject.transform.position =
-        new Vector2(fromPlayer.transform.position.x + 0.6f, fromPlayer.transform.position.y);
+        if (!locked) {
+            gameObject.transform.position =
+            new Vector2(fromPlayer.transform.position.x + 0.6f, fromPlayer.transform.position.y);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -105,5 +113,10 @@ public class EntertainmentController : MonoBehaviour
 
     public void DisableSpriteOutline() {
         entertainmentOutline.DisableOutline();
+    }
+    
+    public void SetLock() {
+        locked = true;
+        lockObject.SetActive(true);
     }
 }

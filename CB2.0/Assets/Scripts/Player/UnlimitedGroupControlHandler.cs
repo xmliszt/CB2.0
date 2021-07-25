@@ -115,7 +115,34 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     public void OnUse()
     {
+        if (inventory.hasItem())
+        {
+            Item currentItem = inventory.GetCurrentItem();
+            Vector2 idleDirection = playerController.GetIdleDirection();
+            switch(currentItem.itemType)
+            {
+                case Item.ItemType.shopItem:
+                    if (entertainmentController) {
+                        
+                        
+                        // Check the item type
+                        if (currentItem.itemSprite.name == "lock item")
+                        {
+                            // Check if entertainment already has the existing upgrade
+                            entertainmentController.SetLock();
+                        }
+                        
+                        inventory.useItem();
+                        thoughtBubbleRenderer.enabled = false;
+                        Debug.Log("USED LOCK");
+                        
+                    }
+                    break;
 
+                default:
+                    break;
+            }
+        }
     }
 
     public void OnPickUpDrop()
@@ -143,6 +170,8 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                 thoughtBubbleRenderer.enabled = true;
 
                 Debug.Log(playerStatsManager.GetPlayerStats().coins);
+                Item currentItem = inventory.GetCurrentItem();
+                Debug.Log(currentItem.itemSprite.name);
             }
         }
     }
