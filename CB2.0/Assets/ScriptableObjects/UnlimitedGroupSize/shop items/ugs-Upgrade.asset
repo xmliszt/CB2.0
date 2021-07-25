@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 709e1801bf0d52843bc746495f4a004b, type: 3}
-  m_Name: ugs-Lock
+  m_Name: ugs-Upgrade
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300000, guid: 74e3b8e93e8e7a44ab51ee1606677599, type: 3}
-  cost: 5
+  itemSprite: {fileID: 21300000, guid: 57106697007635242a79a94c76c50e88, type: 3}
+  cost: 3
   unlimited: 1
   stock: 0
-  itemName: lock
+  itemName: upgrade

@@ -9,7 +9,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     [Header("Item Types")]
 
-    public Item shopItem;
+    public Item[] shopItemList;
 
     [Header("Grab Attributes")]
     public Transform grabDetect;
@@ -35,6 +35,8 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
     private EntertainmentController entertainmentController;
 
     private bool available = true;
+
+    private Item shopItem;
 
 
 
@@ -160,6 +162,19 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         {
             Debug.Log("IM USING SHOP");
             ShopItem boughtItem = shopHandler.BuyItem(gameObject);
+
+            switch(boughtItem.itemName)
+            {
+                case "lock":
+                    shopItem = shopItemList[0];
+                    break;
+                case "upgrade":
+                    shopItem = shopItemList[1];
+                    break;
+                default:
+                    break;
+            }
+
             if (boughtItem != null)
             {
                 inventory.SetItem (shopItem);
