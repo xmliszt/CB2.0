@@ -7,13 +7,13 @@ public class PlayerStatsManager : MonoBehaviour
 {
     public TMP_Text playerUIIndicatorText;
    
-   public Animator playerAnimator;
-    private PlayerStats playerStats;
+    public Animator playerAnimator;
+    public PlayerStats playerStats;
     
     public void SetPlayerStats(PlayerStats _playerStats)
     {
         playerStats = _playerStats;
-        GetComponent<SpriteOutlined>().EnableOutline(playerStats);
+        // GetComponent<SpriteOutlined>().EnableOutline(playerStats);
         playerAnimator.runtimeAnimatorController = playerStats.animatorController;
         playerUIIndicatorText.text =
             string.Format("{0}P", playerStats.playerID);

@@ -1,0 +1,72 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "SnHGameConstants", menuName = "ScriptableObjects/SnHGameConstants", order = 1)]
+public class SnHGameConstants : ScriptableObject
+{
+    // vending machine price
+    public int VMPrice = 1;
+
+    // Number of objects to collect
+    public int CollectTP;
+    public int OtherIndex;
+    public int CollectOther;
+
+    // colours to indicate in basket if completed
+    public Color incompleteBackgroundColor = new Color(91, 91, 91);
+    public Color completeBackgroundColor = new Color(67, 173, 92);
+
+    // Active player background colour
+    public Color activeColour = new Color(91, 91, 91, 255);
+    public Color inactiveColour = new Color(255, 255, 255, 255);
+
+    // Number of NPCs to spawn
+    public int NPCs;
+
+    // Number of items to spawn
+    public int SpawnableItems;
+
+    // If players are playing
+    public bool P1Playing = true;
+    public bool P2Playing = true;
+    public bool P3Playing = true;
+    public bool P4Playing = false;
+
+    // all spawn zones
+    public SPZC[] spawnZones = new SPZC[] {new SPZC(-5.15f, -4.3f, -3.1f, 3.65f),
+                                            new SPZC(-3.7f, -3.15f, 2.8f, 3f),
+                                            new SPZC(-3.7f, -3.15f, 0.3f, 0.8f),
+                                            new SPZC(-3.7f,-3.15f, -1.9f, -1.6f),
+                                            new SPZC(-3.7f, -3.15f, -4.3f, -3.8f),
+                                            new SPZC(-2.8f, -1.7f, -4.2f, 3.15f),
+                                            new SPZC(-1.1f, 2.6f, 0.3f, 0.8f),
+                                            new SPZC(-1.1f, 2.6f, -1.7f, -1.4f),
+                                            new SPZC(-1.1f, 2.6f, -4.3f, -3.5f),
+                                            new SPZC(3.1f, 4.3f, -4.3f, 2f),
+                                            new SPZC(4.7f, 5.1f, -1f, -0.65f),
+                                            new SPZC(4.7f, 5.1f, 4.3f, -3.7f),
+                                            new SPZC(6.6f, 8.4f, 2.8f, 3.4f),
+                                            new SPZC(6.6f, 8.4f, -4.3f, -3.3f)};
+
+    // spawn constraints
+    public int spawnFrequency = 2;
+    public int spawnPerZone = 1;
+}
+
+// add zones to this later
+public class SPZC
+{
+    public float xMin;
+    public float xMax;
+    public float yMin;
+    public float yMax;
+
+    public SPZC(float xmin, float xmax, float ymin, float ymax)
+    {
+        xMin = xmin;
+        xMax = xmax;
+        yMin = ymin;
+        yMax = ymax;
+    }
+}

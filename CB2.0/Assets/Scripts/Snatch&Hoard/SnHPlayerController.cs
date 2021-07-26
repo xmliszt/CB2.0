@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class SnHPlayerController : MonoBehaviour
 {
     public GameStats gameStats;
 
@@ -33,17 +33,14 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false; // Whether character is currently dashing
 
     // All minigame handlers
-    private GameLobbyControlHandler gameLobbyControlHandler;
-
-    private SwabTestControlHandler swabTestControlHandler;
+    private SnHPlayerControlHandler snhPlayerControlHandler;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
-        swabTestControlHandler = GetComponent<SwabTestControlHandler>();
-        gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
+        snhPlayerControlHandler = GetComponent<SnHPlayerControlHandler>();
     }
 
     private void Update()
@@ -144,13 +141,9 @@ public class PlayerController : MonoBehaviour
             {
                 switch (gameStats.GetCurrentScene())
                 {
-                    case GameStats.Scene.gameLobby:
-                        if (gameLobbyControlHandler)
-                            gameLobbyControlHandler.OnUse();
-                        break;
-                    case GameStats.Scene.swabTestWar:
-                        if (swabTestControlHandler)
-                            swabTestControlHandler.OnUse();
+                    case GameStats.Scene.snatchAndHoard:
+                        if (snhPlayerControlHandler)
+                            snhPlayerControlHandler.OnUsePower();
                         break;
                     default:
                         break;
@@ -167,9 +160,9 @@ public class PlayerController : MonoBehaviour
             {
                 switch (gameStats.GetCurrentScene())
                 {
-                    case GameStats.Scene.swabTestWar:
-                        if (swabTestControlHandler)
-                            swabTestControlHandler.onPickUpDrop();
+                    case GameStats.Scene.snatchAndHoard:
+                        if (snhPlayerControlHandler)
+                            snhPlayerControlHandler.OnPickDropItem();
                         break;
                     default:
                         break;
@@ -186,9 +179,9 @@ public class PlayerController : MonoBehaviour
             {
                 switch (gameStats.GetCurrentScene())
                 {
-                    case GameStats.Scene.swabTestWar:
-                        if (swabTestControlHandler)
-                            swabTestControlHandler.onShop();
+                    case GameStats.Scene.snatchAndHoard:
+                        if (snhPlayerControlHandler)
+                            snhPlayerControlHandler.OnShop();
                         break;
                     default:
                         break;
