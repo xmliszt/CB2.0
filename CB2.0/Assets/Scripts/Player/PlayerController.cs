@@ -192,7 +192,8 @@ public class PlayerController : MonoBehaviour
                             swabTestControlHandler.onPickUpDrop();
                         break;
                     case GameStats.Scene.unlimitedGroupSize:
-                        // if (unlimitedGroupControlHandler)
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnPickUpDrop();
                         break;
                     default:
                         break;

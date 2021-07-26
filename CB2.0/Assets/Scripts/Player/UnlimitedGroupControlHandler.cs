@@ -17,6 +17,10 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     [Header("Player Attributes")]
     public SpriteRenderer thoughtBubbleRenderer;
+    public GameObject rechargeBarObject;
+
+    [Header("Physical Item Prefab")]
+    public GameObject swabStickPrefab;
 
     private ShopHandler shopHandler;
 
@@ -38,6 +42,8 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     private Item shopItem;
 
+    private RechargeBar rechargeBar;
+
 
 
     private void Awake()
@@ -45,6 +51,8 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerZoneManager = GetComponent<PlayerZoneManager>();
+
+        rechargeBar = rechargeBarObject.GetComponent<RechargeBar>();
 
         layerMask = LayerMask.GetMask("Entertainments");
 
@@ -153,11 +161,12 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                     break;
             }
         }
+
     }
 
     public void OnPickUpDrop()
     {
-
+        shootSwabStick();
     }
 
 
@@ -214,8 +223,41 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         shopHandler = _shopHandler;
     }
 
-    public void updateScore(int score) {
+    public void UpdateScore(int score) {
         playerStatsManager.GetPlayerStats().score += score;
         Debug.Log(playerStatsManager.GetPlayerStats().score);
     }
+
+    private void shootSwabStick() {
+
+        if (rechargeBar.GetRecharge() >= 100)
+        {
+            rechargeBar.UseRecharge(100);
+            Debug.Log("PEW PEW");
+            Vector2 idleDirection = playerController.GetIdleDirection();
+            
+            GameObject stick =
+                Instantiate(swabStickPrefab,
+                transform.position +
+                new Vector3(idleDirection.x,
+                    idleDirection.y - 0.2f,
+                    transform.position.z) *
+                0.5f,
+                swabStickPrefab.transform.rotation);
+            SwabStickMovement stickMovementScript =
+                stick.GetComponent<SwabStickMovement>();
+            stickMovementScript.fromPlayer = gameObject;
+            stickMovementScript.direction = idleDirection;
+            stickMovementScript.StartFlying();
+        }
+        else
+        {
+            Debug.Log("Out of charges");
+        }
+        
+
+
+    }
+
+
 }

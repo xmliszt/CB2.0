@@ -101,7 +101,7 @@ public class EntertainmentController : MonoBehaviour
         Debug.Log("Add Player Score");
 
         ugsHandler = player.GetComponent<UnlimitedGroupControlHandler>();
-        ugsHandler.updateScore(attractLevel);
+        ugsHandler.UpdateScore(attractLevel);
 
     }
 
@@ -111,7 +111,7 @@ public class EntertainmentController : MonoBehaviour
 
         ugsHandler = player.GetComponent<UnlimitedGroupControlHandler>();
         int subtractScore = attractLevel * -1;
-        ugsHandler.updateScore(subtractScore);
+        ugsHandler.UpdateScore(subtractScore);
 
     }
 
