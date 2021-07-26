@@ -59,9 +59,11 @@ public class GameConstants : ScriptableObject
 
     // **************** Minigame: Unlimited Group Size **********************
 
-    [Header("Player Raycast")]
+    [Header("Player Attributes")]
 
     public float castRadius = 0.3f;
+
+    public float slowFactor = 0.3f;
 
     [Header("Entertainment Spawn")]
     
@@ -70,5 +72,15 @@ public class GameConstants : ScriptableObject
     [Header("Entertainment Upgrade")]
 
     public int upgradeMultiplier = 2;
+
+    [Header("Recharge Bar")]
+
+    public int maxRecharge = 100;
+    
+    public int shootEnergy = 100;
+
+    public int rechargePerTick = 2;
+
+    
 
 }

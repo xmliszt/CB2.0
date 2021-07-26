@@ -89,7 +89,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
             // Can check if entertainment controller is "held" too
             if (held && entertainmentController) {
                 // Slow down player & Disable dash
-                playerController.SlowMovement(0.3f);
+                playerController.SlowMovement(constants.slowFactor);
                 playerController.DisableDash();
 
                 // Move entertainment object
@@ -228,12 +228,14 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         Debug.Log(playerStatsManager.GetPlayerStats().score);
     }
 
+    
+    // Shooting mechanism
+    
     private void shootSwabStick() {
 
-        if (rechargeBar.GetRecharge() >= 100)
+        if (rechargeBar.GetRecharge() >= constants.shootEnergy)
         {
-            rechargeBar.UseRecharge(100);
-            Debug.Log("PEW PEW");
+            rechargeBar.UseRecharge(constants.shootEnergy);
             Vector2 idleDirection = playerController.GetIdleDirection();
             
             GameObject stick =
@@ -244,20 +246,28 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                     transform.position.z) *
                 0.5f,
                 swabStickPrefab.transform.rotation);
-            SwabStickMovement stickMovementScript =
-                stick.GetComponent<SwabStickMovement>();
+            StickMovement stickMovementScript =
+                stick.GetComponent<StickMovement>();
             stickMovementScript.fromPlayer = gameObject;
             stickMovementScript.direction = idleDirection;
             stickMovementScript.StartFlying();
         }
-        else
-        {
-            Debug.Log("Out of charges");
-        }
-        
-
 
     }
+
+    public void OnStickHit()
+    {
+        playerStatsManager.GetPlayerStats().coins += 1; // Change to game constants
+        Debug.Log(playerStatsManager.GetPlayerStats().coins);
+    }
+
+    public void GetStickHit()
+    {
+        // TODO: Reset position to start
+        Debug.Log("I'M HIT");
+    }
+
+
 
 
 }

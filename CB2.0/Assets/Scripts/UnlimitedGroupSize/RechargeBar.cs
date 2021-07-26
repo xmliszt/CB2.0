@@ -7,7 +7,8 @@ public class RechargeBar : MonoBehaviour
 {
     public Slider rechargeBar;
 
-    private int maxRecharge = 100; // Use game constants?
+    public GameConstants constants;
+
     private int currentRecharge;
 
     private WaitForSeconds rechargeTick = new WaitForSeconds(0.1f);
@@ -15,9 +16,9 @@ public class RechargeBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentRecharge = maxRecharge;
-        rechargeBar.maxValue = maxRecharge;
-        rechargeBar.value = maxRecharge;
+        currentRecharge = constants.maxRecharge;
+        rechargeBar.maxValue = constants.maxRecharge;
+        rechargeBar.value = constants.maxRecharge;
     }
 
     // Update is called once per frame
@@ -44,11 +45,9 @@ public class RechargeBar : MonoBehaviour
 
     private IEnumerator recharge()
     {
-        // yield return new WaitForSeconds(0.1f);
-
-        while(currentRecharge < maxRecharge)
+        while(currentRecharge < constants.maxRecharge)
         {
-            currentRecharge += maxRecharge / 50;
+            currentRecharge += constants.rechargePerTick;
             rechargeBar.value = currentRecharge;
             yield return rechargeTick;
         }
