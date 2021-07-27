@@ -41,10 +41,13 @@ public class SwabTestControlHandler : MonoBehaviour
 
     private PlayerController playerController;
 
+    private PlayerAudioController playerAudioController;
+
     private bool autoPickEnabled = true;
 
     private void Awake()
     {
+        playerAudioController = GetComponent<PlayerAudioController>();
         playerController = GetComponent<PlayerController>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerZoneManager = GetComponent<PlayerZoneManager>();
@@ -86,6 +89,7 @@ public class SwabTestControlHandler : MonoBehaviour
             Vector2 idleDirection = playerController.GetIdleDirection();
             if (currentItem.itemType == Item.ItemType.swabStick)
             {
+                playerAudioController.PlaySFX(SFXType.shoot);
                 inventory.useItem();
                 GameObject stick =
                     Instantiate(swabStickPrefab,
@@ -137,6 +141,7 @@ public class SwabTestControlHandler : MonoBehaviour
                     PlayerZoneManager.ZoneType.submissionStation
                 )
                 {
+                    playerAudioController.PlaySFX(SFXType.coin);
                     inventory.useItem();
                     inventory.SetItem (trash);
                     thoughtBubbleRenderer.sprite = trash.thoughtBubbleSprite;
@@ -169,6 +174,7 @@ public class SwabTestControlHandler : MonoBehaviour
                     PlayerZoneManager.ZoneType.testStation
                 )
                 {
+                    playerAudioController.PlaySFX(SFXType._lock);
                     inventory.useItem();
                     thoughtBubbleRenderer.enabled = false;
                     testStationProcessor.OnLock (gameObject);
@@ -186,6 +192,7 @@ public class SwabTestControlHandler : MonoBehaviour
                 PlayerZoneManager.ZoneType.nullType
             )
             {
+                playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
                 if (
                     playerZoneManager.GetZone() ==
                     PlayerZoneManager.ZoneType.swabStickCollection
@@ -223,6 +230,7 @@ public class SwabTestControlHandler : MonoBehaviour
         }
         else
         {
+            playerAudioController.PlaySFX(SFXType.drop);
             DropItem();
 
             // disable auto pick up for a short while
@@ -322,6 +330,7 @@ public class SwabTestControlHandler : MonoBehaviour
 
     public void OnSwabStickHit()
     {
+        playerAudioController.PlaySFX(SFXType.hit);
         inventory.SetItem (testSample);
         thoughtBubbleRenderer.sprite = testSample.thoughtBubbleSprite;
         thoughtBubbleRenderer.enabled = true;
