@@ -619,7 +619,7 @@ Transform:
   - {fileID: 1892591589}
   - {fileID: 471056665}
   m_Father: {fileID: 1184551487}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &158168304
 GameObject:
@@ -1624,6 +1624,7 @@ GameObject:
   m_Component:
   - component: {fileID: 428188511}
   - component: {fileID: 428188512}
+  - component: {fileID: 428188513}
   m_Layer: 0
   m_Name: Shop 1 Area
   m_TagString: Shop
@@ -1671,6 +1672,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5849218, y: 1.2353134}
   m_EdgeRadius: 0
+--- !u!114 &428188513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428188510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cb205ae74b8264eb1121043f2907c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &430309372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,14 +2489,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645769940}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.8421334, y: 1.1611162, z: 2.962664}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 428188511}
   - {fileID: 1629307759}
-  m_Father: {fileID: 1756123160}
-  m_RootOrder: 5
+  m_Father: {fileID: 1184551487}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &670535619
 GameObject:
@@ -3408,7 +3421,7 @@ Transform:
   - {fileID: 710698711}
   - {fileID: 1823710026}
   m_Father: {fileID: 1184551487}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &927716353
 GameObject:
@@ -3752,7 +3765,7 @@ Transform:
   - {fileID: 950063725}
   - {fileID: 170593487}
   m_Father: {fileID: 1184551487}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &977247121
 GameObject:
@@ -3821,7 +3834,7 @@ Transform:
   - {fileID: 420013808}
   - {fileID: 53839}
   m_Father: {fileID: 1184551487}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1042279227
 GameObject:
@@ -4535,6 +4548,7 @@ Transform:
   m_LocalPosition: {x: 0.30214444, y: -0.29979464, z: -4.443048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 645769941}
   - {fileID: 1696691789}
   - {fileID: 141142038}
   - {fileID: 920035013}
@@ -5672,6 +5686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1629307759}
   - component: {fileID: 1629307760}
+  - component: {fileID: 1629307761}
   m_Layer: 0
   m_Name: Shop 2 Area
   m_TagString: Shop
@@ -5719,6 +5734,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5849218, y: 1.2353134}
   m_EdgeRadius: 0
+--- !u!114 &1629307761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629307758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05cb205ae74b8264eb1121043f2907c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1637246515
 GameObject:
   m_ObjectHideFlags: 0
@@ -5836,7 +5863,7 @@ Transform:
   - {fileID: 1351047071}
   - {fileID: 1548321181}
   m_Father: {fileID: 1184551487}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1696691788
 GameObject:
@@ -5868,7 +5895,7 @@ Transform:
   - {fileID: 1390023882}
   - {fileID: 504173388}
   m_Father: {fileID: 1184551487}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1731730941
 PrefabInstance:
@@ -6147,7 +6174,6 @@ Transform:
   - {fileID: 1352001097}
   - {fileID: 1567153776}
   - {fileID: 2078750023}
-  - {fileID: 645769941}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

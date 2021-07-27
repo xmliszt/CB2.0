@@ -243,7 +243,6 @@ public class STSAIController : MonoBehaviour
 
         if (scoutingMode)
         {
-            Debug.Log("SCOUTING SCOUTING");
             animator.SetFloat("up", 0);
             animator.SetFloat("right", 0);
             animator.SetBool("isIdle", true);
@@ -273,28 +272,32 @@ public class STSAIController : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            playerIsHome = collision.GetComponent<STSControlHandler>().IsPlayerHome();
-            playerLeftCollider = false;
-
-            if (!playerIsHome)
+            bool playerInvisible = collision.GetComponent<STSControlHandler>().GetPlayerInvisibilty();
+            if (!playerInvisible)
             {
-                patrolMode = false;
-                scoutingMode = false;
-                target = collision.transform;
-                
-                shocked.enabled = true;
-                isChasing = true;
+                playerIsHome = collision.GetComponent<STSControlHandler>().IsPlayerHome();
+                playerLeftCollider = false;
 
-                sawPlayerAgain = true;
-                StartCoroutine(BeginChasingPlayer(stsGameConstants.AIChaseDuration));
-            }
+                if (!playerIsHome)
+                {
+                    patrolMode = false;
+                    scoutingMode = false;
+                    target = collision.transform;
 
-            else
-            {
-                patrolMode = true;
-                scoutingMode = false;
-                shocked.enabled = false;
-                isChasing = false;
+                    shocked.enabled = true;
+                    isChasing = true;
+
+                    sawPlayerAgain = true;
+                    StartCoroutine(BeginChasingPlayer(stsGameConstants.AIChaseDuration));
+                }
+
+                else
+                {
+                    patrolMode = true;
+                    scoutingMode = false;
+                    shocked.enabled = false;
+                    isChasing = false;
+                }
             }
         }
     }

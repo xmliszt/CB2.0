@@ -30,4 +30,6 @@ public class STSGameConstants : ScriptableObject
     public float birthdaySongDuration = 3.0f;
 
     public float AIChaseDuration = 3.0f;
+
+    public float invisibilityTime = 10.0f;
 }

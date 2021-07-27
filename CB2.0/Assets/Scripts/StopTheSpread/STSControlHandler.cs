@@ -31,6 +31,7 @@ public class STSControlHandler : MonoBehaviour
     public SpriteRenderer stunnedIconRenderer;
 
     public SpriteRenderer playerSprite;
+    private bool playerInvisible = false;
 
     public STSPlayerInventory stsInventory;
 
@@ -86,7 +87,9 @@ public class STSControlHandler : MonoBehaviour
         playerOneHome = 11,
         playerTwoHome = 12,
         playerThreeHome = 13,
-        playerFourHome = 14
+        playerFourHome = 14,
+
+        shop = 15
     }
 
 
@@ -228,7 +231,36 @@ public class STSControlHandler : MonoBehaviour
 
     public void onShop()
     {
-        Debug.Log("STS Shop used");
+        Debug.Log("Player using shop");
+        if(zoneType == ZoneType.shop)
+        {
+            // do shop stuff
+            if (playerStatsManager.GetPlayerStats().coins > 0) 
+            {
+                playerStatsManager.GetPlayerStats().coins--;
+                playerInvisible = true;
+                var tempColor = playerSprite.color;
+                tempColor.a = 0.2f;
+                playerSprite.color = tempColor;
+
+                StartCoroutine(InvisibilityTimeUp(stsGameConstants.invisibilityTime));
+            }
+        }
+    }
+
+    public bool GetPlayerInvisibilty()
+    {
+        return playerInvisible;
+    }
+
+    IEnumerator InvisibilityTimeUp(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        var tempColor = playerSprite.color;
+        tempColor.a = 1f;
+        playerSprite.color = tempColor;
+        playerInvisible = false;
     }
 
     public void onPickUpDrop()
@@ -380,8 +412,6 @@ public class STSControlHandler : MonoBehaviour
         playerStatsManager.GetPlayerStats().score++;
         InteractableObject.GetComponent<InteractableGameObjects>().PlayerStopUsing();
 
-        Debug.Log("Player completed activity");
-
         activityOnCooldown = true;
 
         StartCoroutine(ActivityCooldown());
@@ -391,17 +421,19 @@ public class STSControlHandler : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("SDA"))
         {
-            // send the player to their home, with 3 seconds waiting time before they can move
-            Debug.Log("Player caught by SDA");
-            gameObject.GetComponent<PlayerController>().DisableController();
-            StartCoroutine(EnabledControllerAgain(3));
+            if (!playerInvisible)
+            {
+                // send the player to their home, with 3 seconds waiting time before they can move
+                gameObject.GetComponent<PlayerController>().DisableController();
+                StartCoroutine(EnabledControllerAgain(3));
 
-            // send player home
-            Vector3 respawnLocation = FindObjectOfType<STSGameManager>().GetPlayerLocation(playerID);
-            gameObject.transform.position = respawnLocation;
+                // send player home
+                Vector3 respawnLocation = FindObjectOfType<STSGameManager>().GetPlayerLocation(playerID);
+                gameObject.transform.position = respawnLocation;
 
-            playerSprite.enabled = false;
-            thoughtBubbleRenderer.enabled = false;
+                playerSprite.enabled = false;
+                thoughtBubbleRenderer.enabled = false;
+            }
         }
     }
 
@@ -460,6 +492,9 @@ public class STSControlHandler : MonoBehaviour
                 break;
             case "PlayerFourHome":
                 zoneType = ZoneType.playerFourHome;
+                break;
+            case "Shop":
+                zoneType = ZoneType.shop;
                 break;
         }
     }
