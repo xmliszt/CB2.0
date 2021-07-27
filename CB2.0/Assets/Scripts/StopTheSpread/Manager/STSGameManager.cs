@@ -108,7 +108,7 @@ public class STSGameManager : MonoBehaviour
         
     }
 
-    private Vector3 GetPlayerLocation(int playerID)
+    public Vector3 GetPlayerLocation(int playerID)
     {
         foreach (PlayerLocation playerLocation in playerLocations)
         {

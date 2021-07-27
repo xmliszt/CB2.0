@@ -19,9 +19,9 @@ public class STSGameConstants : ScriptableObject
 
     public int customerHungryTime = 5;
 
-    public float AISpeed = 4.0f;
+    public float AISpeed = 400.0f;
 
-    public float AIFastSpeed = 4.0f;
+    public float AIFastSpeed = 800.0f;
 
     public float birthdayInterval = 0.5f;
 

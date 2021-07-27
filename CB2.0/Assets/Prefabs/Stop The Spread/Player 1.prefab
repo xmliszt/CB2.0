@@ -1017,6 +1017,7 @@ MonoBehaviour:
   otherPeopleBirthday: {fileID: 11400000, guid: 09319c70b8d21534786811208d815abe, type: 2}
   thoughtBubbleRenderer: {fileID: 7977887251141374544}
   stunnedIconRenderer: {fileID: 1154388671340012776}
+  playerSprite: {fileID: 5928543010023413211}
   stsInventory: {fileID: 11400000, guid: 74d8b3db86992584ea7327fea47d9d8a, type: 2}
   completionBarFill: {fileID: 9077754220260711967}
   Pizza: {fileID: 11400000, guid: bb6ef4a3fd7e19046bbaf34bf20fdd13, type: 2}

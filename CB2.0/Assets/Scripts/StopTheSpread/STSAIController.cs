@@ -29,6 +29,11 @@ public class STSAIController : MonoBehaviour
     private bool scoutingMode = false;
     private bool canChangeDirection = true;
     private int scoutingTime = 0;
+    private bool sawPlayerAgain = false;
+    private bool isChasing = false;
+
+    private bool playerLeftCollider = true;
+    private bool playerIsHome = false;
 
     public Transform[] STSWayPoints;
     private int numWaypoints;
@@ -153,7 +158,17 @@ public class STSAIController : MonoBehaviour
             Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
             //Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - new Vector2(transform.position.x, transform.position.y)).normalized;
 
-            Vector2 force = direction * stsGameConstants.AISpeed * Time.deltaTime;
+            Vector2 force;
+
+            if (!isChasing)
+            {
+                force = direction * stsGameConstants.AISpeed * Time.deltaTime;
+            }
+            else
+            {
+                force = direction * stsGameConstants.AIFastSpeed * Time.deltaTime;
+            }
+
             rb.AddForce(force);
 
 
@@ -228,6 +243,7 @@ public class STSAIController : MonoBehaviour
 
         if (scoutingMode)
         {
+            Debug.Log("SCOUTING SCOUTING");
             animator.SetFloat("up", 0);
             animator.SetFloat("right", 0);
             animator.SetBool("isIdle", true);
@@ -257,11 +273,29 @@ public class STSAIController : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            patrolMode = false;
-            scoutingMode = false;
-            target = collision.transform;
-            shocked.enabled = true;
-            StartCoroutine(BeginChasingPlayer(stsGameConstants.AIChaseDuration));
+            playerIsHome = collision.GetComponent<STSControlHandler>().IsPlayerHome();
+            playerLeftCollider = false;
+
+            if (!playerIsHome)
+            {
+                patrolMode = false;
+                scoutingMode = false;
+                target = collision.transform;
+                
+                shocked.enabled = true;
+                isChasing = true;
+
+                sawPlayerAgain = true;
+                StartCoroutine(BeginChasingPlayer(stsGameConstants.AIChaseDuration));
+            }
+
+            else
+            {
+                patrolMode = true;
+                scoutingMode = false;
+                shocked.enabled = false;
+                isChasing = false;
+            }
         }
     }
 
@@ -269,19 +303,42 @@ public class STSAIController : MonoBehaviour
     {
         if(collision.transform == target)
         {
-            Debug.Log("Player exit AI vision");
+            Debug.Log("Player left the collider");
+            playerLeftCollider = true;
         }
     }
 
     IEnumerator BeginChasingPlayer(float duration)
     {
-        yield return new WaitForSeconds(duration);
+        // while AI can still see the player, will continuously chase player
+        // once player out of AI vision, AI will continue to chase for "duration" seconds before going back to patrol mode
+        while (!playerLeftCollider && !playerIsHome)
+        {
+            yield return null;
+        }
 
+        if (playerIsHome)
+        {
+            patrolMode = true;
+            scoutingMode = false;
+            shocked.enabled = false;
+            isChasing = false;
+            yield break;
+        }
+
+        // hacky method to check if the computer has seen the player again
+        yield return new WaitForSeconds(1);
+        sawPlayerAgain = false;
+        yield return new WaitForSeconds(duration-1);
         // these lines are for when AI loses sight of player
         // thus they are only run after the fixed duration
-        patrolMode = true;
-        scoutingMode = true;
-        shocked.enabled = false;
+        if (!sawPlayerAgain)
+        {
+            patrolMode = true;
+            scoutingMode = true;
+            shocked.enabled = false;
+            isChasing = false;
+        }
     }
 
     IEnumerator AIScouting()

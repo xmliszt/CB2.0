@@ -30,6 +30,8 @@ public class STSControlHandler : MonoBehaviour
 
     public SpriteRenderer stunnedIconRenderer;
 
+    public SpriteRenderer playerSprite;
+
     public STSPlayerInventory stsInventory;
 
     public Image completionBarFill;
@@ -79,7 +81,12 @@ public class STSControlHandler : MonoBehaviour
         npcPizza = 7,
         droppedCake = 8,
         droppedPizza = 9,
-        nullType = 10
+        nullType = 10,
+
+        playerOneHome = 11,
+        playerTwoHome = 12,
+        playerThreeHome = 13,
+        playerFourHome = 14
     }
 
 
@@ -121,7 +128,7 @@ public class STSControlHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void generateActivity()
@@ -380,6 +387,32 @@ public class STSControlHandler : MonoBehaviour
         StartCoroutine(ActivityCooldown());
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("SDA"))
+        {
+            // send the player to their home, with 3 seconds waiting time before they can move
+            Debug.Log("Player caught by SDA");
+            gameObject.GetComponent<PlayerController>().DisableController();
+            StartCoroutine(EnabledControllerAgain(3));
+
+            // send player home
+            Vector3 respawnLocation = FindObjectOfType<STSGameManager>().GetPlayerLocation(playerID);
+            gameObject.transform.position = respawnLocation;
+
+            playerSprite.enabled = false;
+            thoughtBubbleRenderer.enabled = false;
+        }
+    }
+
+    IEnumerator EnabledControllerAgain(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        gameObject.GetComponent<PlayerController>().EnableController();
+        playerSprite.enabled = true;
+        thoughtBubbleRenderer.enabled = true;
+    }
+
     public void PlayerOnTriggerEnterInteractable(String otherTag, GameObject otherGameObject)
     {
         InteractableObject = otherGameObject;
@@ -415,6 +448,18 @@ public class STSControlHandler : MonoBehaviour
                 break;
             case "DroppedPizza":
                 zoneType = ZoneType.droppedPizza;
+                break;
+            case "PlayerOneHome":
+                zoneType = ZoneType.playerOneHome;
+                break;
+            case "PlayerTwoHome":
+                zoneType = ZoneType.playerTwoHome;
+                break;
+            case "PlayerThreeHome":
+                zoneType = ZoneType.playerThreeHome;
+                break;
+            case "PlayerFourHome":
+                zoneType = ZoneType.playerFourHome;
                 break;
         }
     }
@@ -478,5 +523,29 @@ public class STSControlHandler : MonoBehaviour
     public int GetPlayerID()
     {
         return playerID;
+    }
+
+    public bool IsPlayerHome()
+    {
+        switch (playerID)
+        {
+            case 1:
+                if(zoneType == ZoneType.playerOneHome)
+                    return true;
+                break;
+            case 2:
+                if (zoneType == ZoneType.playerTwoHome)
+                    return true;
+                break;
+            case 3:
+                if (zoneType == ZoneType.playerThreeHome)
+                    return true;
+                break;
+            case 4:
+                if (zoneType == ZoneType.playerFourHome)
+                    return true;
+                break;
+        }
+        return false;
     }
 }

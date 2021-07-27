@@ -28,6 +28,11 @@ TagManager:
   - GrocerCake
   - DroppedPizza
   - DroppedCake
+  - PlayerOneHome
+  - PlayerTwoHome
+  - PlayerThreeHome
+  - PlayerFourHome
+  - SDA
   layers:
   - Default
   - TransparentFX
