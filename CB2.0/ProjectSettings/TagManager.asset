@@ -16,6 +16,8 @@ TagManager:
   - Reception
   - ClothChanger
   - MusicChanger
+  - Pickup
+  - Basket
   layers:
   - Default
   - TransparentFX

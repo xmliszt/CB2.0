@@ -13,7 +13,6 @@ public class SnHBasketController : MonoBehaviour
     public int belongsToPlayer;
 
     // is player engaged with basket now
-    public bool engagedWithAnyPlayer;
     public int engagedWithPlayer;
 
     // can be stolen from
@@ -25,6 +24,8 @@ public class SnHBasketController : MonoBehaviour
     // to switch on and off when another player is nearby
     public GameObject Unselected;
     public GameObject OwnedSelected;
+    public GameObject OwnedSelectedCorrect;
+    public GameObject OwnedSelectedWrong;
     public GameObject NotOwnedSelected;
 
     // unselected
@@ -44,7 +45,7 @@ public class SnHBasketController : MonoBehaviour
 
     // sprite inserts
     public Sprite emptyBasket;
-    public List<Sprite> fullBaskets;
+    public Sprite fullBasket;
     public List<Sprite> avatars;
     public List<Sprite> otherItems;
 
@@ -68,39 +69,50 @@ public class SnHBasketController : MonoBehaviour
         OtherCollected.text = formatString(snhPlayerStats.otherObjectCollected);
 
         // no one interacting with the basket
-        engagedWithAnyPlayer = false;
         engagedWithPlayer = -1;
 
         // default to unselected
         Unselected.SetActive(true);
         OwnedSelected.SetActive(false);
+        OwnedSelectedCorrect.SetActive(false);
+        OwnedSelectedWrong.SetActive(false);
         NotOwnedSelected.SetActive(false);
         StealBubble.SetActive(false);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision!");
-        if (collision.CompareTag("Player") && !engagedWithAnyPlayer)
+        if (collision.CompareTag("Player") && engagedWithPlayer == -1)
         {
-            engagedWithAnyPlayer = true;
             engagedWithPlayer = collision.GetComponent<SnHPlayerControlHandler>().playerID;
+
+            if (engagedWithPlayer == belongsToPlayer)
+            {
+                BelongsToPlayer();
+            }
+            else
+            {
+                DoesNotBelongToPlayer();
+                CanBeStolenFrom();
+            }
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && engagedWithAnyPlayer)
+        if (collision.CompareTag("Player") && engagedWithPlayer != -1)
         {
             if (collision.GetComponent<SnHPlayerControlHandler>().playerID == engagedWithPlayer)
             {
-                engagedWithAnyPlayer = false;
                 engagedWithPlayer = -1;
 
                 // switch back to unselected bubble
                 Unselected.SetActive(true);
                 OwnedSelected.SetActive(false);
+                OwnedSelectedCorrect.SetActive(false);
+                OwnedSelectedWrong.SetActive(false);
                 NotOwnedSelected.SetActive(false);
+                StealBubble.SetActive(false);
             }
         }
     }
@@ -111,7 +123,9 @@ public class SnHBasketController : MonoBehaviour
         Unselected.SetActive(false);
         OwnedSelected.SetActive(true);
         NotOwnedSelected.SetActive(false);
-
+        OwnedSelectedCorrect.SetActive(true);
+        OwnedSelectedWrong.SetActive(false);
+        StealBubble.SetActive(false);
     }
 
     public void DoesNotBelongToPlayer()
@@ -120,12 +134,23 @@ public class SnHBasketController : MonoBehaviour
         Unselected.SetActive(false);
         OwnedSelected.SetActive(false);
         NotOwnedSelected.SetActive(true);
+        OwnedSelectedCorrect.SetActive(false);
+        OwnedSelectedWrong.SetActive(false);
+        StealBubble.SetActive(false);
     }
 
 
     public void WrongPickupAdded()
     {
-        // ADD ANIMATION
+        OwnedSelectedCorrect.SetActive(false);
+        OwnedSelectedWrong.SetActive(true);
+        Debug.Log("wrong added");
+    }
+
+    public void IsPickedUp()
+    {
+        Debug.Log("pickedup");
+        engagedWithPlayer = -1;
     }
 
     // confirm can be stolen from
@@ -206,6 +231,18 @@ public class SnHBasketController : MonoBehaviour
         {
             OtherBackground.color = gameConstants.incompleteBackgroundColor;
         }
+
+        // check if there are items in the basket
+        int total_items = snhPlayerStats.TPCollected + snhPlayerStats.otherObjectCollected;
+        if (total_items == 0)
+        {
+            Basket.sprite = emptyBasket;
+        }
+        else
+        {
+            Basket.sprite = fullBasket;
+        }
+
     }
 
     private string formatString(int score)

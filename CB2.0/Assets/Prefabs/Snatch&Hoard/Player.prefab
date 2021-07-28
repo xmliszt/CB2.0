@@ -171,7 +171,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868198130254696582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.403, y: 0.592, z: 0}
+  m_LocalPosition: {x: 0.25, y: 0.46, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children: []
   m_Father: {fileID: 3220870435757456983}
@@ -217,12 +217,12 @@ SpriteRenderer:
   m_SortingLayerID: -650869595
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d5ce511426e86ff419f2fd509e8155e3, type: 3}
+  m_Sprite: {fileID: -3611482823998066858, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 3}
+  m_Size: {x: 0.875, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -307,7 +307,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2152982009580336069
@@ -557,7 +557,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0048494786, y: -0.09860623}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -568,7 +568,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48, y: 0.96}
+  m_Size: {x: 0.52849483, y: 0.7627876}
   m_EdgeRadius: 0
 --- !u!58 &7124474141441216832
 CircleCollider2D:
@@ -704,7 +704,7 @@ MonoBehaviour:
     m_ActionId: e244ebdd-9f7d-4329-9dde-bd3c459f709e
     m_ActionName: gameplay/shop[/Keyboard/l]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: keyboard
   m_DefaultActionMap: gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -831,6 +831,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f689fc9181f8d044be1742d18812536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onDrop: {fileID: 11400000, guid: 06e4f8faa4e4bfa459b5f5dd70c498b4, type: 2}
+  onPickup: {fileID: 11400000, guid: ac123c6361be10049a4b48de47222c6d, type: 2}
   snhPlayerStats: {fileID: 0}
   spawnManager: {fileID: 0}
   gameConstants: {fileID: 11400000, guid: 745d923f243db894391ca4f44d005fd7, type: 2}
@@ -853,8 +855,8 @@ MonoBehaviour:
   - {fileID: -580593594162575151, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: 2960242546088347903, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   basketSprites:
-  - {fileID: 21300000, guid: d5ce511426e86ff419f2fd509e8155e3, type: 3}
-  - {fileID: 21300000, guid: 458ed28fe2ccfe445ad526ccd870f783, type: 3}
+  - {fileID: -6694291115085436071, guid: d5ce511426e86ff419f2fd509e8155e3, type: 3}
+  - {fileID: -9122351982520521906, guid: a6a13664286b6a044b178da7030429a3, type: 3}
   zoneObject: {fileID: 0}
 --- !u!1 &3243103790763110853
 GameObject:
@@ -935,7 +937,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3289939593984897831
@@ -1325,7 +1327,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8266521125996544899
@@ -1407,7 +1409,7 @@ SpriteRenderer:
   m_Size: {x: 2, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8331678232986886190
@@ -1457,7 +1459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3220870435757456983
 Transform:
   m_ObjectHideFlags: 0

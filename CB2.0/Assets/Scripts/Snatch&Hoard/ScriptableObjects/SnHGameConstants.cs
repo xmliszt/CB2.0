@@ -24,9 +24,6 @@ public class SnHGameConstants : ScriptableObject
     // Number of NPCs to spawn
     public int NPCs;
 
-    // Number of items to spawn
-    public int SpawnableItems;
-
     // If players are playing
     public bool P1Playing = true;
     public bool P2Playing = true;
@@ -50,7 +47,7 @@ public class SnHGameConstants : ScriptableObject
                                             new SPZC(6.6f, 8.4f, -4.3f, -3.3f)};
 
     // spawn constraints
-    public int spawnFrequency = 2;
+    public int spawnFrequency = 5;
     public int spawnPerZone = 1;
 }
 

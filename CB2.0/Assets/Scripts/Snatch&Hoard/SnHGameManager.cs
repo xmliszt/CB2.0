@@ -19,6 +19,29 @@ public class SnHGameManager : MonoBehaviour
         // state this scene
         gameStats.SetCurrentScene(GameStats.Scene.snatchAndHoard);
 
+        // select random item for game constant
+        int otheritem = Random.Range(0, 3); // game constant have to follow pickup index
+        gameConstants.OtherIndex = otheritem + 2; 
+
+        // reset all player stats
+        P1Stats.coinsCollected = 0;
+        P1Stats.TPCollected = 0;
+        P1Stats.otherObjectCollected = 0;
+        P1Stats.zoneType = SnHPlayerStats.ZoneType.NotInAnyZone;
+        P2Stats.coinsCollected = 0;
+        P2Stats.TPCollected = 0;
+        P2Stats.otherObjectCollected = 0;
+        P2Stats.zoneType = SnHPlayerStats.ZoneType.NotInAnyZone;
+        P3Stats.coinsCollected = 0;
+        P3Stats.TPCollected = 0;
+        P3Stats.otherObjectCollected = 0;
+        P3Stats.zoneType = SnHPlayerStats.ZoneType.NotInAnyZone;
+        P4Stats.coinsCollected = 0;
+        P4Stats.TPCollected = 0;
+        P4Stats.otherObjectCollected = 0;
+        P4Stats.zoneType = SnHPlayerStats.ZoneType.NotInAnyZone;
+
+
         // assign playeractive to playerstats
         P1Stats.isActive = gameConstants.P1Playing;
         P2Stats.isActive = gameConstants.P2Playing;
@@ -30,12 +53,6 @@ public class SnHGameManager : MonoBehaviour
         P2CH.snhPlayerStats = P2Stats;
         P3CH.snhPlayerStats = P3Stats;
         P4CH.snhPlayerStats = P4Stats;
-
-        // assign spawnmanager to playercontrolhandler
-        P1CH.spawnManager = spawnManager;
-        P2CH.spawnManager = spawnManager;
-        P3CH.spawnManager = spawnManager;
-        P4CH.spawnManager = spawnManager;
 
         // assign playerstats to playerstatscontroller
         P1StatsController.uniquePlayerStats = P1Stats;
@@ -51,6 +68,21 @@ public class SnHGameManager : MonoBehaviour
 
         // spawn objects
         spawnManager.onStart();
+
+        // initialise the scores
+        scoreManager.onStart();
+
+        // initialise the baskets
+        P1BC.onStart();
+        P2BC.onStart();
+        P3BC.onStart();
+        P4BC.onStart();
+
+        // initialise the players
+        P1CH.onStart();
+        P2CH.onStart();
+        P3CH.onStart();
+        P4CH.onStart();
     }
 
     // Update is called once per frame

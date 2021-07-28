@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 767d14b252f423b428d522c0367d7c10, type: 3}
   m_Name: Player3
   m_EditorClassIdentifier: 
-  playerID: 0
-  isActive: 0
-  playerName: 
-  playerAccent: {r: 0, g: 0, b: 0, a: 0}
-  playerAvatar: 0
-  animatorController: {fileID: 0}
+  playerID: 2
+  isActive: 1
+  playerName: P3
+  playerAccent: {r: 0.014824867, g: 0, b: 1, a: 0}
+  playerAvatar: 2
+  animatorController: {fileID: 9100000, guid: ae6d7b810ad429a4e87fbaacda5dd064, type: 2}
   coinsCollected: 0
   TPCollected: 0
-  otherObject: 0
   otherObjectCollected: 0
+  playerSlow: 0
+  SlowMultiplier: 0.9
+  zoneType: 6

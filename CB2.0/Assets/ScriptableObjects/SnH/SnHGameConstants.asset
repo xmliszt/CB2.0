@@ -13,14 +13,17 @@ MonoBehaviour:
   m_Name: SnHGameConstants
   m_EditorClassIdentifier: 
   VMPrice: 1
-  CollectTP: 0
-  OtherIndex: 0
-  CollectOther: 0
-  activeColour: {r: 91, g: 91, b: 91, a: 255}
+  CollectTP: 5
+  OtherIndex: 3
+  CollectOther: 5
+  incompleteBackgroundColor: {r: 0.9716981, g: 0.4532554, b: 0.4532554, a: 1}
+  completeBackgroundColor: {r: 0.33226532, g: 0.7924528, b: 0.44239566, a: 1}
+  activeColour: {r: 0.4716981, g: 0.3179265, b: 0.3179265, a: 255}
   inactiveColour: {r: 255, g: 255, b: 255, a: 255}
   NPCs: 0
-  SpawnableItems: 0
-  P1Playing: 0
-  P2Playing: 0
-  P3Playing: 0
+  P1Playing: 1
+  P2Playing: 1
+  P3Playing: 1
   P4Playing: 0
+  spawnFrequency: 2
+  spawnPerZone: 2

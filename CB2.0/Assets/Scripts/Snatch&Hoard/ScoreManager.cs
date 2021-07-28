@@ -11,10 +11,10 @@ public class ScoreManager : MonoBehaviour
     public Text CollectTP;
     public Image otherImage;
     public Text CollectOther;
-    public SnHPlayerStatsController P1StatsController;
-    public SnHPlayerStatsController P2StatsController;
-    public SnHPlayerStatsController P3StatsController;
-    public SnHPlayerStatsController P4StatsController;
+    public GameObject P1StatsDisplay;
+    public GameObject P2StatsDisplay;
+    public GameObject P3StatsDisplay;
+    public GameObject P4StatsDisplay;
     public SpriteRenderer P1Background;
     public SpriteRenderer P2Background;
     public SpriteRenderer P3Background;
@@ -49,51 +49,51 @@ public class ScoreManager : MonoBehaviour
     {
         if (snHGameConstants.P1Playing)
         {
-            PlayerActive(P1StatsController, P1Background);
+            PlayerActive(P1StatsDisplay, P1Background);
         }
         else
         {
-            PlayerInactive(P1StatsController, P1Background);
+            PlayerInactive(P1StatsDisplay, P1Background);
         }
 
         if (snHGameConstants.P2Playing)
         {
-            PlayerActive(P2StatsController, P2Background);
+            PlayerActive(P2StatsDisplay, P2Background);
         }
         else
         {
-            PlayerInactive(P2StatsController, P2Background);
+            PlayerInactive(P2StatsDisplay, P2Background);
         }
 
         if (snHGameConstants.P3Playing)
         {
-            PlayerActive(P3StatsController, P3Background);
+            PlayerActive(P3StatsDisplay, P3Background);
         }
         else
         {
-            PlayerInactive(P3StatsController, P3Background);
+            PlayerInactive(P3StatsDisplay, P3Background);
         }
 
         if (snHGameConstants.P4Playing)
         {
-            PlayerActive(P4StatsController, P4Background);
+            PlayerActive(P4StatsDisplay, P4Background);
         }
         else
         {
-            PlayerInactive(P4StatsController, P4Background);
+            PlayerInactive(P4StatsDisplay, P4Background);
         }
     }
 
-    private void PlayerActive(SnHPlayerStatsController controller, SpriteRenderer background)
+    private void PlayerActive(GameObject display, SpriteRenderer background)
     {
         background.color = snHGameConstants.activeColour;
-        controller.enabled = true;
-        controller.onStart();
+        display.SetActive(true);
+        display.GetComponent<SnHPlayerStatsController>().onStart();
     }
 
-    private void PlayerInactive(SnHPlayerStatsController controller, SpriteRenderer background)
+    private void PlayerInactive(GameObject display, SpriteRenderer background)
     {
         background.color = snHGameConstants.inactiveColour;
-        controller.enabled = false;
+        display.SetActive(false);
     }
 }

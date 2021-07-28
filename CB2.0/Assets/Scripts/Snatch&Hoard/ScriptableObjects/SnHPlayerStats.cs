@@ -22,7 +22,7 @@ public class SnHPlayerStats : ScriptableObject
     public int otherObjectCollected;
 
     // player speed
-    public float playerSlow;
+    public float PlayerSpeed; // curerntly unused
     public float SlowMultiplier = 0.9f;
 
     public enum ZoneType

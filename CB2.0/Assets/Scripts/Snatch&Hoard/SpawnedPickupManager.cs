@@ -11,7 +11,7 @@ public class SpawnedPickupManager : MonoBehaviour
     public GameObject pickupPrefab;
 
     // dictionary to track the number of pickups spawned per area. should only have a max of 2
-    private Dictionary<SPZC, List<GameObject>> spawnMap;
+    private Dictionary<SPZC, List<Vector3>> spawnMap;
 
     // possible item types to spawn
     public SnHPickUps[] Spawnable;
@@ -19,14 +19,12 @@ public class SpawnedPickupManager : MonoBehaviour
     // parent transform
     public Transform parent;
 
-
-    // Change to onStart later
     public void onStart()
     {
-        spawnMap = new Dictionary<SPZC, List<GameObject>>();
+        spawnMap = new Dictionary<SPZC, List<Vector3>>();
         foreach (SPZC zones in snhGameConstants.spawnZones)
         {
-            spawnMap[zones] = new List<GameObject>();
+            spawnMap[zones] = new List<Vector3>();
         }
         StartCoroutine(SpawnPickups());
     }
@@ -54,31 +52,28 @@ public class SpawnedPickupManager : MonoBehaviour
                 // instantiate and set the pickup type
                 GameObject SpawnedPickup = Instantiate(pickupPrefab, location, pickupPrefab.transform.rotation, parent);
                 SpawnedPickup.GetComponent<SnHPickUpController>().SetPickUp(_pickupType);
-                Debug.Log("spawned new");
 
                 // save to list
-                spawnMap[snhGameConstants.spawnZones[selectedSpawnZone]].Add(SpawnedPickup);
+                spawnMap[snhGameConstants.spawnZones[selectedSpawnZone]].Add(SpawnedPickup.transform.position);
             }
         }
     }
 
     // remove the reference from the list
-    public void PickupDestroyed(GameObject destroyedPickup)
+    public void PickupDestroyed(Vector3 destroyedPickupPosition)
     {
-        foreach (List<GameObject> pu in spawnMap.Values)
+        foreach (List<Vector3> pu in spawnMap.Values)
         {
-            if (pu.Contains(destroyedPickup))
+            if (pu.Contains(destroyedPickupPosition))
             {
-                pu.Remove(destroyedPickup);
+                pu.Remove(destroyedPickupPosition);
             }
         }
     }
 
     // when pickup is dropped on the ground
-    public void PickupAdded(GameObject newPickup)
+    public void PickupAdded(Vector3 location)
     {
-        // get the location of the pickup
-        Vector3 location = newPickup.transform.position;
 
         // check which spawn area is appropriate
         foreach(SPZC area in spawnMap.Keys)
@@ -86,7 +81,7 @@ public class SpawnedPickupManager : MonoBehaviour
             // if location matches
             if (location.x >= area.xMin && location.x <= area.xMax && location.y >= area.yMin && location.y <= area.yMax)
             {
-                spawnMap[area].Add(newPickup);
+                spawnMap[area].Add(location);
             }
         }
     }

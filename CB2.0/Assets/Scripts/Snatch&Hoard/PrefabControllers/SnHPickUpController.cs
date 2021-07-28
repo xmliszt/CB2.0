@@ -10,8 +10,7 @@ public class SnHPickUpController : MonoBehaviour
 
     public List<Sprite> pickupSprites;
 
-    public bool isEngagedWithAnyPlayer;
-    public int player;
+    public int engagedWithPlayer;
     
     // called when instantiated
     public void SetPickUp(SnHPickUps.PickUpType _pickup)
@@ -22,21 +21,19 @@ public class SnHPickUpController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !isEngagedWithAnyPlayer)
+        if (collision.CompareTag("Player") && engagedWithPlayer == -1)
         {
-            isEngagedWithAnyPlayer = true;
-            player = collision.GetComponent<SnHPlayerControlHandler>().playerID;
+            engagedWithPlayer = collision.GetComponent<SnHPlayerControlHandler>().playerID;
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && isEngagedWithAnyPlayer)
+        if (collision.CompareTag("Player") && engagedWithPlayer != -1)
         {
-            if (collision.GetComponent<SnHPlayerControlHandler>().playerID == player)
+            if (collision.GetComponent<SnHPlayerControlHandler>().playerID == engagedWithPlayer)
             {
-                isEngagedWithAnyPlayer = false;
-                player = -1;
+                engagedWithPlayer = -1;
             }
         }
     }

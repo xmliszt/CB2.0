@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class SnHPlayerControlHandler : MonoBehaviour
 {
+    public Vector3GameEvent onDrop;
+    public Vector3GameEvent onPickup;
+
     public SnHPlayerStats snhPlayerStats;
-    public SpawnedPickupManager spawnManager;
     public SnHGameConstants gameConstants;
 
     public int playerID;
@@ -21,7 +23,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
     public SnHPickUps.PickUpType heldPickupType;
 
     // basket reference
-    public Transform basketReference;
+    public GameObject basketReference;
 
     // item bubble references
     public GameObject itemBubble;
@@ -47,25 +49,26 @@ public class SnHPlayerControlHandler : MonoBehaviour
     // entering zones
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("player collided with something!");
+        Debug.Log(collision.name.ToString());
         if (collision.CompareTag("Basket"))
         {
             // basket not engaged with anyone
-            if (!collision.GetComponent<SnHBasketController>().engagedWithAnyPlayer)
+            if (collision.GetComponent<SnHBasketController>().engagedWithPlayer == snhPlayerStats.playerID)
             {
                 // implicitly not holding my basket
                 if (snhPlayerStats.playerID == collision.GetComponent<SnHBasketController>().belongsToPlayer)
                 {
                     snhPlayerStats.zoneType = SnHPlayerStats.ZoneType.myBasketZone;
-                    collision.GetComponent<SnHBasketController>().BelongsToPlayer();
+                    zoneObject = collision.gameObject;
+
                 }
 
                 // not my basket and i am not holding anything
                 else if (snhPlayerStats.playerID != collision.GetComponent<SnHBasketController>().belongsToPlayer && !isHoldingBasket && !isHoldingPickup)
                 {
                     snhPlayerStats.zoneType = SnHPlayerStats.ZoneType.otherBasketZone;
-                    collision.GetComponent<SnHBasketController>().DoesNotBelongToPlayer();
-                    collision.GetComponent<SnHBasketController>().CanBeStolenFrom();
+                    zoneObject = collision.gameObject;
+
                 }
             }
         }
@@ -73,15 +76,15 @@ public class SnHPlayerControlHandler : MonoBehaviour
         else if (collision.CompareTag("Pickup"))
         {
             // not holding anything and pickup is not engaged by anyone
-            if (!isHoldingBasket && !isHoldingPickup && !collision.GetComponent<SnHPickUpController>().isEngagedWithAnyPlayer)
+            if (!isHoldingBasket && !isHoldingPickup && collision.GetComponent<SnHPickUpController>().engagedWithPlayer == snhPlayerStats.playerID)
             {
                 snhPlayerStats.zoneType = SnHPlayerStats.ZoneType.pickUpZone;
+                zoneObject = collision.gameObject;
             }
         }
 
         // ADD MORE ZONES HANDLING
 
-        zoneObject = collision.gameObject;
 
     }
 
@@ -130,11 +133,14 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 isHoldingBasket = false;
                 itemSprite.sprite = null;
                 itemBubble.SetActive(false);
-                basketReference.position = playerTransform.position;
-                basketReference.gameObject.SetActive(true);
+                basketReference.transform.position = playerTransform.position;
+                basketReference.SetActive(true);
 
                 // compute player slowed multiplier
-                snhPlayerStats.playerSlow = 1;
+                snhPlayerStats.PlayerSpeed = 1;
+
+                // remove reference to basket
+                basketReference = null;
             }
 
             // if holding object, drop it (spawn new object)
@@ -144,11 +150,12 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 GameObject newPickup = Instantiate(pickUpPrefab, currentLocation, Quaternion.identity);
                 newPickup.GetComponent<SnHPickUpController>().SetPickUp(heldPickupType);
 
-                spawnManager.PickupAdded(newPickup);
+                onPickup.Fire(currentLocation);
 
                 heldPickupType = SnHPickUps.PickUpType.noneType;
                 itemSprite.sprite = null;
                 itemBubble.SetActive(false);
+                isHoldingPickup = false;
             }
         }
         // if in a particular zone, do actions according to the zone type
@@ -209,7 +216,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
             // wrong pickup
             else
             {
-                // ADD display wrong animation briefly
+                Debug.Log("wrong pickup");
                 bC.WrongPickupAdded();
             }
         }
@@ -217,15 +224,19 @@ public class SnHPlayerControlHandler : MonoBehaviour
         // pickup basket
         else
         {
+            Debug.Log("what");
             // make basket inactive in the hierarchy and store the reference here
-            basketReference = zoneObject.transform;
+            basketReference = zoneObject;
+            bC.IsPickedUp();
             zoneObject.SetActive(false);
             isHoldingBasket = true;
             itemBubble.SetActive(true);
             itemSprite.sprite = basketSprites[_GetBasketStatus()];
 
             // compute player slowed multiplier
-            snhPlayerStats.playerSlow = Mathf.Pow(snhPlayerStats.SlowMultiplier, (snhPlayerStats.TPCollected + snhPlayerStats.otherObjectCollected));
+            snhPlayerStats.PlayerSpeed = Mathf.Pow(snhPlayerStats.SlowMultiplier, (snhPlayerStats.TPCollected + snhPlayerStats.otherObjectCollected));
+
+            zoneObject = null;
         }
     }
 
@@ -269,8 +280,11 @@ public class SnHPlayerControlHandler : MonoBehaviour
         itemSprite.sprite = pickupSprites[(int)heldPickupType];
         itemBubble.SetActive(true);
 
+        // is holding item
+        isHoldingPickup = true;
+
         // remove spawn manager's reference to this pickup
-        spawnManager.PickupDestroyed(zoneObject);
+        onDrop.Fire(zoneObject.transform.position);
 
         // destroy the game object itself
         Destroy(zoneObject.gameObject);
