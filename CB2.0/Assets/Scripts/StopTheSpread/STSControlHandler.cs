@@ -129,11 +129,6 @@ public class STSControlHandler : MonoBehaviour
         completionBarFill.color = playerStatsManager.GetPlayerStats().playerAccent;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void generateActivity()
     {
@@ -168,6 +163,7 @@ public class STSControlHandler : MonoBehaviour
 
                 if (!activityOnCooldown)
                 {
+                    generateActivity();
                     thoughtBubbleRenderer.enabled = true;
                 }
                 playerDoingActivity = false;
@@ -188,6 +184,7 @@ public class STSControlHandler : MonoBehaviour
 
                 if (!activityOnCooldown)
                 {
+                    generateActivity();
                     thoughtBubbleRenderer.enabled = true;
                 }
                 playerDoingActivity = false;
@@ -590,5 +587,18 @@ public class STSControlHandler : MonoBehaviour
                 break;
         }
         return false;
+    }
+
+    // Reset all minigame-specific player appearance
+    public void onMinigameOver()
+    {
+        thoughtBubbleRenderer.enabled = false;
+        stunnedIconRenderer.enabled = false;
+        CakeSprite.enabled = false;
+        PizzaSprite.enabled = false;
+        completionBar.gameObject.SetActive(false);
+        var tempColor = playerSprite.color;
+        tempColor.a = 1.0f;
+        playerSprite.color = tempColor;
     }
 }

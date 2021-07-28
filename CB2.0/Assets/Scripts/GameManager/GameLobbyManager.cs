@@ -16,6 +16,8 @@ public class GameLobbyManager : MonoBehaviour
 
     public List<GameStats.Scene> minigameSequence;
 
+    private int currentMinigameSceneIdx;
+
     // Keep track of the spawned player gameobject
     private Dictionary<int, Transform> playerObjects;
 
@@ -125,11 +127,12 @@ public class GameLobbyManager : MonoBehaviour
         foreach (PlayerStats playerStats in playerProfiles)
         {
             playerStats.coins = 0;
+            playerStats.score = 0;
             playerStats.inventory.ClearItem();
         }
     }
 
-    // Call this when whole game restarted
+    // Call this when the whole game restarted
     public void ResetPlayerStatsCompletely()
     {
         foreach (PlayerStats playerStats in playerProfiles)
@@ -152,6 +155,7 @@ public class GameLobbyManager : MonoBehaviour
         else
         {
             gameStats.SetCurrentScene(minigameSequence[0]);
+            currentMinigameSceneIdx = 0;
             GameStats.Scene firstScene = gameStats.GetCurrentScene();
             LoadMinigame (firstScene);
         }
@@ -176,11 +180,14 @@ public class GameLobbyManager : MonoBehaviour
     public void OnPlayNextMinigame()
     {
         GameStats.Scene currentScene = gameStats.GetCurrentScene();
-        int sceneIdx = minigameSequence.IndexOf(currentScene);
-        int nextSceneIdx = sceneIdx + 1;
+        int nextSceneIdx = currentMinigameSceneIdx + 1;
+        currentMinigameSceneIdx = nextSceneIdx;
+        gameStats.SetCurrentScene(minigameSequence[nextSceneIdx]);
+        ResetPlayerStatsForMiniGame();
         if (nextSceneIdx == minigameSequence.Count)
         {
             LoadMinigame(GameStats.Scene.gameLobby);
+            ResetPlayerStatsCompletely();
         }
         else
         {

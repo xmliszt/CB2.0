@@ -896,15 +896,15 @@ GameObject:
   - component: {fileID: 4663360309773489266}
   - component: {fileID: 8525827130420829609}
   - component: {fileID: 4651673285783923620}
+  - component: {fileID: 2229344947084866892}
+  - component: {fileID: 8458192740763617604}
+  - component: {fileID: 5793203370389466200}
+  - component: {fileID: 4629807238665847802}
   - component: {fileID: 562434371}
   - component: {fileID: 789055899533834128}
   - component: {fileID: 5475761574761554405}
-  - component: {fileID: 2229344947084866892}
-  - component: {fileID: 6493347360338484652}
-  - component: {fileID: 8458192740763617604}
   - component: {fileID: -7255464171494784920}
-  - component: {fileID: 5793203370389466200}
-  - component: {fileID: 4629807238665847802}
+  - component: {fileID: 6493347360338484652}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1228,6 +1228,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 562434371}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: EnableController
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &934771182231830064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1284,6 +1296,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 562434371}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: DisableMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -7255464171494784920}
+        m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
+        m_MethodName: onMinigameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5475761574761554405}
+        m_TargetAssemblyTypeName: SwabTestControlHandler, Assembly-CSharp
+        m_MethodName: onMinigameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4663360309773489266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1322,6 +1370,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f12b22ceb8491f479855adeb1ec14d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2229344947084866892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65c7ff25f3997f349941a04c9b084600, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxAudios:
+  - _type: 0
+    clip: {fileID: 8300000, guid: 298e3a21c4875e643bfa667753564eae, type: 3}
+  - _type: 1
+    clip: {fileID: 8300000, guid: 05f61600795bf9e4cb0d7dbeb97d9ca3, type: 3}
+  - _type: 2
+    clip: {fileID: 8300000, guid: 5ce0c7f08ce037744851b7e50252e588, type: 3}
+  - _type: 3
+    clip: {fileID: 8300000, guid: c87cc6fbb0408b449831dbd3ddbb5448, type: 3}
+  - _type: 4
+    clip: {fileID: 8300000, guid: 7d529fe857392cb41abbed37028958fc, type: 3}
+  - _type: 5
+    clip: {fileID: 8300000, guid: 73ebe66422eae6644bdba859af1e3fec, type: 3}
+  source: {fileID: 6493347360338484652}
+--- !u!114 &8458192740763617604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa0041421649bf4db2282ac0649815a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: f912c1b84d1c7dc4b89ced31b36607a0, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3025591827491950646, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
+        m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
+        m_MethodName: BirthdayEventActivated
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5793203370389466200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa0041421649bf4db2282ac0649815a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 007249fe56559fb49abd4d03ba1a2841, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3025591827491950646, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
+        m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
+        m_MethodName: BirthdayScoreEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4629807238665847802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0036752110c6ff54a95978dd58194583, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3025591827491950646, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
+        m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
+        m_MethodName: birthdayCelebrationsCompleted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &562434371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,7 +1532,7 @@ MonoBehaviour:
   droppedItemPrefab: {fileID: 9030321009598397116, guid: dedf45a66fa3ad54193d015b16af5f84, type: 3}
   thoughtBubbleRenderer: {fileID: 5316216624820595615}
   stunnedIconRenderer: {fileID: 1154388671340012776}
---- !u!114 &2229344947084866892
+--- !u!114 &-7255464171494784920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1383,23 +1541,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 5928543010023413209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65c7ff25f3997f349941a04c9b084600, type: 3}
+  m_Script: {fileID: 11500000, guid: 92d47af3cd5dc904d8ed97dfa3351111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxAudios:
-  - _type: 0
-    clip: {fileID: 8300000, guid: 298e3a21c4875e643bfa667753564eae, type: 3}
-  - _type: 1
-    clip: {fileID: 8300000, guid: 05f61600795bf9e4cb0d7dbeb97d9ca3, type: 3}
-  - _type: 2
-    clip: {fileID: 8300000, guid: 5ce0c7f08ce037744851b7e50252e588, type: 3}
-  - _type: 3
-    clip: {fileID: 8300000, guid: c87cc6fbb0408b449831dbd3ddbb5448, type: 3}
-  - _type: 4
-    clip: {fileID: 8300000, guid: 7d529fe857392cb41abbed37028958fc, type: 3}
-  - _type: 5
-    clip: {fileID: 8300000, guid: 73ebe66422eae6644bdba859af1e3fec, type: 3}
-  source: {fileID: 6493347360338484652}
+  stsGameConstants: {fileID: 11400000, guid: e3ab69074ca3dd94da1cdd8d42748062, type: 2}
+  completionBar: {fileID: 2731980632982239090}
+  gym: {fileID: 11400000, guid: a6f4594d3b4de69478e9f2cdc4255bd5, type: 2}
+  computer: {fileID: 11400000, guid: b3d5fea392d0d6a4d9b621f49643f71a, type: 2}
+  karaoke: {fileID: 11400000, guid: 0412c9adc400d404497712e19cd840ce, type: 2}
+  toiletPaper: {fileID: 11400000, guid: 5ba21f72f31597e44b77a67b86d77218, type: 2}
+  birthday: {fileID: 11400000, guid: c909d2595dfac4b44b5cf5ccbbc107f6, type: 2}
+  doingNothing: {fileID: 11400000, guid: 96544ca7618859a48bfa2ad748728596, type: 2}
+  otherPeopleBirthday: {fileID: 11400000, guid: 09319c70b8d21534786811208d815abe, type: 2}
+  thoughtBubbleRenderer: {fileID: 5316216624820595615}
+  stunnedIconRenderer: {fileID: 1154388671340012776, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
+  playerSprite: {fileID: 5928543010023413211}
+  stsInventory: {fileID: 11400000, guid: 74d8b3db86992584ea7327fea47d9d8a, type: 2}
+  completionBarFill: {fileID: 1493112486702988680}
+  Pizza: {fileID: 11400000, guid: bb6ef4a3fd7e19046bbaf34bf20fdd13, type: 2}
+  Cake: {fileID: 11400000, guid: bb683ce3267a6444084e676beec6d2d1, type: 2}
+  PizzaSprite: {fileID: 4923117685646026947}
+  CakeSprite: {fileID: 4823949455357959056}
+  droppedPizzaPrefab: {fileID: 5612514872177990907, guid: 5c136cba944160941a72347e381bcce6, type: 3}
+  droppedCakePrefab: {fileID: 4037778933554880268, guid: a53427640e8e451499b6e14014b72658, type: 3}
 --- !u!82 &6493347360338484652
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1496,122 +1660,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8458192740763617604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5928543010023413209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daa0041421649bf4db2282ac0649815a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: f912c1b84d1c7dc4b89ced31b36607a0, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3025591827491950646, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
-        m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
-        m_MethodName: BirthdayEventActivated
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &-7255464171494784920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5928543010023413209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92d47af3cd5dc904d8ed97dfa3351111, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stsGameConstants: {fileID: 11400000, guid: e3ab69074ca3dd94da1cdd8d42748062, type: 2}
-  completionBar: {fileID: 2731980632982239090}
-  gym: {fileID: 11400000, guid: a6f4594d3b4de69478e9f2cdc4255bd5, type: 2}
-  computer: {fileID: 11400000, guid: b3d5fea392d0d6a4d9b621f49643f71a, type: 2}
-  karaoke: {fileID: 11400000, guid: 0412c9adc400d404497712e19cd840ce, type: 2}
-  toiletPaper: {fileID: 11400000, guid: 5ba21f72f31597e44b77a67b86d77218, type: 2}
-  birthday: {fileID: 11400000, guid: c909d2595dfac4b44b5cf5ccbbc107f6, type: 2}
-  doingNothing: {fileID: 11400000, guid: 96544ca7618859a48bfa2ad748728596, type: 2}
-  otherPeopleBirthday: {fileID: 11400000, guid: 09319c70b8d21534786811208d815abe, type: 2}
-  thoughtBubbleRenderer: {fileID: 5316216624820595615}
-  stunnedIconRenderer: {fileID: 1154388671340012776, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
-  playerSprite: {fileID: 5928543010023413211}
-  stsInventory: {fileID: 11400000, guid: 74d8b3db86992584ea7327fea47d9d8a, type: 2}
-  completionBarFill: {fileID: 1493112486702988680}
-  Pizza: {fileID: 11400000, guid: bb6ef4a3fd7e19046bbaf34bf20fdd13, type: 2}
-  Cake: {fileID: 11400000, guid: bb683ce3267a6444084e676beec6d2d1, type: 2}
-  PizzaSprite: {fileID: 4923117685646026947}
-  CakeSprite: {fileID: 4823949455357959056}
-  droppedPizzaPrefab: {fileID: 5612514872177990907, guid: 5c136cba944160941a72347e381bcce6, type: 3}
-  droppedCakePrefab: {fileID: 4037778933554880268, guid: a53427640e8e451499b6e14014b72658, type: 3}
---- !u!114 &5793203370389466200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5928543010023413209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daa0041421649bf4db2282ac0649815a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 007249fe56559fb49abd4d03ba1a2841, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3025591827491950646, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
-        m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
-        m_MethodName: BirthdayScoreEvent
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4629807238665847802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5928543010023413209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 0036752110c6ff54a95978dd58194583, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3025591827491950646, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
-        m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
-        m_MethodName: birthdayCelebrationsCompleted
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &6663720610430123126
 GameObject:
   m_ObjectHideFlags: 0

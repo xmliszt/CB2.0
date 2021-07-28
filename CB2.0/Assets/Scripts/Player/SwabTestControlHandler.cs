@@ -352,4 +352,12 @@ public class SwabTestControlHandler : MonoBehaviour
     {
         shopHandler = _shopHandler;
     }
+
+    
+    // Reset all minigame-specific player appearance
+    public void onMinigameOver()
+    {
+        thoughtBubbleRenderer.enabled = false;
+        stunnedIconRenderer.enabled = false;
+    }
 }
