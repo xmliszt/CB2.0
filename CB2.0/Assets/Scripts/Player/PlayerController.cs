@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false; // Whether character is currently dashing
 
     // All minigame handlers
+    private PlayerAudioController playerAudioController;
+
     private GameLobbyControlHandler gameLobbyControlHandler;
 
     private SwabTestControlHandler swabTestControlHandler;
@@ -49,6 +51,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
+        playerAudioController = GetComponent<PlayerAudioController>();
         swabTestControlHandler = GetComponent<SwabTestControlHandler>();
         stsControlHandler = GetComponent<STSControlHandler>();
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
@@ -61,7 +64,10 @@ public class PlayerController : MonoBehaviour
         direction = GetDirection();
         if (!(direction.x == 0 && direction.y == 0)) idleDirection = direction;
         finalInputMovement =
-            rawInputMovement * Time.deltaTime * constants.playerMoveSpeed * movementFactor;
+            rawInputMovement *
+            Time.deltaTime *
+            constants.playerMoveSpeed *
+            movementFactor;
         transform.Translate(finalInputMovement, Space.World);
         animator.SetFloat("horizontal_idle", idleDirection.x);
         animator.SetFloat("vertical_idle", idleDirection.y);
@@ -126,6 +132,8 @@ public class PlayerController : MonoBehaviour
             {
                 if (!isDashing && !isIdle)
                 {
+                    if (playerAudioController)
+                        playerAudioController.PlaySFX(SFXType.dash);
                     isDashing = true;
                     dashParticleGameEvent
                         .Fire(ParticleManager.ParticleTag.dash,

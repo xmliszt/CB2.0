@@ -4,6 +4,8 @@ public class GameLobbyControlHandler : MonoBehaviour
 {
     public GameEvent onMiniGameStart;
 
+    public GameEvent onSwitchBGM;
+
     public SingleIntegerGameEvent onPlayerChangeProfile;
 
     private PlayerStatsManager playerStatsManager;
@@ -29,6 +31,13 @@ public class GameLobbyControlHandler : MonoBehaviour
         if (playerZoneManager.GetZone() == PlayerZoneManager.ZoneType.reception)
         {
             onMiniGameStart.Fire();
+        }
+        if (
+            playerZoneManager.GetZone() ==
+            PlayerZoneManager.ZoneType.musicChanger
+        )
+        {
+            onSwitchBGM.Fire();
         }
     }
 }
