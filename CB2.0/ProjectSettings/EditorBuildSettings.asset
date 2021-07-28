@@ -11,5 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SwabTestWar.unity
     guid: 6dc12788614e687479ba97c9abcce8f7
+  - enabled: 1
+    path: Assets/Scenes/StopTheSpread.unity
+    guid: d7a79227cf836364382f4a6e1b62e6dc
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 69f6217b8052ccb4cb71570c3ebbd344, type: 2}
