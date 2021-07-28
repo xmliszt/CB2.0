@@ -31,7 +31,7 @@ public class STSGameManager : MonoBehaviour
 
     public int GetNumberPlayers()
     {
-        return playerObjects.Count;
+        return players.GetPlayers().Count;
     }
 
     public Vector3 GetPlayerLocation(int playerID)

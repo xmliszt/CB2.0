@@ -135,10 +135,7 @@ public class PlayerController : MonoBehaviour
                     if (playerAudioController)
                         playerAudioController.PlaySFX(SFXType.dash);
                     isDashing = true;
-                    dashParticleGameEvent
-                        .Fire(ParticleManager.ParticleTag.dash,
-                        transform.position -
-                        Vector3.up * constants.dashParticleOffset);
+
                     dashDirection = direction;
 
                     // remember the most recent dash direction for removal
@@ -147,6 +144,10 @@ public class PlayerController : MonoBehaviour
                         rb
                             .AddForce(dashDirection * constants.playerDashSpeed,
                             ForceMode2D.Impulse);
+                        dashParticleGameEvent
+                            .Fire(ParticleManager.ParticleTag.dash,
+                            transform.position -
+                            Vector3.up * constants.dashParticleOffset);
                     }
                     isDashing = false;
                 }
@@ -171,8 +172,7 @@ public class PlayerController : MonoBehaviour
                             swabTestControlHandler.OnUse();
                         break;
                     case GameStats.Scene.stopTheSpread:
-                        if (stsControlHandler)
-                            stsControlHandler.OnUse();
+                        if (stsControlHandler) stsControlHandler.OnUse();
                         break;
                     default:
                         break;
@@ -194,8 +194,7 @@ public class PlayerController : MonoBehaviour
                             swabTestControlHandler.onPickUpDrop();
                         break;
                     case GameStats.Scene.stopTheSpread:
-                        if (stsControlHandler)
-                            stsControlHandler.onPickUpDrop();
+                        if (stsControlHandler) stsControlHandler.onPickUpDrop();
                         break;
                     default:
                         break;
@@ -217,8 +216,7 @@ public class PlayerController : MonoBehaviour
                             swabTestControlHandler.onShop();
                         break;
                     case GameStats.Scene.stopTheSpread:
-                        if (stsControlHandler)
-                            stsControlHandler.onShop();
+                        if (stsControlHandler) stsControlHandler.onShop();
                         break;
                     default:
                         break;

@@ -13,9 +13,12 @@ class RankComparer : IComparer<PlayerStats>
 [System.Serializable]
 public class RankHandler : MonoBehaviour
 {
+    public GameConstants gameConstants;
     public Players players;
 
     public GameObject playerInfoPanel;
+
+    public GameEvent onPlayNextMiniGame;
 
     private CanvasGroup[] playerInfoRows;
 
@@ -67,6 +70,7 @@ public class RankHandler : MonoBehaviour
         Rank();
         StartCoroutine(Fade(gameoverUI, 0, 1, 1));
         StartCoroutine(ShowRanks());
+        StartCoroutine(PlayNextGame());
     }
     
     private IEnumerator Fade(CanvasGroup group, float from, float to, float duration) {
@@ -88,5 +92,10 @@ public class RankHandler : MonoBehaviour
             StartCoroutine(Fade(playerInfoRows[i], 0, 1, 1f));
             yield return new WaitForSeconds(0.5f);
         }
+    }
+
+    private IEnumerator PlayNextGame() {
+        yield return new WaitForSeconds(gameConstants.nextGameDelay);
+        onPlayNextMiniGame.Fire();
     }
 }

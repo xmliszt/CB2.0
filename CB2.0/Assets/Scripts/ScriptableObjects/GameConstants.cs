@@ -38,6 +38,7 @@ public class GameConstants : ScriptableObject
 
     public float playerInZoneOpacity = 0.7f; // the gameobject will be set to this opacity if the player is in the trigger zone
 
+    public float nextGameDelay = 10f; // seconds to wait before starting next game
 
     // **************** Minigame: Swab Test War **********************
 

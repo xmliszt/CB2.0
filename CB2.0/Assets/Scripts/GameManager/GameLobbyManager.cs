@@ -14,6 +14,8 @@ public class GameLobbyManager : MonoBehaviour
 
     public Players players;
 
+    public List<GameStats.Scene> minigameSequence;
+
     // Keep track of the spawned player gameobject
     private Dictionary<int, Transform> playerObjects;
 
@@ -149,9 +151,40 @@ public class GameLobbyManager : MonoBehaviour
         }
         else
         {
-            SceneManager
-                .LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            gameStats.SetCurrentScene(GameStats.Scene.swabTestWar);
+            gameStats.SetCurrentScene(minigameSequence[0]);
+            GameStats.Scene firstScene = gameStats.GetCurrentScene();
+            LoadMinigame (firstScene);
+        }
+    }
+
+    public void LoadMinigame(GameStats.Scene sceneTag)
+    {
+        switch (sceneTag)
+        {
+            case GameStats.Scene.gameLobby:
+                SceneManager.LoadScene("GameLobby");
+                break;
+            case GameStats.Scene.swabTestWar:
+                SceneManager.LoadScene("SwabTestWar");
+                break;
+            case GameStats.Scene.stopTheSpread:
+                SceneManager.LoadScene("StopTheSpread");
+                break;
+        }
+    }
+
+    public void OnPlayNextMinigame()
+    {
+        GameStats.Scene currentScene = gameStats.GetCurrentScene();
+        int sceneIdx = minigameSequence.IndexOf(currentScene);
+        int nextSceneIdx = sceneIdx + 1;
+        if (nextSceneIdx == minigameSequence.Count)
+        {
+            LoadMinigame(GameStats.Scene.gameLobby);
+        }
+        else
+        {
+            LoadMinigame(minigameSequence[nextSceneIdx]);
         }
     }
 

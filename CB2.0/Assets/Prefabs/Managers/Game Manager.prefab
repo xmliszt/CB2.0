@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 578437572}
   - component: {fileID: 3483710355950317705}
   - component: {fileID: 557944637}
+  - component: {fileID: 482615541342253250}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -55,6 +56,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bc4244fe3ed76274198eb2e416b3b8c8, type: 2}
   gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
+  minigameSequence: 0200000004000000
 --- !u!114 &3483710355379515715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,6 +204,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: GeneralGameManager, Assembly-CSharp
         m_MethodName: OnPlayerRelocate
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &482615541342253250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483710355379515717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 3dfc538711a4fb6468a57a3460117c09, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3483710355379515712}
+        m_TargetAssemblyTypeName: GameLobbyManager, Assembly-CSharp
+        m_MethodName: OnPlayNextMinigame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

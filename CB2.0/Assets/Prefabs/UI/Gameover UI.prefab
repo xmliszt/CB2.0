@@ -530,8 +530,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99465b0d4818ca4d93c4a2eb2e20e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameConstants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
   playerInfoPanel: {fileID: 4728250661960227263}
+  onPlayNextMiniGame: {fileID: 11400000, guid: 3dfc538711a4fb6468a57a3460117c09, type: 2}
 --- !u!114 &1781059803
 MonoBehaviour:
   m_ObjectHideFlags: 0

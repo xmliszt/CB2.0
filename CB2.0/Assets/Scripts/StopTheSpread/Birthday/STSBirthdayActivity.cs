@@ -10,10 +10,10 @@ public class STSBirthdayActivity : MonoBehaviour
     public GameEvent birthdayComplete;
 
     [Header("Others")]
-    public STSGameManager stsGameManager;
 
     public STSGameConstants stsGameConstants;
 
+    private STSGameManager stsGameManager;
     private int numberOfPlayers;
     private int playerChosen;
 
@@ -39,13 +39,13 @@ public class STSBirthdayActivity : MonoBehaviour
     {
         StartCoroutine(ActivateBirthdayEvent());
         playerDoors = new BoxCollider2D[4] { player1Door, player2Door, player3Door, player4Door };
-
+        stsGameManager = FindObjectOfType<STSGameManager>();
+        numberOfPlayers = stsGameManager.GetNumberPlayers();
     }
 
     // Update is called once per frame
     void Update()
     {
-        numberOfPlayers = stsGameManager.GetNumberPlayers();
         if (birthdayEventOngoing)
         {
             for(int i = 0; i < numberOfPlayers; i++)
