@@ -145,7 +145,7 @@ public class STSBirthdayActivity : MonoBehaviour
         }
         catch
         {
-            Debug.Log("Not yet birthday event");
+            Debug.LogWarning("Not yet birthday event");
         }
     }
 
@@ -161,7 +161,7 @@ public class STSBirthdayActivity : MonoBehaviour
         }
         catch
         {
-            Debug.Log("Not yet birthday event");
+            Debug.LogWarning("Not yet birthday event");
         }
     }
 }

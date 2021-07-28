@@ -23,6 +23,10 @@ public class Players : ScriptableObject
 {
     private Dictionary<int, PlayerInfo> players = new Dictionary<int, PlayerInfo>();
 
+    public bool PlayerExist(int playerID)
+    {
+        return players.ContainsKey(playerID);
+    }
     public void AddPlayer(PlayerStats playerStats, PlayerInput playerInput)
     {
         players[playerStats.playerID] = new PlayerInfo(playerStats, playerInput);

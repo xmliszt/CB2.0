@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameEvent onStartSTS;
 
     public GameEvent onGameLobbyInitialized;
+
     private int currentMinigameSceneIdx;
 
     // Keep track of the spawned player gameobject
@@ -45,16 +46,23 @@ public class GameManager : MonoBehaviour
             playerStats.playerID = 0;
         }
         onGameLobbyInitialized.Fire();
+        foreach (PlayerInfo playerInfo in players.GetPlayers().Values)
+        {
+            OnPlayerJoined(playerInfo.playerInput);
+        }
+        Debug.Log("Game Manager Started");
     }
 
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         int playerID = playerInput.playerIndex + 1;
         Debug.Log(string.Format("Player {0} joined", playerID));
-        if (playerObjects == null) playerObjects = new Dictionary<int, Transform>();
+        if (playerObjects == null)
+            playerObjects = new Dictionary<int, Transform>();
         playerObjects[playerID] = playerInput.gameObject.transform;
         PlayerStats newPlayerStats = SwitchPlayerProfile(playerID); // assign one profile to the joined player
-        players.AddPlayer (newPlayerStats, playerInput);
+        if (!players.PlayerExist(playerID))
+            players.AddPlayer(newPlayerStats, playerInput);
         DontDestroyOnLoad(playerInput.gameObject);
     }
 
@@ -106,6 +114,13 @@ public class GameManager : MonoBehaviour
                 break;
             }
             lastIdx++;
+        }
+        Debug.Log (playerID);
+        foreach (int key in playerObjects.Keys)
+        {
+            Debug
+                .Log(string
+                    .Format("Key: {0}, Value: {1}", key, playerObjects[key]));
         }
         playerObjects[playerID]
             .GetComponent<PlayerStatsManager>()
@@ -189,7 +204,7 @@ public class GameManager : MonoBehaviour
     {
         int nextSceneIdx = currentMinigameSceneIdx + 1;
         currentMinigameSceneIdx = nextSceneIdx;
-        
+
         if (nextSceneIdx == minigameSequence.Count)
         {
             currentMinigameSceneIdx = 0;
@@ -197,7 +212,11 @@ public class GameManager : MonoBehaviour
             ResetPlayerStatsCompletely();
             onReturnGameLobby.Fire();
             LoadMinigame(GameStats.Scene.gameLobby);
-            Destroy(gameObject);
+            foreach(Transform player in playerObjects.Values)
+            {
+                Destroy(player);
+            }
+            Destroy (gameObject);
         }
         else
         {

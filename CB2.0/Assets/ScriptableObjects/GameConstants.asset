@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeb969b3c0f33f41b8704d6ca70a2f4, type: 3}
   m_Name: GameConstants
   m_EditorClassIdentifier: 
-  minigameCountdownTime: 60
+  minigameCountdownTime: 5
   gameBoundX: 10
   gameBoundY: 5
   playerMoveSpeed: 3
@@ -22,7 +22,7 @@ MonoBehaviour:
   floatingAmplitude: 0.05
   floatingFrequency: 1
   playerInZoneOpacity: 0.7
-  nextGameDelay: 10
+  nextGameDelay: 5
   swabStickFlyingSpeed: 12
   countdownDuration: 10
   spawnFrequency: 5
