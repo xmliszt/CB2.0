@@ -105,6 +105,7 @@ public class STSControlHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("Called");
         desiredActivity = UnityEngine.Random.Range(0, 4);
         thoughtBubbleRenderer.sprite = allActivities[desiredActivity].thoughtBubbleSprite;
 
