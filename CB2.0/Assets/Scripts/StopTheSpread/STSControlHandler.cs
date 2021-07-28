@@ -131,7 +131,7 @@ public class STSControlHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void generateActivity()
@@ -152,10 +152,10 @@ public class STSControlHandler : MonoBehaviour
 
     public void OnUse()
     {
-        if(zoneType == ZoneType.npcCake)
+        if (zoneType == ZoneType.npcCake)
         {
             Debug.Log(stsInventory.inventoryItemType);
-            if(stsInventory.holdingItem && stsInventory.inventoryItemType == STSPlayerInventory.InventoryItemType.cake)
+            if (stsInventory.holdingItem && stsInventory.inventoryItemType == STSPlayerInventory.InventoryItemType.cake)
             {
                 playerStatsManager.GetPlayerStats().coins++;
                 stsInventory.inventoryItemType = STSPlayerInventory.InventoryItemType.nullItem;
@@ -232,10 +232,10 @@ public class STSControlHandler : MonoBehaviour
     public void onShop()
     {
         Debug.Log("Player using shop");
-        if(zoneType == ZoneType.shop)
+        if (zoneType == ZoneType.shop)
         {
             // do shop stuff
-            if (playerStatsManager.GetPlayerStats().coins > 0) 
+            if (playerStatsManager.GetPlayerStats().coins > 0)
             {
                 playerStatsManager.GetPlayerStats().coins--;
                 playerInvisible = true;
@@ -294,7 +294,7 @@ public class STSControlHandler : MonoBehaviour
 
 
             // try to pick up dropped food item
-            if(zoneType == ZoneType.droppedCake)
+            if (zoneType == ZoneType.droppedCake)
             {
                 InteractableObject.GetComponent<InteractableGameObjects>().DestroyThis();
                 stsItem.SetFood(Cake);
@@ -307,7 +307,7 @@ public class STSControlHandler : MonoBehaviour
                 playerDoingActivity = true;
             }
 
-            if(zoneType == ZoneType.droppedPizza)
+            if (zoneType == ZoneType.droppedPizza)
             {
                 InteractableObject.GetComponent<InteractableGameObjects>().DestroyThis();
                 stsItem.SetFood(Pizza);
@@ -342,8 +342,8 @@ public class STSControlHandler : MonoBehaviour
         {
             STSFood _food = stsItem.UseFood();
             GameObject droppedFoodPrefab;
-            
-            if((int)_food.foodType == 1) { droppedFoodPrefab = droppedPizzaPrefab; }
+
+            if ((int)_food.foodType == 1) { droppedFoodPrefab = droppedPizzaPrefab; }
             else { droppedFoodPrefab = droppedCakePrefab; }
 
             Vector2 idleDirection = playerController.GetIdleDirection();
@@ -511,14 +511,13 @@ public class STSControlHandler : MonoBehaviour
         birthdayEventOngoing = true;
         GetComponentInChildren<STSTimer>().BirthdayEventActivated();
         // it's my birthday
-        if(birthdayChild == playerID)
+        if (birthdayChild == playerID)
         {
-            Debug.Log("its my birthday");
             thoughtBubbleRenderer.sprite = birthday.thoughtBubbleSprite;
             thoughtBubbleRenderer.enabled = true;
             activityOnCooldown = true;
         }
-        
+
         // not my birthday, put some other player sprite
         else
         {
@@ -528,6 +527,14 @@ public class STSControlHandler : MonoBehaviour
         }
 
         StartCoroutine(BirthdayTimeout());
+    }
+
+    public void BirthdayScoreEvent(int _playerID)
+    {
+        if(playerID == _playerID)
+        {
+            playerStatsManager.GetPlayerStats().score += 2;
+        }
     }
     
     // method to be called when celebrations are over so player don't have to wait 8 * birthdayInterval

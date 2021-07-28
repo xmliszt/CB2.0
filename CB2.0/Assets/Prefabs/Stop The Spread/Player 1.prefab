@@ -683,6 +683,7 @@ GameObject:
   - component: {fileID: -8920273202990522459}
   - component: {fileID: 2316422399109100714}
   - component: {fileID: 5849817293822978440}
+  - component: {fileID: 6065660776789819471}
   m_Layer: 7
   m_Name: Player 1
   m_TagString: Player
@@ -1075,6 +1076,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
         m_MethodName: birthdayCelebrationsCompleted
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6065660776789819471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa0041421649bf4db2282ac0649815a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 007249fe56559fb49abd4d03ba1a2841, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3025591827491950646}
+        m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
+        m_MethodName: BirthdayScoreEvent
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

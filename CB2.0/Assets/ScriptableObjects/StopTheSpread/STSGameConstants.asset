@@ -20,7 +20,8 @@ MonoBehaviour:
   customerHungryTime: 5
   AISpeed: 950
   AIFastSpeed: 1600
-  birthdayInterval: 0.75
-  waitForBirthday: 40
+  birthdayInterval: 1
+  waitForBirthday: 35
   birthdaySongDuration: 3
   AIChaseDuration: 3
+  invisibilityTime: 10

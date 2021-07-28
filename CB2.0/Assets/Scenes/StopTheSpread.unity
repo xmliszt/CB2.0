@@ -525,6 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   birthdayGameEvent: {fileID: 11400000, guid: f912c1b84d1c7dc4b89ced31b36607a0, type: 2}
+  birthdayScoreEvent: {fileID: 11400000, guid: 007249fe56559fb49abd4d03ba1a2841, type: 2}
   birthdayComplete: {fileID: 11400000, guid: 0036752110c6ff54a95978dd58194583, type: 2}
   stsGameManager: {fileID: 1914422710}
   stsGameConstants: {fileID: 11400000, guid: e3ab69074ca3dd94da1cdd8d42748062, type: 2}

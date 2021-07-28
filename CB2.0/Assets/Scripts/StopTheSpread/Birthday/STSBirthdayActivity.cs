@@ -6,6 +6,7 @@ public class STSBirthdayActivity : MonoBehaviour
 {
     [Header("Game Events")]
     public SingleIntegerGameEvent birthdayGameEvent;
+    public SingleIntegerGameEvent birthdayScoreEvent; // event will give score to players that are present
     public GameEvent birthdayComplete;
 
     [Header("Others")]
@@ -108,6 +109,16 @@ public class STSBirthdayActivity : MonoBehaviour
         playerDoors[playerChosen - 1].gameObject.SetActive(false);
         birthdayEventOngoing = false;
         celebrationsUnderway = false;
+
+        // give score to players that are present in the room
+        for (int i = 0; i < numberOfPlayers; i++)
+        {
+            if (playersPresent[i] == true)
+            {
+                // fire event, players will listen to this event and score accordingly
+                birthdayScoreEvent.Fire(i + 1);
+            }
+        }
     }
 
     private void BeginBirthdayCelebration()

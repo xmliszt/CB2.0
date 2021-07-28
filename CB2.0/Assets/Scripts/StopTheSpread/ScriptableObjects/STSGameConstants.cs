@@ -23,9 +23,9 @@ public class STSGameConstants : ScriptableObject
 
     public float AIFastSpeed = 800.0f;
 
-    public float birthdayInterval = 0.5f;
+    public float birthdayInterval = 1f;
 
-    public float waitForBirthday = 10.0f;
+    public float waitForBirthday = 35f;
 
     public float birthdaySongDuration = 3.0f;
 
