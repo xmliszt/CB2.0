@@ -9,6 +9,7 @@ public enum SFXType {
     drop = 3,
     coin = 4,
     _lock = 5,
+    submitResult = 6,
 }
 
 [System.Serializable]

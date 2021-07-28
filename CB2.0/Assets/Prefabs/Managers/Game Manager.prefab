@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3483710355379515714}
-  - component: {fileID: 3483710355379515712}
   - component: {fileID: 3483710355379515715}
   - component: {fileID: 3483710355379515726}
   - component: {fileID: 578437572}
   - component: {fileID: 3483710355950317705}
   - component: {fileID: 557944637}
   - component: {fileID: 482615541342253250}
+  - component: {fileID: 3483710355950317704}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -37,26 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3483710355379515712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3483710355379515717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84da5e34b99bce0449b3439173c9219a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerProfiles:
-  - {fileID: 11400000, guid: 7863ae96c9452014ca08b8a3f80ba374, type: 2}
-  - {fileID: 11400000, guid: 2ce66a47f85f2864a831bcc1ca2b7b9e, type: 2}
-  - {fileID: 11400000, guid: 8c121b204a3abc5498941aea02a93471, type: 2}
-  - {fileID: 11400000, guid: bc4244fe3ed76274198eb2e416b3b8c8, type: 2}
-  gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
-  players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
-  minigameSequence: 0200000004000000
 --- !u!114 &3483710355379515715
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,8 +96,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3483710355379515712}
-        m_TargetAssemblyTypeName: GeneralGameManager, Assembly-CSharp
+      - m_Target: {fileID: 3483710355950317704}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ResetPlayerStatsCompletely
         m_Mode: 1
         m_Arguments:
@@ -144,8 +124,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3483710355379515712}
-        m_TargetAssemblyTypeName: GeneralGameManager, Assembly-CSharp
+      - m_Target: {fileID: 3483710355950317704}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: OnPlayerSwitchProfile
         m_Mode: 0
         m_Arguments:
@@ -172,8 +152,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3483710355379515712}
-        m_TargetAssemblyTypeName: GeneralGameManager, Assembly-CSharp
+      - m_Target: {fileID: 3483710355950317704}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: OnStartMiniGame
         m_Mode: 1
         m_Arguments:
@@ -200,8 +180,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3483710355379515712}
-        m_TargetAssemblyTypeName: GeneralGameManager, Assembly-CSharp
+      - m_Target: {fileID: 3483710355950317704}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: OnPlayerRelocate
         m_Mode: 0
         m_Arguments:
@@ -228,8 +208,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3483710355379515712}
-        m_TargetAssemblyTypeName: GameLobbyManager, Assembly-CSharp
+      - m_Target: {fileID: 3483710355950317704}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: OnPlayNextMinigame
         m_Mode: 1
         m_Arguments:
@@ -240,3 +220,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3483710355950317704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483710355379515717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf87a6b1e19f3dd4ca7eca31c8e9efd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerProfiles:
+  - {fileID: 11400000, guid: 7863ae96c9452014ca08b8a3f80ba374, type: 2}
+  - {fileID: 11400000, guid: 2ce66a47f85f2864a831bcc1ca2b7b9e, type: 2}
+  - {fileID: 11400000, guid: 8c121b204a3abc5498941aea02a93471, type: 2}
+  - {fileID: 11400000, guid: bc4244fe3ed76274198eb2e416b3b8c8, type: 2}
+  gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
+  players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
+  minigameSequence: 0200000004000000
+  onReturnGameLobby: {fileID: 11400000, guid: 14beae4149f480d4d9a2ef638cc9c8d4, type: 2}
+  onStartSTS: {fileID: 11400000, guid: fc3200a3c6b03c34fbb84f06e1b74c94, type: 2}
+  onGameLobbyInitialized: {fileID: 11400000, guid: 7ab5c0c5963e2724bb1ff5321df6ea52, type: 2}

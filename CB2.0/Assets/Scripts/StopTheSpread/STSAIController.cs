@@ -65,6 +65,7 @@ public class STSAIController : MonoBehaviour
                 {
                     curWaypoint++;
                 }
+                if (curWaypoint >= STSWayPoints.Length) { curWaypoint = 0; }
                 target = STSWayPoints[curWaypoint];
             }
 

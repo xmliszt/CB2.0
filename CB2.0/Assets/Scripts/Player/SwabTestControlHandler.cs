@@ -141,7 +141,7 @@ public class SwabTestControlHandler : MonoBehaviour
                     PlayerZoneManager.ZoneType.submissionStation
                 )
                 {
-                    playerAudioController.PlaySFX(SFXType.coin);
+                    playerAudioController.PlaySFX(SFXType.submitResult);
                     inventory.useItem();
                     inventory.SetItem (trash);
                     thoughtBubbleRenderer.sprite = trash.thoughtBubbleSprite;
@@ -163,6 +163,7 @@ public class SwabTestControlHandler : MonoBehaviour
                     thoughtBubbleRenderer.enabled = false;
 
                     // Gain 1 coin!
+                    playerAudioController.PlaySFX(SFXType.coin);
                     playerStatsManager.GetPlayerStats().coins +=
                         constants.coinAwardedPerCompleteTest;
                 }
@@ -264,6 +265,7 @@ public class SwabTestControlHandler : MonoBehaviour
 
     private void SubmitTestSample()
     {
+        playerAudioController.PlaySFX(SFXType.drop);
         testStationProcessor.OnLoadTestSample(transform.GetInstanceID());
         inventory.useItem();
         thoughtBubbleRenderer.enabled = false;

@@ -16,10 +16,10 @@ MonoBehaviour:
   maxSliderVal: 3
   doingActivityInterval: 0.25
   intervals: 12
-  activityCooldownTime: 10
+  activityCooldownTime: 5
   customerHungryTime: 5
-  AISpeed: 950
-  AIFastSpeed: 1600
+  AISpeed: 400
+  AIFastSpeed: 800
   birthdayInterval: 1
   waitForBirthday: 35
   birthdaySongDuration: 3

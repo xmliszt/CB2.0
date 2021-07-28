@@ -30,12 +30,6 @@ public class STSTimer : MonoBehaviour
         allSprites = new Sprite[8] { countdown1, countdown2, countdown3, countdown4, countdown5, countdown6, countdown7, countdown8 };
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     IEnumerator startCountingDown()
     {
         for (int i = 0; i < 8; i++)

@@ -14,6 +14,8 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSource backgroundAudioSource;
 
+    public AudioSource uiSfxAudioSource;
+
     public List<Audio> backgroundAudios;
 
     public Audio gameoverAudio;
@@ -22,16 +24,11 @@ public class AudioManager : MonoBehaviour
 
     public Audio startAudio;
 
-    private int backgroundAudioIdx = 0; // currently selected background audio index
+    public IntVariable BGMIndex;
 
-    private void Awake()
+    public void OnGameLobbyInitialized()
     {
-        DontDestroyOnLoad (gameObject);
-    }
-
-    private void Start()
-    {
-        SwitchAndPlayBG(backgroundAudios[backgroundAudioIdx].audioClip);
+        SwitchAndPlayBG(backgroundAudios[BGMIndex.Value].audioClip);
     }
 
     private void SwitchAndPlayBG(AudioClip clip)
@@ -41,36 +38,45 @@ public class AudioManager : MonoBehaviour
         backgroundAudioSource.Play();
     }
 
+    private void PlaySfx(AudioClip clip)
+    {
+        uiSfxAudioSource.PlayOneShot(clip);
+    }
+
     public void RotateBackgroundMusic()
     {
-        backgroundAudioIdx++;
-        if (backgroundAudioIdx == backgroundAudios.Count)
+        BGMIndex.Increment(1);
+        if (BGMIndex.Value == backgroundAudios.Count)
         {
-            backgroundAudioIdx = 0;
+            BGMIndex.Set(0);
         }
-        Audio selectedBackgroundAudio = backgroundAudios[backgroundAudioIdx];
+        Audio selectedBackgroundAudio = backgroundAudios[BGMIndex.Value];
         SwitchAndPlayBG(selectedBackgroundAudio.audioClip);
     }
 
     public void PlayReady()
     {
-        backgroundAudioSource.Stop();
+         BGMIndex.Increment(1);
+        if (BGMIndex.Value == backgroundAudios.Count)
+        {
+            BGMIndex.Set(0);
+        }
         StartCoroutine(DelayPlay(readyAudio.audioClip, 0.8f));
     }
 
     IEnumerator DelayPlay(AudioClip clip, float delay) {
         yield return new WaitForSeconds(delay);
-        backgroundAudioSource.PlayOneShot(clip);
+        PlaySfx(clip);
     }
 
     public void PlayStart()
     {
-        StartCoroutine(DelayPlay(startAudio.audioClip, 0f));
-        SwitchAndPlayBG(backgroundAudios[backgroundAudioIdx].audioClip);
+        PlaySfx(startAudio.audioClip);
+        SwitchAndPlayBG(backgroundAudios[BGMIndex.Value].audioClip);
     }
 
     public void PlayGameover()
     {
-        SwitchAndPlayBG(gameoverAudio.audioClip);
+        PlaySfx(gameoverAudio.audioClip);
     }
 }

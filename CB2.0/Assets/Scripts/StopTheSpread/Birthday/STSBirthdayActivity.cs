@@ -41,6 +41,7 @@ public class STSBirthdayActivity : MonoBehaviour
         playerDoors = new BoxCollider2D[4] { player1Door, player2Door, player3Door, player4Door };
         stsGameManager = FindObjectOfType<STSGameManager>();
         numberOfPlayers = stsGameManager.GetNumberPlayers();
+        Debug.Log("Number of players: " + numberOfPlayers.ToString());
     }
 
     // Update is called once per frame
@@ -55,10 +56,6 @@ public class STSBirthdayActivity : MonoBehaviour
                     allPresent++;
                 }
             }
-
-            //Debug.Log("All present: " + allPresent);
-            //Debug.Log("Number of players: " + numberOfPlayers);
-
             if(allPresent == numberOfPlayers && !celebrationsUnderway)
             {
                 allPresent = 0;
@@ -79,7 +76,6 @@ public class STSBirthdayActivity : MonoBehaviour
             if (!birthdayEventOngoing)
             {
                 Debug.Log("Starting new birthday event");
-
                 invokeBirthdayGameEvent();
                 StartCoroutine(birthdayTimeout());
             }
@@ -98,7 +94,7 @@ public class STSBirthdayActivity : MonoBehaviour
     private void invokeBirthdayGameEvent()
     {
         birthdayEventOngoing = true;
-        playerChosen = Random.Range(1, numberOfPlayers);
+        playerChosen = Random.Range(1, numberOfPlayers+1);
 
         birthdayGameEvent.Fire(playerChosen);
     }
@@ -111,6 +107,7 @@ public class STSBirthdayActivity : MonoBehaviour
         celebrationsUnderway = false;
 
         // give score to players that are present in the room
+        Debug.Log(playersPresent);
         for (int i = 0; i < numberOfPlayers; i++)
         {
             if (playersPresent[i] == true)
@@ -143,24 +140,10 @@ public class STSBirthdayActivity : MonoBehaviour
             if (allRooms[playerChosen - 1] == roomName)
             {
                 Debug.Log("Player " + playerID + " entered " + roomName);
-                switch (playerID)
-                {
-                    case 1:
-                        playersPresent[0] = true;
-                        break;
-                    case 2:
-                        playersPresent[1] = true;
-                        break;
-                    case 3:
-                        playersPresent[2] = true;
-                        break;
-                    case 4:
-                        playersPresent[3] = true;
-                        break;
-                }
+                playersPresent[playerID-1] = true;
             }
         }
-        catch 
+        catch
         {
             Debug.Log("Not yet birthday event");
         }
@@ -173,21 +156,7 @@ public class STSBirthdayActivity : MonoBehaviour
             if (allRooms[playerChosen - 1] == roomName)
             {
                 Debug.Log("Player " + playerID + " left room " + roomName);
-                switch (playerID)
-                {
-                    case 1:
-                        playersPresent[0] = false;
-                        break;
-                    case 2:
-                        playersPresent[1] = false;
-                        break;
-                    case 3:
-                        playersPresent[2] = false;
-                        break;
-                    case 4:
-                        playersPresent[3] = false;
-                        break;
-                }
+                playersPresent[playerID-1] = false;
             }
         }
         catch

@@ -893,13 +893,15 @@ GameObject:
   - component: {fileID: 497552964}
   - component: {fileID: 934771182231830064}
   - component: {fileID: 3297451996450469898}
+  - component: {fileID: 3208269928611094830}
+  - component: {fileID: 8803412585214085243}
   - component: {fileID: 4663360309773489266}
   - component: {fileID: 8525827130420829609}
   - component: {fileID: 4651673285783923620}
   - component: {fileID: 2229344947084866892}
+  - component: {fileID: 4629807238665847802}
   - component: {fileID: 8458192740763617604}
   - component: {fileID: 5793203370389466200}
-  - component: {fileID: 4629807238665847802}
   - component: {fileID: 562434371}
   - component: {fileID: 789055899533834128}
   - component: {fileID: 5475761574761554405}
@@ -1332,6 +1334,74 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3208269928611094830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 14beae4149f480d4d9a2ef638cc9c8d4, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 562434371}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: EnableController
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 562434371}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: EnableMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8803412585214085243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: fc3200a3c6b03c34fbb84f06e1b74c94, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -7255464171494784920}
+        m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
+        m_MethodName: GenerateFirstActivity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4663360309773489266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,7 +1465,37 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 7d529fe857392cb41abbed37028958fc, type: 3}
   - _type: 5
     clip: {fileID: 8300000, guid: 73ebe66422eae6644bdba859af1e3fec, type: 3}
+  - _type: 6
+    clip: {fileID: 8300000, guid: 49c8f04df7b2c034dbdb8e21d6ea15c9, type: 3}
   source: {fileID: 6493347360338484652}
+--- !u!114 &4629807238665847802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0036752110c6ff54a95978dd58194583, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -7255464171494784920}
+        m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
+        m_MethodName: birthdayCelebrationsCompleted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8458192740763617604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1412,7 +1512,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3025591827491950646, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
+      - m_Target: {fileID: -7255464171494784920}
         m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
         m_MethodName: BirthdayEventActivated
         m_Mode: 0
@@ -1440,38 +1540,10 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3025591827491950646, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
+      - m_Target: {fileID: -7255464171494784920}
         m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
         m_MethodName: BirthdayScoreEvent
         m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &4629807238665847802
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5928543010023413209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 0036752110c6ff54a95978dd58194583, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3025591827491950646, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
-        m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
-        m_MethodName: birthdayCelebrationsCompleted
-        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1544,6 +1616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d47af3cd5dc904d8ed97dfa3351111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  STSTearDown: {fileID: 11400000, guid: c64b19048a2fa8b4da2c780d6cb3e3ff, type: 2}
   stsGameConstants: {fileID: 11400000, guid: e3ab69074ca3dd94da1cdd8d42748062, type: 2}
   completionBar: {fileID: 2731980632982239090}
   gym: {fileID: 11400000, guid: a6f4594d3b4de69478e9f2cdc4255bd5, type: 2}

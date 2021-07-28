@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class GameLobbyManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     // The list of player profiles to select from
     public PlayerStats[] playerProfiles;
@@ -16,6 +16,11 @@ public class GameLobbyManager : MonoBehaviour
 
     public List<GameStats.Scene> minigameSequence;
 
+    public GameEvent onReturnGameLobby;
+
+    public GameEvent onStartSTS;
+
+    public GameEvent onGameLobbyInitialized;
     private int currentMinigameSceneIdx;
 
     // Keep track of the spawned player gameobject
@@ -39,12 +44,14 @@ public class GameLobbyManager : MonoBehaviour
             playerStats.selected = false;
             playerStats.playerID = 0;
         }
+        onGameLobbyInitialized.Fire();
     }
 
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         int playerID = playerInput.playerIndex + 1;
         Debug.Log(string.Format("Player {0} joined", playerID));
+        if (playerObjects == null) playerObjects = new Dictionary<int, Transform>();
         playerObjects[playerID] = playerInput.gameObject.transform;
         PlayerStats newPlayerStats = SwitchPlayerProfile(playerID); // assign one profile to the joined player
         players.AddPlayer (newPlayerStats, playerInput);
@@ -173,24 +180,29 @@ public class GameLobbyManager : MonoBehaviour
                 break;
             case GameStats.Scene.stopTheSpread:
                 SceneManager.LoadScene("StopTheSpread");
+                onStartSTS.Fire();
                 break;
         }
     }
 
     public void OnPlayNextMinigame()
     {
-        GameStats.Scene currentScene = gameStats.GetCurrentScene();
         int nextSceneIdx = currentMinigameSceneIdx + 1;
         currentMinigameSceneIdx = nextSceneIdx;
-        gameStats.SetCurrentScene(minigameSequence[nextSceneIdx]);
-        ResetPlayerStatsForMiniGame();
+        
         if (nextSceneIdx == minigameSequence.Count)
         {
-            LoadMinigame(GameStats.Scene.gameLobby);
+            currentMinigameSceneIdx = 0;
+            gameStats.SetCurrentScene(GameStats.Scene.gameLobby);
             ResetPlayerStatsCompletely();
+            onReturnGameLobby.Fire();
+            LoadMinigame(GameStats.Scene.gameLobby);
+            Destroy(gameObject);
         }
         else
         {
+            gameStats.SetCurrentScene(minigameSequence[nextSceneIdx]);
+            ResetPlayerStatsForMiniGame();
             LoadMinigame(minigameSequence[nextSceneIdx]);
         }
     }

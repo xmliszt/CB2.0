@@ -1064,26 +1064,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3483710355379515712, guid: 736db9b9d134e294784893312f61d194, type: 3}
-      propertyPath: minigameSequence.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3483710355379515712, guid: 736db9b9d134e294784893312f61d194, type: 3}
-      propertyPath: minigameSequence.Array.data[0]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3483710355379515712, guid: 736db9b9d134e294784893312f61d194, type: 3}
-      propertyPath: minigameSequence.Array.data[1]
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3483710355379515712, guid: 736db9b9d134e294784893312f61d194, type: 3}
-      propertyPath: minigameSequence.Array.data[2]
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3483710355379515712, guid: 736db9b9d134e294784893312f61d194, type: 3}
-      propertyPath: minigameSequence.Array.data[3]
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 3483710355379515714, guid: 736db9b9d134e294784893312f61d194, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1131,6 +1111,14 @@ PrefabInstance:
     - target: {fileID: 3483710355379515717, guid: 736db9b9d134e294784893312f61d194, type: 3}
       propertyPath: m_Name
       value: Game Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: minigameSequence.Array.data[0]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: minigameSequence.Array.data[1]
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 736db9b9d134e294784893312f61d194, type: 3}
