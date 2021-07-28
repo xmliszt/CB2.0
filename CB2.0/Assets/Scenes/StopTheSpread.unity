@@ -7026,7 +7026,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1914422711}
   - component: {fileID: 1914422710}
-  - component: {fileID: 1914422712}
   m_Layer: 0
   m_Name: STS Manager
   m_TagString: Untagged
@@ -7047,11 +7046,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
-  playerProfiles:
-  - {fileID: 11400000, guid: 7863ae96c9452014ca08b8a3f80ba374, type: 2}
-  - {fileID: 11400000, guid: 2ce66a47f85f2864a831bcc1ca2b7b9e, type: 2}
-  - {fileID: 11400000, guid: 8c121b204a3abc5498941aea02a93471, type: 2}
-  - {fileID: 11400000, guid: bc4244fe3ed76274198eb2e416b3b8c8, type: 2}
   playerRelocateGameEvent: {fileID: 11400000, guid: d03950de31d0eb642b710c82271c407e, type: 2}
   playerLocations:
   - playerID: 1
@@ -7062,9 +7056,9 @@ MonoBehaviour:
     location: {fileID: 1224028294}
   - playerID: 4
     location: {fileID: 936569157}
-  playerPrefab: {fileID: 5928543010023413209, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
+  playerPrefab: {fileID: 5928543010023413209, guid: 96096627dfb6dee47b0ecfb8cd094df4, type: 3}
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
-  OnStartPlayStart: {fileID: 0}
+  OnStartPlayStart: {fileID: 11400000, guid: a95f56e2a7c977f41bbd98aeb96220c6, type: 2}
 --- !u!4 &1914422711
 Transform:
   m_ObjectHideFlags: 0
@@ -7079,49 +7073,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1914422712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1914422709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NotificationBehavior: 0
-  m_MaxPlayerCount: 4
-  m_AllowJoining: 1
-  m_JoinBehavior: 0
-  m_PlayerJoinedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_PlayerLeftEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_JoinAction:
-    m_UseReference: 0
-    m_Action:
-      m_Name: 
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-    m_Reference: {fileID: 0}
-  m_PlayerPrefab: {fileID: 5928543010023413209, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
-  m_SplitScreen: 0
-  m_MaintainAspectRatioInSplitScreen: 0
-  m_FixedNumberOfSplitScreens: -1
-  m_SplitScreenRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!1 &1980713160 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2991031080192064740, guid: 3b8811fee27594b4dbf75a6bce30e5a2, type: 3}
