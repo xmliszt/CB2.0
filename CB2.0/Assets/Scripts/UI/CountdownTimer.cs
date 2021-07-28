@@ -5,6 +5,10 @@ using TMPro;
 public class CountdownTimer : MonoBehaviour
 {
     public GameEvent OnGameOver;
+
+    public GameEvent OnBGMPitchUp;
+
+    public GameEvent OnBGMPitchDown;
     public GameConstants constants;
 
     public TMP_Text countdownText;
@@ -39,10 +43,12 @@ public class CountdownTimer : MonoBehaviour
             totalSeconds --;
             if (totalSeconds <= 10)
             {
+                OnBGMPitchUp.Fire();
                 countdownText.color = lastTenSecondsColor;
             }
             ShowTime();
         }
+        OnBGMPitchDown.Fire();
         OnGameOver.Fire();
         ResetTimer();
     }

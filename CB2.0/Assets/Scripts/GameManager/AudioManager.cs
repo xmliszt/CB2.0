@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [System.Serializable]
 public class Audio
@@ -12,9 +13,12 @@ public class Audio
 
 public class AudioManager : MonoBehaviour
 {
+    public AudioMixer mixer;
     public AudioSource backgroundAudioSource;
 
     public AudioSource uiSfxAudioSource;
+
+    public AudioSource sfxAudioSource;
 
     public List<Audio> backgroundAudios;
 
@@ -23,6 +27,8 @@ public class AudioManager : MonoBehaviour
     public Audio readyAudio;
 
     public Audio startAudio;
+
+    public Audio playerJoinedAudio;
 
     public IntVariable BGMIndex;
 
@@ -78,5 +84,20 @@ public class AudioManager : MonoBehaviour
     public void PlayGameover()
     {
         PlaySfx(gameoverAudio.audioClip);
+    }
+
+    public void PlayJoinPlayer()
+    {
+        sfxAudioSource.PlayOneShot(playerJoinedAudio.audioClip);
+    }
+    
+    public void PitchUpBGM()
+    {
+        mixer.SetFloat("bg_pitch", 1.2f);
+    }
+
+    public void PitchDownBGM()
+    {
+        mixer.SetFloat("bg_pitch", 1.0f);
     }
 }

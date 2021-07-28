@@ -116,6 +116,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnGameOver: {fileID: 11400000, guid: 79c3fd9388a40c84f8df7c3ea48e7ae0, type: 2}
+  OnBGMPitchUp: {fileID: 11400000, guid: d97d0d23ee33766478150d192fb646ce, type: 2}
+  OnBGMPitchDown: {fileID: 11400000, guid: d22a5ac7b13bcda43a20c5bb9d0e041e, type: 2}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   countdownText: {fileID: 5671717140257386909}
   initializedColor: {r: 0, g: 1, b: 0.96346426, a: 0.29803923}

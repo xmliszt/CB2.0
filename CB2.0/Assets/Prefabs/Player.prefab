@@ -1467,6 +1467,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 73ebe66422eae6644bdba859af1e3fec, type: 3}
   - _type: 6
     clip: {fileID: 8300000, guid: 49c8f04df7b2c034dbdb8e21d6ea15c9, type: 3}
+  - _type: 7
+    clip: {fileID: 8300000, guid: 5912270bd6aa0a347a209e4ce44fca3f, type: 3}
   source: {fileID: 6493347360338484652}
 --- !u!114 &4629807238665847802
 MonoBehaviour:

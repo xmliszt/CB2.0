@@ -12,10 +12,12 @@ public class GameLobbyControlHandler : MonoBehaviour
 
     private PlayerZoneManager playerZoneManager;
 
+    private PlayerAudioController playerAudioController;
     private void Awake()
     {
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerZoneManager = GetComponent<PlayerZoneManager>();
+        playerAudioController = GetComponent<PlayerAudioController>();
     }
 
     public void OnUse()
@@ -25,6 +27,7 @@ public class GameLobbyControlHandler : MonoBehaviour
             PlayerZoneManager.ZoneType.clothChanger
         )
         {
+            playerAudioController.PlaySFX(SFXType.changeOutfit);
             onPlayerChangeProfile
                 .Fire(playerStatsManager.GetPlayerStats().playerID);
         }

@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public GameEvent onGameLobbyInitialized;
 
+    public GameEvent onPlayerJoinedEvent;
+
     private int currentMinigameSceneIdx;
 
     // Keep track of the spawned player gameobject
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerJoined(PlayerInput playerInput)
     {
+        onPlayerJoinedEvent.Fire();
         int playerID = playerInput.playerIndex + 1;
         Debug.Log(string.Format("Player {0} joined", playerID));
         if (playerObjects == null)
@@ -63,6 +66,8 @@ public class GameManager : MonoBehaviour
         PlayerStats newPlayerStats = SwitchPlayerProfile(playerID); // assign one profile to the joined player
         if (!players.PlayerExist(playerID))
             players.AddPlayer(newPlayerStats, playerInput);
+        else
+            players.UpdatePlayer (playerID, newPlayerStats);
         DontDestroyOnLoad(playerInput.gameObject);
     }
 
@@ -114,13 +119,6 @@ public class GameManager : MonoBehaviour
                 break;
             }
             lastIdx++;
-        }
-        Debug.Log (playerID);
-        foreach (int key in playerObjects.Keys)
-        {
-            Debug
-                .Log(string
-                    .Format("Key: {0}, Value: {1}", key, playerObjects[key]));
         }
         playerObjects[playerID]
             .GetComponent<PlayerStatsManager>()

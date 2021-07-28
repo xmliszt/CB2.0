@@ -295,6 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483a4c95cd0b1ec4296d1d35487a8dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
 --- !u!225 &1128891824
 CanvasGroup:
   m_ObjectHideFlags: 0

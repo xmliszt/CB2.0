@@ -239,7 +239,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bc4244fe3ed76274198eb2e416b3b8c8, type: 2}
   gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
-  minigameSequence: 0200000004000000
+  minigameSequence: 04000000
   onReturnGameLobby: {fileID: 11400000, guid: 14beae4149f480d4d9a2ef638cc9c8d4, type: 2}
   onStartSTS: {fileID: 11400000, guid: fc3200a3c6b03c34fbb84f06e1b74c94, type: 2}
   onGameLobbyInitialized: {fileID: 11400000, guid: 7ab5c0c5963e2724bb1ff5321df6ea52, type: 2}
+  onPlayerJoinedEvent: {fileID: 11400000, guid: 6e8f9b130a6eb8f44b589fe4042081ba, type: 2}
