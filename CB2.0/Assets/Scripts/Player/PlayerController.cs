@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public PlayerStats playerStats;
+
     public GameStats gameStats;
 
     public GameConstants constants;
@@ -24,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isIdle = true; // True if the character is IDLE (not moving), else false
 
-    private bool disabled = false; // True if the character is tunned
+    private bool disabled = false; // True if the character is stunned
 
     private Vector2 direction = Vector2.down;
 
@@ -43,7 +45,11 @@ public class PlayerController : MonoBehaviour
 
     private STSControlHandler stsControlHandler;
 
-    private int movementFactor = 1; // used to stop or resume movement of character. 0 will stop, 1 will resume
+    private UnlimitedGroupControlHandler unlimitedGroupControlHandler;
+
+    private float movementFactor = 1.0f; // used to stop or resume movement of character. 0 will stop, 1 will resume
+
+    private bool dashDisabled = false;
 
     private void Start()
     {
@@ -55,8 +61,10 @@ public class PlayerController : MonoBehaviour
         swabTestControlHandler = GetComponent<SwabTestControlHandler>();
         stsControlHandler = GetComponent<STSControlHandler>();
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
+        unlimitedGroupControlHandler = GetComponent<UnlimitedGroupControlHandler>();
         animator.runtimeAnimatorController =
             playerStatsManager.GetPlayerStats().animatorController;
+        
     }
 
     private void Update()
@@ -128,7 +136,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (!disabled)
+            if (!disabled && !dashDisabled)
             {
                 if (!isDashing && !isIdle)
                 {
@@ -174,6 +182,10 @@ public class PlayerController : MonoBehaviour
                     case GameStats.Scene.stopTheSpread:
                         if (stsControlHandler) stsControlHandler.OnUse();
                         break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnUse();
+                        break;
                     default:
                         break;
                 }
@@ -195,6 +207,10 @@ public class PlayerController : MonoBehaviour
                         break;
                     case GameStats.Scene.stopTheSpread:
                         if (stsControlHandler) stsControlHandler.onPickUpDrop();
+                        break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnPickUpDrop();
                         break;
                     default:
                         break;
@@ -218,11 +234,35 @@ public class PlayerController : MonoBehaviour
                     case GameStats.Scene.stopTheSpread:
                         if (stsControlHandler) stsControlHandler.onShop();
                         break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnShop();
+                        break;
                     default:
                         break;
                 }
             }
         }
+    }
+
+    public void OnHold(InputAction.CallbackContext context)
+    {   
+        if (context.performed)
+        {
+            if (!disabled)
+            {
+                switch (gameStats.GetCurrentScene())
+                {
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnHold(context);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        
     }
 
     public Vector2 GetIdleDirection()
@@ -242,11 +282,26 @@ public class PlayerController : MonoBehaviour
 
     public void DisableMovement()
     {
-        movementFactor = 0;
+        movementFactor = 0.0f;
     }
 
     public void EnableMovement()
     {
-        movementFactor = 1;
+        movementFactor = 1.0f;
+    }
+
+    public void SlowMovement(float factor)
+    {
+        movementFactor = factor;
+    }
+
+    public void DisableDash()
+    {
+        dashDisabled = true;
+    }
+
+    public void EnableDash()
+    {
+        dashDisabled = false;
     }
 }

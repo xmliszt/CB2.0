@@ -23,4 +23,6 @@ public class Item : ScriptableObject
     public Sprite itemSprite;
 
     public Sprite thoughtBubbleSprite;
+
+    public string itemName = "";
 }

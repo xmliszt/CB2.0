@@ -170,7 +170,7 @@ public class GameManager : MonoBehaviour
     // Call this to start the minigame
     public void OnStartMiniGame()
     {
-        if (playerInputManager.playerCount < 2)
+        if (playerInputManager.playerCount < 1)
         {
             Debug.Log("cannot start game. need at least 2 players");
         }

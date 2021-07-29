@@ -50,6 +50,10 @@ public class PlayerZoneManager : MonoBehaviour
                 gameObject
                     .GetComponent<SwabTestControlHandler>()
                     .SetShopHandler(zoneObject.GetComponent<ShopHandler>());
+                
+                gameObject
+                    .GetComponent<UnlimitedGroupControlHandler>()
+                    .SetShopHandler(zoneObject.GetComponent<ShopHandler>());
 
                 break;
             case "SwabStick":
