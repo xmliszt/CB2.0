@@ -10,9 +10,7 @@ public enum ConversationType
 {
     simpleText = 0,
     simpleImage = 1,
-    textAndImage = 2,
-    playerInfo = 3, // Display player ID and player avatar
-    playerMasks = 4 // Display the number of masks the player collected
+    textAndImage = 2
 }
 
 [System.Serializable]
@@ -32,6 +30,14 @@ public class ConversationObject
 public class TextScroller : MonoBehaviour
 {
     public GameEvent onPlayNextMiniGame;
+
+    public GameEvent onCeremonyEnd;
+
+    public GameEvent onDrumrollWinner;
+
+    public GameEvent onPlayConfetti;
+
+    public GameEvent onSinglePersonClap;
 
     public List<ConversationObject> openingConversations;
 
@@ -55,11 +61,6 @@ public class TextScroller : MonoBehaviour
 
     private void Start()
     {
-        simpleText.text = "";
-        simpleImage.enabled = false;
-        compositeText.text = "";
-        compositeImage.enabled = false;
-
         prizeCeremonySequence =
             new List<CeremonyRank>(players.GetPlayers().Count);
         CreateCeremonyPrizeRanks();
@@ -67,6 +68,10 @@ public class TextScroller : MonoBehaviour
 
     public void StartCeremony()
     {
+        simpleText.text = "";
+        simpleImage.enabled = false;
+        compositeText.text = "";
+        compositeImage.enabled = false;
         StartCoroutine(StartDisplayConversation());
     }
 
@@ -141,6 +146,7 @@ public class TextScroller : MonoBehaviour
         bool samePrize = false;
         for (int idx = 0; idx < prizeCeremonySequence.Count; idx++)
         {
+            onDrumrollWinner.Fire();
             CeremonyRank ceremonyRank = prizeCeremonySequence[idx];
             PlayerStats playerStats = ceremonyRank.playerStats;
             if (idx > 0)
@@ -184,7 +190,8 @@ public class TextScroller : MonoBehaviour
                     break;
             }
             SendSimpleText (_text, prizeCeremonyTextColor);
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(6);
+            onPlayConfetti.Fire();
             simpleText.text = "";
             compositeImage.enabled = true;
             SendTextImage(string.Format("{0}P", playerStats.playerID),
@@ -195,6 +202,7 @@ public class TextScroller : MonoBehaviour
             compositeText.text = "";
             SendSimpleText("Obtained...", playerStats.playerAccent);
             yield return new WaitForSeconds(3);
+            onSinglePersonClap.Fire();
             simpleText.text = "";
             compositeImage.enabled = true;
             SendTextImage(playerStats.masks.ToString(),
@@ -237,6 +245,7 @@ public class TextScroller : MonoBehaviour
             }
         }
 
+        onCeremonyEnd.Fire();
         onPlayNextMiniGame.Fire();
     }
 

@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 2083206013510218751}
   - component: {fileID: 5928824328873108846}
   - component: {fileID: 632774476}
+  - component: {fileID: 1395265287299895772}
+  - component: {fileID: 8857849428015926866}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -77,6 +79,12 @@ MonoBehaviour:
   ceremonyAudio:
     tag: Ceremony Song
     audioClip: {fileID: 8300000, guid: 51965d350613e48469fb46c844c37181, type: 3}
+  confettiAudio:
+    tag: Confetti
+    audioClip: {fileID: 8300000, guid: 3253525778046c54981b98ee60719916, type: 3}
+  singleClapHands:
+    tag: Single Person Clap Hands
+    audioClip: {fileID: 8300000, guid: ee554f61fdffc424db7f72b02647f14d, type: 3}
   gameoverAudio:
     tag: Gameover
     audioClip: {fileID: 8300000, guid: 810815bad5e1b034cb0287f0ecaf7553, type: 3}
@@ -621,6 +629,62 @@ MonoBehaviour:
       - m_Target: {fileID: 5016938863620303053}
         m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
         m_MethodName: PlayCeremony
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1395265287299895772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016938863620303054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 549b91e440be7cd429459373b9f81a56, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5016938863620303053}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayDrumrollCelebration
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8857849428015926866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016938863620303054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: fd0bd84a794f1ac42af3bd5fcb31a3e7, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5016938863620303053}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySingleClapHands
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -24,6 +24,10 @@ public class AudioManager : MonoBehaviour
 
     public Audio ceremonyAudio;
 
+    public Audio confettiAudio; // with drum-roll
+
+    public Audio singleClapHands;
+
     public Audio gameoverAudio;
 
     public Audio readyAudio;
@@ -96,6 +100,16 @@ public class AudioManager : MonoBehaviour
     public void PlayCeremony()
     {
         SwitchAndPlayBG(ceremonyAudio.audioClip);
+    }
+
+    public void PlayDrumrollCelebration()
+    {
+        PlaySfx(confettiAudio.audioClip);
+    }
+
+    public void PlaySingleClapHands()
+    {
+        PlaySfx(singleClapHands.audioClip);
     }
 
     public void PitchUpBGM()

@@ -86,7 +86,6 @@ public class RankHandler : MonoBehaviour
             }
             _rank ++;
         }
-        Debug.Log(masksRewardedList.Count);
     }
 
     public void ShowGameOver()

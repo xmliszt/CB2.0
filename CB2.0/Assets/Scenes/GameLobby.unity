@@ -1114,7 +1114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
       propertyPath: minigameSequence.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
       propertyPath: minigameSequence.Array.data[0]
