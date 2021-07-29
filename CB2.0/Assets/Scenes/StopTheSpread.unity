@@ -1200,6 +1200,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 670535620}
     m_Modifications:
+    - target: {fileID: 1744678203, guid: 4c79b4631ee9af149970a2f9238293e7, type: 3}
+      propertyPath: initializedColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1744678203, guid: 4c79b4631ee9af149970a2f9238293e7, type: 3}
+      propertyPath: initializedColor.r
+      value: 0.9565394
+      objectReference: {fileID: 0}
     - target: {fileID: 5671717138834767777, guid: 4c79b4631ee9af149970a2f9238293e7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1310,7 +1318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5671717138834767783, guid: 4c79b4631ee9af149970a2f9238293e7, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c79b4631ee9af149970a2f9238293e7, type: 3}
@@ -2732,6 +2740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gameover UI
       objectReference: {fileID: 0}
+    - target: {fileID: 4728250660734941440, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4728250660734941443, guid: 689854c633652d8479bc929e23200ed8, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4150,6 +4162,10 @@ PrefabInstance:
       propertyPath: m_text
       value: 2P
       objectReference: {fileID: 0}
+    - target: {fileID: 164370142116704502, guid: 71c57f5d5fcbe0a45bcb4465a6dac340, type: 3}
+      propertyPath: playerID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2643783407680269471, guid: 71c57f5d5fcbe0a45bcb4465a6dac340, type: 3}
       propertyPath: playerID
       value: 2
@@ -4499,6 +4515,10 @@ PrefabInstance:
     - target: {fileID: 1624360211, guid: 71c57f5d5fcbe0a45bcb4465a6dac340, type: 3}
       propertyPath: m_text
       value: 4P
+      objectReference: {fileID: 0}
+    - target: {fileID: 164370142116704502, guid: 71c57f5d5fcbe0a45bcb4465a6dac340, type: 3}
+      propertyPath: playerID
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2643783407680269471, guid: 71c57f5d5fcbe0a45bcb4465a6dac340, type: 3}
       propertyPath: playerID
@@ -6446,6 +6466,10 @@ PrefabInstance:
     - target: {fileID: 1624360211, guid: 71c57f5d5fcbe0a45bcb4465a6dac340, type: 3}
       propertyPath: m_text
       value: 3P
+      objectReference: {fileID: 0}
+    - target: {fileID: 164370142116704502, guid: 71c57f5d5fcbe0a45bcb4465a6dac340, type: 3}
+      propertyPath: playerID
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2643783407680269471, guid: 71c57f5d5fcbe0a45bcb4465a6dac340, type: 3}
       propertyPath: playerID

@@ -251,9 +251,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 1
+  scoreDescText: Swab Test Done
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
   scoreText: {fileID: 5469270826855753903}
-  completeTestText: {fileID: 5469270826661026902}
+  completeText: {fileID: 5469270826661026902}
   playerIndicatorText: {fileID: 1624360211}
   playerAvatar: {fileID: 5469270827088452754}
   panelBackground: {fileID: 5469270826262230630}
@@ -295,7 +296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483a4c95cd0b1ec4296d1d35487a8dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
 --- !u!225 &1128891824
 CanvasGroup:
   m_ObjectHideFlags: 0

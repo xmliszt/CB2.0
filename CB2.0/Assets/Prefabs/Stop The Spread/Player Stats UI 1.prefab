@@ -146,11 +146,10 @@ GameObject:
   - component: {fileID: 5469270825942417715}
   - component: {fileID: 5469270825942417714}
   - component: {fileID: 5469270825942417717}
-  - component: {fileID: 2643783407680269471}
   - component: {fileID: 5038839414950098215}
   - component: {fileID: 1128891825}
   - component: {fileID: 1128891824}
-  - component: {fileID: 6502323050993142859}
+  - component: {fileID: 164370142116704502}
   m_Layer: 0
   m_Name: Player Stats UI 1
   m_TagString: Stats
@@ -239,25 +238,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2643783407680269471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5469270825942417719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d39830fefce8ef34e9c780e2edd35afb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerID: 1
-  players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
-  scoreText: {fileID: 5469270826855753903}
-  completeTestText: {fileID: 5469270826661026902}
-  playerIndicatorText: {fileID: 1624360211}
-  playerAvatar: {fileID: 5469270827088452754}
-  panelBackground: {fileID: 5469270826262230630}
 --- !u!61 &5038839414950098215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -296,7 +276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 483a4c95cd0b1ec4296d1d35487a8dae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
 --- !u!225 &1128891824
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -309,7 +288,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &6502323050993142859
+--- !u!114 &164370142116704502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,25 +297,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5469270825942417719}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55d3926dbbfd0aa4e99a64a61b05b17f, type: 3}
+  m_Script: {fileID: 11500000, guid: 49f963977e4cdee41b7e55e439b47bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: d03950de31d0eb642b710c82271c407e, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2643783407680269471}
-        m_TargetAssemblyTypeName: STSUIUpdater, Assembly-CSharp
-        m_MethodName: OnThisPlayerJoined
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  playerID: 1
+  scoreDescText: Activities Done
+  players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
+  scoreText: {fileID: 5469270826855753903}
+  completeText: {fileID: 5469270826661026902}
+  playerIndicatorText: {fileID: 1624360211}
+  playerAvatar: {fileID: 5469270827088452754}
+  panelBackground: {fileID: 5469270826262230630}
 --- !u!1 &5469270826262230616
 GameObject:
   m_ObjectHideFlags: 0

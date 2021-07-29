@@ -1118,11 +1118,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
       propertyPath: minigameSequence.Array.data[0]
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
       propertyPath: minigameSequence.Array.data[1]
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 736db9b9d134e294784893312f61d194, type: 3}
