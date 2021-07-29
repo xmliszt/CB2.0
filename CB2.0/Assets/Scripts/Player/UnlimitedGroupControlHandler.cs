@@ -81,13 +81,18 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
             
             if (available) {
                 entertainmentController = grabCheck.collider.gameObject.GetComponent<EntertainmentController>();
-                entertainmentController.fromPlayer = gameObject;
-                entertainmentController.SetSpriteOutline();
-                available = false;
+                if (!entertainmentController.fromPlayer)
+                {
+                    entertainmentController.fromPlayer = gameObject;
+                    entertainmentController.SetSpriteOutline();
+                    available = false;
+                }
+                
+
             }
             
             // Can check if entertainment controller is "held" too
-            if (held && entertainmentController) {
+            if (held && entertainmentController && entertainmentController.fromPlayer == gameObject) {
                 // Slow down player & Disable dash
                 playerController.SlowMovement(constants.slowFactor);
                 playerController.DisableDash();
@@ -100,20 +105,17 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         }
         // Object out of range: Deselect 
         else {
-            if (entertainmentController != null) {
-                entertainmentController.DisableSpriteOutline();
-                entertainmentController = null;
-                available = true;
+            if (entertainmentController != null && entertainmentController.fromPlayer == gameObject) {
+                deselectEntertainment();
             }
         }
 
         // Edge case where player is detecting another entertainment: Deselect
         if (grabCheck.collider != null && 
         grabCheck.collider.tag == "Entertainments" && 
-        entertainmentController != grabCheck.collider.gameObject.GetComponent<EntertainmentController>()) {
-            entertainmentController.DisableSpriteOutline();
-            entertainmentController = null;
-            available = true;
+        entertainmentController != grabCheck.collider.gameObject.GetComponent<EntertainmentController>() && 
+        entertainmentController.fromPlayer == gameObject) {
+            deselectEntertainment();
         }
 
         if (!held) {
@@ -122,6 +124,14 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
             playerController.EnableDash();
 
         }
+    }
+
+    private void deselectEntertainment()
+    {
+        entertainmentController.DisableSpriteOutline();
+        entertainmentController.fromPlayer = null;
+        entertainmentController = null;
+        available = true;
     }
 
     public void OnUse()
@@ -222,12 +232,6 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
     {
         shopHandler = _shopHandler;
     }
-
-    // public void UpdateScore(int score) {
-    //     playerStatsManager.GetPlayerStats().score += score;
-    //     Debug.Log(playerStatsManager.GetPlayerStats().score);
-    // }
-
     
     // Shooting mechanism
     
