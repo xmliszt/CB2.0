@@ -65,6 +65,14 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 9d68768ba53311446b6cd04c26a3ca05, type: 3}
   - tag: background 3
     audioClip: {fileID: 8300000, guid: 672af1e4be1229e49b7bae51f0859e99, type: 3}
+  - tag: background 4
+    audioClip: {fileID: 8300000, guid: 957e5420ee43fc34aa9874d3e187e45d, type: 3}
+  - tag: background 5
+    audioClip: {fileID: 8300000, guid: 0d6e397abb9c746459b7f62c4727edf4, type: 3}
+  - tag: background 6
+    audioClip: {fileID: 8300000, guid: 4fdc72754907446418b006483a3c4c0c, type: 3}
+  - tag: background 7
+    audioClip: {fileID: 8300000, guid: 6515dc9fb5d750b4c906c2bb0ff3af19, type: 3}
   gameoverAudio:
     tag: Gameover
     audioClip: {fileID: 8300000, guid: 810815bad5e1b034cb0287f0ecaf7553, type: 3}
