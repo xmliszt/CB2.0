@@ -108,6 +108,5 @@ public class AIController : MonoBehaviour
             distanceFromWayPoint = desiredLocation - gameObject.transform.position.x;
         }
 
-        //Debug.Log("Distance from way point: " + distanceFromWayPoint);
     }
 }

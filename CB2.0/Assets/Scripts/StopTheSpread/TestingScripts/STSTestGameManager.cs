@@ -27,7 +27,6 @@ public class STSTestGameManager : MonoBehaviour
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         int playerID = playerInput.playerIndex + 1;
-        Debug.Log(string.Format("Player {0} joined", playerID));
         playerObjects[playerID] = playerInput.gameObject.transform;
     }
 }

@@ -307,7 +307,6 @@ public class STSAIController : MonoBehaviour
     {
         if(collision.transform == target)
         {
-            Debug.Log("Player left the collider");
             playerLeftCollider = true;
         }
     }

@@ -41,7 +41,6 @@ public class STSBirthdayActivity : MonoBehaviour
         playerDoors = new BoxCollider2D[4] { player1Door, player2Door, player3Door, player4Door };
         stsGameManager = FindObjectOfType<STSGameManager>();
         numberOfPlayers = stsGameManager.GetNumberPlayers();
-        Debug.Log("Number of players: " + numberOfPlayers.ToString());
     }
 
     // Update is called once per frame
@@ -75,7 +74,6 @@ public class STSBirthdayActivity : MonoBehaviour
             yield return new WaitForSeconds(stsGameConstants.waitForBirthday);
             if (!birthdayEventOngoing)
             {
-                Debug.Log("Starting new birthday event");
                 invokeBirthdayGameEvent();
                 StartCoroutine(birthdayTimeout());
             }
@@ -101,13 +99,11 @@ public class STSBirthdayActivity : MonoBehaviour
 
     private void OnBirthdayEventOver()
     {
-        Debug.Log("Birthday over, resetting");
         playerDoors[playerChosen - 1].gameObject.SetActive(false);
         birthdayEventOngoing = false;
         celebrationsUnderway = false;
 
         // give score to players that are present in the room
-        Debug.Log(playersPresent);
         for (int i = 0; i < numberOfPlayers; i++)
         {
             if (playersPresent[i] == true)
@@ -123,7 +119,6 @@ public class STSBirthdayActivity : MonoBehaviour
         // we should have like 3 seconds to sing birthday song or something
         // if players leave the room halfway the thing will stop
         StartCoroutine(CarryingOutBirthdayCelebration());
-        Debug.Log("all players present, birthday celebrations has begun");
     }
 
     IEnumerator CarryingOutBirthdayCelebration()
@@ -139,7 +134,6 @@ public class STSBirthdayActivity : MonoBehaviour
         {
             if (allRooms[playerChosen - 1] == roomName)
             {
-                Debug.Log("Player " + playerID + " entered " + roomName);
                 playersPresent[playerID-1] = true;
             }
         }
@@ -155,7 +149,6 @@ public class STSBirthdayActivity : MonoBehaviour
         {
             if (allRooms[playerChosen - 1] == roomName)
             {
-                Debug.Log("Player " + playerID + " left room " + roomName);
                 playersPresent[playerID-1] = false;
             }
         }

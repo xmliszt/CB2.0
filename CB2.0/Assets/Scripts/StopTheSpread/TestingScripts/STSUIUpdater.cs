@@ -78,7 +78,6 @@ public class STSUIUpdater : MonoBehaviour
     {
         if(playerID == joinedID)
         {
-            Debug.Log("Player ID: " + playerID);
             _enabled = true;
             GetComponent<CanvasGroup>().alpha = 1;
         }

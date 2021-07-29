@@ -143,7 +143,6 @@ public class STSControlHandler : MonoBehaviour
     {
         if (!birthdayEventOngoing)
         {
-            Debug.Log("Generating new activity");
             desiredActivity = UnityEngine.Random.Range(0, 4);
 
             thoughtBubbleRenderer.sprite =
@@ -160,7 +159,6 @@ public class STSControlHandler : MonoBehaviour
     {
         if (zoneType == ZoneType.npcCake)
         {
-            Debug.Log(stsInventory.inventoryItemType);
             if (
                 stsInventory.holdingItem &&
                 stsInventory.inventoryItemType ==
@@ -252,7 +250,6 @@ public class STSControlHandler : MonoBehaviour
 
     public void onShop()
     {
-        Debug.Log("Player using shop");
         if (zoneType == ZoneType.shop)
         {
             // do shop stuff
@@ -431,7 +428,6 @@ public class STSControlHandler : MonoBehaviour
                         .doingActivityInterval);
             if (zoneType == ZoneType.nullType)
             {
-                Debug.Log("Player stopped halfway");
                 playerDoingActivity = false;
 
                 completionBar.value = 0;
