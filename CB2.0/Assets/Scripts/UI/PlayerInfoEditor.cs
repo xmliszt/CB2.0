@@ -15,7 +15,7 @@ public class PlayerInfoEditor : MonoBehaviour
     public TMP_Text playerMaskObtained;
     public TMP_Text playerCurrentTotalMasks;
     private PlayerStats playerStats;
-    public void SetPlayerStats(PlayerStats _playerStats, MaskReward rewardToObtained)
+    public void SetPlayerStats(PlayerStats _playerStats, int rewardToObtained)
     {
         playerStats = _playerStats;
         if (playerStats == null)
@@ -32,7 +32,7 @@ public class PlayerInfoEditor : MonoBehaviour
             playerID.color = playerStats.playerAccent;
             playerScore.text = playerStats.score.ToString();
             playerScore.fontSize = 100 - (playerStats.GetRank() - 1) * 10;
-            playerMaskObtained.text = rewardToObtained.maskRewarded.ToString();
+            playerMaskObtained.text = "+" + rewardToObtained.ToString();
             playerMaskObtained.fontSize = 100 - (playerStats.GetRank() - 1) * 10;
             playerCurrentTotalMasks.text =playerStats.masks.ToString();
         }

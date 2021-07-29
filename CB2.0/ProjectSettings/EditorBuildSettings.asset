@@ -14,5 +14,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StopTheSpread.unity
     guid: d7a79227cf836364382f4a6e1b62e6dc
+  - enabled: 1
+    path: Assets/Scenes/RewardCeremony.unity
+    guid: b5b6add9356fd4642b47bc66677dad93
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 69f6217b8052ccb4cb71570c3ebbd344, type: 2}

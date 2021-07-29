@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         {
             OnPlayerJoined(playerInfo.playerInput);
         }
+        minigameSequence.Add(GameStats.Scene.awardCeremony); // always have award ceremony at the end of the game
         Debug.Log("Game Manager Started");
     }
 
@@ -196,6 +197,9 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("StopTheSpread");
                 onStartSTS.Fire();
                 break;
+            case GameStats.Scene.awardCeremony:
+                SceneManager.LoadScene("RewardCeremony");
+                break;
         }
     }
 
@@ -211,10 +215,6 @@ public class GameManager : MonoBehaviour
             ResetPlayerStatsCompletely();
             onReturnGameLobby.Fire();
             LoadMinigame(GameStats.Scene.gameLobby);
-            foreach(Transform player in playerObjects.Values)
-            {
-                Destroy(player);
-            }
             Destroy (gameObject);
         }
         else

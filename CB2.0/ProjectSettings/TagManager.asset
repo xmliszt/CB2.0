@@ -33,6 +33,7 @@ TagManager:
   - PlayerThreeHome
   - PlayerFourHome
   - SDA
+  - RewardZone
   layers:
   - Default
   - TransparentFX
