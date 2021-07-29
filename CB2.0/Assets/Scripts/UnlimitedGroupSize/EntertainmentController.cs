@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+
 
 public class EntertainmentController : MonoBehaviour
 {
@@ -14,12 +17,11 @@ public class EntertainmentController : MonoBehaviour
 
     public bool upgraded = false;
 
-    [Header("UI")]   
-    public GameObject[] npcList;
+    [Header("UI")]
+
+    public TMP_Text attractText;
 
     public GameObject lockObject;
-
-    public GameObject upgradeObject;
 
     private SpriteRenderer entertainmentSprite;
 
@@ -61,10 +63,8 @@ public class EntertainmentController : MonoBehaviour
 
         attractLevel = generateAttractLevel();
 
-        for (int i = 0; i < attractLevel; i++) {
-            npcList[i].SetActive(true);
-        }
-
+        attractText.text = string.Format("x {0}", attractLevel);
+        
         entertainmentOutline = GetComponent<SpriteOutlined>();
         entertainmentOutline.DisableOutline();
 
@@ -136,8 +136,6 @@ public class EntertainmentController : MonoBehaviour
 
     public void SetUpgrade() {
         upgraded = true;
-        upgradeObject.SetActive(true);
-        
 
         if (inZone) {
             assignedPlayerStats.score += attractLevel;
@@ -145,5 +143,7 @@ public class EntertainmentController : MonoBehaviour
 
         }
         attractLevel *= constants.upgradeMultiplier;
+        attractText.text = string.Format("x {0}", attractLevel);
+        attractText.color = new Color32(255, 33, 0, 255);
     }
 }
