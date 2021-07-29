@@ -4,25 +4,13 @@ using UnityEngine;
 
 public class EntertainmentDetection : MonoBehaviour
 {
+    // public GameObject player;
 
-    // TODO: To take player from some sort of manager
-    public GameObject player;
+    public PlayerStats playerStats;
 
     private bool zoneFull = false;
 
     private EntertainmentController entertainmentController;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Entertainments") && !zoneFull) {
@@ -31,7 +19,7 @@ public class EntertainmentDetection : MonoBehaviour
 
             // Update score
             entertainmentController = other.gameObject.GetComponent<EntertainmentController>();
-            entertainmentController.AddScore(player);
+            entertainmentController.AddScore(playerStats);
 
         }    
     }
@@ -43,7 +31,7 @@ public class EntertainmentDetection : MonoBehaviour
             Debug.Log("ENTERTAINMENT LEAVE ZONE");
 
             // Remove score
-            entertainmentController.RemoveScore(player);
+            entertainmentController.RemoveScore(playerStats);
         }
     }
 }

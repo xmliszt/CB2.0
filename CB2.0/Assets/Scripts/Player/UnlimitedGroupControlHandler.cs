@@ -67,7 +67,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
         // To Change
         playerStatsManager.GetPlayerStats().score = 0;
-        playerStatsManager.GetPlayerStats().coins = 100;
+        playerStatsManager.GetPlayerStats().coins = 50;
     }
 
     private void Update()
@@ -223,10 +223,10 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         shopHandler = _shopHandler;
     }
 
-    public void UpdateScore(int score) {
-        playerStatsManager.GetPlayerStats().score += score;
-        Debug.Log(playerStatsManager.GetPlayerStats().score);
-    }
+    // public void UpdateScore(int score) {
+    //     playerStatsManager.GetPlayerStats().score += score;
+    //     Debug.Log(playerStatsManager.GetPlayerStats().score);
+    // }
 
     
     // Shooting mechanism

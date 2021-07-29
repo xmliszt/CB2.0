@@ -847,7 +847,7 @@ MonoBehaviour:
     m_ActionId: c6099530-4586-4205-9254-6f3d0968aa72
     m_ActionName: gameplay/hold[/XInputControllerWindows/buttonEast,/Keyboard/period]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

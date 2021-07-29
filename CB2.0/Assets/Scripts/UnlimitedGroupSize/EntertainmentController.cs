@@ -31,7 +31,9 @@ public class EntertainmentController : MonoBehaviour
 
     private SpriteOutlined entertainmentOutline;
 
-    private GameObject zoneObject = null;
+    private bool inZone = false;
+
+    private PlayerStats assignedPlayerStats = null;
     
     private int generateAttractLevel() {
         float rand = Random.value;
@@ -96,22 +98,25 @@ public class EntertainmentController : MonoBehaviour
         }
     }
 
-    public void AddScore(GameObject player) {
-        zoneObject = player;
-        Debug.Log("Add Player Score");
+    public void AddScore(PlayerStats playerStats) {
+        
+        assignedPlayerStats = playerStats;
+        
+        inZone = true;
 
-        ugsHandler = player.GetComponent<UnlimitedGroupControlHandler>();
-        ugsHandler.UpdateScore(attractLevel);
+        assignedPlayerStats.score += attractLevel;
 
+        Debug.Log(assignedPlayerStats.score);
     }
 
-    public void RemoveScore(GameObject player) {
-        zoneObject = null;
-        Debug.Log("Remove Player Score");
+    public void RemoveScore(PlayerStats playerStats) {
+        
+        inZone = false;
 
-        ugsHandler = player.GetComponent<UnlimitedGroupControlHandler>();
-        int subtractScore = attractLevel * -1;
-        ugsHandler.UpdateScore(subtractScore);
+        assignedPlayerStats = playerStats;
+        assignedPlayerStats.score -= attractLevel;
+        Debug.Log(assignedPlayerStats.score);
+        assignedPlayerStats = null;
 
     }
 
@@ -134,8 +139,10 @@ public class EntertainmentController : MonoBehaviour
         upgradeObject.SetActive(true);
         
 
-        if (zoneObject) {
-            AddScore(zoneObject);
+        if (inZone) {
+            assignedPlayerStats.score += attractLevel;
+            Debug.Log(assignedPlayerStats.score);
+
         }
         attractLevel *= constants.upgradeMultiplier;
     }
