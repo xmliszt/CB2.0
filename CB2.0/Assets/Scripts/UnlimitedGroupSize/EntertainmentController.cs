@@ -83,8 +83,36 @@ public class EntertainmentController : MonoBehaviour
     public void MoveItem()
     {       
         if (!locked) {
+
+            Vector2 offsetPos = new Vector2(fromPlayer.transform.position.x - gameObject.transform.position.x, 
+            fromPlayer.transform.position.y - gameObject.transform.position.y);
+
+            float xOffset = 0.0f;
+            float yOffset = 0.0f;
+
+            float offset = 0.6f;
+
+            if (offsetPos.x > 0)
+            {
+                xOffset = -1 * offset;
+            } 
+            else 
+            {
+                xOffset = offset;
+            }
+
+            if (offsetPos.y >0)
+            {
+                yOffset = -1 * offset;
+            }
+            else
+            {
+                yOffset = offset;
+            }
+
             gameObject.transform.position =
-            new Vector2(fromPlayer.transform.position.x + 0.6f, fromPlayer.transform.position.y);
+            new Vector2(fromPlayer.transform.position.x + xOffset, fromPlayer.transform.position.y + yOffset);
+        
         }
     }
 
