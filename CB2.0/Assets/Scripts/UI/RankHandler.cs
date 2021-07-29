@@ -10,9 +10,23 @@ class RankComparer : IComparer<PlayerStats>
     }
 }
 
+public enum Rank {
+    rank1 = 1,
+    rank2 = 2,
+    rank3 = 3,
+    rank4 = 4,
+}
+
+[System.Serializable]
+public class MaskReward {
+    public Rank _rank;
+    public int maskRewarded;
+}
+
 [System.Serializable]
 public class RankHandler : MonoBehaviour
 {
+    public List<MaskReward> maskRewardSetting = new List<MaskReward>(4);
     public GameConstants gameConstants;
     public Players players;
 
@@ -27,7 +41,6 @@ public class RankHandler : MonoBehaviour
     private CanvasGroup gameoverUI;
 
     private List<PlayerStats> playerStatsList;
-
     private void Start() {
         playerStatsList = new List<PlayerStats>();
         gameoverUI = GetComponent<CanvasGroup>();
@@ -52,14 +65,18 @@ public class RankHandler : MonoBehaviour
 
         int _rank = 1;
         playerStatsList[0].SetRank(_rank);
+        playerStatsList[0].masks += maskRewardSetting[_rank-1].maskRewarded;
+        
         _rank = 2;
         for (int i = 1; i < playerStatsList.Count; i ++)
         {
             if (playerStatsList[i].score == playerStatsList[i-1].score)
             {
                 playerStatsList[i].SetRank(playerStatsList[i-1].GetRank());
+                playerStatsList[i].masks += maskRewardSetting[playerStatsList[i-1].GetRank()-1].maskRewarded;
             } else {
                 playerStatsList[i].SetRank(_rank);
+                playerStatsList[i].masks += maskRewardSetting[_rank-1].maskRewarded;
             }
             _rank ++;
         }
@@ -88,7 +105,7 @@ public class RankHandler : MonoBehaviour
         yield return new WaitForSeconds(1);
         for (int i = 0; i < playerStatsList.Count; i ++)
         {
-            playerInfoEditors[i].SetPlayerStats(playerStatsList[i]);
+            playerInfoEditors[i].SetPlayerStats(playerStatsList[i], maskRewardSetting[i]);
             StartCoroutine(Fade(playerInfoRows[i], 0, 1, 1f));
             yield return new WaitForSeconds(0.5f);
         }

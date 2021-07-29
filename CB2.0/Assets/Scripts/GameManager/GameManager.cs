@@ -161,6 +161,7 @@ public class GameManager : MonoBehaviour
             playerStats.playerID = 0;
             playerStats.score = 0;
             playerStats.coins = 0;
+            playerStats.masks = 0;
             playerStats.inventory.ClearItem();
         }
     }
