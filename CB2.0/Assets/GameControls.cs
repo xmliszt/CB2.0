@@ -57,6 +57,14 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""hold"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""c6099530-4586-4205-9254-6f3d0968aa72"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -224,6 +232,28 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""action"": ""pick/drop"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d2b8c22-174a-4dd6-8fc7-6cf8ae6f699e"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""hold"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ad042fd4-29f9-44a1-b8d4-7a6bd8d57206"",
+                    ""path"": ""<Keyboard>/period"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""keyboard"",
+                    ""action"": ""hold"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -260,6 +290,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         m_gameplay_dash = m_gameplay.FindAction("dash", throwIfNotFound: true);
         m_gameplay_move = m_gameplay.FindAction("move", throwIfNotFound: true);
         m_gameplay_shop = m_gameplay.FindAction("shop", throwIfNotFound: true);
+        m_gameplay_hold = m_gameplay.FindAction("hold", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -314,6 +345,7 @@ public class @GameControls : IInputActionCollection, IDisposable
     private readonly InputAction m_gameplay_dash;
     private readonly InputAction m_gameplay_move;
     private readonly InputAction m_gameplay_shop;
+    private readonly InputAction m_gameplay_hold;
     public struct GameplayActions
     {
         private @GameControls m_Wrapper;
@@ -323,6 +355,7 @@ public class @GameControls : IInputActionCollection, IDisposable
         public InputAction @dash => m_Wrapper.m_gameplay_dash;
         public InputAction @move => m_Wrapper.m_gameplay_move;
         public InputAction @shop => m_Wrapper.m_gameplay_shop;
+        public InputAction @hold => m_Wrapper.m_gameplay_hold;
         public InputActionMap Get() { return m_Wrapper.m_gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -347,6 +380,9 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @shop.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShop;
                 @shop.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShop;
                 @shop.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShop;
+                @hold.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHold;
+                @hold.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHold;
+                @hold.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHold;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -366,6 +402,9 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @shop.started += instance.OnShop;
                 @shop.performed += instance.OnShop;
                 @shop.canceled += instance.OnShop;
+                @hold.started += instance.OnHold;
+                @hold.performed += instance.OnHold;
+                @hold.canceled += instance.OnHold;
             }
         }
     }
@@ -395,5 +434,6 @@ public class @GameControls : IInputActionCollection, IDisposable
         void OnDash(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
         void OnShop(InputAction.CallbackContext context);
+        void OnHold(InputAction.CallbackContext context);
     }
 }
