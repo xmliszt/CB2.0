@@ -251,15 +251,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 10
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 38c11b2ea3f1f1242b07299ec3f18614, type: 2}
-  m_sharedMaterial: {fileID: -8883814654007483391, guid: 38c11b2ea3f1f1242b07299ec3f18614, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 30b3a0ea07202214a9ec7215db0a68c3, type: 2}
+  m_sharedMaterial: {fileID: -8883814654007483391, guid: 30b3a0ea07202214a9ec7215db0a68c3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278255420
+  m_fontColor: {r: 0.23492157, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -276,12 +276,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
-  m_fontSizeBase: 36
+  m_fontSize: 100
+  m_fontSizeBase: 100
   m_fontWeight: 400
-  m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 17.61
+  m_fontSizeMax: 100
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -519,8 +519,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1P
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 38c11b2ea3f1f1242b07299ec3f18614, type: 2}
-  m_sharedMaterial: {fileID: -8883814654007483391, guid: 38c11b2ea3f1f1242b07299ec3f18614, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c802cc32a00bf3242aac5d61210259db, type: 2}
+  m_sharedMaterial: {fileID: -8883814654007483391, guid: c802cc32a00bf3242aac5d61210259db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -545,7 +545,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294967295
   m_fontSize: 72
-  m_fontSizeBase: 36
+  m_fontSizeBase: 0
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18

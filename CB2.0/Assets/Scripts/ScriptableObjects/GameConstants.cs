@@ -58,8 +58,6 @@ public class GameConstants : ScriptableObject
     [Header("Coin Reward")]
     
     public int coinAwardedPerCompleteTest = 1;
-<<<<<<< Updated upstream
-=======
 
     // **************** Minigame: Unlimited Group Size **********************
 
@@ -89,5 +87,4 @@ public class GameConstants : ScriptableObject
 
     public int onHitRewardCoins = 2;
 
->>>>>>> Stashed changes
 }

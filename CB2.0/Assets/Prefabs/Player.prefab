@@ -936,13 +936,10 @@ GameObject:
   - component: {fileID: 5475761574761554405}
   - component: {fileID: -7255464171494784920}
   - component: {fileID: 6493347360338484652}
-<<<<<<< Updated upstream
-=======
   - component: {fileID: 4361632062735541918}
   - component: {fileID: 1342113945111299042}
   - component: {fileID: 4479182322412173856}
   - component: {fileID: 6485404819077293448}
->>>>>>> Stashed changes
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1786,8 +1783,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-<<<<<<< Updated upstream
-=======
 --- !u!114 &4361632062735541918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1894,7 +1889,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
->>>>>>> Stashed changes
 --- !u!1 &6663720610430123126
 GameObject:
   m_ObjectHideFlags: 0

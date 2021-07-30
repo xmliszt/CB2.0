@@ -67,8 +67,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Player
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 38c11b2ea3f1f1242b07299ec3f18614, type: 2}
-  m_sharedMaterial: {fileID: -8883814654007483391, guid: 38c11b2ea3f1f1242b07299ec3f18614, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 30b3a0ea07202214a9ec7215db0a68c3, type: 2}
+  m_sharedMaterial: {fileID: -8883814654007483391, guid: 30b3a0ea07202214a9ec7215db0a68c3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -201,8 +201,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: GAMEOVER
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 38c11b2ea3f1f1242b07299ec3f18614, type: 2}
-  m_sharedMaterial: {fileID: -8883814654007483391, guid: 38c11b2ea3f1f1242b07299ec3f18614, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 30b3a0ea07202214a9ec7215db0a68c3, type: 2}
+  m_sharedMaterial: {fileID: -8883814654007483391, guid: 30b3a0ea07202214a9ec7215db0a68c3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -333,10 +333,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Completed Swab Tests
+  m_text: Activities Done
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 38c11b2ea3f1f1242b07299ec3f18614, type: 2}
-  m_sharedMaterial: {fileID: -8883814654007483391, guid: 38c11b2ea3f1f1242b07299ec3f18614, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 30b3a0ea07202214a9ec7215db0a68c3, type: 2}
+  m_sharedMaterial: {fileID: -8883814654007483391, guid: 30b3a0ea07202214a9ec7215db0a68c3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99465b0d4818ca4d93c4a2eb2e20e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameConstants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
+  gameConstants: {fileID: 0}
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
   playerInfoPanel: {fileID: 4728250661960227263}
   onPlayNextMiniGame: {fileID: 11400000, guid: 3dfc538711a4fb6468a57a3460117c09, type: 2}
@@ -629,8 +629,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Rank
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 38c11b2ea3f1f1242b07299ec3f18614, type: 2}
-  m_sharedMaterial: {fileID: -8883814654007483391, guid: 38c11b2ea3f1f1242b07299ec3f18614, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 30b3a0ea07202214a9ec7215db0a68c3, type: 2}
+  m_sharedMaterial: {fileID: -8883814654007483391, guid: 30b3a0ea07202214a9ec7215db0a68c3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -976,34 +976,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontSize
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontColor.g
-      value: 0.9831489
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278254591
-      objectReference: {fileID: 0}
     - target: {fileID: 860689856827180718, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
       propertyPath: m_text
       value: 2
@@ -1321,38 +1293,6 @@ PrefabInstance:
     - target: {fileID: 860689855989806940, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontSize
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontColor.r
-      value: 0.23492157
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontSizeMax
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontSizeMin
-      value: 17.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_enableAutoSizing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278255420
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
