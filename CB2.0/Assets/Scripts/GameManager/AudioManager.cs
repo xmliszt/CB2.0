@@ -22,6 +22,12 @@ public class AudioManager : MonoBehaviour
 
     public List<Audio> backgroundAudios;
 
+    public Audio ceremonyAudio;
+
+    public Audio confettiAudio; // with drum-roll
+
+    public Audio singleClapHands;
+
     public Audio gameoverAudio;
 
     public Audio readyAudio;
@@ -91,6 +97,21 @@ public class AudioManager : MonoBehaviour
         sfxAudioSource.PlayOneShot(playerJoinedAudio.audioClip);
     }
     
+    public void PlayCeremony()
+    {
+        SwitchAndPlayBG(ceremonyAudio.audioClip);
+    }
+
+    public void PlayDrumrollCelebration()
+    {
+        PlaySfx(confettiAudio.audioClip);
+    }
+
+    public void PlaySingleClapHands()
+    {
+        PlaySfx(singleClapHands.audioClip);
+    }
+
     public void PitchUpBGM()
     {
         mixer.SetFloat("bg_pitch", 1.2f);

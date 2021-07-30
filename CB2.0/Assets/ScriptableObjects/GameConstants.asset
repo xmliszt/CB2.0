@@ -12,11 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeb969b3c0f33f41b8704d6ca70a2f4, type: 3}
   m_Name: GameConstants
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  minigameCountdownTime: 60
-=======
-  minigameCountdownTime: 180
->>>>>>> Stashed changes
+  minigameCountdownTime: 15
   gameBoundX: 10
   gameBoundY: 5
   playerMoveSpeed: 3
@@ -31,10 +27,3 @@ MonoBehaviour:
   countdownDuration: 10
   spawnFrequency: 5
   coinAwardedPerCompleteTest: 1
-  castRadius: 0.3
-  slowFactor: 0.3
-  entertainmentSpawnFreq: 5
-  upgradeMultiplier: 2
-  maxRecharge: 100
-  shootEnergy: 100
-  rechargePerTick: 2

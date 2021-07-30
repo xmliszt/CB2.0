@@ -1062,34 +1062,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 32037363}
     m_Modifications:
-    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
-      propertyPath: closingConversations.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
-      propertyPath: closingConversations.Array.data[8].text
-      value: Wee Ping
-      objectReference: {fileID: 0}
-    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
-      propertyPath: closingConversations.Array.data[8].textColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
-      propertyPath: closingConversations.Array.data[8].textColor.b
-      value: 0.3392267
-      objectReference: {fileID: 0}
-    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
-      propertyPath: closingConversations.Array.data[8].textColor.g
-      value: 0.032840855
-      objectReference: {fileID: 0}
-    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
-      propertyPath: closingConversations.Array.data[8].textColor.r
-      value: 0.7735849
-      objectReference: {fileID: 0}
-    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
-      propertyPath: closingConversations.Array.data[8].delayInSeconds
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 4065216738834332185, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

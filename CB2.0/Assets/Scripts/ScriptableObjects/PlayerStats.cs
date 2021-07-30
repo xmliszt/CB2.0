@@ -60,6 +60,8 @@ public class PlayerStats : ScriptableObject
 
    public int score;
 
+   public int masks; // overall ranked value
+
    private int rank;
 
    public int GetRank()

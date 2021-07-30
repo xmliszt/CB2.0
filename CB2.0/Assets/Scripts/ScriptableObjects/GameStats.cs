@@ -15,6 +15,8 @@ public class GameStats : ScriptableObject
         swabTestWar = 2,
         unlimitedGroupSize = 3,
         stopTheSpread = 4,
+
+        awardCeremony = 5,
     }
 
     private Scene currentScene;
