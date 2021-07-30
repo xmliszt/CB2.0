@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public PlayerStats playerStats;
+
     public GameStats gameStats;
 
     public GameConstants constants;
@@ -24,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private bool isIdle = true; // True if the character is IDLE (not moving), else false
 
-    private bool disabled = false; // True if the character is tunned
+    private bool disabled = false; // True if the character is stunned
 
     private Vector2 direction = Vector2.down;
 
@@ -41,13 +43,19 @@ public class PlayerController : MonoBehaviour
 
     private SwabTestControlHandler swabTestControlHandler;
 
+<<<<<<< HEAD
     private STSControlHandler stsControlHandler;
 
+=======
+>>>>>>> origin/feat/unlimited-group-size
     private UnlimitedGroupControlHandler unlimitedGroupControlHandler;
 
     private float movementFactor = 1.0f; // used to stop or resume movement of character. 0 will stop, 1 will resume
 
+<<<<<<< HEAD
     private float speedFactor = 1.0f; // for UGS to change player speed
+=======
+>>>>>>> origin/feat/unlimited-group-size
     private bool dashDisabled = false;
 
     private void Start()
@@ -56,14 +64,23 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
+<<<<<<< HEAD
         playerAudioController = GetComponent<PlayerAudioController>();
+=======
+        playerStatsManager.SetPlayerStats(playerStats);
+>>>>>>> origin/feat/unlimited-group-size
         swabTestControlHandler = GetComponent<SwabTestControlHandler>();
         stsControlHandler = GetComponent<STSControlHandler>();
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
+<<<<<<< HEAD
         unlimitedGroupControlHandler =
             GetComponent<UnlimitedGroupControlHandler>();
+=======
+        unlimitedGroupControlHandler = GetComponent<UnlimitedGroupControlHandler>();
+>>>>>>> origin/feat/unlimited-group-size
         animator.runtimeAnimatorController =
             playerStatsManager.GetPlayerStats().animatorController;
+        
     }
 
     private void Update()
@@ -136,7 +153,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (!disabled)
+            if (!disabled && !dashDisabled)
             {
                 if (!isDashing && !isIdle)
                 {
@@ -179,8 +196,14 @@ public class PlayerController : MonoBehaviour
                         if (swabTestControlHandler)
                             swabTestControlHandler.OnUse();
                         break;
+<<<<<<< HEAD
                     case GameStats.Scene.stopTheSpread:
                         if (stsControlHandler) stsControlHandler.OnUse();
+=======
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnUse();
+>>>>>>> origin/feat/unlimited-group-size
                         break;
                     default:
                         break;
@@ -201,8 +224,14 @@ public class PlayerController : MonoBehaviour
                         if (swabTestControlHandler)
                             swabTestControlHandler.onPickUpDrop();
                         break;
+<<<<<<< HEAD
                     case GameStats.Scene.stopTheSpread:
                         if (stsControlHandler) stsControlHandler.onPickUpDrop();
+=======
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnPickUpDrop();
+>>>>>>> origin/feat/unlimited-group-size
                         break;
                     default:
                         break;
@@ -223,9 +252,12 @@ public class PlayerController : MonoBehaviour
                         if (swabTestControlHandler)
                             swabTestControlHandler.onShop();
                         break;
+<<<<<<< HEAD
                     case GameStats.Scene.stopTheSpread:
                         if (stsControlHandler) stsControlHandler.onShop();
                         break;
+=======
+>>>>>>> origin/feat/unlimited-group-size
                     case GameStats.Scene.unlimitedGroupSize:
                         if (unlimitedGroupControlHandler)
                             unlimitedGroupControlHandler.OnShop();
@@ -254,6 +286,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        
     }
 
     public Vector2 GetIdleDirection()
@@ -273,7 +306,7 @@ public class PlayerController : MonoBehaviour
 
     public void DisableMovement()
     {
-        movementFactor = 0;
+        movementFactor = 0.0f;
     }
 
     public void EnableMovement()
@@ -283,12 +316,16 @@ public class PlayerController : MonoBehaviour
 
     public void SlowMovement(float factor)
     {
+<<<<<<< HEAD
         speedFactor = factor;
     }
 
     public void RestoreMovement()
     {
         speedFactor = 1.0f;
+=======
+        movementFactor = factor;
+>>>>>>> origin/feat/unlimited-group-size
     }
 
     public void DisableDash()
