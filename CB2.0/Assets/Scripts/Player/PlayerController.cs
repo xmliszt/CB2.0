@@ -43,19 +43,14 @@ public class PlayerController : MonoBehaviour
 
     private SwabTestControlHandler swabTestControlHandler;
 
-<<<<<<< HEAD
     private STSControlHandler stsControlHandler;
 
-=======
->>>>>>> origin/feat/unlimited-group-size
     private UnlimitedGroupControlHandler unlimitedGroupControlHandler;
 
     private float movementFactor = 1.0f; // used to stop or resume movement of character. 0 will stop, 1 will resume
 
-<<<<<<< HEAD
     private float speedFactor = 1.0f; // for UGS to change player speed
-=======
->>>>>>> origin/feat/unlimited-group-size
+
     private bool dashDisabled = false;
 
     private void Start()
@@ -64,20 +59,12 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
-<<<<<<< HEAD
         playerAudioController = GetComponent<PlayerAudioController>();
-=======
-        playerStatsManager.SetPlayerStats(playerStats);
->>>>>>> origin/feat/unlimited-group-size
         swabTestControlHandler = GetComponent<SwabTestControlHandler>();
         stsControlHandler = GetComponent<STSControlHandler>();
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
-<<<<<<< HEAD
         unlimitedGroupControlHandler =
             GetComponent<UnlimitedGroupControlHandler>();
-=======
-        unlimitedGroupControlHandler = GetComponent<UnlimitedGroupControlHandler>();
->>>>>>> origin/feat/unlimited-group-size
         animator.runtimeAnimatorController =
             playerStatsManager.GetPlayerStats().animatorController;
         
@@ -196,14 +183,8 @@ public class PlayerController : MonoBehaviour
                         if (swabTestControlHandler)
                             swabTestControlHandler.OnUse();
                         break;
-<<<<<<< HEAD
                     case GameStats.Scene.stopTheSpread:
                         if (stsControlHandler) stsControlHandler.OnUse();
-=======
-                    case GameStats.Scene.unlimitedGroupSize:
-                        if (unlimitedGroupControlHandler)
-                            unlimitedGroupControlHandler.OnUse();
->>>>>>> origin/feat/unlimited-group-size
                         break;
                     default:
                         break;
@@ -224,14 +205,8 @@ public class PlayerController : MonoBehaviour
                         if (swabTestControlHandler)
                             swabTestControlHandler.onPickUpDrop();
                         break;
-<<<<<<< HEAD
                     case GameStats.Scene.stopTheSpread:
                         if (stsControlHandler) stsControlHandler.onPickUpDrop();
-=======
-                    case GameStats.Scene.unlimitedGroupSize:
-                        if (unlimitedGroupControlHandler)
-                            unlimitedGroupControlHandler.OnPickUpDrop();
->>>>>>> origin/feat/unlimited-group-size
                         break;
                     default:
                         break;
@@ -252,12 +227,9 @@ public class PlayerController : MonoBehaviour
                         if (swabTestControlHandler)
                             swabTestControlHandler.onShop();
                         break;
-<<<<<<< HEAD
                     case GameStats.Scene.stopTheSpread:
                         if (stsControlHandler) stsControlHandler.onShop();
                         break;
-=======
->>>>>>> origin/feat/unlimited-group-size
                     case GameStats.Scene.unlimitedGroupSize:
                         if (unlimitedGroupControlHandler)
                             unlimitedGroupControlHandler.OnShop();
@@ -316,16 +288,12 @@ public class PlayerController : MonoBehaviour
 
     public void SlowMovement(float factor)
     {
-<<<<<<< HEAD
         speedFactor = factor;
     }
 
     public void RestoreMovement()
     {
         speedFactor = 1.0f;
-=======
-        movementFactor = factor;
->>>>>>> origin/feat/unlimited-group-size
     }
 
     public void DisableDash()
