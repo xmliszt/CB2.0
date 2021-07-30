@@ -77,11 +77,11 @@ public class GameConstants : ScriptableObject
 
     [Header("Recharge Bar")]
 
-    public int maxRecharge = 100;
+    public float maxRecharge = 100.0f;
     
-    public int shootEnergy = 100;
+    public float shootEnergy = 100.0f;
 
-    public int rechargePerTick = 2;
+    public float rechargePerTick = 2.5f;
 
     [Header("Coins")]
 

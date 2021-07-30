@@ -9,7 +9,7 @@ public class RechargeBar : MonoBehaviour
 
     public GameConstants constants;
 
-    private int currentRecharge;
+    private float currentRecharge;
 
     private WaitForSeconds rechargeTick = new WaitForSeconds(0.1f);
 
@@ -20,7 +20,7 @@ public class RechargeBar : MonoBehaviour
         rechargeBar.maxValue = constants.maxRecharge;
         rechargeBar.value = constants.maxRecharge;
     }
-    public void UseRecharge(int amount)
+    public void UseRecharge(float amount)
     {
         if(currentRecharge - amount >= 0)
         {
@@ -31,7 +31,7 @@ public class RechargeBar : MonoBehaviour
         }
     }
 
-    public int GetRecharge()
+    public float GetRecharge()
     {
         return currentRecharge;
     }
