@@ -935,6 +935,7 @@ GameObject:
   - component: {fileID: 789055899533834128}
   - component: {fileID: 5475761574761554405}
   - component: {fileID: -7255464171494784920}
+  - component: {fileID: 4586933420838739185}
   - component: {fileID: 6493347360338484652}
   - component: {fileID: 4361632062735541918}
   - component: {fileID: 1342113945111299042}
@@ -1687,6 +1688,18 @@ MonoBehaviour:
   CakeSprite: {fileID: 4823949455357959056}
   droppedPizzaPrefab: {fileID: 5612514872177990907, guid: 5c136cba944160941a72347e381bcce6, type: 3}
   droppedCakePrefab: {fileID: 4037778933554880268, guid: a53427640e8e451499b6e14014b72658, type: 3}
+--- !u!114 &4586933420838739185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abea6c633caacbe4eba849fa332173ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &6493347360338484652
 AudioSource:
   m_ObjectHideFlags: 0

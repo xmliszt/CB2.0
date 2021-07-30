@@ -3,7 +3,38 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CollectionPoint
+  - Dustbin
+  - TestStation
+  - SubmissionDesk
+  - Wall
+  - SwabStick
+  - Item
+  - Shop
+  - Stats
+  - Reception
+  - ClothChanger
+  - MusicChanger
+  - Dumbbell
+  - Karaoke
+  - Food
+  - Computer
+  - Interactable
+  - ToiletPaper
+  - NPCPizza
+  - NPCCake
+  - GrocerPizza
+  - GrocerCake
+  - DroppedPizza
+  - DroppedCake
+  - PlayerOneHome
+  - PlayerTwoHome
+  - PlayerThreeHome
+  - PlayerFourHome
+  - SDA
+  - RewardZone
+  - Entertainments
   layers:
   - Default
   - TransparentFX
@@ -11,9 +42,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Particles
+  - Player
+  - Obstacles
+  - Entertainments
   - 
   - 
   - 

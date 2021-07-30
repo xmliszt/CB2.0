@@ -182,6 +182,10 @@ public class PlayerController : MonoBehaviour
                     case GameStats.Scene.stopTheSpread:
                         if (stsControlHandler) stsControlHandler.OnUse();
                         break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnUse();
+                        break;
                     default:
                         break;
                 }
@@ -203,6 +207,10 @@ public class PlayerController : MonoBehaviour
                         break;
                     case GameStats.Scene.stopTheSpread:
                         if (stsControlHandler) stsControlHandler.onPickUpDrop();
+                        break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnPickUpDrop();
                         break;
                     default:
                         break;
