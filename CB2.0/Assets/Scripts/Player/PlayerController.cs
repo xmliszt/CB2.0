@@ -43,7 +43,12 @@ public class PlayerController : MonoBehaviour
 
     private STSControlHandler stsControlHandler;
 
-    private int movementFactor = 1; // used to stop or resume movement of character. 0 will stop, 1 will resume
+    private UnlimitedGroupControlHandler unlimitedGroupControlHandler;
+
+    private float movementFactor = 1.0f; // used to stop or resume movement of character. 0 will stop, 1 will resume
+
+    private float speedFactor = 1.0f; // for UGS to change player speed
+    private bool dashDisabled = false;
 
     private void Start()
     {
@@ -55,6 +60,8 @@ public class PlayerController : MonoBehaviour
         swabTestControlHandler = GetComponent<SwabTestControlHandler>();
         stsControlHandler = GetComponent<STSControlHandler>();
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
+        unlimitedGroupControlHandler =
+            GetComponent<UnlimitedGroupControlHandler>();
         animator.runtimeAnimatorController =
             playerStatsManager.GetPlayerStats().animatorController;
     }
@@ -67,6 +74,7 @@ public class PlayerController : MonoBehaviour
             rawInputMovement *
             Time.deltaTime *
             constants.playerMoveSpeed *
+            speedFactor *
             movementFactor;
         transform.Translate(finalInputMovement, Space.World);
         animator.SetFloat("horizontal_idle", idleDirection.x);
@@ -218,6 +226,29 @@ public class PlayerController : MonoBehaviour
                     case GameStats.Scene.stopTheSpread:
                         if (stsControlHandler) stsControlHandler.onShop();
                         break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnShop();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }
+
+    public void OnHold(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (!disabled)
+            {
+                switch (gameStats.GetCurrentScene())
+                {
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnHold(context);
+                        break;
                     default:
                         break;
                 }
@@ -247,6 +278,26 @@ public class PlayerController : MonoBehaviour
 
     public void EnableMovement()
     {
-        movementFactor = 1;
+        movementFactor = 1.0f;
+    }
+
+    public void SlowMovement(float factor)
+    {
+        speedFactor = factor;
+    }
+
+    public void RestoreMovement()
+    {
+        speedFactor = 1.0f;
+    }
+
+    public void DisableDash()
+    {
+        dashDisabled = true;
+    }
+
+    public void EnableDash()
+    {
+        dashDisabled = false;
     }
 }

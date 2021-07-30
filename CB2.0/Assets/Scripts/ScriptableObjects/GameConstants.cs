@@ -58,4 +58,36 @@ public class GameConstants : ScriptableObject
     [Header("Coin Reward")]
     
     public int coinAwardedPerCompleteTest = 1;
+<<<<<<< Updated upstream
+=======
+
+    // **************** Minigame: Unlimited Group Size **********************
+
+    [Header("Player Attributes")]
+
+    public float castRadius = 0.3f;
+
+    public float slowFactor = 0.3f;
+
+    [Header("Entertainment Spawn")]
+    
+    public float entertainmentSpawnFreq = 5;
+
+    [Header("Entertainment Upgrade")]
+
+    public int upgradeMultiplier = 2;
+
+    [Header("Recharge Bar")]
+
+    public int maxRecharge = 100;
+    
+    public int shootEnergy = 100;
+
+    public int rechargePerTick = 2;
+
+    [Header("Coins")]
+
+    public int onHitRewardCoins = 2;
+
+>>>>>>> Stashed changes
 }

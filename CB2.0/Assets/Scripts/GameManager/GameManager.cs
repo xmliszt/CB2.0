@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     public GameEvent onStartSTS;
 
+    public GameEvent onStartUGS;
+
     public GameEvent onGameLobbyInitialized;
 
     public GameEvent onPlayerJoinedEvent;
@@ -192,8 +194,12 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("SwabTestWar");
                 break;
             case GameStats.Scene.stopTheSpread:
-                SceneManager.LoadScene("StopTheSpread");
                 onStartSTS.Fire();
+                SceneManager.LoadScene("StopTheSpread");
+                break;
+            case GameStats.Scene.unlimitedGroupSize:
+                onStartUGS.Fire();
+                SceneManager.LoadScene("UnlimitedGroupSize");
                 break;
         }
     }

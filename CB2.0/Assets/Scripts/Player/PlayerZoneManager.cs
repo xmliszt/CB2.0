@@ -17,7 +17,8 @@ public class PlayerZoneManager : MonoBehaviour
         shop = 6,
         clothChanger = 7,
         reception = 8,
-        musicChanger = 9
+        musicChanger = 9,
+        ugsShop = 10,
     }
 
     public ZoneType GetZone()
@@ -50,7 +51,12 @@ public class PlayerZoneManager : MonoBehaviour
                 gameObject
                     .GetComponent<SwabTestControlHandler>()
                     .SetShopHandler(zoneObject.GetComponent<ShopHandler>());
-
+                break;
+            case "UGSShop":
+                zoneType = ZoneType.ugsShop;
+                gameObject
+                    .GetComponent<UnlimitedGroupControlHandler>()
+                    .SetShopHandler(zoneObject.GetComponent<ShopHandler>());
                 break;
             case "SwabStick":
                 gameObject.GetComponent<SwabTestControlHandler>().GetStunned();
