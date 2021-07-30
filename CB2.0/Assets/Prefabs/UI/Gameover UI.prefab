@@ -731,7 +731,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 951167099
+  m_SortingLayerID: 1298843805
   m_SortingOrder: 10000
   m_TargetDisplay: 0
 --- !u!114 &4728250660734941445
@@ -1731,7 +1731,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 4294967100
       objectReference: {fileID: 0}
     - target: {fileID: 860689856827180718, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
       propertyPath: m_text

@@ -191,7 +191,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 770282837
+  m_SortingLayerID: 1640728137
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 78a0c9e59456d714ca79e60566c0f20e, type: 3}
@@ -347,7 +347,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 770282837
+  m_SortingLayerID: 1640728137
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5fba84fd50e9bc949b694e677130a7f0, type: 3}
@@ -792,7 +792,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 951167099
+  m_SortingLayerID: 1298843805
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &1428945995
@@ -1113,20 +1113,8 @@ PrefabInstance:
       value: Game Manager
       objectReference: {fileID: 0}
     - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
-      propertyPath: minigameSequence.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
       propertyPath: minigameSequence.Array.data[0]
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
-      propertyPath: minigameSequence.Array.data[1]
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
-      propertyPath: minigameSequence.Array.data[2]
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 736db9b9d134e294784893312f61d194, type: 3}

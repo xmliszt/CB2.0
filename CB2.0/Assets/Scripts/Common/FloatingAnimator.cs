@@ -16,11 +16,9 @@ public class FloatingAnimator : MonoBehaviour
      
     // Update is called once per frame
     void Update () {
- 
         // Float up/down with a Sin()
         tempPos = posOffset;
         tempPos.y += Mathf.Sin (Time.fixedTime * Mathf.PI * constants.floatingFrequency) * constants.floatingAmplitude;
- 
         transform.position = tempPos;
     }
 }

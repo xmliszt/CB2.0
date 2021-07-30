@@ -195,7 +195,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 951167099
+  m_SortingLayerID: 1298843805
   m_SortingOrder: 999
   m_TargetDisplay: 0
 --- !u!114 &5469270825942417714
@@ -454,8 +454,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Activities Done: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6454742fe6f630a4e9a334e421dfd9a8, type: 2}
-  m_sharedMaterial: {fileID: -8883814654007483391, guid: 6454742fe6f630a4e9a334e421dfd9a8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c802cc32a00bf3242aac5d61210259db, type: 2}
+  m_sharedMaterial: {fileID: -8883814654007483391, guid: c802cc32a00bf3242aac5d61210259db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -588,8 +588,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Coin: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6454742fe6f630a4e9a334e421dfd9a8, type: 2}
-  m_sharedMaterial: {fileID: -8883814654007483391, guid: 6454742fe6f630a4e9a334e421dfd9a8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c802cc32a00bf3242aac5d61210259db, type: 2}
+  m_sharedMaterial: {fileID: -8883814654007483391, guid: c802cc32a00bf3242aac5d61210259db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
