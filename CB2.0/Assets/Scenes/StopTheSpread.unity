@@ -2704,6 +2704,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 670535620}
     m_Modifications:
+    - target: {fileID: 4728250660496347561, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4728250660734941440, guid: 689854c633652d8479bc929e23200ed8, type: 3}
       propertyPath: m_Name
       value: Gameover UI
@@ -2796,6 +2800,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 4728250660993121919, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4728250661121989805, guid: 689854c633652d8479bc929e23200ed8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

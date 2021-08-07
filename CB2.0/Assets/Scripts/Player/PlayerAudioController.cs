@@ -12,6 +12,11 @@ public enum SFXType
     _lock = 5,
     submitResult = 6,
     changeOutfit = 7,
+
+    // STS sound effects
+    gym = 8,
+    computer = 9,
+    karaoke = 10,
 }
 
 [System.Serializable]
