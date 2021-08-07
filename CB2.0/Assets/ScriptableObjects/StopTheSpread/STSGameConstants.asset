@@ -18,8 +18,8 @@ MonoBehaviour:
   intervals: 12
   activityCooldownTime: 5
   customerHungryTime: 5
-  AISpeed: 400
-  AIFastSpeed: 800
+  AISpeed: 1100
+  AIFastSpeed: 1450
   birthdayInterval: 1
   waitForBirthday: 35
   birthdaySongDuration: 3
