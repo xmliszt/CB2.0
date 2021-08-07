@@ -160,6 +160,7 @@ public class EntertainmentController : MonoBehaviour
     public void SetLock() {
         locked = true;
         lockObject.SetActive(true);
+        gameObject.GetComponent<Renderer>().material.color = new Color32(121, 121, 0, 255);
     }
 
     public void SetUpgrade() {
