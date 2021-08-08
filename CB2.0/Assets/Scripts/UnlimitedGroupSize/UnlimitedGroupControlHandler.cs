@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 public class UnlimitedGroupControlHandler : MonoBehaviour
 {
     public GameConstants constants;
-
     public PlayerRelocateGameEvent playerRelocateGameEvent;
 
     [Header("Item Types")]
@@ -14,45 +13,35 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     [Header("Grab Attributes")]
     public GameObject grabDetect;
-
     public bool held = false;
 
     [Header("Player Attributes")]
     public SpriteRenderer thoughtBubbleRenderer;
-
     public GameObject rechargeBarObject;
 
     [Header("Physical Item Prefab")]
     public GameObject swabStickPrefab;
 
     private ShopHandler shopHandler;
-
     private GameObject pickedItem; // the item player picked up
 
     private PlayerInventory inventory;
-
     private PlayerStatsManager playerStatsManager;
-
     private PlayerZoneManager playerZoneManager;
-
     private PlayerController playerController;
+    private PlayerAudioController playerAudioController;
 
     private int layerMask;
-
     private EntertainmentController entertainmentController;
-
     private bool available = true;
-
     private Item shopItem;
-
     private RechargeBar rechargeBar;
-
     private bool isGameStarted = false;
-
     private float initialPlayerSpeed;
 
     private void Awake()
     {
+        playerAudioController = GetComponent<PlayerAudioController>();
         playerController = GetComponent<PlayerController>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerZoneManager = GetComponent<PlayerZoneManager>();
@@ -174,27 +163,27 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                     if (entertainmentController)
                     {
                         // Check the item type
+                        // Check if entertainment already has existing lock
                         if (
                             currentItem.itemName == "lock" &&
                             !entertainmentController.locked
                         )
                         {
-                            // Check if entertainment already has existing lock
+                            playerAudioController.PlaySFX(SFXType._lock);
                             entertainmentController.SetLock();
                             inventory.useItem();
                             thoughtBubbleRenderer.enabled = false;
-                            Debug.Log("USED LOCK");
                         }
+                        // Check if entertainment already has the existing upgrade
                         else if (
                             currentItem.itemName == "upgrade" &&
                             !entertainmentController.upgraded
                         )
                         {
-                            // Check if entertainment already has the existing upgrade
+                            playerAudioController.PlaySFX(SFXType._lock);
                             entertainmentController.SetUpgrade();
                             inventory.useItem();
                             thoughtBubbleRenderer.enabled = false;
-                            Debug.Log("USED UPGRADE");
                         }
                     }
                     break;
@@ -232,6 +221,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
             if (boughtItem != null)
             {
+                playerAudioController.PlaySFX(SFXType._lock);
                 inventory.SetItem (shopItem);
 
                 Debug.Log("ITEM BOUGHT");
@@ -248,6 +238,10 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     public void OnHold(InputAction.CallbackContext context)
     {
+        if (entertainmentController)
+        {
+            playerAudioController.PlaySFX(SFXType.drop);
+        }
         held = context.ReadValueAsButton();
     }
 
@@ -266,6 +260,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
     {
         if (rechargeBar.GetRecharge() >= constants.shootEnergy)
         {
+            playerAudioController.PlaySFX(SFXType.shoot);
             rechargeBar.UseRecharge(constants.shootEnergy);
             Vector2 idleDirection = playerController.GetIdleDirection();
 
@@ -287,7 +282,8 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     public void OnStickHit()
     {
-        playerStatsManager.GetPlayerStats().coins += constants.onHitRewardCoins; // Change to game constants
+        playerAudioController.PlaySFX(SFXType.coin);
+        playerStatsManager.GetPlayerStats().coins += constants.onHitRewardCoins;
     }
 
     public void GetStickHit()

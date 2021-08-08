@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EntertainmentDetection : MonoBehaviour
 {
-    // public GameObject player;
     public int playerID;
 
     public Players players;
