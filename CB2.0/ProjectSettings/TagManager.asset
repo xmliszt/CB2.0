@@ -35,6 +35,8 @@ TagManager:
   - SDA
   - RewardZone
   - Entertainments
+  - UGSShop
+  - Decor
   layers:
   - Default
   - TransparentFX

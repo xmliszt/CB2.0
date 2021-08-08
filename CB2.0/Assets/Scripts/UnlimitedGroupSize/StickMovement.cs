@@ -52,10 +52,16 @@ public class StickMovement : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log(other);
             fromPlayer.GetComponent<UnlimitedGroupControlHandler>().OnStickHit();
             other.gameObject.GetComponent<UnlimitedGroupControlHandler>().GetStickHit();
             Destroy (gameObject);
+        }
+
+        else if ((other.CompareTag("Wall")) 
+        || (other.CompareTag("Decor")) 
+        || (other.CompareTag("UGSShop")) 
+        || (other.CompareTag("Entertainments"))) {
+            Destroy(gameObject);
         }
     }
 

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 33790123}
   m_Layer: 0
   m_Name: Decor
-  m_TagString: Untagged
+  m_TagString: Decor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -260,11 +260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5563409379920420552, guid: c912a2b2d592e2f4a98521476ec6e262, type: 3}
       propertyPath: m_Color.g
-      value: 0.8443429
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5563409379920420552, guid: c912a2b2d592e2f4a98521476ec6e262, type: 3}
       propertyPath: m_Color.r
-      value: 0.9137255
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7965646569587817573, guid: c912a2b2d592e2f4a98521476ec6e262, type: 3}
       propertyPath: m_Name
@@ -378,11 +378,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5563409379920420552, guid: c912a2b2d592e2f4a98521476ec6e262, type: 3}
       propertyPath: m_Color.g
-      value: 0.11803066
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5563409379920420552, guid: c912a2b2d592e2f4a98521476ec6e262, type: 3}
       propertyPath: m_Color.r
-      value: 0.9137255
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7965646569587817573, guid: c912a2b2d592e2f4a98521476ec6e262, type: 3}
       propertyPath: m_Name
@@ -948,7 +948,7 @@ GameObject:
   - component: {fileID: 520602805}
   m_Layer: 0
   m_Name: Partition
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2210,6 +2210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PotPlantOne (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5107579733644722956, guid: 5b46ab5b3c528a5468150dbd563281c8, type: 3}
+      propertyPath: m_TagString
+      value: Decor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b46ab5b3c528a5468150dbd563281c8, type: 3}
 --- !u!4 &972944244 stripped
@@ -2463,6 +2467,10 @@ PrefabInstance:
     - target: {fileID: 5107579733644722956, guid: 5b46ab5b3c528a5468150dbd563281c8, type: 3}
       propertyPath: m_Name
       value: PotPlantOne (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107579733644722956, guid: 5b46ab5b3c528a5468150dbd563281c8, type: 3}
+      propertyPath: m_TagString
+      value: Decor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b46ab5b3c528a5468150dbd563281c8, type: 3}
@@ -2932,11 +2940,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5563409379920420552, guid: c912a2b2d592e2f4a98521476ec6e262, type: 3}
       propertyPath: m_Color.b
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5563409379920420552, guid: c912a2b2d592e2f4a98521476ec6e262, type: 3}
       propertyPath: m_Color.g
-      value: 0.33294463
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5563409379920420552, guid: c912a2b2d592e2f4a98521476ec6e262, type: 3}
       propertyPath: m_Color.r
@@ -2963,6 +2971,10 @@ PrefabInstance:
     - target: {fileID: 6725569913787650522, guid: fa25a4c751c686844981a77d5652fc42, type: 3}
       propertyPath: m_Name
       value: PotPlantTwo (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6725569913787650522, guid: fa25a4c751c686844981a77d5652fc42, type: 3}
+      propertyPath: m_TagString
+      value: Decor
       objectReference: {fileID: 0}
     - target: {fileID: 8828881308147602452, guid: fa25a4c751c686844981a77d5652fc42, type: 3}
       propertyPath: m_RootOrder
@@ -3164,6 +3176,10 @@ PrefabInstance:
     - target: {fileID: 5107579733644722956, guid: 5b46ab5b3c528a5468150dbd563281c8, type: 3}
       propertyPath: m_Name
       value: PotPlantOne (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5107579733644722956, guid: 5b46ab5b3c528a5468150dbd563281c8, type: 3}
+      propertyPath: m_TagString
+      value: Decor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b46ab5b3c528a5468150dbd563281c8, type: 3}
@@ -3701,18 +3717,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 520602805}
     m_Modifications:
-    - target: {fileID: 609131247093425204, guid: bc9cd2988276cf6459f8040f21486e03, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 609131247093425204, guid: bc9cd2988276cf6459f8040f21486e03, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 609131247093425204, guid: bc9cd2988276cf6459f8040f21486e03, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 770282837
-      objectReference: {fileID: 0}
     - target: {fileID: 609131247093425206, guid: bc9cd2988276cf6459f8040f21486e03, type: 3}
       propertyPath: m_Name
       value: PartitionLeft
