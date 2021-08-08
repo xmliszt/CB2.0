@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (!disabled)
+            if (!disabled && !dashDisabled)
             {
                 if (!isDashing && !isIdle)
                 {

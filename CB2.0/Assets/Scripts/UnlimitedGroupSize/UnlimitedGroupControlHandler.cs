@@ -134,7 +134,9 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                 deselectEntertainment();
             }
 
-            if (!held)
+            if (!held 
+            && entertainmentController 
+            && entertainmentController.fromPlayer == gameObject)
             {
                 // Player resumes normal speed and dash
                 playerController.RestoreMovement();
@@ -224,14 +226,11 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                 playerAudioController.PlaySFX(SFXType._lock);
                 inventory.SetItem (shopItem);
 
-                Debug.Log("ITEM BOUGHT");
-
                 thoughtBubbleRenderer.sprite = shopItem.thoughtBubbleSprite;
                 thoughtBubbleRenderer.enabled = true;
 
                 Debug.Log(playerStatsManager.GetPlayerStats().coins);
                 Item currentItem = inventory.GetCurrentItem();
-                Debug.Log(currentItem.itemSprite.name);
             }
         }
     }
