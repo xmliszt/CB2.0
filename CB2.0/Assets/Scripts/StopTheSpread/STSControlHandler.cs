@@ -261,6 +261,7 @@ public class STSControlHandler : MonoBehaviour
             // do shop stuff
             if (playerStatsManager.GetPlayerStats().coins > 0)
             {
+                playerAudioController.PlaySFX(SFXType.changeOutfit);
                 playerStatsManager.GetPlayerStats().coins--;
                 playerInvisible = true;
                 var tempColor = playerSprite.color;
@@ -461,6 +462,9 @@ public class STSControlHandler : MonoBehaviour
                 completionBar.value = 0;
                 completionBar.gameObject.SetActive(false);
 
+                // stop audio
+                playerAudioController.StopSFX();
+
                 yield break;
             }
         }
@@ -476,6 +480,9 @@ public class STSControlHandler : MonoBehaviour
             .PlayerStopUsing();
 
         activityOnCooldown = true;
+
+        // stop audio
+        playerAudioController.StopSFX();
 
         StartCoroutine(ActivityCooldown());
     }
@@ -582,6 +589,7 @@ public class STSControlHandler : MonoBehaviour
         // it's my birthday
         if (birthdayChild == playerID)
         {
+            playerAudioController.PlaySFX(SFXType.birthday);
             thoughtBubbleRenderer.sprite = birthday.thoughtBubbleSprite;
             thoughtBubbleRenderer.enabled = true;
             activityOnCooldown = true;
@@ -619,6 +627,7 @@ public class STSControlHandler : MonoBehaviour
     {
         if (birthdayEventOngoing)
         {
+            playerAudioController.StopSFX();
             GetComponentInChildren<STSTimer>().BirthdayEventCompleted();
             activityOnCooldown = false;
             birthdayEventOngoing = false;

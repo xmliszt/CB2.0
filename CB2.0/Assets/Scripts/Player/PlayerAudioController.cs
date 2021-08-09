@@ -17,6 +17,7 @@ public enum SFXType
     gym = 8,
     computer = 9,
     karaoke = 10,
+    birthday = 11
 }
 
 [System.Serializable]
@@ -47,5 +48,10 @@ public class PlayerAudioController : MonoBehaviour
     public void PlaySFX(SFXType _type)
     {
         source.PlayOneShot(sfxAudiosMap[_type].clip);
+    }
+
+    public void StopSFX()
+    {
+        source.Stop();
     }
 }
