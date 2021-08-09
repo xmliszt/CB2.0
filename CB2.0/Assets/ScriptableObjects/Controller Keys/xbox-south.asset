@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01bc8cd3c261515498086bb2ad360639, type: 3}
+  m_Name: xbox-south
+  m_EditorClassIdentifier: 
+  controllerType: 1
+  keyType: 2
+  keySprite: {fileID: -3415745824913325543, guid: e0fd13a6407660f4fab9f32c447abfac, type: 3}
