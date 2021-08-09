@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public List<GameStats.Scene> minigameSequence;
 
+    private Dictionary<GameStats.Scene, bool> minigameSelection;
+
     public GameEvent onReturnGameLobby;
 
     public GameEvent onStartSTS;
@@ -42,6 +44,7 @@ public class GameManager : MonoBehaviour
     {
         ResetPlayerStatsCompletely();
         playerObjects = new Dictionary<int, Transform>();
+        minigameSelection = new Dictionary<GameStats.Scene, bool>();
         playerInputManager = PlayerInputManager.instance;
         gameStats.SetCurrentScene(GameStats.Scene.gameLobby);
         foreach (PlayerStats playerStats in playerProfiles)
@@ -177,6 +180,13 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            foreach(GameStats.Scene sceneType in minigameSelection.Keys)
+            {
+                if (minigameSelection[sceneType] == true)
+                {
+                    minigameSequence.Add(sceneType);
+                }
+            }
             minigameSequence.Add(GameStats.Scene.awardCeremony); // always have award ceremony at the end of the game
             gameStats.SetCurrentScene(minigameSequence[0]);
             currentMinigameSceneIdx = 0;
@@ -238,28 +248,11 @@ public class GameManager : MonoBehaviour
 
     public void onMinigameSelected(GameStats.Scene minigameType)
     {
-        int insertionIndex = 0;
-        switch (minigameType)
-        {
-            case GameStats.Scene.swabTestWar:
-                insertionIndex = 0;
-                break;
-            case GameStats.Scene.stopTheSpread:
-                insertionIndex = 1;
-                break;
-            case GameStats.Scene.unlimitedGroupSize:
-                insertionIndex = 2;
-                break;
-            case GameStats.Scene.snatchAndHoard:
-                insertionIndex = 3;
-                break;
-        }
-
-        minigameSequence.Insert (insertionIndex, minigameType);
+        minigameSelection[minigameType] = true;
     }
 
     public void onMinigameDeSelected(GameStats.Scene minigameType)
     {
-        minigameSequence.Remove (minigameType);
+        minigameSelection[minigameType] = false;
     }
 }
