@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     public GameEvent onPlayerJoinedEvent;
 
+    public SingleStringGameEvent onDisplayWarningText;
+
     private int currentMinigameSceneIdx;
 
     // Keep track of the spawned player gameobject
@@ -176,7 +178,7 @@ public class GameManager : MonoBehaviour
     {
         if (playerInputManager.playerCount < 2)
         {
-            Debug.Log("cannot start game. need at least 2 players");
+            onDisplayWarningText.Fire("Game cannot be started. Need at least 2 players.");
         }
         else
         {
@@ -186,6 +188,10 @@ public class GameManager : MonoBehaviour
                 {
                     minigameSequence.Add(sceneType);
                 }
+            }
+            if (minigameSequence.Count == 0) {
+                onDisplayWarningText.Fire("Game cannot be started. Need at least 1 game selected.");
+                return;
             }
             minigameSequence.Add(GameStats.Scene.awardCeremony); // always have award ceremony at the end of the game
             gameStats.SetCurrentScene(minigameSequence[0]);

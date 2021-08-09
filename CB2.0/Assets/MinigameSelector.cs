@@ -17,10 +17,12 @@ public class MinigameSelector : MonoBehaviour
     private void Start() {
        minigameImageList = GetComponentsInChildren<Image>();
        minigameScriptList = GetComponentsInChildren<EnterSelectionPanelDetection>();
+       Debug.Log(minigameList.Length);
        for (int i = 0; i < minigameList.Length; i ++)
        {
            minigameScriptList[i].SetMinigameIndex(i);
            minigameImageList[i].sprite = minigameList[i].minigameSelectedSprite;
+           Debug.Log(minigameImageList[i]);
            onMinigameSelected.Fire(minigameList[i].minigameType);
        }
     }
