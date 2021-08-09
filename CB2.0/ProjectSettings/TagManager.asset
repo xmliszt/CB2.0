@@ -35,6 +35,7 @@ TagManager:
   - SDA
   - RewardZone
   - Entertainments
+  - GameSelector
   layers:
   - Default
   - TransparentFX

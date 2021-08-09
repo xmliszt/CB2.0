@@ -345,6 +345,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1391236228}
     m_Modifications:
+    - target: {fileID: 5469270825942417712, guid: 4d66ffacf62b55940bd2e226978fc7b9, type: 3}
+      propertyPath: playerID
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5469270825942417715, guid: 4d66ffacf62b55940bd2e226978fc7b9, type: 3}
       propertyPath: m_SortingLayerID
       value: 1298843805
@@ -2217,6 +2221,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1391236228}
     m_Modifications:
+    - target: {fileID: 5469270825942417712, guid: 4d66ffacf62b55940bd2e226978fc7b9, type: 3}
+      propertyPath: playerID
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5469270825942417715, guid: 4d66ffacf62b55940bd2e226978fc7b9, type: 3}
       propertyPath: m_SortingLayerID
       value: 1298843805
@@ -3849,6 +3857,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1391236228}
     m_Modifications:
+    - target: {fileID: 5469270825942417712, guid: 4d66ffacf62b55940bd2e226978fc7b9, type: 3}
+      propertyPath: playerID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5469270825942417715, guid: 4d66ffacf62b55940bd2e226978fc7b9, type: 3}
       propertyPath: m_SortingLayerID
       value: 1298843805

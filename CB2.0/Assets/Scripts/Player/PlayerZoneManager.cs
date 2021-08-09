@@ -19,6 +19,8 @@ public class PlayerZoneManager : MonoBehaviour
         reception = 8,
         musicChanger = 9,
         ugsShop = 10,
+
+        gameSelector = 11,
     }
 
     public ZoneType GetZone()
@@ -76,6 +78,9 @@ public class PlayerZoneManager : MonoBehaviour
                 break;
             case "null":
                 zoneType = ZoneType.nullType;
+                break;
+            case "GameSelector":
+                zoneType = ZoneType.gameSelector;
                 break;
         }
     }

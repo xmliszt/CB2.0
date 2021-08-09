@@ -1641,6 +1641,8 @@ MonoBehaviour:
   onMiniGameStart: {fileID: 11400000, guid: 257b63261c3b66748b39167a72d68f31, type: 2}
   onSwitchBGM: {fileID: 11400000, guid: 459071618b31fd04ebd14d67828b0626, type: 2}
   onPlayerChangeProfile: {fileID: 11400000, guid: 903bb142c1a0cb3488d4295dda7fe04d, type: 2}
+  onMinigameSelected: {fileID: 11400000, guid: 2bfdbeb24e492eb4cb3fb0d091bd4f62, type: 2}
+  onMinigameDeSelected: {fileID: 11400000, guid: 261ae0d73b1953d41b5cfde274877b82, type: 2}
 --- !u!114 &5475761574761554405
 MonoBehaviour:
   m_ObjectHideFlags: 0

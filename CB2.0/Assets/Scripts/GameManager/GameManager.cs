@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour
         {
             OnPlayerJoined(playerInfo.playerInput);
         }
-        minigameSequence.Add(GameStats.Scene.awardCeremony); // always have award ceremony at the end of the game
         Debug.Log("Game Manager Started");
     }
 
@@ -70,7 +69,7 @@ public class GameManager : MonoBehaviour
         if (!players.PlayerExist(playerID))
             players.AddPlayer(newPlayerStats, playerInput);
         else
-            players.UpdatePlayer (playerID, newPlayerStats);
+            players.UpdatePlayer(playerID, newPlayerStats);
         DontDestroyOnLoad(playerInput.gameObject);
     }
 
@@ -178,6 +177,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            minigameSequence.Add(GameStats.Scene.awardCeremony); // always have award ceremony at the end of the game
             gameStats.SetCurrentScene(minigameSequence[0]);
             currentMinigameSceneIdx = 0;
             GameStats.Scene firstScene = gameStats.GetCurrentScene();
@@ -234,5 +234,32 @@ public class GameManager : MonoBehaviour
     public void OnPlayerRelocate(int playerID, Vector3 location)
     {
         playerObjects[playerID].position = location;
+    }
+
+    public void onMinigameSelected(GameStats.Scene minigameType)
+    {
+        int insertionIndex = 0;
+        switch (minigameType)
+        {
+            case GameStats.Scene.swabTestWar:
+                insertionIndex = 0;
+                break;
+            case GameStats.Scene.stopTheSpread:
+                insertionIndex = 1;
+                break;
+            case GameStats.Scene.unlimitedGroupSize:
+                insertionIndex = 2;
+                break;
+            case GameStats.Scene.snatchAndHoard:
+                insertionIndex = 3;
+                break;
+        }
+
+        minigameSequence.Insert (insertionIndex, minigameType);
+    }
+
+    public void onMinigameDeSelected(GameStats.Scene minigameType)
+    {
+        minigameSequence.Remove (minigameType);
     }
 }
