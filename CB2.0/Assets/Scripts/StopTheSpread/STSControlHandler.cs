@@ -669,6 +669,7 @@ public class STSControlHandler : MonoBehaviour
     // Reset all minigame-specific player appearance
     public void onMinigameOver()
     {
+        StopAllCoroutines();
         thoughtBubbleRenderer.enabled = false;
         stunnedIconRenderer.enabled = false;
         CakeSprite.enabled = false;
@@ -677,7 +678,7 @@ public class STSControlHandler : MonoBehaviour
         var tempColor = playerSprite.color;
         tempColor.a = 1.0f;
         playerSprite.color = tempColor;
-        StopAllCoroutines();
+        playerSprite.enabled = true;
         STSTearDown.Fire();
     }
 }

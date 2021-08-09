@@ -1113,8 +1113,12 @@ PrefabInstance:
       value: Game Manager
       objectReference: {fileID: 0}
     - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: minigameSequence.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
       propertyPath: minigameSequence.Array.data[0]
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 736db9b9d134e294784893312f61d194, type: 3}
