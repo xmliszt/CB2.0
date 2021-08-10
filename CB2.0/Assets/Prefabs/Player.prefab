@@ -1773,6 +1773,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: e1354694db4b69f4da40757848adfbb2, type: 3}
   - _type: 11
     clip: {fileID: 8300000, guid: db4342b115a883a4c87797ae313d9946, type: 3}
+  - _type: 12
+    clip: {fileID: 8300000, guid: f1e371c6c112c7c43b9ab0081fc5317f, type: 3}
+  - _type: 13
+    clip: {fileID: 8300000, guid: 3d1808b15f0706045a71818660f8dac6, type: 3}
+  - _type: 14
+    clip: {fileID: 8300000, guid: 170e705f7a6f91e478bc59db1db00799, type: 3}
+  - _type: 15
+    clip: {fileID: 8300000, guid: b4931fb056772294d9e843c2f9bff73f, type: 3}
   source: {fileID: 6493347360338484652}
 --- !u!114 &8458192740763617604
 MonoBehaviour:
@@ -2166,6 +2174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed5d250fad61934f9a2bf02c9da6e2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
 --- !u!1 &6663720610430123126
 GameObject:
   m_ObjectHideFlags: 0

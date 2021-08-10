@@ -204,10 +204,6 @@ public class PlayerController : MonoBehaviour
             if (playerReadyHandler)
             {
                 playerReadyHandler.OnPlayerReady();
-                Debug
-                    .Log("Player " +
-                    playerStatsManager.GetPlayerStats().playerID.ToString() +
-                    " ready");
             }
             if (!disabled)
             {
