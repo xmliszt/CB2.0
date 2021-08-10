@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
 
     private GameLobbyControlHandler gameLobbyControlHandler;
 
+    private PlayerReadyHandler playerReadyHandler;
+
     private SwabTestControlHandler swabTestControlHandler;
 
     private STSControlHandler stsControlHandler;
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour
     private float movementFactor = 1.0f; // used to stop or resume movement of character. 0 will stop, 1 will resume
 
     private float speedFactor = 1.0f; // for UGS to change player speed
+
     private bool dashDisabled = false;
 
     private void Start()
@@ -56,6 +59,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
+        playerReadyHandler = GetComponent<PlayerReadyHandler>();
         playerAudioController = GetComponent<PlayerAudioController>();
         swabTestControlHandler = GetComponent<SwabTestControlHandler>();
         stsControlHandler = GetComponent<STSControlHandler>();
@@ -197,6 +201,14 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
+            if (playerReadyHandler)
+            {
+                playerReadyHandler.OnPlayerReady();
+                Debug
+                    .Log("Player " +
+                    playerStatsManager.GetPlayerStats().playerID.ToString() +
+                    " ready");
+            }
             if (!disabled)
             {
                 switch (gameStats.GetCurrentScene())

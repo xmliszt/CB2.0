@@ -62,6 +62,8 @@ public class PlayerStats : ScriptableObject
 
    public int masks; // overall ranked value
 
+   public bool ready; // player ready to proceed from rule page
+
    private int rank;
 
    public int GetRank()

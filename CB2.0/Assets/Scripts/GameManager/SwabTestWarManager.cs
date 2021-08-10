@@ -15,7 +15,7 @@ public class SwabTestWarManager : MonoBehaviour
     public PlayerLocation[] playerLocations;
     public GameObject playerPrefab;
     public Players players;
-    public GameEvent OnStartPlayStart;
+    public GameEvent onShowRulePage;
     public TestStation[] testStations;
     void Start()
     {
@@ -27,7 +27,7 @@ public class SwabTestWarManager : MonoBehaviour
             Vector3 playerSpawnPosition = GetPlayerLocation(playerID);
             playerRelocateGameEvent.Fire(playerID, playerSpawnPosition);
         }
-        OnStartPlayStart.Fire();
+        onShowRulePage.Fire();
         foreach (TestStation testStation in testStations)
         {
             testStation.isLoaded = false;

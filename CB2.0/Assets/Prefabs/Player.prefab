@@ -1021,6 +1021,7 @@ GameObject:
   - component: {fileID: 1420202198}
   - component: {fileID: 562434370}
   - component: {fileID: 1084135326}
+  - component: {fileID: 2468515278078344811}
   - component: {fileID: 934771182231830064}
   - component: {fileID: 497552964}
   - component: {fileID: 3297451996450469898}
@@ -1044,6 +1045,7 @@ GameObject:
   - component: {fileID: 4479182322412173856}
   - component: {fileID: 6485404819077293448}
   - component: {fileID: 1560697921236015764}
+  - component: {fileID: 4680640624108649468}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1344,6 +1346,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineSize: 4
+--- !u!114 &2468515278078344811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: c02fd181fdc46cb4dbbd4c23e1d71d30, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4680640624108649468}
+        m_TargetAssemblyTypeName: PlayerReadyHandler, Assembly-CSharp
+        m_MethodName: ActivatePlayerReadyHandler
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 562434371}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: DisableController
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 562434371}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: DisableMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &934771182231830064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1387,6 +1441,18 @@ MonoBehaviour:
       - m_Target: {fileID: 562434371}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: DisableController
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4680640624108649468}
+        m_TargetAssemblyTypeName: PlayerReadyHandler, Assembly-CSharp
+        m_MethodName: DeactivatePlayerReadyHandler
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1515,6 +1581,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4479182322412173856}
         m_TargetAssemblyTypeName: UnlimitedGroupControlHandler, Assembly-CSharp
         m_MethodName: onMinigameOver
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4680640624108649468}
+        m_TargetAssemblyTypeName: PlayerReadyHandler, Assembly-CSharp
+        m_MethodName: ResetPlayerReadyStatus
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2076,6 +2154,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9127b9250a7603c4b9753cbbd82dedd4, type: 2}
   xboxSpriteRenderer: {fileID: 2741492581932755261}
   psSpriteRenderer: {fileID: 309676668988027603}
+--- !u!114 &4680640624108649468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed5d250fad61934f9a2bf02c9da6e2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6663720610430123126
 GameObject:
   m_ObjectHideFlags: 0

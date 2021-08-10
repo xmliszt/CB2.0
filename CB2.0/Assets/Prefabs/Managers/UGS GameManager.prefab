@@ -55,7 +55,7 @@ MonoBehaviour:
   - playerID: 4
     location: {fileID: 0}
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
-  OnStartPlayStart: {fileID: 11400000, guid: a95f56e2a7c977f41bbd98aeb96220c6, type: 2}
+  onShowRulePage: {fileID: 11400000, guid: c02fd181fdc46cb4dbbd4c23e1d71d30, type: 2}
 --- !u!114 &7909678696917741056
 MonoBehaviour:
   m_ObjectHideFlags: 0

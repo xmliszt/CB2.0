@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
         {
             playerStats.selected = false;
             playerStats.playerID = 0;
+            playerStats.ready = false;
         }
         onGameLobbyInitialized.Fire();
         foreach (PlayerInfo playerInfo in players.GetPlayers().Values)
@@ -153,6 +154,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (PlayerStats playerStats in playerProfiles)
         {
+            playerStats.ready = false;
             playerStats.coins = 0;
             playerStats.score = 0;
             playerStats.inventory.ClearItem();
@@ -169,6 +171,7 @@ public class GameManager : MonoBehaviour
             playerStats.score = 0;
             playerStats.coins = 0;
             playerStats.masks = 0;
+            playerStats.ready = false;
             playerStats.inventory.ClearItem();
         }
     }
