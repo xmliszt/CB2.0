@@ -10,7 +10,7 @@ public class STSGameManager : MonoBehaviour
     public PlayerLocation[] playerLocations;
     public GameObject playerPrefab;
     public Players players;
-    public GameEvent OnStartPlayStart;
+    public GameEvent onShowRulePage;
 
     // Keep track of the spawned player gameobject
     private Dictionary<int, Transform> playerObjects;
@@ -25,7 +25,7 @@ public class STSGameManager : MonoBehaviour
             Vector3 playerSpawnPosition = GetPlayerLocation(playerID);
             playerRelocateGameEvent.Fire(playerID, playerSpawnPosition);
         }
-        OnStartPlayStart.Fire();
+        onShowRulePage.Fire();
         gameStats.SetCurrentScene(GameStats.Scene.stopTheSpread);    
     }
 

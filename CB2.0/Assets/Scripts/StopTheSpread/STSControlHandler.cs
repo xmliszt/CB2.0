@@ -83,6 +83,8 @@ public class STSControlHandler : MonoBehaviour
 
     private bool autoPickEnabled = true;
 
+    private PlayerAudioController playerAudioController;
+
     private enum ZoneType
     {
         dumbbell = 0,
@@ -105,6 +107,7 @@ public class STSControlHandler : MonoBehaviour
 
     private void Awake()
     {
+        playerAudioController = GetComponent<PlayerAudioController>();
         playerController = GetComponent<PlayerController>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         delay = stsGameConstants.activityDelay;
@@ -166,6 +169,8 @@ public class STSControlHandler : MonoBehaviour
             )
             {
                 playerStatsManager.GetPlayerStats().coins++;
+                playerAudioController.PlaySFX(SFXType.coin);
+
                 stsInventory.inventoryItemType =
                     STSPlayerInventory.InventoryItemType.nullItem;
                 stsInventory.holdingItem = false;
@@ -191,6 +196,7 @@ public class STSControlHandler : MonoBehaviour
             )
             {
                 playerStatsManager.GetPlayerStats().coins++;
+                playerAudioController.PlaySFX(SFXType.coin);
                 stsInventory.inventoryItemType =
                     STSPlayerInventory.InventoryItemType.nullItem;
                 stsInventory.holdingItem = false;
@@ -255,6 +261,7 @@ public class STSControlHandler : MonoBehaviour
             // do shop stuff
             if (playerStatsManager.GetPlayerStats().coins > 0)
             {
+                playerAudioController.PlaySFX(SFXType.changeOutfit);
                 playerStatsManager.GetPlayerStats().coins--;
                 playerInvisible = true;
                 var tempColor = playerSprite.color;
@@ -290,6 +297,7 @@ public class STSControlHandler : MonoBehaviour
             // Check taking item from grocer
             if (zoneType == ZoneType.grocerCake)
             {
+                playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
                 stsItem.SetFood (Cake);
                 stsInventory.holdingItem = true;
                 stsInventory.inventoryItemType =
@@ -302,6 +310,7 @@ public class STSControlHandler : MonoBehaviour
             }
             if (zoneType == ZoneType.grocerPizza)
             {
+                playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
                 stsItem.SetFood (Pizza);
                 stsInventory.holdingItem = true;
                 stsInventory.inventoryItemType =
@@ -316,6 +325,7 @@ public class STSControlHandler : MonoBehaviour
             // try to pick up dropped food item
             if (zoneType == ZoneType.droppedCake)
             {
+                playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
                 InteractableObject
                     .GetComponent<InteractableGameObjects>()
                     .DestroyThis();
@@ -332,6 +342,7 @@ public class STSControlHandler : MonoBehaviour
 
             if (zoneType == ZoneType.droppedPizza)
             {
+                playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
                 InteractableObject
                     .GetComponent<InteractableGameObjects>()
                     .DestroyThis();
@@ -349,6 +360,7 @@ public class STSControlHandler : MonoBehaviour
         else
         // if holding item, drop it
         {
+            playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
             DropItem();
             autoPickEnabled = false;
             StartCoroutine(EnableAutoPickUp(1));
@@ -365,6 +377,9 @@ public class STSControlHandler : MonoBehaviour
     {
         if (stsInventory.holdingItem)
         {
+            thoughtBubbleRenderer.enabled = true;
+            playerDoingActivity = false;
+
             STSFood _food = stsItem.UseFood();
             GameObject droppedFoodPrefab;
 
@@ -417,6 +432,20 @@ public class STSControlHandler : MonoBehaviour
             yield break;
         }
 
+        // play audio
+        if(zoneType == ZoneType.computer)
+        {
+            playerAudioController.PlaySFX(SFXType.computer);
+        }
+        if(zoneType == ZoneType.dumbbell)
+        {
+            playerAudioController.PlaySFX(SFXType.gym);
+        }
+        if(zoneType == ZoneType.karaoke)
+        {
+            playerAudioController.PlaySFX(SFXType.karaoke);
+        }
+
         completionBar.gameObject.SetActive(true);
         playerDoingActivity = true;
 
@@ -433,6 +462,9 @@ public class STSControlHandler : MonoBehaviour
                 completionBar.value = 0;
                 completionBar.gameObject.SetActive(false);
 
+                // stop audio
+                playerAudioController.StopSFX();
+
                 yield break;
             }
         }
@@ -448,6 +480,9 @@ public class STSControlHandler : MonoBehaviour
             .PlayerStopUsing();
 
         activityOnCooldown = true;
+
+        // stop audio
+        playerAudioController.StopSFX();
 
         StartCoroutine(ActivityCooldown());
     }
@@ -554,6 +589,7 @@ public class STSControlHandler : MonoBehaviour
         // it's my birthday
         if (birthdayChild == playerID)
         {
+            playerAudioController.PlaySFX(SFXType.birthday);
             thoughtBubbleRenderer.sprite = birthday.thoughtBubbleSprite;
             thoughtBubbleRenderer.enabled = true;
             activityOnCooldown = true;
@@ -591,6 +627,7 @@ public class STSControlHandler : MonoBehaviour
     {
         if (birthdayEventOngoing)
         {
+            playerAudioController.StopSFX();
             GetComponentInChildren<STSTimer>().BirthdayEventCompleted();
             activityOnCooldown = false;
             birthdayEventOngoing = false;
@@ -632,6 +669,7 @@ public class STSControlHandler : MonoBehaviour
     // Reset all minigame-specific player appearance
     public void onMinigameOver()
     {
+        StopAllCoroutines();
         thoughtBubbleRenderer.enabled = false;
         stunnedIconRenderer.enabled = false;
         CakeSprite.enabled = false;
@@ -640,7 +678,7 @@ public class STSControlHandler : MonoBehaviour
         var tempColor = playerSprite.color;
         tempColor.a = 1.0f;
         playerSprite.color = tempColor;
-        StopAllCoroutines();
+        playerSprite.enabled = true;
         STSTearDown.Fire();
     }
 }

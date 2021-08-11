@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 7208038361440692014}
   - component: {fileID: 7208038361440692003}
   - component: {fileID: 6704426479595958990}
+  - component: {fileID: 6424899187082134912}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -406,6 +407,34 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6424899187082134912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7208038361440692009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 79c3fd9388a40c84f8df7c3ea48e7ae0, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7208038361440692014}
+        m_TargetAssemblyTypeName: STSAIController, Assembly-CSharp
+        m_MethodName: StopAIMovement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7208038362373509951
 GameObject:
   m_ObjectHideFlags: 0

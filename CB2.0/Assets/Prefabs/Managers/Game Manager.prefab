@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 557944637}
   - component: {fileID: 482615541342253250}
   - component: {fileID: 3483710355950317704}
+  - component: {fileID: 3483710355950317706}
+  - component: {fileID: 5844008357624694676}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -239,9 +241,66 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bc4244fe3ed76274198eb2e416b3b8c8, type: 2}
   gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
-  minigameSequence: 030000000200000004000000
+  minigameSequence: 
   onReturnGameLobby: {fileID: 11400000, guid: 14beae4149f480d4d9a2ef638cc9c8d4, type: 2}
   onStartSTS: {fileID: 11400000, guid: fc3200a3c6b03c34fbb84f06e1b74c94, type: 2}
   onStartUGS: {fileID: 11400000, guid: 5a482cca73ee298428bb11fb022be068, type: 2}
   onGameLobbyInitialized: {fileID: 11400000, guid: 7ab5c0c5963e2724bb1ff5321df6ea52, type: 2}
   onPlayerJoinedEvent: {fileID: 11400000, guid: 6e8f9b130a6eb8f44b589fe4042081ba, type: 2}
+  onDisplayWarningText: {fileID: 11400000, guid: e9bf8373b29622a419746c1794d3e806, type: 2}
+--- !u!114 &3483710355950317706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483710355379515717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd0e9b06d6a096468e8b17ebb38bedb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1baa32a474f71d340a27d5d48d24b82d, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3483710355950317704}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: onMinigameSelected
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5844008357624694676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483710355379515717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fd0e9b06d6a096468e8b17ebb38bedb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 2290f9003c1ddb849bc59ec39feb8544, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3483710355950317704}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: onMinigameDeSelected
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

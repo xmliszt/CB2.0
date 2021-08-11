@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class STSBirthdayActivity : MonoBehaviour
 {
+
     [Header("Game Events")]
     public SingleIntegerGameEvent birthdayGameEvent;
     public SingleIntegerGameEvent birthdayScoreEvent; // event will give score to players that are present

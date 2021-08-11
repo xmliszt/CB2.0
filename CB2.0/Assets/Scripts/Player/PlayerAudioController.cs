@@ -12,6 +12,15 @@ public enum SFXType
     _lock = 5,
     submitResult = 6,
     changeOutfit = 7,
+    // STS sound effects
+    gym = 8,
+    computer = 9,
+    karaoke = 10,
+    birthday = 11,
+    ready1 = 12,
+    ready2 = 13,
+    ready3 = 14,
+    ready4 = 15
 }
 
 [System.Serializable]
@@ -42,5 +51,16 @@ public class PlayerAudioController : MonoBehaviour
     public void PlaySFX(SFXType _type)
     {
         source.PlayOneShot(sfxAudiosMap[_type].clip);
+    }
+
+    public void StopSFX()
+    {
+        source.Stop();
+    }
+
+    public void PlayReadySFX(int order)
+    {
+        SFXType[] readyTypes = new SFXType[4]{SFXType.ready1, SFXType.ready2, SFXType.ready3, SFXType.ready4};
+        source.PlayOneShot(sfxAudiosMap[readyTypes[order]].clip);
     }
 }

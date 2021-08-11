@@ -7,7 +7,7 @@ public class UnlimitedGroupManager : MonoBehaviour
     public PlayerRelocateGameEvent playerRelocateGameEvent;
     public PlayerLocation[] playerLocations;
     public Players players;
-    public GameEvent OnStartPlayStart;
+    public GameEvent onShowRulePage;
     void Start()
     {
         foreach(KeyValuePair<int, PlayerInfo> player in players.GetPlayers())
@@ -18,7 +18,7 @@ public class UnlimitedGroupManager : MonoBehaviour
             Vector3 playerSpawnPosition = GetPlayerLocation(playerID);
             playerRelocateGameEvent.Fire(playerID, playerSpawnPosition);
         }
-        OnStartPlayStart.Fire();
+        onShowRulePage.Fire();
     }
 
     public Vector3 GetPlayerLocation(int playerID)

@@ -37,6 +37,7 @@ TagManager:
   - Entertainments
   - UGSShop
   - Decor
+  - GameSelector
   layers:
   - Default
   - TransparentFX

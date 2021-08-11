@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
     public List<GameStats.Scene> minigameSequence;
 
+    private Dictionary<GameStats.Scene, bool> minigameSelection;
+
     public GameEvent onReturnGameLobby;
 
     public GameEvent onStartSTS;
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour
     public GameEvent onGameLobbyInitialized;
 
     public GameEvent onPlayerJoinedEvent;
+
+    public SingleStringGameEvent onDisplayWarningText;
 
     private int currentMinigameSceneIdx;
 
@@ -42,19 +46,20 @@ public class GameManager : MonoBehaviour
     {
         ResetPlayerStatsCompletely();
         playerObjects = new Dictionary<int, Transform>();
+        minigameSelection = new Dictionary<GameStats.Scene, bool>();
         playerInputManager = PlayerInputManager.instance;
         gameStats.SetCurrentScene(GameStats.Scene.gameLobby);
         foreach (PlayerStats playerStats in playerProfiles)
         {
             playerStats.selected = false;
             playerStats.playerID = 0;
+            playerStats.ready = false;
         }
         onGameLobbyInitialized.Fire();
         foreach (PlayerInfo playerInfo in players.GetPlayers().Values)
         {
             OnPlayerJoined(playerInfo.playerInput);
         }
-        minigameSequence.Add(GameStats.Scene.awardCeremony); // always have award ceremony at the end of the game
         Debug.Log("Game Manager Started");
     }
 
@@ -70,7 +75,7 @@ public class GameManager : MonoBehaviour
         if (!players.PlayerExist(playerID))
             players.AddPlayer(newPlayerStats, playerInput);
         else
-            players.UpdatePlayer (playerID, newPlayerStats);
+            players.UpdatePlayer(playerID, newPlayerStats);
         DontDestroyOnLoad(playerInput.gameObject);
     }
 
@@ -123,6 +128,7 @@ public class GameManager : MonoBehaviour
             }
             lastIdx++;
         }
+        
         playerObjects[playerID]
             .GetComponent<PlayerStatsManager>()
             .SetPlayerStats(selectedPlayerStats);
@@ -149,6 +155,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (PlayerStats playerStats in playerProfiles)
         {
+            playerStats.ready = false;
             playerStats.coins = 0;
             playerStats.score = 0;
             playerStats.inventory.ClearItem();
@@ -165,6 +172,7 @@ public class GameManager : MonoBehaviour
             playerStats.score = 0;
             playerStats.coins = 0;
             playerStats.masks = 0;
+            playerStats.ready = false;
             playerStats.inventory.ClearItem();
         }
     }
@@ -174,10 +182,22 @@ public class GameManager : MonoBehaviour
     {
         if (playerInputManager.playerCount < 2)
         {
-            Debug.Log("cannot start game. need at least 2 players");
+            onDisplayWarningText.Fire("Game cannot be started. Need at least 2 players.");
         }
         else
         {
+            foreach(GameStats.Scene sceneType in minigameSelection.Keys)
+            {
+                if (minigameSelection[sceneType] == true)
+                {
+                    minigameSequence.Add(sceneType);
+                }
+            }
+            if (minigameSequence.Count == 0) {
+                onDisplayWarningText.Fire("Game cannot be started. Need at least 1 game selected.");
+                return;
+            }
+            minigameSequence.Add(GameStats.Scene.awardCeremony); // always have award ceremony at the end of the game
             gameStats.SetCurrentScene(minigameSequence[0]);
             currentMinigameSceneIdx = 0;
             GameStats.Scene firstScene = gameStats.GetCurrentScene();
@@ -234,5 +254,15 @@ public class GameManager : MonoBehaviour
     public void OnPlayerRelocate(int playerID, Vector3 location)
     {
         playerObjects[playerID].position = location;
+    }
+
+    public void onMinigameSelected(GameStats.Scene minigameType)
+    {
+        minigameSelection[minigameType] = true;
+    }
+
+    public void onMinigameDeSelected(GameStats.Scene minigameType)
+    {
+        minigameSelection[minigameType] = false;
     }
 }
