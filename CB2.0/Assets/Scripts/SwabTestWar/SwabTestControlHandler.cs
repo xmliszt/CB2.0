@@ -45,6 +45,8 @@ public class SwabTestControlHandler : MonoBehaviour
 
     private bool autoPickEnabled = true;
 
+    private bool isGameEnded = true;
+
     private void Awake()
     {
         playerAudioController = GetComponent<PlayerAudioController>();
@@ -64,20 +66,25 @@ public class SwabTestControlHandler : MonoBehaviour
 
     private void Update()
     {
-        // auto pick up
-        if (
-            playerZoneManager.GetZone() ==
-            PlayerZoneManager.ZoneType.droppedItem &&
-            !inventory.hasItem() &&
-            autoPickEnabled
-        )
+        // auto pick
+
+        if (!isGameEnded)
         {
-            // pick up dropped item
-            Item _item = pickedItem.GetComponent<CollectableItem>().itemMeta;
-            inventory.SetItem (_item);
-            thoughtBubbleRenderer.sprite = _item.thoughtBubbleSprite;
-            thoughtBubbleRenderer.enabled = true;
-            Destroy (pickedItem);
+            if (
+                playerZoneManager.GetZone() ==
+                PlayerZoneManager.ZoneType.droppedItem &&
+                !inventory.hasItem() &&
+                autoPickEnabled
+            )
+            {
+                // pick up dropped item
+                Item _item =
+                    pickedItem.GetComponent<CollectableItem>().itemMeta;
+                inventory.SetItem (_item);
+                thoughtBubbleRenderer.sprite = _item.thoughtBubbleSprite;
+                thoughtBubbleRenderer.enabled = true;
+                Destroy (pickedItem);
+            }
         }
     }
 
@@ -355,11 +362,16 @@ public class SwabTestControlHandler : MonoBehaviour
         shopHandler = _shopHandler;
     }
 
-    
+    public void onMinigameStart()
+    {
+        isGameEnded = false;
+    }
+
     // Reset all minigame-specific player appearance
     public void onMinigameOver()
     {
         thoughtBubbleRenderer.enabled = false;
         stunnedIconRenderer.enabled = false;
+        isGameEnded = true;
     }
 }
