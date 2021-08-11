@@ -287,6 +287,8 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     public void GetStickHit()
     {
+        playerController.RestoreMovement();
+        playerController.EnableDash();
         int playerID = playerStatsManager.GetPlayerStats().playerID;
         playerRelocateGameEvent.Fire(playerID, FindObjectOfType<UnlimitedGroupManager>().GetPlayerLocation(playerID));
     }
