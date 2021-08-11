@@ -11,6 +11,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     public Vector3GameEvent onPickup;
 
+    public GameEvent OnGameOver;
+
     public SnHGameConstants gameConstants;
 
     public PickUpTypeEnum heldPickUp;
@@ -53,13 +55,21 @@ public class SnHPlayerControlHandler : MonoBehaviour
         playerController = GetComponent<PlayerController>();
     }
 
-    public void onStart()
+    public void onMinigameStart()
     {
         itemBubble.SetActive(false);
         playerID = playerStatsManager.GetPlayerStats().playerID;
         isHoldingBasket = false;
         isHoldingPickup = false;
         heldPickUp = PickUpTypeEnum.noneType;
+    }
+
+    // reset player things when time ends
+    public void onMinigameOver()
+    {
+        itemBubble.SetActive(false);
+        playerController.EnableDash();
+        playerController.RestoreMovement();
     }
 
     // entering zones
@@ -125,11 +135,22 @@ public class SnHPlayerControlHandler : MonoBehaviour
         else // entered NPC zone
         if (collision.CompareTag("NPC"))
         {
-            playerStatsManager.GetPlayerStats().zoneType =
-                PlayerStats.ZoneType.NPCZone;
-            zoneObject = collision.gameObject;
+            if (collision.GetComponent<SnHNPCController>().engagedWithPlayer == playerStatsManager.GetPlayerStats().playerID)
+            {
+                playerStatsManager.GetPlayerStats().zoneType = PlayerStats.ZoneType.NPCZone;
+                zoneObject = collision.gameObject;
+            }
         }
 
+        // entered checkout zone
+        else if (collision.CompareTag("Checkout"))
+        {
+            if (collision.GetComponent<SnHCheckoutController>().engagedWithPlayer == playerStatsManager.GetPlayerStats().playerID)
+            {
+                playerStatsManager.GetPlayerStats().zoneType = PlayerStats.ZoneType.CheckoutZone;
+                zoneObject = collision.gameObject;
+            }
+        }
         // ADD MORE ZONES HANDLING
     }
 
@@ -183,6 +204,10 @@ public class SnHPlayerControlHandler : MonoBehaviour
         {
             InNPCZone();
         }
+        else if (playerStatsManager.GetPlayerStats().zoneType == PlayerStats.ZoneType.CheckoutZone)
+        {
+            InCheckoutZone();
+        }
         else // not in any zones but have things to do
         if (
             playerStatsManager.GetPlayerStats().zoneType ==
@@ -199,6 +224,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 basketReference.SetActive(true);
 
                 playerController.RestoreMovement();
+                playerController.EnableDash();
 
                 // remove reference to basket
                 basketReference = null;
@@ -224,6 +250,9 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 itemSprite.sprite = null;
                 itemBubble.SetActive(false);
                 isHoldingPickup = false;
+
+                playerController.EnableDash();
+                playerController.RestoreMovement();
             }
         }
         // if in a particular zone, do actions according to the zone type
@@ -280,6 +309,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 // no longer holding any pickups
                 isHoldingPickup = false;
                 heldPickUp = PickUpTypeEnum.noneType;
+                playerController.EnableDash();
+                playerController.RestoreMovement();
 
                 // get rid of the item bubble
                 itemSprite.sprite = null;
@@ -310,6 +341,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
                     playerStatsManager.GetPlayerStats().TPCollected +
                     playerStatsManager.GetPlayerStats().otherObjectCollected
                     )));
+            playerController.DisableDash();
 
             zoneObject = null;
         }
@@ -363,6 +395,10 @@ public class SnHPlayerControlHandler : MonoBehaviour
         // is holding item
         isHoldingPickup = true;
 
+        // compute player slowed multiplier
+        playerController.SlowMovement(constants.SlowMovementFactor);
+        playerController.DisableDash();
+
         // remove spawn manager's reference to this pickup
         onDrop.Fire(zoneObject.transform.position);
 
@@ -389,6 +425,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 // get rid of what you are hold
                 isHoldingPickup = false;
                 heldPickUp = PickUpTypeEnum.noneType;
+                playerController.EnableDash();
+                playerController.RestoreMovement();
 
                 // get rid of the item bubble
                 itemSprite.sprite = null;
@@ -398,6 +436,23 @@ public class SnHPlayerControlHandler : MonoBehaviour
             {
                 npcC.WrongPickupGiven();
             }
+        }
+    }
+
+    private void InCheckoutZone()
+    {
+        SnHCheckoutController coC = zoneObject.GetComponent<SnHCheckoutController>();
+
+        // check if i can checkout
+        if (playerStatsManager.GetPlayerStats().TPCollected >= gameConstants.CollectTP && playerStatsManager.GetPlayerStats().otherObjectCollected >= gameConstants.CollectOther)
+        {
+            Debug.Log("checking out");
+
+            // show the basket and finish the game
+            coC.Checkout();
+
+            // early game over
+            OnGameOver.Fire();
         }
     }
 }
