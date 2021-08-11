@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f589a6d5dcfacb94fb780302a70367b4, type: 3}
+  m_Name: player 11
+  m_EditorClassIdentifier: 
+  playerID: 0
+  playerName: Edward
+  selected: 0
+  playerAccent: {r: 0.3294118, g: 0.36434835, b: 0.8862745, a: 1}
+  playerAvatar: {fileID: 21300000, guid: 0b390023a31fdaa44aa2c43db8a7c93e, type: 3}
+  animatorController: {fileID: 9100000, guid: fb5d72ba996200c4c9956e3e3d38ca9b, type: 2}
+  inventory:
+    item: {fileID: 0}
+  coins: 0
+  score: 0
+  masks: 0
+  ready: 0
+  isActive: 0
+  TPCollected: 0
+  otherObjectCollected: 0
+  zoneType: 0

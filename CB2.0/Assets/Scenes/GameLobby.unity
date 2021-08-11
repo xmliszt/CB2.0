@@ -2621,6 +2621,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.size
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5341841522e14d644b85e60b923272ca, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: e1c6bbbb2893a0142b61644984968c72, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 40fa4919ae272924d82328df242bd168, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: a5f7f4fcd6887ac46b9943fbb89bf1d2, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 1145df7f96148834b9f3cab48eed291a, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3224b5925b01cf0448afd756495c7787, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: d08dcb2e02f5d8a4d8f0001e36db8fa4, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[12]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0c5818f2e9511c04e8ffd319da893774, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[13]
+      value: 
+      objectReference: {fileID: 11400000, guid: 556e9a36fe316fc409d9761355cb920e, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[14]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2b171420059baa14ebe9e9d21c065f20, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[15]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4902f6f865f5cd440a4848211a4bc915, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[16]
+      value: 
+      objectReference: {fileID: 11400000, guid: a57b11546de277b49a82749d7e420eee, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[17]
+      value: 
+      objectReference: {fileID: 11400000, guid: f1feca84d36da944e9ab1c0d2f847c74, type: 2}
+    - target: {fileID: 3483710355950317704, guid: 736db9b9d134e294784893312f61d194, type: 3}
+      propertyPath: playerProfiles.Array.data[18]
+      value: 
+      objectReference: {fileID: 11400000, guid: f2ce192f70cd46e499a98775d90e7b51, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 736db9b9d134e294784893312f61d194, type: 3}
 --- !u!1001 &4821703188174078666
