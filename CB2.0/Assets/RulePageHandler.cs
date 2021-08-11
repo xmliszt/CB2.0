@@ -13,6 +13,8 @@ public class RulePageHandler : MonoBehaviour
 
     private bool isWaitingForPlayer = false;
 
+    private bool isPaused = false;
+
     private void Start()
     {
         rulePageImage = GetComponent<Image>();
@@ -20,12 +22,21 @@ public class RulePageHandler : MonoBehaviour
 
     public void PauseTime()
     {
-        Time.timeScale = 0;
+        isPaused = !isPaused;
+        if (isPaused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
     }
 
     public void ResumeTime()
     {
         Time.timeScale = 1;
+        isPaused = false;
     }
 
     public void StartWaitForPlayer()
@@ -40,7 +51,7 @@ public class RulePageHandler : MonoBehaviour
         {
             if (player.Value.playerStats.ready)
             {
-                readyCount ++;
+                readyCount++;
             }
         }
         return readyCount == players.GetPlayers().Count;

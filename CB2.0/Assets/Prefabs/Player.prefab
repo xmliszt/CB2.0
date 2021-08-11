@@ -1328,6 +1328,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c6099530-4586-4205-9254-6f3d0968aa72
     m_ActionName: gameplay/hold[/Keyboard/period]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 562434371}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: onPause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: a69fffbb-92ec-4125-ba3a-62eba4458103
+    m_ActionName: gameplay/pause[/XInputControllerWindows/start,/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 1
   m_DefaultControlScheme: 
   m_DefaultActionMap: gameplay
@@ -1852,6 +1868,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
+  onGamePaused: {fileID: 11400000, guid: 0a12cbe82f61e3643a966e02a95b371a, type: 2}
   dashParticleGameEvent: {fileID: 11400000, guid: b3f39252519740843a5ee14e2800faab, type: 2}
 --- !u!114 &789055899533834128
 MonoBehaviour:

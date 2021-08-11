@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public GameStats gameStats;
 
     public GameConstants constants;
+
+    public GameEvent onGamePaused;
 
     public ParticleGameEvent dashParticleGameEvent;
 
@@ -52,6 +55,8 @@ public class PlayerController : MonoBehaviour
     private float speedFactor = 1.0f; // for UGS to change player speed
 
     private bool dashDisabled = false;
+
+    private bool isPausedExecuted = false;
 
     private void Start()
     {
@@ -272,6 +277,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void onPause(InputAction.CallbackContext context)
+    {
+        
+        if (context.performed && !isPausedExecuted)
+        {
+            onGamePaused.Fire();
+            isPausedExecuted = true;
+            StartCoroutine(removePausedExecuted());
+        }
+    }
+
+    IEnumerator removePausedExecuted()
+    {
+        yield return new WaitForSecondsRealtime(0.2f);
+        isPausedExecuted = false;
+    }
+    
     public Vector2 GetIdleDirection()
     {
         return idleDirection;
