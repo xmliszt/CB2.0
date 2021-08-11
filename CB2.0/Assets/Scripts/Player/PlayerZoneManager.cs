@@ -36,6 +36,7 @@ public class PlayerZoneManager : MonoBehaviour
 
     public void SetZone(string zoneTag, GameObject zoneObject)
     {
+        Debug.Log("Set zone: " + zoneTag);
         switch (zoneTag)
         {
             case "CollectionPoint":
