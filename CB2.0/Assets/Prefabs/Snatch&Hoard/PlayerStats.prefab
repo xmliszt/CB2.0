@@ -43,13 +43,14 @@ GameObject:
   - component: {fileID: 6567364565040959673}
   - component: {fileID: 5199189235189141427}
   - component: {fileID: 1066208571848688065}
+  - component: {fileID: 3898835108176679413}
   m_Layer: 0
   m_Name: PlayerStats
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6567364565040959673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -92,7 +93,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 951167099
+  m_SortingLayerID: 1298843805
   m_SortingOrder: 999
   m_TargetDisplay: 0
 --- !u!114 &1066208571848688065
@@ -107,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ff8e2d39ec08343944940836166b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerID: 4
+  playerID: 1
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
   gameConstants: {fileID: 11400000, guid: 745d923f243db894391ca4f44d005fd7, type: 2}
   avatar: {fileID: 6273308454317549254}
@@ -125,6 +126,34 @@ MonoBehaviour:
   - {fileID: -3611482823998066858, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: -580593594162575151, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: 2960242546088347903, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
+--- !u!114 &3898835108176679413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1528606770114858209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 15070553d257aff42b5ba481ba4265a6, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1066208571848688065}
+        m_TargetAssemblyTypeName: SnHPlayerStatsController, Assembly-CSharp
+        m_MethodName: onStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2235468333806748243
 GameObject:
   m_ObjectHideFlags: 0

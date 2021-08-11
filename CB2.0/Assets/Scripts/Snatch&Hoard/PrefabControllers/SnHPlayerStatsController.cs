@@ -3,33 +3,49 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class SnHPlayerStatsController : MonoBehaviour
 {
     public int playerID;
 
     public Players players;
+
     public SnHGameConstants gameConstants;
 
     public Image avatar;
+
     public Image otherObject;
+
     public Text name;
+
     public Text coinsCollected;
+
     public Text TPcollected;
+
     public Text otherCollected;
 
     public List<Sprite> itemSprites;
 
     private PlayerStats uniquePlayerStats;
 
-    // when the game is started or restarted
+    private bool playerIsInGame = false;
 
-    private void Start() {
-        uniquePlayerStats = players.GetPlayers()[playerID].playerStats;
+    // when the game is started or restarted
+    private void Start()
+    {
+        if (players.GetPlayers().ContainsKey(playerID))
+        {
+            uniquePlayerStats = players.GetPlayers()[playerID].playerStats;
+            playerIsInGame = true;
+        } else {
+            gameObject.SetActive(false);
+        }
     }
+
     public void onStart()
     {
-        if (uniquePlayerStats.isActive) //this player is in use
+        if (
+            playerIsInGame && uniquePlayerStats.isActive //this player is in use
+        )
         {
             // first update of images to be used
             avatar.sprite = uniquePlayerStats.playerAvatar;
@@ -43,18 +59,24 @@ public class SnHPlayerStatsController : MonoBehaviour
             otherCollected.color = uniquePlayerStats.playerAccent;
             coinsCollected.text = formatString(uniquePlayerStats.coins);
             TPcollected.text = formatString(uniquePlayerStats.TPCollected);
-            otherCollected.text = formatString(uniquePlayerStats.otherObjectCollected);
+            otherCollected.text =
+                formatString(uniquePlayerStats.otherObjectCollected);
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
     }
 
     // anytime the number of coins, TP or others collected changes
     public void Update()
     {
-        if (uniquePlayerStats.isActive)
+        if (playerIsInGame && uniquePlayerStats.isActive)
         {
             coinsCollected.text = formatString(uniquePlayerStats.coins);
             TPcollected.text = formatString(uniquePlayerStats.TPCollected);
-            otherCollected.text = formatString(uniquePlayerStats.otherObjectCollected);
+            otherCollected.text =
+                formatString(uniquePlayerStats.otherObjectCollected);
         }
     }
 

@@ -26,12 +26,6 @@ public class SnHGameConstants : ScriptableObject
     // Number of NPCs to spawn
     public int NPCs;
 
-    // If players are playing
-    public bool P1Playing = true;
-    public bool P2Playing = true;
-    public bool P3Playing = true;
-    public bool P4Playing = false;
-
     // all spawn zones
     public SPZC[] spawnZones = new SPZC[] {new SPZC(-5.15f, -4.3f, -3.1f, 3.65f),
                                             new SPZC(-3.7f, -3.15f, 2.8f, 3f),

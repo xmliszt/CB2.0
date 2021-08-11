@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SnHPlayerControlHandler : MonoBehaviour
 {
+    public SingleIntegerGameEvent firePowerup;
     public GameConstants constants;
 
     public Vector3GameEvent onDrop;
@@ -45,6 +46,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     private PlayerStatsManager playerStatsManager;
 
+    private PlayerAudioController playerAudioController;
+
     private PlayerController playerController;
 
     private int playerID;
@@ -54,6 +57,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
     private void Awake()
     {
         playerStatsManager = GetComponent<PlayerStatsManager>();
+        playerAudioController = GetComponent<PlayerAudioController>();
         playerController = GetComponent<PlayerController>();
     }
 
@@ -93,7 +97,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
                     playerStatsManager.GetPlayerStats().playerID ==
                     collision
                         .GetComponent<SnHBasketController>()
-                        .belongsToPlayer
+                        .playerID
                 )
                 {
                     playerStatsManager.GetPlayerStats().zoneType =
@@ -104,7 +108,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
                     playerStatsManager.GetPlayerStats().playerID !=
                     collision
                         .GetComponent<SnHBasketController>()
-                        .belongsToPlayer &&
+                        .playerID &&
                     !isHoldingBasket &&
                     !isHoldingPickup
                 )
@@ -118,6 +122,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
         else if (collision.CompareTag("Pickup"))
         {
             // not holding anything and pickup is not engaged by anyone
+            Debug.Log(string.Format("isHOldingBasket: {0}, isHOldingPickup: {1}", isHoldingBasket, isHoldingPickup));
             if (
                 !isHoldingBasket &&
                 !isHoldingPickup &&
@@ -127,6 +132,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 playerStatsManager.GetPlayerStats().playerID
             )
             {
+                Debug.Log("Enter pickup zone");
                 playerStatsManager.GetPlayerStats().zoneType =
                     PlayerStats.ZoneType.pickUpZone;
                 zoneObject = collision.gameObject;
@@ -140,7 +146,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 zoneObject = collision.gameObject;
             }
         }
-        else if (collision.CompareTag("shop"))
+        else if (collision.CompareTag("Shop"))
         {
             playerStatsManager.GetPlayerStats().zoneType =
                 PlayerStats.ZoneType.shopZone;
@@ -176,6 +182,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
     // ADD INCOMPLETE CODE
     public void OnPickDropItem()
     {
+        playerAudioController.PlaySFX(SFXType.drop);
         // in my basket zone
         if (
             playerStatsManager.GetPlayerStats().zoneType ==
@@ -267,10 +274,12 @@ public class SnHPlayerControlHandler : MonoBehaviour
             PlayerStats.ZoneType.shopZone
         )
         {
+            playerAudioController.PlaySFX(SFXType._lock);
             // speed up
             onPowerUpEffect = true;
             playerController.SpeedUpMovement(constants.speedUpMovementFactor);
             // rainbow effect start
+            firePowerup.Fire(playerStatsManager.GetPlayerStats().playerID);
         }
     }
 

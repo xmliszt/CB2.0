@@ -1129,7 +1129,7 @@ GameObject:
   - component: {fileID: 1560697921236015764}
   - component: {fileID: 4680640624108649468}
   - component: {fileID: 5105910600123761347}
-  - component: {fileID: 4307284438812453836}
+  - component: {fileID: -5185532221020718341}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1447,6 +1447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outlineSize: 4
+  constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
 --- !u!114 &2468515278078344811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1627,6 +1628,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5105910600123761347}
+        m_TargetAssemblyTypeName: SnHPlayerControlHandler, Assembly-CSharp
+        m_MethodName: onMinigameStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3297451996450469898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1706,6 +1719,30 @@ MonoBehaviour:
       - m_Target: {fileID: 4680640624108649468}
         m_TargetAssemblyTypeName: PlayerReadyHandler, Assembly-CSharp
         m_MethodName: ResetPlayerReadyStatus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1084135326}
+        m_TargetAssemblyTypeName: SpriteOutlined, Assembly-CSharp
+        m_MethodName: TurnOffRainbowEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5105910600123761347}
+        m_TargetAssemblyTypeName: SnHPlayerControlHandler, Assembly-CSharp
+        m_MethodName: onMinigameOver
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2301,6 +2338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f689fc9181f8d044be1742d18812536, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  firePowerup: {fileID: 11400000, guid: fc36f080049dc8a4fa742e7313549a04, type: 2}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   onDrop: {fileID: 11400000, guid: 06e4f8faa4e4bfa459b5f5dd70c498b4, type: 2}
   onPickup: {fileID: 11400000, guid: ac123c6361be10049a4b48de47222c6d, type: 2}
@@ -2322,7 +2360,7 @@ MonoBehaviour:
   - {fileID: -3611482823998066858, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: -580593594162575151, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: 2960242546088347903, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
---- !u!114 &4307284438812453836
+--- !u!114 &-5185532221020718341
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2331,17 +2369,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5928543010023413209}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Script: {fileID: 11500000, guid: daa0041421649bf4db2282ac0649815a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 15070553d257aff42b5ba481ba4265a6, type: 2}
+  Event: {fileID: 11400000, guid: fc36f080049dc8a4fa742e7313549a04, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5105910600123761347}
-        m_TargetAssemblyTypeName: SnHPlayerControlHandler, Assembly-CSharp
-        m_MethodName: onStart
-        m_Mode: 1
+      - m_Target: {fileID: 1084135326}
+        m_TargetAssemblyTypeName: SpriteOutlined, Assembly-CSharp
+        m_MethodName: TurnOnRainbowEffect
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2713,7 +2751,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3138032677369827539
 Transform:
   m_ObjectHideFlags: 0

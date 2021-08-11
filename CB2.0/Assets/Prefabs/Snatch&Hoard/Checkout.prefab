@@ -359,7 +359,7 @@ GameObject:
   - component: {fileID: 4445224966796237481}
   m_Layer: 0
   m_Name: Checkout
-  m_TagString: Untagged
+  m_TagString: Checkout
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -395,7 +395,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.20471382, y: -0.3146995}
+  m_Offset: {x: -0.280699, y: -0.43985164}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -406,7 +406,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7018757, y: 0.9333722}
+  m_Size: {x: 1.8538461, y: 1.1836765}
   m_EdgeRadius: 0
 --- !u!95 &1950003552151951681
 Animator:
@@ -439,7 +439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf27e934eab5d724eb55935c715316cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onGameOver: {fileID: 11400000, guid: 79c3fd9388a40c84f8df7c3ea48e7ae0, type: 2}
   engagedWithPlayer: 0
   basket: {fileID: 1729903165969087219}
   progress: {fileID: 1153421508622229851}

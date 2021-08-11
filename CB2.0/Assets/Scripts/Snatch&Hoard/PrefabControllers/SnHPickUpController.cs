@@ -17,6 +17,7 @@ public class SnHPickUpController : MonoBehaviour
     // called when instantiated
     public void SetPickUp(PickUpTypeEnum _pickup)
     {
+        engagedWithPlayer = -1;
         pickupType = _pickup;
         sprite.sprite = itemSprites[(int)_pickup];
     }

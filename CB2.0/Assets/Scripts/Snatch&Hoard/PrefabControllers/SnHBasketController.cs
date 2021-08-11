@@ -14,9 +14,6 @@ public class SnHBasketController : MonoBehaviour
 
     public SnHGameConstants gameConstants;
 
-    // belongs to
-    public int belongsToPlayer;
-
     // is player engaged with basket now
     public int engagedWithPlayer;
 
@@ -63,48 +60,53 @@ public class SnHBasketController : MonoBehaviour
 
     public Sprite fullBasket;
 
-    public List<Sprite> avatars;
-
     public List<Sprite> itemSprites;
 
     private void Start()
     {
+        engagedWithPlayer = -1;
         if (players.GetPlayers().ContainsKey(playerID))
         {
             snhPlayerStats = players.GetPlayers()[playerID].playerStats;
-        } else {
+        }
+        else
+        {
             gameObject.SetActive(false);
         }
     }
 
     public void onStart()
     {
-        // set the ownership of the basket
-        belongsToPlayer = snhPlayerStats.playerID;
+        if (players.GetPlayers().ContainsKey(playerID))
+        {
+            snhPlayerStats = players.GetPlayers()[playerID].playerStats;
 
-        // set the basket to empty
-        Basket.sprite = emptyBasket;
+            // set the ownership of the basket
+            // set the basket to empty
+            Basket.sprite = emptyBasket;
 
-        // set all the avatars
-        UnselectedAvatar.sprite = avatars[snhPlayerStats.playerID];
-        OwnedSelectedAvatar.sprite = avatars[snhPlayerStats.playerID];
-        NotOwnedSelectedAvatar.sprite = avatars[snhPlayerStats.playerID];
+            // set all the avatars
+            UnselectedAvatar.sprite = snhPlayerStats.playerAvatar;
+            OwnedSelectedAvatar.sprite = snhPlayerStats.playerAvatar;
+            NotOwnedSelectedAvatar.sprite = snhPlayerStats.playerAvatar;
 
-        // default the states for owned selected
-        TPCollected.text = formatString(snhPlayerStats.TPCollected);
-        OtherItem.sprite = itemSprites[(int) gameConstants.OtherIndex];
-        OtherCollected.text = formatString(snhPlayerStats.otherObjectCollected);
+            // default the states for owned selected
+            TPCollected.text = formatString(snhPlayerStats.TPCollected);
+            OtherItem.sprite = itemSprites[(int) gameConstants.OtherIndex];
+            OtherCollected.text =
+                formatString(snhPlayerStats.otherObjectCollected);
 
-        // no one interacting with the basket
-        engagedWithPlayer = -1;
+            // no one interacting with the basket
+            engagedWithPlayer = -1;
 
-        // default to unselected
-        Unselected.SetActive(true);
-        OwnedSelected.SetActive(false);
-        OwnedSelectedCorrect.SetActive(false);
-        OwnedSelectedWrong.SetActive(false);
-        NotOwnedSelected.SetActive(false);
-        StealBubble.SetActive(false);
+            // default to unselected
+            Unselected.SetActive(true);
+            OwnedSelected.SetActive(false);
+            OwnedSelectedCorrect.SetActive(false);
+            OwnedSelectedWrong.SetActive(false);
+            NotOwnedSelected.SetActive(false);
+            StealBubble.SetActive(false);
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -112,9 +114,12 @@ public class SnHBasketController : MonoBehaviour
         if (collision.CompareTag("Player") && engagedWithPlayer == -1)
         {
             engagedWithPlayer =
-                collision.GetComponent<PlayerStatsManager>().GetPlayerStats().playerID;
+                collision
+                    .GetComponent<PlayerStatsManager>()
+                    .GetPlayerStats()
+                    .playerID;
 
-            if (engagedWithPlayer == belongsToPlayer)
+            if (engagedWithPlayer == playerID)
             {
                 BelongsToPlayer();
             }
@@ -131,7 +136,10 @@ public class SnHBasketController : MonoBehaviour
         if (collision.CompareTag("Player") && engagedWithPlayer != -1)
         {
             if (
-                collision.GetComponent<PlayerStatsManager>().GetPlayerStats().playerID ==
+                collision
+                    .GetComponent<PlayerStatsManager>()
+                    .GetPlayerStats()
+                    .playerID ==
                 engagedWithPlayer
             )
             {
@@ -194,30 +202,27 @@ public class SnHBasketController : MonoBehaviour
             if (selected == 0)
             {
                 snhPlayerStats.TPCollected -= 1;
-                Debug.Log("TP stolen from" + belongsToPlayer.ToString());
+                Debug.Log("TP stolen from" + playerID.ToString());
                 return PickUpTypeEnum.toiletPaper;
             }
             else
             {
                 snhPlayerStats.otherObjectCollected -= 1;
-                Debug
-                    .Log("Other object stolen from" +
-                    belongsToPlayer.ToString());
+                Debug.Log("Other object stolen from" + playerID.ToString());
                 return (PickUpTypeEnum) gameConstants.OtherIndex;
             }
-        }
-        else // only can steal toilet paper
-        if (snhPlayerStats.TPCollected != 0)
+        } // only can steal toilet paper
+        else if (snhPlayerStats.TPCollected != 0)
         {
             snhPlayerStats.TPCollected -= 1;
-            Debug.Log("TP stolen from" + belongsToPlayer.ToString());
+            Debug.Log("TP stolen from" + playerID.ToString());
             return PickUpTypeEnum.toiletPaper;
         }
         else
         // only can steal other object
         {
             snhPlayerStats.otherObjectCollected -= 1;
-            Debug.Log("Other object stolen from" + belongsToPlayer.ToString());
+            Debug.Log("Other object stolen from" + playerID.ToString());
             return (PickUpTypeEnum) gameConstants.OtherIndex;
         }
     }

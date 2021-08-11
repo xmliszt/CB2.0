@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SnHGameManager : MonoBehaviour
 {
+    public GameEvent onShowRulePage;
     public PlayerRelocateGameEvent playerRelocateGameEvent;
     public GameEvent onSNHGameStart;
     public Players players;
@@ -26,6 +27,8 @@ public class SnHGameManager : MonoBehaviour
             Vector3 playerSpawnPosition = GetPlayerLocation(playerID);
             playerRelocateGameEvent.Fire(playerID, playerSpawnPosition);
         }
+
+        onShowRulePage.Fire();
 
         // select random item for game constant
         int otheritem = Random.Range(0, 3); // game constant have to follow pickup index

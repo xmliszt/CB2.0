@@ -8,7 +8,6 @@ public class SnHDepthSwitcher : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("entered");
         if (collision.CompareTag("Player"))
         {
             foreach (SpriteRenderer s in SpriteToSwitch)
@@ -20,7 +19,6 @@ public class SnHDepthSwitcher : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("exit");
         if (collision.CompareTag("Player"))
         {
             foreach (SpriteRenderer s in SpriteToSwitch)

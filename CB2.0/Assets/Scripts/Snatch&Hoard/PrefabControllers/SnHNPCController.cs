@@ -44,6 +44,8 @@ public class SnHNPCController : MonoBehaviour
 
     private PlayerStatsManager collidedPlayerStatsManager;
 
+    private PlayerAudioController collidedPlayerAudioController;
+
     // called by the NPC Manager
     public void onStart()
     {
@@ -92,6 +94,7 @@ public class SnHNPCController : MonoBehaviour
         {
             engagedWithPlayer = collision.GetComponent<PlayerStatsManager>().GetPlayerStats().playerID;
             collidedPlayerStatsManager = collision.GetComponent<PlayerStatsManager>();
+            collidedPlayerAudioController = collision.GetComponent<PlayerAudioController>();
         }
     }
 
@@ -131,6 +134,8 @@ public class SnHNPCController : MonoBehaviour
         {
             // give coin
             collidedPlayerStatsManager.GetPlayerStats().coins += 1;
+
+            collidedPlayerAudioController.PlaySFX(SFXType.coin);
 
             // remove expected pickup
             expectedPickup = PickUpTypeEnum.noneType;
