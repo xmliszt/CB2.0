@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eeb969b3c0f33f41b8704d6ca70a2f4, type: 3}
   m_Name: GameConstants
   m_EditorClassIdentifier: 
-  minigameCountdownTime: 180
+  minigameCountdownTime: 60
   gameBoundX: 10
   gameBoundY: 5
   playerMoveSpeed: 3
@@ -35,3 +35,6 @@ MonoBehaviour:
   shootEnergy: 100
   rechargePerTick: 2.5
   onHitRewardCoins: 2
+  SlowMovementFactor: 0.9
+  speedUpMovementFactor: 1.2
+  shopItemEffectDuration: 8

@@ -69,11 +69,17 @@ public class SnHPlayerControlHandler : MonoBehaviour
         isHoldingBasket = false;
         isHoldingPickup = false;
         heldPickUp = PickUpTypeEnum.noneType;
+        playerStatsManager.GetPlayerStats().TPCollected = 0;
+        playerStatsManager.GetPlayerStats().otherObjectCollected = 0;
+        playerStatsManager.GetPlayerStats().zoneType = PlayerStats.ZoneType.NotInAnyZone;
     }
 
     // reset player things when time ends
     public void onMinigameOver()
     {
+        playerStatsManager.GetPlayerStats().TPCollected = 0;
+        playerStatsManager.GetPlayerStats().otherObjectCollected = 0;
+        playerStatsManager.GetPlayerStats().zoneType = PlayerStats.ZoneType.NotInAnyZone;
         itemBubble.SetActive(false);
         playerController.EnableDash();
         playerController.RestoreMovement();
@@ -405,7 +411,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
             playerStatsManager.GetPlayerStats().otherObjectCollected) /
             gameConstants.collectTotal;
         percent = Math.Truncate(percent * 100) / 100;
-        return (int) percent * 100;
+        percent *= 100;
+        return (int) percent;
     }
 
     // button pressed. steal if possible
@@ -418,19 +425,26 @@ public class SnHPlayerControlHandler : MonoBehaviour
         {
             heldPickUp = oC.StolenFrom();
 
-            // add to my stats
-            if (heldPickUp == PickUpTypeEnum.toiletPaper)
-            {
-                playerStatsManager.GetPlayerStats().TPCollected += 1;
-            }
-            else
-            {
-                playerStatsManager.GetPlayerStats().otherObjectCollected += 1;
-            }
+            // // add to my stats
+            // if (heldPickUp == PickUpTypeEnum.toiletPaper)
+            // {
+            //     playerStatsManager.GetPlayerStats().TPCollected += 1;
+            // }
+            // else
+            // {
+            //     playerStatsManager.GetPlayerStats().otherObjectCollected += 1;
+            // }
 
-            // display the item bubble
+            // display the item
             itemSprite.sprite = otherSprites[(int) heldPickUp];
             itemBubble.SetActive(true);
+
+            // is holding item
+            isHoldingPickup = true;
+
+            // compute player slowed multiplier
+            playerController.SlowMovement(constants.SlowMovementFactor);
+            playerController.DisableDash();
         }
     }
 
