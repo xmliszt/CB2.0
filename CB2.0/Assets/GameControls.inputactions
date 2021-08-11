@@ -264,18 +264,7 @@
                 {
                     "name": "",
                     "id": "69eb69ed-4923-4b26-8ca5-aab2c8a18399",
-                    "path": "<Gamepad>/leftStickPress",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "b2569d9c-ecfa-4b47-b471-643f9fb29159",
-                    "path": "<Gamepad>/rightStickPress",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",

@@ -128,6 +128,7 @@ public class GameManager : MonoBehaviour
             }
             lastIdx++;
         }
+        
         playerObjects[playerID]
             .GetComponent<PlayerStatsManager>()
             .SetPlayerStats(selectedPlayerStats);
