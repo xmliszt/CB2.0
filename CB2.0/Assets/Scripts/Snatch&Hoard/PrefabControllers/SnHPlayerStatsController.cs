@@ -17,7 +17,7 @@ public class SnHPlayerStatsController : MonoBehaviour
     public Text otherCollected;
 
     public List<Sprite> avatars;
-    public List<Sprite> otherItems;
+    public List<Sprite> itemSprites;
 
     // when the game is started or restarted
     public void onStart()
@@ -27,7 +27,7 @@ public class SnHPlayerStatsController : MonoBehaviour
             // first update of images to be used
             avatar.sprite = avatars[uniquePlayerStats.playerAvatar];
             name.text = uniquePlayerStats.playerName;
-            otherObject.sprite = otherItems[gameConstants.OtherIndex];
+            otherObject.sprite = itemSprites[gameConstants.OtherIndex];
 
             // reset all scores
             coinsCollected.text = formatString(uniquePlayerStats.coinsCollected);

@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class SnHPickUpController : MonoBehaviour
 {
-    public SnHPickUps.PickUpType pickupType;
+    // easy type access
+    public PickUpTypeEnum pickupType;
 
     public SpriteRenderer sprite;
 
-    public List<Sprite> pickupSprites;
-
     public int engagedWithPlayer;
+
+    // list of sprites
+    public List<Sprite> itemSprites;
     
     // called when instantiated
-    public void SetPickUp(SnHPickUps.PickUpType _pickup)
+    public void SetPickUp(PickUpTypeEnum _pickup)
     {
         pickupType = _pickup;
-        sprite.sprite = pickupSprites[(int) pickupType];
+        sprite.sprite = itemSprites[(int)_pickup];
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

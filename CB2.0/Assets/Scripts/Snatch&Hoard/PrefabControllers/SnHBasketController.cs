@@ -47,8 +47,7 @@ public class SnHBasketController : MonoBehaviour
     public Sprite emptyBasket;
     public Sprite fullBasket;
     public List<Sprite> avatars;
-    public List<Sprite> otherItems;
-
+    public List<Sprite> itemSprites;
 
     public void onStart()
     {
@@ -65,7 +64,7 @@ public class SnHBasketController : MonoBehaviour
 
         // default the states for owned selected
         TPCollected.text = formatString(snhPlayerStats.TPCollected);
-        OtherItem.sprite = otherItems[gameConstants.OtherIndex];
+        OtherItem.sprite = itemSprites[(int)gameConstants.OtherIndex];
         OtherCollected.text = formatString(snhPlayerStats.otherObjectCollected);
 
         // no one interacting with the basket
@@ -144,17 +143,15 @@ public class SnHBasketController : MonoBehaviour
     {
         OwnedSelectedCorrect.SetActive(false);
         OwnedSelectedWrong.SetActive(true);
-        Debug.Log("wrong added");
     }
 
     public void IsPickedUp()
     {
-        Debug.Log("pickedup");
         engagedWithPlayer = -1;
     }
 
     // confirm can be stolen from
-    public SnHPickUps.PickUpType StolenFrom()
+    public PickUpTypeEnum StolenFrom()
     {
         // when there are both TP and other to steal from
         if (snhPlayerStats.TPCollected != 0 && snhPlayerStats.otherObjectCollected != 0)
@@ -164,13 +161,13 @@ public class SnHBasketController : MonoBehaviour
             {
                 snhPlayerStats.TPCollected -= 1;
                 Debug.Log("TP stolen from" + belongsToPlayer.ToString());
-                return SnHPickUps.PickUpType.toiletPaper;
+                return PickUpTypeEnum.toiletPaper;
             }
             else
             {
                 snhPlayerStats.otherObjectCollected -= 1;
                 Debug.Log("Other object stolen from" + belongsToPlayer.ToString());
-                return (SnHPickUps.PickUpType) gameConstants.OtherIndex;
+                return (PickUpTypeEnum) gameConstants.OtherIndex;
             }
         }
         
@@ -179,7 +176,7 @@ public class SnHBasketController : MonoBehaviour
         {
             snhPlayerStats.TPCollected -= 1;
             Debug.Log("TP stolen from" + belongsToPlayer.ToString());
-            return SnHPickUps.PickUpType.toiletPaper;
+            return PickUpTypeEnum.toiletPaper;
         }
 
         // only can steal other object
@@ -187,7 +184,7 @@ public class SnHBasketController : MonoBehaviour
         {
             snhPlayerStats.otherObjectCollected -= 1;
             Debug.Log("Other object stolen from" + belongsToPlayer.ToString());
-            return (SnHPickUps.PickUpType) gameConstants.OtherIndex;
+            return (PickUpTypeEnum)gameConstants.OtherIndex;
         }
     }
 

@@ -46,6 +46,42 @@ public class SnHGameConstants : ScriptableObject
                                             new SPZC(6.6f, 8.4f, 2.8f, 3.4f),
                                             new SPZC(6.6f, 8.4f, -4.3f, -3.3f)};
 
+    /*    public NPCZC[] npcZones = new NPCZC[] {new NPCZC(-2.9f, 2.4f, "left"),
+                                                new NPCZC(-2.9f, 1.65f, "left"),
+                                                new NPCZC(-4.05f, 2.1f, "right"),
+                                                new NPCZC(-4.05f, 0.0f, "right"),
+                                                new NPCZC(-4.05f, -0.9f, "right"),
+                                                new NPCZC(-2.9f, -0.5f, "left"),
+                                                new NPCZC(-2.9f, -2.5f, "left"),
+                                                new NPCZC(-2.9f, -3.25f, "left"),
+                                                new NPCZC(-4.05f, -2.9f, "right"),
+                                                new NPCZC(-0.3f, 1.3f, "up"),
+                                                new NPCZC(1.75f, 1.3f, "up"),
+                                                new NPCZC(2.35f, -0.8f, "up"),
+                                                new NPCZC(-0.1f, -0.8f, "up"),
+                                                new NPCZC(-0.5f, -2.9f, "up"),
+                                                new NPCZC(1.7f, -2.9f, "up"),
+                                                new NPCZC(4.4f, -2.9f, "right"),
+                                                new NPCZC(4.4f, 0.4f, "right"),
+                                                new NPCZC(4.4f, 1.7f, "right"),
+                                                new NPCZC(5.5f, -2.15f, "left"),
+                                                new NPCZC(5.5f, 1.2f, "left")};*/
+
+    public NPCZC[] npcZones = new NPCZC[] {new NPCZC(-2.9f, 2.4f, "left"),
+                                            new NPCZC(-2.9f, 1.65f, "left"),
+                                            new NPCZC(-4.05f, 2.1f, "right"),
+                                            new NPCZC(-4.05f, 0.0f, "right"),
+                                            new NPCZC(-4.05f, -0.9f, "right"),
+                                            new NPCZC(-2.9f, -0.5f, "left"),
+                                            new NPCZC(-2.9f, -2.5f, "left"),
+                                            new NPCZC(-2.9f, -3.25f, "left"),
+                                            new NPCZC(-4.05f, -2.9f, "right"),
+                                            new NPCZC(4.4f, -2.9f, "right"),
+                                            new NPCZC(4.4f, 0.4f, "right"),
+                                            new NPCZC(4.4f, 1.7f, "right"),
+                                            new NPCZC(5.5f, -2.15f, "left"),
+                                            new NPCZC(5.5f, 1.2f, "left")};
+
     // spawn constraints
     public int spawnFrequency = 5;
     public int spawnPerZone = 1;
@@ -65,5 +101,19 @@ public class SPZC
         xMax = xmax;
         yMin = ymin;
         yMax = ymax;
+    }
+}
+
+public class NPCZC
+{
+    public float x;
+    public float y;
+    public string direction;
+
+    public NPCZC(float xval, float yval, string d)
+    {
+        x = xval;
+        y = yval;
+        direction = d;
     }
 }

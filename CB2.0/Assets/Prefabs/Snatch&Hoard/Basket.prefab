@@ -1326,7 +1326,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2059c02864ed6ef4cbf3ede41fe4b8d4, type: 3}
   - {fileID: 21300000, guid: 15df2e56fa34f734c8be2977c93c6943, type: 3}
   - {fileID: 21300000, guid: 0e9b960a6f34a9d4ab6de67db34129bc, type: 3}
-  otherItems:
+  itemSprites:
   - {fileID: 4395249556266771183, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: 1422259861377778311, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: 8785363764780276730, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}

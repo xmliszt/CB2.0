@@ -14,7 +14,11 @@ public class SpawnedPickupManager : MonoBehaviour
     private Dictionary<SPZC, List<Vector3>> spawnMap;
 
     // possible item types to spawn
-    public SnHPickUps[] Spawnable;
+    private PickUpTypeEnum[] Spawnable = new PickUpTypeEnum[] {PickUpTypeEnum.toiletPaper,
+                                                                PickUpTypeEnum.chicken,
+                                                                PickUpTypeEnum.fish,
+                                                                PickUpTypeEnum.cherry,
+                                                                PickUpTypeEnum.broccoli};
 
     // parent transform
     public Transform parent;
@@ -47,7 +51,7 @@ public class SpawnedPickupManager : MonoBehaviour
                 Vector3 location = new Vector3(x, y, 0);
 
                 // select item type
-                SnHPickUps.PickUpType _pickupType = Spawnable[Random.Range(0, Spawnable.Length)].pickUpType;
+                PickUpTypeEnum _pickupType = Spawnable[Random.Range(0, Spawnable.Length)];
                 
                 // instantiate and set the pickup type
                 GameObject SpawnedPickup = Instantiate(pickupPrefab, location, pickupPrefab.transform.rotation, parent);

@@ -480,7 +480,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -650869595
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -6342878780042672534, guid: d348f80cb0d64e24a823dc8b2fca3bec, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -834,18 +834,20 @@ MonoBehaviour:
   onDrop: {fileID: 11400000, guid: 06e4f8faa4e4bfa459b5f5dd70c498b4, type: 2}
   onPickup: {fileID: 11400000, guid: ac123c6361be10049a4b48de47222c6d, type: 2}
   snhPlayerStats: {fileID: 0}
-  spawnManager: {fileID: 0}
   gameConstants: {fileID: 11400000, guid: 745d923f243db894391ca4f44d005fd7, type: 2}
+  heldPickUp: 0
   playerID: 0
   playerTransform: {fileID: 1614083833497061919}
   pickUpPrefab: {fileID: 7944020771668740015, guid: 909070fe02901d04cb935ea1ddf6850c, type: 3}
   isHoldingBasket: 0
   isHoldingPickup: 0
-  heldPickupType: 7
   basketReference: {fileID: 0}
   itemBubble: {fileID: 8996638688144128150}
   itemSprite: {fileID: 5568874778984979796}
-  pickupSprites:
+  basketSprites:
+  - {fileID: -6694291115085436071, guid: d5ce511426e86ff419f2fd509e8155e3, type: 3}
+  - {fileID: -9122351982520521906, guid: a6a13664286b6a044b178da7030429a3, type: 3}
+  otherSprites:
   - {fileID: 4395249556266771183, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: 1422259861377778311, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: 8785363764780276730, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
@@ -854,9 +856,6 @@ MonoBehaviour:
   - {fileID: -3611482823998066858, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: -580593594162575151, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: 2960242546088347903, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
-  basketSprites:
-  - {fileID: -6694291115085436071, guid: d5ce511426e86ff419f2fd509e8155e3, type: 3}
-  - {fileID: -9122351982520521906, guid: a6a13664286b6a044b178da7030429a3, type: 3}
   zoneObject: {fileID: 0}
 --- !u!1 &3243103790763110853
 GameObject:

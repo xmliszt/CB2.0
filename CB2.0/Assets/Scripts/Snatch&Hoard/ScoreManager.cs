@@ -19,13 +19,13 @@ public class ScoreManager : MonoBehaviour
     public SpriteRenderer P2Background;
     public SpriteRenderer P3Background;
     public SpriteRenderer P4Background;
-    
-    public List<Sprite> others;
 
+    public List<Sprite> itemSprites;
+    
     public void onStart()
     {
         // set the Collect values
-        otherImage.sprite = others[snHGameConstants.OtherIndex];
+        otherImage.sprite = itemSprites[snHGameConstants.OtherIndex];
         CollectTP.text = formatString(snHGameConstants.CollectTP);
         CollectOther.text = formatString(snHGameConstants.CollectOther);
 

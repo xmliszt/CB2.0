@@ -27,7 +27,7 @@ public class SnHPlayerStats : ScriptableObject
 
     public enum ZoneType
     {
-        pickUpZone = 0,
+        pickUpZone = 0, // handled
         myBasketZone = 1, // handled
         otherBasketZone = 2, // handled
         VMZone = 3,

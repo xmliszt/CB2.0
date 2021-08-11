@@ -10,6 +10,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     public SnHPlayerStats snhPlayerStats;
     public SnHGameConstants gameConstants;
+    public PickUpTypeEnum heldPickUp;
 
     public int playerID;
     public Transform playerTransform;
@@ -20,7 +21,6 @@ public class SnHPlayerControlHandler : MonoBehaviour
     // check if player is holding anything
     public bool isHoldingBasket;
     public bool isHoldingPickup;
-    public SnHPickUps.PickUpType heldPickupType;
 
     // basket reference
     public GameObject basketReference;
@@ -30,8 +30,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
     public SpriteRenderer itemSprite;
 
     // sprite list
-    public List<Sprite> pickupSprites;
     public List<Sprite> basketSprites; // 0 for empty, 1 for has items
+    public List<Sprite> otherSprites; // hardcode
 
     // controllers from gameobjects in the zone
     public GameObject zoneObject = null;
@@ -43,13 +43,13 @@ public class SnHPlayerControlHandler : MonoBehaviour
         playerID = snhPlayerStats.playerID;
         isHoldingBasket = false;
         isHoldingPickup = false;
-        heldPickupType = SnHPickUps.PickUpType.noneType;
+        heldPickUp = PickUpTypeEnum.noneType;
     }
 
     // entering zones
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name.ToString());
+        // entered basket zone
         if (collision.CompareTag("Basket"))
         {
             // basket not engaged with anyone
@@ -73,6 +73,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
             }
         }
         
+        // entered pickup zone
         else if (collision.CompareTag("Pickup"))
         {
             // not holding anything and pickup is not engaged by anyone
@@ -81,6 +82,13 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 snhPlayerStats.zoneType = SnHPlayerStats.ZoneType.pickUpZone;
                 zoneObject = collision.gameObject;
             }
+        }
+        
+        // entered NPC zone
+        else if (collision.CompareTag("NPC"))
+        {
+            snhPlayerStats.zoneType = SnHPlayerStats.ZoneType.NPCZone;
+            zoneObject = collision.gameObject;
         }
 
         // ADD MORE ZONES HANDLING
@@ -97,6 +105,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     
     // button press: use item
+    // ADD INCOMPLETE CODE
     public void OnUsePower()
     {
         // ADD CODE
@@ -125,6 +134,12 @@ public class SnHPlayerControlHandler : MonoBehaviour
             InPickUpZone();
         }
 
+        else if (snhPlayerStats.zoneType == SnHPlayerStats.ZoneType.NPCZone)
+        {
+            InNPCZone();
+        }
+
+        // not in any zones but have things to do
         else if (snhPlayerStats.zoneType == SnHPlayerStats.ZoneType.NotInAnyZone)
         {
             // if holding object basket, drop it
@@ -148,19 +163,17 @@ public class SnHPlayerControlHandler : MonoBehaviour
             {
                 Vector3 currentLocation = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z);
                 GameObject newPickup = Instantiate(pickUpPrefab, currentLocation, Quaternion.identity);
-                newPickup.GetComponent<SnHPickUpController>().SetPickUp(heldPickupType);
+                newPickup.GetComponent<SnHPickUpController>().SetPickUp(heldPickUp);
 
                 onPickup.Fire(currentLocation);
 
-                heldPickupType = SnHPickUps.PickUpType.noneType;
+                heldPickUp = PickUpTypeEnum.noneType;
                 itemSprite.sprite = null;
                 itemBubble.SetActive(false);
                 isHoldingPickup = false;
             }
         }
         // if in a particular zone, do actions according to the zone type
-
-        // if not in a zone, check if have items to drop
     }
 
     // button press: interacting with the shop
@@ -192,10 +205,10 @@ public class SnHPlayerControlHandler : MonoBehaviour
         if (isHoldingPickup)
         {
             // correct pickup
-            if (heldPickupType == (SnHPickUps.PickUpType)gameConstants.OtherIndex || heldPickupType == SnHPickUps.PickUpType.toiletPaper)
+            if (heldPickUp == (PickUpTypeEnum)gameConstants.OtherIndex || heldPickUp == PickUpTypeEnum.toiletPaper)
             {
                 // add to the playerstats
-                if (heldPickupType == SnHPickUps.PickUpType.toiletPaper)
+                if (heldPickUp == PickUpTypeEnum.toiletPaper)
                 {
                     snhPlayerStats.TPCollected += 1;
                 }
@@ -206,7 +219,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
                 // no longer holding any pickups
                 isHoldingPickup = false;
-                heldPickupType = SnHPickUps.PickUpType.noneType;
+                heldPickUp = PickUpTypeEnum.noneType;
 
                 // get rid of the item bubble
                 itemSprite.sprite = null;
@@ -216,7 +229,6 @@ public class SnHPlayerControlHandler : MonoBehaviour
             // wrong pickup
             else
             {
-                Debug.Log("wrong pickup");
                 bC.WrongPickupAdded();
             }
         }
@@ -224,7 +236,6 @@ public class SnHPlayerControlHandler : MonoBehaviour
         // pickup basket
         else
         {
-            Debug.Log("what");
             // make basket inactive in the hierarchy and store the reference here
             basketReference = zoneObject;
             bC.IsPickedUp();
@@ -249,10 +260,10 @@ public class SnHPlayerControlHandler : MonoBehaviour
         // can steal
         if (oC.canBeStolenFromBool)
         {
-            heldPickupType = oC.StolenFrom();
+            heldPickUp = oC.StolenFrom();
 
             // add to my stats
-            if (heldPickupType == SnHPickUps.PickUpType.toiletPaper)
+            if (heldPickUp == PickUpTypeEnum.toiletPaper)
             {
                 snhPlayerStats.TPCollected += 1;
             }
@@ -262,7 +273,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
             }
 
             // display the item bubble
-            itemSprite.sprite = pickupSprites[(int)heldPickupType];
+            itemSprite.sprite = otherSprites[(int)heldPickUp];
             itemBubble.SetActive(true);
         }
     }
@@ -274,10 +285,10 @@ public class SnHPlayerControlHandler : MonoBehaviour
         SnHPickUpController pC = zoneObject.GetComponent<SnHPickUpController>();
 
         // store information about the pickup
-        heldPickupType = pC.pickupType;
+        heldPickUp = pC.pickupType;
 
         // display the item
-        itemSprite.sprite = pickupSprites[(int)heldPickupType];
+        itemSprite.sprite = otherSprites[(int)heldPickUp];
         itemBubble.SetActive(true);
 
         // is holding item
@@ -291,5 +302,34 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
         // reset the reference to the game object back to null
         zoneObject = null;
+    }
+
+
+    // button pressed. give items to earn coins or get scolded for giving the wrong thing
+    private void InNPCZone()
+    {
+        SnHNPCController npcC = zoneObject.GetComponent<SnHNPCController>();
+
+        // not thinking and hence interactable
+        if (!npcC.isThinking)
+        {
+            // gave correct item
+            if (heldPickUp == npcC.expectedPickup)
+            {
+                npcC.CorrectPickupGiven();
+
+                // get rid of what you are hold
+                isHoldingPickup = false;
+                heldPickUp = PickUpTypeEnum.noneType;
+
+                // get rid of the item bubble
+                itemSprite.sprite = null;
+                itemBubble.SetActive(false);
+            }
+            else
+            {
+                npcC.WrongPickupGiven();
+            }
+        }
     }
 }

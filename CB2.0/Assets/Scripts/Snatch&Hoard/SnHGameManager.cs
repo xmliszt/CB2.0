@@ -12,6 +12,7 @@ public class SnHGameManager : MonoBehaviour
     public SnHBasketController P1BC, P2BC, P3BC, P4BC;
     public SpawnedPickupManager spawnManager;
     public ScoreManager scoreManager;
+    public SnHNPCManager npcManager;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,11 @@ public class SnHGameManager : MonoBehaviour
 
         // select random item for game constant
         int otheritem = Random.Range(0, 3); // game constant have to follow pickup index
-        gameConstants.OtherIndex = otheritem + 2; 
+        gameConstants.OtherIndex = otheritem + 2;
+
+        // select random number of npcs
+        int npcCount = Random.Range(1, 6);
+        gameConstants.NPCs = npcCount;
 
         // reset all player stats
         P1Stats.coinsCollected = 0;
@@ -69,6 +74,9 @@ public class SnHGameManager : MonoBehaviour
         // spawn objects
         spawnManager.onStart();
 
+        // spawn npcs
+        npcManager.onStart();
+
         // initialise the scores
         scoreManager.onStart();
 
@@ -84,11 +92,4 @@ public class SnHGameManager : MonoBehaviour
         P3CH.onStart();
         P4CH.onStart();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 }
