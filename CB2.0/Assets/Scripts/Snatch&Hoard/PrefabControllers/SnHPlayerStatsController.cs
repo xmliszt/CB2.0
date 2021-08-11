@@ -30,23 +30,14 @@ public class SnHPlayerStatsController : MonoBehaviour
     private bool playerIsInGame = false;
 
     // when the game is started or restarted
-    private void Start()
+    public void Initialise()
     {
         if (players.GetPlayers().ContainsKey(playerID))
         {
+            GetComponent<Canvas>().enabled = true;
             uniquePlayerStats = players.GetPlayers()[playerID].playerStats;
             playerIsInGame = true;
-        } else {
-            gameObject.SetActive(false);
-        }
-    }
 
-    public void onStart()
-    {
-        if (
-            playerIsInGame && uniquePlayerStats.isActive //this player is in use
-        )
-        {
             // first update of images to be used
             avatar.sprite = uniquePlayerStats.playerAvatar;
             name.text = string.Format("{0}P", uniquePlayerStats.playerID);
@@ -64,14 +55,14 @@ public class SnHPlayerStatsController : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(false);
+            GetComponent<Canvas>().enabled = false;
         }
     }
 
     // anytime the number of coins, TP or others collected changes
     public void Update()
     {
-        if (playerIsInGame && uniquePlayerStats.isActive)
+        if (playerIsInGame)
         {
             coinsCollected.text = formatString(uniquePlayerStats.coins);
             TPcollected.text = formatString(uniquePlayerStats.TPCollected);

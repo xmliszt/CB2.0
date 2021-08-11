@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6567364565040959673}
   - component: {fileID: 5199189235189141427}
   - component: {fileID: 1066208571848688065}
-  - component: {fileID: 3898835108176679413}
+  - component: {fileID: -3036333584074478122}
   m_Layer: 0
   m_Name: PlayerStats
   m_TagString: Untagged
@@ -126,7 +126,7 @@ MonoBehaviour:
   - {fileID: -3611482823998066858, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: -580593594162575151, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: 2960242546088347903, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
---- !u!114 &3898835108176679413
+--- !u!114 &-3036333584074478122
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,13 +138,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 15070553d257aff42b5ba481ba4265a6, type: 2}
+  Event: {fileID: 11400000, guid: d1f9c4610f61a064f932742d3f893a50, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1066208571848688065}
         m_TargetAssemblyTypeName: SnHPlayerStatsController, Assembly-CSharp
-        m_MethodName: onStart
+        m_MethodName: Initialise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

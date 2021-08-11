@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+
+    public GameEvent onOtherItemChosen;
     public SnHGameConstants snHGameConstants;
 
     public Text CollectTP;
@@ -13,10 +15,20 @@ public class ScoreManager : MonoBehaviour
     public Text CollectOther;
 
     public List<Sprite> itemSprites;
-    
-    public void onStart()
-    {
+
+    private void Start() {
         // set the Collect values
+        // select random item for game constant
+        int otheritem = Random.Range(0, 3); // game constant have to follow pickup index
+        snHGameConstants.OtherIndex = otheritem + 3;
+        onOtherItemChosen.Fire();
+
+        int TPCollected = Random.Range(snHGameConstants.collectTotal / 2 - 2, snHGameConstants.collectTotal / 2 + 3);
+        int remaining = snHGameConstants.collectTotal - TPCollected;
+
+        snHGameConstants.CollectTP = TPCollected;
+        snHGameConstants.CollectOther = remaining;
+
         otherImage.sprite = itemSprites[snHGameConstants.OtherIndex];
         CollectTP.text = formatString(snHGameConstants.CollectTP);
         CollectOther.text = formatString(snHGameConstants.CollectOther);

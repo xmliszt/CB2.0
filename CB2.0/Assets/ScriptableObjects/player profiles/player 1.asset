@@ -12,19 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f589a6d5dcfacb94fb780302a70367b4, type: 3}
   m_Name: player 1
   m_EditorClassIdentifier: 
-  playerID: 1
+  playerID: 0
   playerName: Adam
-  selected: 1
+  selected: 0
   playerAccent: {r: 0.5665557, g: 1, b: 0.5235849, a: 1}
   playerAvatar: {fileID: 21300000, guid: 5fbfe959217badf438a6b4ffb50703f9, type: 3}
   animatorController: {fileID: 9100000, guid: ba47bc509b1cb5847a9262ae1453904e, type: 2}
   inventory:
     item: {fileID: 0}
-  coins: 99
+  coins: 4
   score: 0
   masks: 0
   ready: 1
-  isActive: 1
-  TPCollected: 0
-  otherObjectCollected: 0
+  TPCollected: 1
+  otherObjectCollected: 1
   zoneType: 6

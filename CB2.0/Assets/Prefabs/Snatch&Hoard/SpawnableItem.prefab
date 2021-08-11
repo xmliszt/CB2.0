@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 9140707549233188024}
   - component: {fileID: 4160810814317805109}
   - component: {fileID: 9094131092375139220}
+  - component: {fileID: 3161633785401544652}
   m_Layer: 0
   m_Name: SpawnableItem
   m_TagString: Pickup
@@ -129,8 +130,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 770282837
-  m_SortingLayer: 0
+  m_SortingLayerID: 190030871
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 1422259861377778311, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -214,3 +215,17 @@ MonoBehaviour:
   - {fileID: -3611482823998066858, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: -580593594162575151, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: 2960242546088347903, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
+--- !u!114 &3161633785401544652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7944020771668740015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cca8605d15fb284a9b948044725ce2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
+  spriteRenderer: {fileID: 3098849639541778475}

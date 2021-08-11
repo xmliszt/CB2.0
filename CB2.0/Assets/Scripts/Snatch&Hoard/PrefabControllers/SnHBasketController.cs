@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 // no manager
 public class SnHBasketController : MonoBehaviour
@@ -26,8 +27,6 @@ public class SnHBasketController : MonoBehaviour
     // to switch on and off when another player is nearby
     public GameObject Unselected;
 
-    public GameObject OwnedSelected;
-
     public GameObject OwnedSelectedCorrect;
 
     public GameObject OwnedSelectedWrong;
@@ -35,23 +34,23 @@ public class SnHBasketController : MonoBehaviour
     public GameObject NotOwnedSelected;
 
     // unselected
-    public SpriteRenderer UnselectedAvatar;
+    public Image UnselectedAvatar;
 
     // owned and selected
-    public SpriteRenderer OwnedSelectedAvatar;
+    public Image OwnedSelectedAvatar;
 
-    public SpriteRenderer TPBackground;
+    public Image TPBackground;
 
-    public Text TPCollected;
+    public TMP_Text TPCollected;
 
-    public SpriteRenderer OtherItem;
+    public Image OtherItem;
 
-    public SpriteRenderer OtherBackground;
+    public Image OtherBackground;
 
-    public Text OtherCollected;
+    public TMP_Text OtherCollected;
 
     // not owned and selected
-    public SpriteRenderer NotOwnedSelectedAvatar;
+    public Image NotOwnedSelectedAvatar;
 
     public GameObject StealBubble;
 
@@ -62,21 +61,9 @@ public class SnHBasketController : MonoBehaviour
 
     public List<Sprite> itemSprites;
 
-    private void Start()
+    public void Initialise()
     {
         engagedWithPlayer = -1;
-        if (players.GetPlayers().ContainsKey(playerID))
-        {
-            snhPlayerStats = players.GetPlayers()[playerID].playerStats;
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-    }
-
-    public void onStart()
-    {
         if (players.GetPlayers().ContainsKey(playerID))
         {
             snhPlayerStats = players.GetPlayers()[playerID].playerStats;
@@ -92,7 +79,8 @@ public class SnHBasketController : MonoBehaviour
 
             // default the states for owned selected
             TPCollected.text = formatString(snhPlayerStats.TPCollected);
-            OtherItem.sprite = itemSprites[(int) gameConstants.OtherIndex];
+            Debug.Log("Item sprite index: " + gameConstants.OtherIndex.ToString());
+            OtherItem.sprite = itemSprites[gameConstants.OtherIndex];
             OtherCollected.text =
                 formatString(snhPlayerStats.otherObjectCollected);
 
@@ -101,14 +89,16 @@ public class SnHBasketController : MonoBehaviour
 
             // default to unselected
             Unselected.SetActive(true);
-            OwnedSelected.SetActive(false);
             OwnedSelectedCorrect.SetActive(false);
             OwnedSelectedWrong.SetActive(false);
             NotOwnedSelected.SetActive(false);
             StealBubble.SetActive(false);
         }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && engagedWithPlayer == -1)
@@ -147,7 +137,6 @@ public class SnHBasketController : MonoBehaviour
 
                 // switch back to unselected bubble
                 Unselected.SetActive(true);
-                OwnedSelected.SetActive(false);
                 OwnedSelectedCorrect.SetActive(false);
                 OwnedSelectedWrong.SetActive(false);
                 NotOwnedSelected.SetActive(false);
@@ -160,7 +149,6 @@ public class SnHBasketController : MonoBehaviour
     {
         // display correct bubble
         Unselected.SetActive(false);
-        OwnedSelected.SetActive(true);
         NotOwnedSelected.SetActive(false);
         OwnedSelectedCorrect.SetActive(true);
         OwnedSelectedWrong.SetActive(false);
@@ -171,7 +159,6 @@ public class SnHBasketController : MonoBehaviour
     {
         // display correct bubble
         Unselected.SetActive(false);
-        OwnedSelected.SetActive(false);
         NotOwnedSelected.SetActive(true);
         OwnedSelectedCorrect.SetActive(false);
         OwnedSelectedWrong.SetActive(false);

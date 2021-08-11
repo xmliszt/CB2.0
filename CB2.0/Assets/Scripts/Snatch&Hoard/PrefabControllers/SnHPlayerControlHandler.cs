@@ -6,6 +6,7 @@ using UnityEngine;
 public class SnHPlayerControlHandler : MonoBehaviour
 {
     public SingleIntegerGameEvent firePowerup;
+
     public GameConstants constants;
 
     public Vector3GameEvent onDrop;
@@ -95,9 +96,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 // implicitly not holding my basket
                 if (
                     playerStatsManager.GetPlayerStats().playerID ==
-                    collision
-                        .GetComponent<SnHBasketController>()
-                        .playerID
+                    collision.GetComponent<SnHBasketController>().playerID
                 )
                 {
                     playerStatsManager.GetPlayerStats().zoneType =
@@ -106,9 +105,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 } // not my basket and i am not holding anything
                 else if (
                     playerStatsManager.GetPlayerStats().playerID !=
-                    collision
-                        .GetComponent<SnHBasketController>()
-                        .playerID &&
+                    collision.GetComponent<SnHBasketController>().playerID &&
                     !isHoldingBasket &&
                     !isHoldingPickup
                 )
@@ -122,7 +119,6 @@ public class SnHPlayerControlHandler : MonoBehaviour
         else if (collision.CompareTag("Pickup"))
         {
             // not holding anything and pickup is not engaged by anyone
-            Debug.Log(string.Format("isHOldingBasket: {0}, isHOldingPickup: {1}", isHoldingBasket, isHoldingPickup));
             if (
                 !isHoldingBasket &&
                 !isHoldingPickup &&
@@ -132,7 +128,6 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 playerStatsManager.GetPlayerStats().playerID
             )
             {
-                Debug.Log("Enter pickup zone");
                 playerStatsManager.GetPlayerStats().zoneType =
                     PlayerStats.ZoneType.pickUpZone;
                 zoneObject = collision.gameObject;
@@ -140,9 +135,13 @@ public class SnHPlayerControlHandler : MonoBehaviour
         } // entered NPC zone
         else if (collision.CompareTag("NPC"))
         {
-            if (collision.GetComponent<SnHNPCController>().engagedWithPlayer == playerStatsManager.GetPlayerStats().playerID)
+            if (
+                collision.GetComponent<SnHNPCController>().engagedWithPlayer ==
+                playerStatsManager.GetPlayerStats().playerID
+            )
             {
-                playerStatsManager.GetPlayerStats().zoneType = PlayerStats.ZoneType.NPCZone;
+                playerStatsManager.GetPlayerStats().zoneType =
+                    PlayerStats.ZoneType.NPCZone;
                 zoneObject = collision.gameObject;
             }
         }
@@ -151,13 +150,18 @@ public class SnHPlayerControlHandler : MonoBehaviour
             playerStatsManager.GetPlayerStats().zoneType =
                 PlayerStats.ZoneType.shopZone;
             zoneObject = collision.gameObject;
-        }
-        // entered checkout zone
+        } // entered checkout zone
         else if (collision.CompareTag("Checkout"))
         {
-            if (collision.GetComponent<SnHCheckoutController>().engagedWithPlayer == playerStatsManager.GetPlayerStats().playerID)
+            if (
+                collision
+                    .GetComponent<SnHCheckoutController>()
+                    .engagedWithPlayer ==
+                playerStatsManager.GetPlayerStats().playerID
+            )
             {
-                playerStatsManager.GetPlayerStats().zoneType = PlayerStats.ZoneType.CheckoutZone;
+                playerStatsManager.GetPlayerStats().zoneType =
+                    PlayerStats.ZoneType.CheckoutZone;
                 zoneObject = collision.gameObject;
             }
         }
@@ -182,7 +186,6 @@ public class SnHPlayerControlHandler : MonoBehaviour
     // ADD INCOMPLETE CODE
     public void OnPickDropItem()
     {
-        playerAudioController.PlaySFX(SFXType.drop);
         // in my basket zone
         if (
             playerStatsManager.GetPlayerStats().zoneType ==
@@ -212,12 +215,14 @@ public class SnHPlayerControlHandler : MonoBehaviour
         {
             InNPCZone();
         } // not in any zones but have things to do
-        else if (playerStatsManager.GetPlayerStats().zoneType == PlayerStats.ZoneType.CheckoutZone)
+        else if (
+            playerStatsManager.GetPlayerStats().zoneType ==
+            PlayerStats.ZoneType.CheckoutZone
+        )
         {
             InCheckoutZone();
-        }
-        else // not in any zones but have things to do
-        if (
+        } // not in any zones but have things to do
+        else if (
             playerStatsManager.GetPlayerStats().zoneType ==
             PlayerStats.ZoneType.NotInAnyZone
         )
@@ -274,12 +279,25 @@ public class SnHPlayerControlHandler : MonoBehaviour
             PlayerStats.ZoneType.shopZone
         )
         {
-            playerAudioController.PlaySFX(SFXType._lock);
-            // speed up
-            onPowerUpEffect = true;
-            playerController.SpeedUpMovement(constants.speedUpMovementFactor);
-            // rainbow effect start
-            firePowerup.Fire(playerStatsManager.GetPlayerStats().playerID);
+            if (
+                playerStatsManager.GetPlayerStats().coins >=
+                gameConstants.VMPrice
+            )
+            {
+                playerStatsManager.GetPlayerStats().coins -=
+                    gameConstants.VMPrice;
+                playerAudioController.PlaySFX(SFXType.changeOutfit);
+
+                // speed up
+                onPowerUpEffect = true;
+                playerController
+                    .SpeedUpMovement(constants.speedUpMovementFactor);
+
+                // rainbow effect start
+                firePowerup.Fire(playerStatsManager.GetPlayerStats().playerID);
+
+                StartCoroutine(shutdownShopEffect());
+            }
         }
     }
 
@@ -320,6 +338,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
             )
             {
                 // add to the playerstats
+                playerAudioController.PlaySFX(SFXType.submitResult);
                 if (heldPickUp == PickUpTypeEnum.toiletPaper)
                 {
                     playerStatsManager.GetPlayerStats().TPCollected += 1;
@@ -345,6 +364,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
             else
             // wrong pickup
             {
+                playerAudioController.PlaySFX(SFXType.wrong);
                 bC.WrongPickupAdded();
             }
         }
@@ -417,6 +437,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
     // button pressed. pickup item and destroy it in scene.
     private void InPickUpZone()
     {
+        playerAudioController.PlaySFX(SFXType.drop);
+
         SnHPickUpController pC = zoneObject.GetComponent<SnHPickUpController>();
 
         // store information about the pickup
@@ -454,6 +476,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
             // gave correct item
             if (heldPickUp == npcC.expectedPickup)
             {
+                playerAudioController.PlaySFX(SFXType.submitResult);
                 npcC.CorrectPickupGiven();
 
                 // get rid of what you are hold
@@ -468,6 +491,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
             }
             else
             {
+                playerAudioController.PlaySFX(SFXType.wrong);
+
                 npcC.WrongPickupGiven();
             }
         }
@@ -475,10 +500,16 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     private void InCheckoutZone()
     {
-        SnHCheckoutController coC = zoneObject.GetComponent<SnHCheckoutController>();
+        SnHCheckoutController coC =
+            zoneObject.GetComponent<SnHCheckoutController>();
 
         // check if i can checkout
-        if (playerStatsManager.GetPlayerStats().TPCollected >= gameConstants.CollectTP && playerStatsManager.GetPlayerStats().otherObjectCollected >= gameConstants.CollectOther)
+        if (
+            playerStatsManager.GetPlayerStats().TPCollected >=
+            gameConstants.CollectTP &&
+            playerStatsManager.GetPlayerStats().otherObjectCollected >=
+            gameConstants.CollectOther
+        )
         {
             Debug.Log("checking out");
 

@@ -23,8 +23,7 @@ public class SpawnedPickupManager : MonoBehaviour
     // parent transform
     public Transform parent;
 
-    public void onStart()
-    {
+    private void Start() {
         spawnMap = new Dictionary<SPZC, List<Vector3>>();
         foreach (SPZC zones in snhGameConstants.spawnZones)
         {

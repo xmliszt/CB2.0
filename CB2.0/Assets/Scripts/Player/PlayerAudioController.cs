@@ -20,7 +20,9 @@ public enum SFXType
     ready1 = 12,
     ready2 = 13,
     ready3 = 14,
-    ready4 = 15
+    ready4 = 15,
+
+    wrong = 16,
 }
 
 [System.Serializable]

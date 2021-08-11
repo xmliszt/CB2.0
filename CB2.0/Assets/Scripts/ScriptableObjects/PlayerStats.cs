@@ -70,8 +70,6 @@ public class PlayerStats : ScriptableObject
 
     private int rank;
 
-    public bool isActive = false;
-
     public int TPCollected;
 
     public int otherObjectCollected;

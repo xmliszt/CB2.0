@@ -23,8 +23,6 @@ public class SnHGameConstants : ScriptableObject
     public Color activeColour = new Color(91, 91, 91, 255);
     public Color inactiveColour = new Color(255, 255, 255, 255);
 
-    // Number of NPCs to spawn
-    public int NPCs;
 
     // all spawn zones
     public SPZC[] spawnZones = new SPZC[] {new SPZC(-5.15f, -4.3f, -3.1f, 3.65f),

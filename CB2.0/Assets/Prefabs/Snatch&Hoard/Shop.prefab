@@ -68,8 +68,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 770282837
-  m_SortingLayer: 0
+  m_SortingLayerID: 1298843805
+  m_SortingLayer: 5
   m_SortingOrder: 4
   m_Sprite: {fileID: -1234831737406411081, guid: 0932bb4173f49854d8ef456543c4b705, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 8940483157717107742}
   - component: {fileID: 3669740648342377842}
   - component: {fileID: 5782904477018121309}
+  - component: {fileID: 2907240603867128132}
   m_Layer: 0
   m_Name: Shop
   m_TagString: Shop
@@ -307,6 +308,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.78, y: 1.459732}
   m_EdgeRadius: 0
+--- !u!114 &2907240603867128132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4852368653611270080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cca8605d15fb284a9b948044725ce2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
+  spriteRenderer: {fileID: 3669740648342377842}
 --- !u!1 &6438662516555851636
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,8 +423,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 770282837
-  m_SortingLayer: 0
+  m_SortingLayerID: 1298843805
+  m_SortingLayer: 5
   m_SortingOrder: 3
   m_Sprite: {fileID: 649988437080790280, guid: 0932bb4173f49854d8ef456543c4b705, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -488,6 +503,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1405607340328781701}
+  - component: {fileID: 5083588223713704729}
   m_Layer: 0
   m_Name: Indicator
   m_TagString: Untagged
@@ -511,3 +527,16 @@ Transform:
   m_Father: {fileID: 8940483157717107742}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5083588223713704729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8547155281107773615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8d6caad73e4a3c409606070e947935d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}

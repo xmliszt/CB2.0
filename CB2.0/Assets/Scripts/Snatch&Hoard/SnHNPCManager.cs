@@ -14,15 +14,17 @@ public class SnHNPCManager : MonoBehaviour
 
     private int currentlySpawned = 0;
 
-    public void onStart()
+    private void Start()
     {
+        // select random number of npcs
+        int npcCount = Random.Range(3, 6);
         npcSpawnMap = new Dictionary<NPCZC, int>();
         foreach (NPCZC zones in snhGameConstants.npcZones)
         {
             npcSpawnMap[zones] = 0;
         }
 
-        while (currentlySpawned != snhGameConstants.NPCs)
+        while (currentlySpawned != npcCount)
         {
             // randomly select an area
             int idx = Random.Range(0, snhGameConstants.npcZones.Length - 1);
@@ -34,7 +36,11 @@ public class SnHNPCManager : MonoBehaviour
                 Vector3 location = new Vector3(zone.x, zone.y, 0);
 
                 // instantiate the prefab
-                GameObject npc = Instantiate(npcPrefab, location, npcPrefab.transform.rotation, parent);
+                GameObject npc =
+                    Instantiate(npcPrefab,
+                    location,
+                    npcPrefab.transform.rotation,
+                    parent);
                 npc.GetComponent<SnHNPCController>().direction = zone.direction;
                 npc.GetComponent<SnHNPCController>().onStart();
 

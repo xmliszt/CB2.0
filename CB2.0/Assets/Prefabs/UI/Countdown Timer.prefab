@@ -121,7 +121,7 @@ MonoBehaviour:
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   countdownText: {fileID: 5671717140257386909}
   initializedColor: {r: 0.9565394, g: 1, b: 0, a: 0.29803923}
-  lastTenSecondsColor: {r: 1, g: 0.23113209, b: 0.23113209, a: 0.29803923}
+  lastTenSecondsColor: {r: 1, g: 0.23113209, b: 0.23113209, a: 0.654902}
 --- !u!114 &1744678204
 MonoBehaviour:
   m_ObjectHideFlags: 0

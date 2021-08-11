@@ -11,7 +11,7 @@ public class SpriteOutlined : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
 
-    private PlayerStats playerStats;
+    private PlayerStats _playerStats;
 
     private Color color;
 
@@ -27,6 +27,7 @@ public class SpriteOutlined : MonoBehaviour
 
     public void EnableOutline(PlayerStats playerStats)
     {
+        _playerStats = playerStats;
         color = playerStats.playerAccent;
         outline = true;
     }
@@ -38,7 +39,7 @@ public class SpriteOutlined : MonoBehaviour
 
     public void TurnOnRainbowEffect(int playerID)
     {
-        if (playerStats.playerID == playerID) isRainbowEffect = true;
+        if (_playerStats.playerID == playerID) isRainbowEffect = true;
         StartCoroutine(TurnOffRainbowEffect());
     }
 
@@ -69,12 +70,13 @@ public class SpriteOutlined : MonoBehaviour
                 mpb
                     .SetColor("_OutlineColor",
                     Color.HSVToRGB(h + Time.deltaTime * 1f, s, v));
+                mpb.SetFloat("_OutlineSize", outlineSize + 2);
             }
             else
             {
                 mpb.SetColor("_OutlineColor", color);
+                mpb.SetFloat("_OutlineSize", outlineSize);
             }
-            mpb.SetFloat("_OutlineSize", outlineSize);
             spriteRenderer.SetPropertyBlock (mpb);
         }
     }

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     public Players players;
 
-    public List<GameStats.Scene> minigameSequence;
+    private List<GameStats.Scene> minigameSequence;
 
     private Dictionary<GameStats.Scene, bool> minigameSelection;
 
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ResetPlayerStatsCompletely();
+        minigameSequence = new List<GameStats.Scene>();
         playerObjects = new Dictionary<int, Transform>();
         minigameSelection = new Dictionary<GameStats.Scene, bool>();
         playerInputManager = PlayerInputManager.instance;
@@ -60,7 +61,6 @@ public class GameManager : MonoBehaviour
         {
             OnPlayerJoined(playerInfo.playerInput);
         }
-        Debug.Log("Game Manager Started");
     }
 
     public void OnPlayerJoined(PlayerInput playerInput)
@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour
             playerObjects = new Dictionary<int, Transform>();
         playerObjects[playerID] = playerInput.gameObject.transform;
         PlayerStats newPlayerStats = SwitchPlayerProfile(playerID); // assign one profile to the joined player
-        newPlayerStats.isActive = true;
         if (!players.PlayerExist(playerID))
             players.AddPlayer(newPlayerStats, playerInput);
         else
@@ -147,7 +146,6 @@ public class GameManager : MonoBehaviour
                 // deselect current
                 playerStats.selected = false;
                 playerStats.playerID = 0;
-                playerStats.isActive = false;
             }
         }
     }
