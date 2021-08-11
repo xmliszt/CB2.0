@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 
-// Adapted from SwabStickMovement (To make into an interface?)
+// Adapted from SwabStickMovement
 public class StickMovement : MonoBehaviour
 {
     public GameConstants constants;
