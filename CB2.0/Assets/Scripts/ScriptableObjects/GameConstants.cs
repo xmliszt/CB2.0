@@ -91,4 +91,8 @@ public class GameConstants : ScriptableObject
 
     public float SlowMovementFactor = 0.9f;
 
+    public float speedUpMovementFactor = 1.2f;
+
+    public float shopItemEffectDuration = 8.0f;
+
 }

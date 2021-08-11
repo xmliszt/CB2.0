@@ -13,7 +13,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     public SnHGameConstants gameConstants;
 
-    public PickUpTypeEnum heldPickUp;
+    private PickUpTypeEnum heldPickUp;
 
     public Transform playerTransform;
 
@@ -21,12 +21,12 @@ public class SnHPlayerControlHandler : MonoBehaviour
     public GameObject pickUpPrefab;
 
     // check if player is holding anything
-    public bool isHoldingBasket;
+    private bool isHoldingBasket;
 
-    public bool isHoldingPickup;
+    private bool isHoldingPickup;
 
     // basket reference
-    public GameObject basketReference;
+    private GameObject basketReference;
 
     // item bubble references
     public GameObject itemBubble;
@@ -39,13 +39,15 @@ public class SnHPlayerControlHandler : MonoBehaviour
     public List<Sprite> otherSprites; // hardcode
 
     // controllers from gameobjects in the zone
-    public GameObject zoneObject = null;
+    private GameObject zoneObject = null;
 
     private PlayerStatsManager playerStatsManager;
 
     private PlayerController playerController;
 
     private int playerID;
+
+    private bool onPowerUpEffect = false;
 
     private void Awake()
     {
@@ -87,9 +89,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
                     playerStatsManager.GetPlayerStats().zoneType =
                         PlayerStats.ZoneType.myBasketZone;
                     zoneObject = collision.gameObject;
-                }
-                else // not my basket and i am not holding anything
-                if (
+                } // not my basket and i am not holding anything
+                else if (
                     playerStatsManager.GetPlayerStats().playerID !=
                     collision
                         .GetComponent<SnHBasketController>()
@@ -103,9 +104,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
                     zoneObject = collision.gameObject;
                 }
             }
-        }
-        else // entered pickup zone
-        if (collision.CompareTag("Pickup"))
+        } // entered pickup zone
+        else if (collision.CompareTag("Pickup"))
         {
             // not holding anything and pickup is not engaged by anyone
             if (
@@ -121,15 +121,19 @@ public class SnHPlayerControlHandler : MonoBehaviour
                     PlayerStats.ZoneType.pickUpZone;
                 zoneObject = collision.gameObject;
             }
-        }
-        else // entered NPC zone
-        if (collision.CompareTag("NPC"))
+        } // entered NPC zone
+        else if (collision.CompareTag("NPC"))
         {
             playerStatsManager.GetPlayerStats().zoneType =
                 PlayerStats.ZoneType.NPCZone;
             zoneObject = collision.gameObject;
         }
-
+        else if (collision.CompareTag("shop"))
+        {
+            playerStatsManager.GetPlayerStats().zoneType =
+                PlayerStats.ZoneType.shopZone;
+            zoneObject = collision.gameObject;
+        }
         // ADD MORE ZONES HANDLING
     }
 
@@ -141,13 +145,12 @@ public class SnHPlayerControlHandler : MonoBehaviour
         zoneObject = null;
     }
 
-    // button press: use item
-    // ADD INCOMPLETE CODE
-    public void OnUsePower()
-    {
-        // ADD CODE
-    }
-
+    // // button press: use item
+    // // ADD INCOMPLETE CODE
+    // public void OnUsePower()
+    // {
+    //     // ADD CODE
+    // }
     // button press: pick or drop items
     // ADD INCOMPLETE CODE
     public void OnPickDropItem()
@@ -159,17 +162,15 @@ public class SnHPlayerControlHandler : MonoBehaviour
         )
         {
             InMyBasketZone();
-        }
-        else // in other's basket zone
-        if (
+        } // in other's basket zone
+        else if (
             playerStatsManager.GetPlayerStats().zoneType ==
             PlayerStats.ZoneType.otherBasketZone
         )
         {
             NotMyBasketZone();
-        }
-        else // in a pickup zone
-        if (
+        } // in a pickup zone
+        else if (
             playerStatsManager.GetPlayerStats().zoneType ==
             PlayerStats.ZoneType.pickUpZone
         )
@@ -182,9 +183,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
         )
         {
             InNPCZone();
-        }
-        else // not in any zones but have things to do
-        if (
+        } // not in any zones but have things to do
+        else if (
             playerStatsManager.GetPlayerStats().zoneType ==
             PlayerStats.ZoneType.NotInAnyZone
         )
@@ -202,9 +202,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
                 // remove reference to basket
                 basketReference = null;
-            }
-            else // if holding object, drop it (spawn new object)
-            if (isHoldingPickup)
+            } // if holding object, drop it (spawn new object)
+            else if (isHoldingPickup)
             {
                 Vector3 currentLocation =
                     new Vector3(playerTransform.position.x,
@@ -233,6 +232,23 @@ public class SnHPlayerControlHandler : MonoBehaviour
     public void OnShop()
     {
         // ADD CODE
+        if (
+            playerStatsManager.GetPlayerStats().zoneType ==
+            PlayerStats.ZoneType.shopZone
+        )
+        {
+            // speed up
+            onPowerUpEffect = true;
+            playerController.SpeedUpMovement(constants.speedUpMovementFactor);
+            // rainbow effect start
+        }
+    }
+
+    private IEnumerator shutdownShopEffect()
+    {
+        yield return new WaitForSeconds(constants.shopItemEffectDuration);
+        playerController.RestoreMovement();
+        onPowerUpEffect = false;
     }
 
     private int _GetBasketStatus()
@@ -302,14 +318,17 @@ public class SnHPlayerControlHandler : MonoBehaviour
             itemBubble.SetActive(true);
             itemSprite.sprite = basketSprites[_GetBasketStatus()];
 
-            // compute player slowed multiplier
-            playerController
-                .SlowMovement(Mathf
-                    .Pow(constants.SlowMovementFactor,
-                    (
-                    playerStatsManager.GetPlayerStats().TPCollected +
-                    playerStatsManager.GetPlayerStats().otherObjectCollected
-                    )));
+            if (!onPowerUpEffect)
+            {
+                // compute player slowed multiplier
+                playerController
+                    .SlowMovement(Mathf
+                        .Pow(constants.SlowMovementFactor,
+                        (
+                        playerStatsManager.GetPlayerStats().TPCollected +
+                        playerStatsManager.GetPlayerStats().otherObjectCollected
+                        )));
+            }
 
             zoneObject = null;
         }
@@ -317,7 +336,12 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     private int computeScore()
     {
-        double percent = (double)(playerStatsManager.GetPlayerStats().TPCollected+playerStatsManager.GetPlayerStats().otherObjectCollected)/gameConstants.collectTotal;
+        double percent =
+            (
+            double
+            )(playerStatsManager.GetPlayerStats().TPCollected +
+            playerStatsManager.GetPlayerStats().otherObjectCollected) /
+            gameConstants.collectTotal;
         percent = Math.Truncate(percent * 100) / 100;
         return (int) percent * 100;
     }

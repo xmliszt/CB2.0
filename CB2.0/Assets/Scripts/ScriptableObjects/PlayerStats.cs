@@ -94,7 +94,8 @@ public class PlayerStats : ScriptableObject
         VMZone = 3,
         NPCZone = 4,
         CheckoutZone = 5,
-        NotInAnyZone = 6
+        NotInAnyZone = 6,
+        shopZone = 7,
     }
 
     public ZoneType zoneType;

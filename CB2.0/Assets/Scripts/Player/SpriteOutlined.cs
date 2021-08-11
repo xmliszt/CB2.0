@@ -12,6 +12,8 @@ public class SpriteOutlined : MonoBehaviour
 
     private Color color;
 
+    private bool isRainbowEffect = false;
+
     private bool outline;
 
     private void Start()
@@ -31,6 +33,16 @@ public class SpriteOutlined : MonoBehaviour
         outline = false;
     }
 
+    public void TurnOnRainbowEffect()
+    {
+        isRainbowEffect = true;
+    }
+
+    public void TurnOffRainbowEffect()
+    {
+        isRainbowEffect = false;
+    }
+
     void Update()
     {
         if (spriteRenderer)
@@ -38,7 +50,16 @@ public class SpriteOutlined : MonoBehaviour
             MaterialPropertyBlock mpb = new MaterialPropertyBlock();
             spriteRenderer.GetPropertyBlock (mpb);
             mpb.SetFloat("_Outline", outline ? 1f : 0);
-            mpb.SetColor("_OutlineColor", color);
+            if (isRainbowEffect)
+            {
+                float h, s, v;
+                Color.RGBToHSV(mpb.GetColor("_OutlineColor"), out h, out s, out v);
+                mpb.SetColor("_OutlineColor", Color.HSVToRGB(h + Time.deltaTime * .25f, s, v));
+            }
+            else
+            {
+                mpb.SetColor("_OutlineColor", color);
+            }
             mpb.SetFloat("_OutlineSize", outlineSize);
             spriteRenderer.SetPropertyBlock (mpb);
         }

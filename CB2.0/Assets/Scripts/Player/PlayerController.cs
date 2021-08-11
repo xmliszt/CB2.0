@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
 
     private SwabTestControlHandler swabTestControlHandler;
 
+    private SnHPlayerControlHandler snHPlayerControlHandler;
+
     private STSControlHandler stsControlHandler;
 
     private UnlimitedGroupControlHandler unlimitedGroupControlHandler;
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour
         playerReadyHandler = GetComponent<PlayerReadyHandler>();
         playerAudioController = GetComponent<PlayerAudioController>();
         swabTestControlHandler = GetComponent<SwabTestControlHandler>();
+        snHPlayerControlHandler = GetComponent<SnHPlayerControlHandler>();
         stsControlHandler = GetComponent<STSControlHandler>();
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
         unlimitedGroupControlHandler =
@@ -225,6 +228,10 @@ public class PlayerController : MonoBehaviour
                         if (unlimitedGroupControlHandler)
                             unlimitedGroupControlHandler.OnPickUpDrop();
                         break;
+                    case GameStats.Scene.snatchAndHoard:
+                        if (snHPlayerControlHandler)
+                            snHPlayerControlHandler.OnPickDropItem();
+                        break;
                     default:
                         break;
                 }
@@ -250,6 +257,10 @@ public class PlayerController : MonoBehaviour
                     case GameStats.Scene.unlimitedGroupSize:
                         if (unlimitedGroupControlHandler)
                             unlimitedGroupControlHandler.OnShop();
+                        break;
+                    case GameStats.Scene.snatchAndHoard:
+                        if (snHPlayerControlHandler)
+                            snHPlayerControlHandler.OnShop();
                         break;
                     default:
                         break;
@@ -320,6 +331,11 @@ public class PlayerController : MonoBehaviour
     }
 
     public void SlowMovement(float factor)
+    {
+        speedFactor = factor;
+    }
+
+    public void SpeedUpMovement(float factor)
     {
         speedFactor = factor;
     }
