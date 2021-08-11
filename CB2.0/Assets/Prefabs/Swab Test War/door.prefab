@@ -142,12 +142,12 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 770282837
+  m_SortingLayerID: 1640728137
   m_SortingLayer: 1
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 3078b5e17c697c94d85bca90e2a35d12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.54, y: 0.84}
@@ -194,6 +194,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cca8605d15fb284a9b948044725ce2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoneChangeGameEvent: {fileID: 11400000, guid: 22557c6adc9431b40a4cdb793028b00b, type: 2}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   spriteRenderer: {fileID: 7475008167370918639}

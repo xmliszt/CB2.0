@@ -22,7 +22,16 @@ MonoBehaviour:
   floatingAmplitude: 0.05
   floatingFrequency: 1
   playerInZoneOpacity: 0.7
+  nextGameDelay: 10
   swabStickFlyingSpeed: 12
   countdownDuration: 10
   spawnFrequency: 5
   coinAwardedPerCompleteTest: 1
+  castRadius: 0.3
+  slowFactor: 0.3
+  entertainmentSpawnFreq: 5
+  upgradeMultiplier: 2
+  maxRecharge: 100
+  shootEnergy: 100
+  rechargePerTick: 2.5
+  onHitRewardCoins: 2

@@ -251,9 +251,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 1
+  scoreDescText: Swab Test Done
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
   scoreText: {fileID: 5469270826855753903}
-  completeTestText: {fileID: 5469270826661026902}
+  completeText: {fileID: 5469270826661026902}
   playerIndicatorText: {fileID: 1624360211}
   playerAvatar: {fileID: 5469270827088452754}
   panelBackground: {fileID: 5469270826262230630}
@@ -453,8 +454,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Swab Test Done: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6454742fe6f630a4e9a334e421dfd9a8, type: 2}
-  m_sharedMaterial: {fileID: -8883814654007483391, guid: 6454742fe6f630a4e9a334e421dfd9a8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c802cc32a00bf3242aac5d61210259db, type: 2}
+  m_sharedMaterial: {fileID: -8883814654007483391, guid: c802cc32a00bf3242aac5d61210259db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -587,8 +588,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Coin: 0'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6454742fe6f630a4e9a334e421dfd9a8, type: 2}
-  m_sharedMaterial: {fileID: -8883814654007483391, guid: 6454742fe6f630a4e9a334e421dfd9a8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: c802cc32a00bf3242aac5d61210259db, type: 2}
+  m_sharedMaterial: {fileID: -8883814654007483391, guid: c802cc32a00bf3242aac5d61210259db, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

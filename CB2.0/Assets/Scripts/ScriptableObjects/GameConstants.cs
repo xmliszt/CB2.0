@@ -38,6 +38,8 @@ public class GameConstants : ScriptableObject
 
     public float playerInZoneOpacity = 0.7f; // the gameobject will be set to this opacity if the player is in the trigger zone
 
+    [Header("Gameover Interval")]
+    public float nextGameDelay = 10f; // seconds to wait before starting next game
 
     // **************** Minigame: Swab Test War **********************
 
@@ -56,4 +58,33 @@ public class GameConstants : ScriptableObject
     [Header("Coin Reward")]
     
     public int coinAwardedPerCompleteTest = 1;
+
+    // **************** Minigame: Unlimited Group Size **********************
+
+    [Header("Player Attributes")]
+
+    public float castRadius = 0.3f;
+
+    public float slowFactor = 0.3f;
+
+    [Header("Entertainment Spawn")]
+    
+    public float entertainmentSpawnFreq = 5;
+
+    [Header("Entertainment Upgrade")]
+
+    public int upgradeMultiplier = 2;
+
+    [Header("Recharge Bar")]
+
+    public float maxRecharge = 100.0f;
+    
+    public float shootEnergy = 100.0f;
+
+    public float rechargePerTick = 2.5f;
+
+    [Header("Coins")]
+
+    public int onHitRewardCoins = 2;
+
 }

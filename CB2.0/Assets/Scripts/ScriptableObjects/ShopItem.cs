@@ -16,4 +16,6 @@ public class ShopItem : ScriptableObject
     public bool unlimited = true; // if the item is unlimited, if false, stock will be considered
 
     public int stock = 0;
+
+    public string itemName = "";
 }

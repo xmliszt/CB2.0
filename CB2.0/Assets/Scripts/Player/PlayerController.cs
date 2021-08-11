@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public GameStats gameStats;
 
     public GameConstants constants;
+
+    public GameEvent onGamePaused;
 
     public ParticleGameEvent dashParticleGameEvent;
 
@@ -33,17 +36,43 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false; // Whether character is currently dashing
 
     // All minigame handlers
+
+    private PlayerStatsManager playerStatsManager;
+    private PlayerAudioController playerAudioController;
+
     private GameLobbyControlHandler gameLobbyControlHandler;
 
+    private PlayerReadyHandler playerReadyHandler;
+
     private SwabTestControlHandler swabTestControlHandler;
+
+    private STSControlHandler stsControlHandler;
+
+    private UnlimitedGroupControlHandler unlimitedGroupControlHandler;
+
+    private float movementFactor = 1.0f; // used to stop or resume movement of character. 0 will stop, 1 will resume
+
+    private float speedFactor = 1.0f; // for UGS to change player speed
+
+    private bool dashDisabled = false;
+
+    private bool isPausedExecuted = false;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
+        playerStatsManager = GetComponent<PlayerStatsManager>();
+        playerReadyHandler = GetComponent<PlayerReadyHandler>();
+        playerAudioController = GetComponent<PlayerAudioController>();
         swabTestControlHandler = GetComponent<SwabTestControlHandler>();
+        stsControlHandler = GetComponent<STSControlHandler>();
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
+        unlimitedGroupControlHandler =
+            GetComponent<UnlimitedGroupControlHandler>();
+        animator.runtimeAnimatorController =
+            playerStatsManager.GetPlayerStats().animatorController;
     }
 
     private void Update()
@@ -51,7 +80,11 @@ public class PlayerController : MonoBehaviour
         direction = GetDirection();
         if (!(direction.x == 0 && direction.y == 0)) idleDirection = direction;
         finalInputMovement =
-            rawInputMovement * Time.deltaTime * constants.playerMoveSpeed;
+            rawInputMovement *
+            Time.deltaTime *
+            constants.playerMoveSpeed *
+            speedFactor *
+            movementFactor;
         transform.Translate(finalInputMovement, Space.World);
         animator.SetFloat("horizontal_idle", idleDirection.x);
         animator.SetFloat("vertical_idle", idleDirection.y);
@@ -112,15 +145,14 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
-            if (!disabled)
+            if (!disabled && !dashDisabled)
             {
                 if (!isDashing && !isIdle)
                 {
+                    if (playerAudioController)
+                        playerAudioController.PlaySFX(SFXType.dash);
                     isDashing = true;
-                    dashParticleGameEvent
-                        .Fire(ParticleManager.ParticleTag.dash,
-                        transform.position -
-                        Vector3.up * constants.dashParticleOffset);
+
                     dashDirection = direction;
 
                     // remember the most recent dash direction for removal
@@ -129,6 +161,10 @@ public class PlayerController : MonoBehaviour
                         rb
                             .AddForce(dashDirection * constants.playerDashSpeed,
                             ForceMode2D.Impulse);
+                        dashParticleGameEvent
+                            .Fire(ParticleManager.ParticleTag.dash,
+                            transform.position -
+                            Vector3.up * constants.dashParticleOffset);
                     }
                     isDashing = false;
                 }
@@ -152,6 +188,13 @@ public class PlayerController : MonoBehaviour
                         if (swabTestControlHandler)
                             swabTestControlHandler.OnUse();
                         break;
+                    case GameStats.Scene.stopTheSpread:
+                        if (stsControlHandler) stsControlHandler.OnUse();
+                        break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnUse();
+                        break;
                     default:
                         break;
                 }
@@ -163,6 +206,10 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
+            if (playerReadyHandler)
+            {
+                playerReadyHandler.OnPlayerReady();
+            }
             if (!disabled)
             {
                 switch (gameStats.GetCurrentScene())
@@ -170,6 +217,13 @@ public class PlayerController : MonoBehaviour
                     case GameStats.Scene.swabTestWar:
                         if (swabTestControlHandler)
                             swabTestControlHandler.onPickUpDrop();
+                        break;
+                    case GameStats.Scene.stopTheSpread:
+                        if (stsControlHandler) stsControlHandler.onPickUpDrop();
+                        break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnPickUpDrop();
                         break;
                     default:
                         break;
@@ -190,6 +244,13 @@ public class PlayerController : MonoBehaviour
                         if (swabTestControlHandler)
                             swabTestControlHandler.onShop();
                         break;
+                    case GameStats.Scene.stopTheSpread:
+                        if (stsControlHandler) stsControlHandler.onShop();
+                        break;
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnShop();
+                        break;
                     default:
                         break;
                 }
@@ -197,6 +258,42 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnHold(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (!disabled)
+            {
+                switch (gameStats.GetCurrentScene())
+                {
+                    case GameStats.Scene.unlimitedGroupSize:
+                        if (unlimitedGroupControlHandler)
+                            unlimitedGroupControlHandler.OnHold(context);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    }
+
+    public void onPause(InputAction.CallbackContext context)
+    {
+        
+        if (context.performed && !isPausedExecuted)
+        {
+            onGamePaused.Fire();
+            isPausedExecuted = true;
+            StartCoroutine(removePausedExecuted());
+        }
+    }
+
+    IEnumerator removePausedExecuted()
+    {
+        yield return new WaitForSecondsRealtime(0.2f);
+        isPausedExecuted = false;
+    }
+    
     public Vector2 GetIdleDirection()
     {
         return idleDirection;
@@ -210,5 +307,35 @@ public class PlayerController : MonoBehaviour
     public void DisableController()
     {
         disabled = true;
+    }
+
+    public void DisableMovement()
+    {
+        movementFactor = 0;
+    }
+
+    public void EnableMovement()
+    {
+        movementFactor = 1.0f;
+    }
+
+    public void SlowMovement(float factor)
+    {
+        speedFactor = factor;
+    }
+
+    public void RestoreMovement()
+    {
+        speedFactor = 1.0f;
+    }
+
+    public void DisableDash()
+    {
+        dashDisabled = true;
+    }
+
+    public void EnableDash()
+    {
+        dashDisabled = false;
     }
 }

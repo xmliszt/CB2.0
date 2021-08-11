@@ -6,11 +6,13 @@ public class UIUpdater : MonoBehaviour
 {
     public int playerID;
 
+    public string scoreDescText;
+
     public Players players;
 
     public TMP_Text scoreText;
 
-    public TMP_Text completeTestText;
+    public TMP_Text completeText;
 
     public TMP_Text playerIndicatorText;
 
@@ -28,6 +30,8 @@ public class UIUpdater : MonoBehaviour
     {
         if (players.GetPlayers().ContainsKey(playerID))
         {
+            Debug.Log("UI START");
+            
             playerStats = players.GetPlayers()[playerID].playerStats;
 
             _enabled = true;
@@ -64,8 +68,8 @@ public class UIUpdater : MonoBehaviour
         if (_enabled)
         {
             scoreText.text = string.Format("Coins: {0}", playerStats.coins);
-            completeTestText.text =
-                string.Format("Swab Test Done: {0}", playerStats.score);
+            completeText.text =
+                string.Format("{0}: {1}", scoreDescText, playerStats.score);
         }
     }
 }

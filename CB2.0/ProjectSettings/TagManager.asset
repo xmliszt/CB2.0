@@ -18,6 +18,28 @@ TagManager:
   - MusicChanger
   - Pickup
   - Basket
+  - Dumbbell
+  - Karaoke
+  - Food
+  - Computer
+  - Interactable
+  - ToiletPaper
+  - NPCPizza
+  - NPCCake
+  - GrocerPizza
+  - GrocerCake
+  - DroppedPizza
+  - DroppedCake
+  - PlayerOneHome
+  - PlayerTwoHome
+  - PlayerThreeHome
+  - PlayerFourHome
+  - SDA
+  - RewardZone
+  - Entertainments
+  - UGSShop
+  - Decor
+  - GameSelector
   layers:
   - Default
   - TransparentFX
@@ -27,8 +49,8 @@ TagManager:
   - UI
   - Particles
   - Player
-  - 
-  - 
+  - Obstacles
+  - Entertainments
   - 
   - 
   - 
@@ -56,23 +78,17 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 770282837
+    uniqueID: 1640728137
     locked: 0
-  - name: Particle System
-    uniqueID: 1034026983
-    locked: 0
-  - name: Interactables
-    uniqueID: 485084459
+  - name: Interactable
+    uniqueID: 190030871
     locked: 0
   - name: Player
-    uniqueID: 3644097701
+    uniqueID: 2632764545
     locked: 0
   - name: Foreground
-    uniqueID: 2906454085
-    locked: 0
-  - name: Bubbles
-    uniqueID: 3672014587
+    uniqueID: 4266245269
     locked: 0
   - name: UI
-    uniqueID: 951167099
+    uniqueID: 1298843805
     locked: 0

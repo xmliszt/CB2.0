@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1262305040}
   - component: {fileID: 1262305039}
   - component: {fileID: 306844844590605813}
+  - component: {fileID: 927237701}
   m_Layer: 0
   m_Name: zone
   m_TagString: SubmissionDesk
@@ -71,7 +72,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cca8605d15fb284a9b948044725ce2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoneChangeGameEvent: {fileID: 11400000, guid: 22557c6adc9431b40a4cdb793028b00b, type: 2}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   spriteRenderer: {fileID: 306844844590605813}
 --- !u!212 &306844844590605813
@@ -111,8 +111,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 485084459
-  m_SortingLayer: 3
+  m_SortingLayerID: 190030871
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: edf447a91abcac24a90d3426eafec080, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -125,6 +125,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &927237701
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262305037}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &682964095661074401
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,8 +215,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -622952709
-  m_SortingLayer: 6
+  m_SortingLayerID: 1298843805
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 674d2b406fe6d144498766ef74f2b66a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

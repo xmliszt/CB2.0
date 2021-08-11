@@ -55,7 +55,7 @@ MonoBehaviour:
     location: {fileID: 0}
   playerPrefab: {fileID: 5928543010023413209, guid: 96096627dfb6dee47b0ecfb8cd094df4, type: 3}
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
-  OnStartPlayStart: {fileID: 11400000, guid: a95f56e2a7c977f41bbd98aeb96220c6, type: 2}
+  onShowRulePage: {fileID: 11400000, guid: c02fd181fdc46cb4dbbd4c23e1d71d30, type: 2}
   testStations:
   - {fileID: 11400000, guid: 69709505f2224c541ab478ea1ada97b0, type: 2}
   - {fileID: 11400000, guid: 19ce60b7501f05742aa49bc01eea368d, type: 2}

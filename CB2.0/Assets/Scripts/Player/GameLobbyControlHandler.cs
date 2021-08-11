@@ -1,19 +1,37 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameLobbyControlHandler : MonoBehaviour
 {
+    private int minigameSelectorEntered;
+
+    private List<int> minigameIndexSelected;
+
     public GameEvent onMiniGameStart;
 
+    public GameEvent onSwitchBGM;
+
     public SingleIntegerGameEvent onPlayerChangeProfile;
+
+    public SingleIntegerGameEvent onMinigameSelected;
+
+    public SingleIntegerGameEvent onMinigameDeSelected;
 
     private PlayerStatsManager playerStatsManager;
 
     private PlayerZoneManager playerZoneManager;
 
+    private PlayerAudioController playerAudioController;
+
     private void Awake()
     {
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerZoneManager = GetComponent<PlayerZoneManager>();
+        playerAudioController = GetComponent<PlayerAudioController>();
+        minigameIndexSelected = new List<int>(4);
+        for (int i = 0; i < 4; i ++) {
+            minigameIndexSelected.Add(i);
+        }
     }
 
     public void OnUse()
@@ -23,6 +41,7 @@ public class GameLobbyControlHandler : MonoBehaviour
             PlayerZoneManager.ZoneType.clothChanger
         )
         {
+            playerAudioController.PlaySFX(SFXType.changeOutfit);
             onPlayerChangeProfile
                 .Fire(playerStatsManager.GetPlayerStats().playerID);
         }
@@ -30,5 +49,35 @@ public class GameLobbyControlHandler : MonoBehaviour
         {
             onMiniGameStart.Fire();
         }
+        if (
+            playerZoneManager.GetZone() ==
+            PlayerZoneManager.ZoneType.musicChanger
+        )
+        {
+            onSwitchBGM.Fire();
+        }
+        if (
+            playerZoneManager.GetZone() ==
+            PlayerZoneManager.ZoneType.gameSelector
+        )
+        {
+            if (minigameIndexSelected.Contains(minigameSelectorEntered))
+            {
+                Debug.Log("DeSelected " + minigameSelectorEntered.ToString());
+                onMinigameDeSelected.Fire (minigameSelectorEntered);
+                minigameIndexSelected.Remove(minigameSelectorEntered);
+            }
+            else
+            {
+                Debug.Log("Selected " + minigameSelectorEntered.ToString());
+                onMinigameSelected.Fire (minigameSelectorEntered);
+                minigameIndexSelected.Add(minigameSelectorEntered);
+            }
+        }
+    }
+
+    public void SetCurrentMinigameSelectorEntered(int index)
+    {
+        minigameSelectorEntered = index;
     }
 }

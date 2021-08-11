@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f589a6d5dcfacb94fb780302a70367b4, type: 3}
   m_Name: player 2
   m_EditorClassIdentifier: 
-  playerID: 0
+  playerID: 1
   playerName: Alex
-  selected: 0
+  selected: 1
   playerAccent: {r: 1, g: 0.98899376, b: 0.43867922, a: 1}
   playerAvatar: {fileID: 21300000, guid: 2059c02864ed6ef4cbf3ede41fe4b8d4, type: 3}
   animatorController: {fileID: 9100000, guid: cdd965f843f1c224281552cf0d0ce914, type: 2}
