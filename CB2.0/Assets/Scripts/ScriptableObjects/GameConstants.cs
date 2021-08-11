@@ -87,4 +87,8 @@ public class GameConstants : ScriptableObject
 
     public int onHitRewardCoins = 2;
 
+    [Header("Snatch and Hoard")]
+
+    public float SlowMovementFactor = 0.9f;
+
 }

@@ -7,6 +7,7 @@ public class PlayerInventory
     {
         item = null;
     }
+
     public Item item;
 
     public Item GetCurrentItem()
@@ -19,17 +20,20 @@ public class PlayerInventory
         item = _item;
     }
 
-    public void ClearItem() {
+    public void ClearItem()
+    {
         item = null;
     }
 
-    public Item useItem() {
+    public Item useItem()
+    {
         Item _item = item;
         item = null;
         return _item;
     }
 
-    public bool hasItem() {
+    public bool hasItem()
+    {
         return item != null;
     }
 }
@@ -42,37 +46,56 @@ public class PlayerInventory
 ]
 public class PlayerStats : ScriptableObject
 {
-   public int playerID;
+    public int playerID;
 
-   public string playerName;
+    public string playerName;
 
-   public bool selected; // is this character profile selected by a player?
+    public bool selected; // is this character profile selected by a player?
 
-   public Color playerAccent;
+    public Color playerAccent;
 
-   public Sprite playerAvatar;
+    public Sprite playerAvatar;
 
-   public RuntimeAnimatorController animatorController;
+    public RuntimeAnimatorController animatorController;
 
-   public PlayerInventory inventory = new PlayerInventory();
+    public PlayerInventory inventory = new PlayerInventory();
 
-   public int coins;
+    public int coins;
 
-   public int score;
+    public int score;
 
-   public int masks; // overall ranked value
+    public int masks; // overall ranked value
 
-   public bool ready; // player ready to proceed from rule page
+    public bool ready; // player ready to proceed from rule page
 
-   private int rank;
+    private int rank;
 
-   public int GetRank()
-   {
-       return rank;
-   }
+    public bool isActive = false;
 
-   public void SetRank(int _rank)
-   {
-       rank = _rank;
-   }
+    public int TPCollected;
+
+    public int otherObjectCollected;
+
+    public int GetRank()
+    {
+        return rank;
+    }
+
+    public void SetRank(int _rank)
+    {
+        rank = _rank;
+    }
+
+     public enum ZoneType
+    {
+        pickUpZone = 0, // handled
+        myBasketZone = 1, // handled
+        otherBasketZone = 2, // handled
+        VMZone = 3,
+        NPCZone = 4,
+        CheckoutZone = 5,
+        NotInAnyZone = 6
+    }
+
+    public ZoneType zoneType;
 }

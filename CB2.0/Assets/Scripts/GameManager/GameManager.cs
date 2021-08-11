@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
             playerObjects = new Dictionary<int, Transform>();
         playerObjects[playerID] = playerInput.gameObject.transform;
         PlayerStats newPlayerStats = SwitchPlayerProfile(playerID); // assign one profile to the joined player
+        newPlayerStats.isActive = true;
         if (!players.PlayerExist(playerID))
             players.AddPlayer(newPlayerStats, playerInput);
         else
@@ -146,6 +147,7 @@ public class GameManager : MonoBehaviour
                 // deselect current
                 playerStats.selected = false;
                 playerStats.playerID = 0;
+                playerStats.isActive = false;
             }
         }
     }

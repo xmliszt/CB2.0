@@ -6,7 +6,9 @@ using UnityEngine.UI;
 
 public class SnHPlayerStatsController : MonoBehaviour
 {
-    public SnHPlayerStats uniquePlayerStats;
+    public int playerID;
+
+    public Players players;
     public SnHGameConstants gameConstants;
 
     public Image avatar;
@@ -16,21 +18,30 @@ public class SnHPlayerStatsController : MonoBehaviour
     public Text TPcollected;
     public Text otherCollected;
 
-    public List<Sprite> avatars;
     public List<Sprite> itemSprites;
 
+    private PlayerStats uniquePlayerStats;
+
     // when the game is started or restarted
+
+    private void Start() {
+        uniquePlayerStats = players.GetPlayers()[playerID].playerStats;
+    }
     public void onStart()
     {
         if (uniquePlayerStats.isActive) //this player is in use
         {
             // first update of images to be used
-            avatar.sprite = avatars[uniquePlayerStats.playerAvatar];
-            name.text = uniquePlayerStats.playerName;
+            avatar.sprite = uniquePlayerStats.playerAvatar;
+            name.text = string.Format("{0}P", uniquePlayerStats.playerID);
+            name.color = uniquePlayerStats.playerAccent;
             otherObject.sprite = itemSprites[gameConstants.OtherIndex];
 
             // reset all scores
-            coinsCollected.text = formatString(uniquePlayerStats.coinsCollected);
+            coinsCollected.color = uniquePlayerStats.playerAccent;
+            TPcollected.color = uniquePlayerStats.playerAccent;
+            otherCollected.color = uniquePlayerStats.playerAccent;
+            coinsCollected.text = formatString(uniquePlayerStats.coins);
             TPcollected.text = formatString(uniquePlayerStats.TPCollected);
             otherCollected.text = formatString(uniquePlayerStats.otherObjectCollected);
         }
@@ -41,7 +52,7 @@ public class SnHPlayerStatsController : MonoBehaviour
     {
         if (uniquePlayerStats.isActive)
         {
-            coinsCollected.text = formatString(uniquePlayerStats.coinsCollected);
+            coinsCollected.text = formatString(uniquePlayerStats.coins);
             TPcollected.text = formatString(uniquePlayerStats.TPCollected);
             otherCollected.text = formatString(uniquePlayerStats.otherObjectCollected);
         }

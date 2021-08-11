@@ -1,18 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class SnHPlayerControlHandler : MonoBehaviour
 {
+    public GameConstants constants;
+
     public Vector3GameEvent onDrop;
+
     public Vector3GameEvent onPickup;
 
-    public SnHPlayerStats snhPlayerStats;
     public SnHGameConstants gameConstants;
+
     public PickUpTypeEnum heldPickUp;
 
-    public int playerID;
     public Transform playerTransform;
 
     // pickup prefab
@@ -20,6 +22,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     // check if player is holding anything
     public bool isHoldingBasket;
+
     public bool isHoldingPickup;
 
     // basket reference
@@ -27,20 +30,33 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     // item bubble references
     public GameObject itemBubble;
+
     public SpriteRenderer itemSprite;
 
     // sprite list
     public List<Sprite> basketSprites; // 0 for empty, 1 for has items
+
     public List<Sprite> otherSprites; // hardcode
 
     // controllers from gameobjects in the zone
     public GameObject zoneObject = null;
 
+    private PlayerStatsManager playerStatsManager;
+
+    private PlayerController playerController;
+
+    private int playerID;
+
+    private void Awake()
+    {
+        playerStatsManager = GetComponent<PlayerStatsManager>();
+        playerController = GetComponent<PlayerController>();
+    }
 
     public void onStart()
     {
         itemBubble.SetActive(false);
-        playerID = snhPlayerStats.playerID;
+        playerID = playerStatsManager.GetPlayerStats().playerID;
         isHoldingBasket = false;
         isHoldingPickup = false;
         heldPickUp = PickUpTypeEnum.noneType;
@@ -53,57 +69,78 @@ public class SnHPlayerControlHandler : MonoBehaviour
         if (collision.CompareTag("Basket"))
         {
             // basket not engaged with anyone
-            if (collision.GetComponent<SnHBasketController>().engagedWithPlayer == snhPlayerStats.playerID)
+            if (
+                collision
+                    .GetComponent<SnHBasketController>()
+                    .engagedWithPlayer ==
+                playerStatsManager.GetPlayerStats().playerID
+            )
             {
                 // implicitly not holding my basket
-                if (snhPlayerStats.playerID == collision.GetComponent<SnHBasketController>().belongsToPlayer)
+                if (
+                    playerStatsManager.GetPlayerStats().playerID ==
+                    collision
+                        .GetComponent<SnHBasketController>()
+                        .belongsToPlayer
+                )
                 {
-                    snhPlayerStats.zoneType = SnHPlayerStats.ZoneType.myBasketZone;
+                    playerStatsManager.GetPlayerStats().zoneType =
+                        PlayerStats.ZoneType.myBasketZone;
                     zoneObject = collision.gameObject;
-
                 }
-
-                // not my basket and i am not holding anything
-                else if (snhPlayerStats.playerID != collision.GetComponent<SnHBasketController>().belongsToPlayer && !isHoldingBasket && !isHoldingPickup)
+                else // not my basket and i am not holding anything
+                if (
+                    playerStatsManager.GetPlayerStats().playerID !=
+                    collision
+                        .GetComponent<SnHBasketController>()
+                        .belongsToPlayer &&
+                    !isHoldingBasket &&
+                    !isHoldingPickup
+                )
                 {
-                    snhPlayerStats.zoneType = SnHPlayerStats.ZoneType.otherBasketZone;
+                    playerStatsManager.GetPlayerStats().zoneType =
+                        PlayerStats.ZoneType.otherBasketZone;
                     zoneObject = collision.gameObject;
-
                 }
             }
         }
-        
-        // entered pickup zone
-        else if (collision.CompareTag("Pickup"))
+        else // entered pickup zone
+        if (collision.CompareTag("Pickup"))
         {
             // not holding anything and pickup is not engaged by anyone
-            if (!isHoldingBasket && !isHoldingPickup && collision.GetComponent<SnHPickUpController>().engagedWithPlayer == snhPlayerStats.playerID)
+            if (
+                !isHoldingBasket &&
+                !isHoldingPickup &&
+                collision
+                    .GetComponent<SnHPickUpController>()
+                    .engagedWithPlayer ==
+                playerStatsManager.GetPlayerStats().playerID
+            )
             {
-                snhPlayerStats.zoneType = SnHPlayerStats.ZoneType.pickUpZone;
+                playerStatsManager.GetPlayerStats().zoneType =
+                    PlayerStats.ZoneType.pickUpZone;
                 zoneObject = collision.gameObject;
             }
         }
-        
-        // entered NPC zone
-        else if (collision.CompareTag("NPC"))
+        else // entered NPC zone
+        if (collision.CompareTag("NPC"))
         {
-            snhPlayerStats.zoneType = SnHPlayerStats.ZoneType.NPCZone;
+            playerStatsManager.GetPlayerStats().zoneType =
+                PlayerStats.ZoneType.NPCZone;
             zoneObject = collision.gameObject;
         }
 
         // ADD MORE ZONES HANDLING
-
-
     }
 
     // exiting zones
     public void OnTriggerExit2D(Collider2D collision)
     {
-        snhPlayerStats.zoneType = SnHPlayerStats.ZoneType.NotInAnyZone;
+        playerStatsManager.GetPlayerStats().zoneType =
+            PlayerStats.ZoneType.NotInAnyZone;
         zoneObject = null;
     }
 
-    
     // button press: use item
     // ADD INCOMPLETE CODE
     public void OnUsePower()
@@ -111,36 +148,46 @@ public class SnHPlayerControlHandler : MonoBehaviour
         // ADD CODE
     }
 
-
     // button press: pick or drop items
     // ADD INCOMPLETE CODE
     public void OnPickDropItem()
     {
         // in my basket zone
-        if(snhPlayerStats.zoneType == SnHPlayerStats.ZoneType.myBasketZone)
+        if (
+            playerStatsManager.GetPlayerStats().zoneType ==
+            PlayerStats.ZoneType.myBasketZone
+        )
         {
             InMyBasketZone();
         }
-        
-        // in other's basket zone
-        else if (snhPlayerStats.zoneType == SnHPlayerStats.ZoneType.otherBasketZone)
+        else // in other's basket zone
+        if (
+            playerStatsManager.GetPlayerStats().zoneType ==
+            PlayerStats.ZoneType.otherBasketZone
+        )
         {
             NotMyBasketZone();
         }
-
-        // in a pickup zone
-        else if (snhPlayerStats.zoneType == SnHPlayerStats.ZoneType.pickUpZone)
+        else // in a pickup zone
+        if (
+            playerStatsManager.GetPlayerStats().zoneType ==
+            PlayerStats.ZoneType.pickUpZone
+        )
         {
             InPickUpZone();
         }
-
-        else if (snhPlayerStats.zoneType == SnHPlayerStats.ZoneType.NPCZone)
+        else if (
+            playerStatsManager.GetPlayerStats().zoneType ==
+            PlayerStats.ZoneType.NPCZone
+        )
         {
             InNPCZone();
         }
-
-        // not in any zones but have things to do
-        else if (snhPlayerStats.zoneType == SnHPlayerStats.ZoneType.NotInAnyZone)
+        else // not in any zones but have things to do
+        if (
+            playerStatsManager.GetPlayerStats().zoneType ==
+            PlayerStats.ZoneType.NotInAnyZone
+        )
         {
             // if holding object basket, drop it
             if (isHoldingBasket)
@@ -151,21 +198,27 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 basketReference.transform.position = playerTransform.position;
                 basketReference.SetActive(true);
 
-                // compute player slowed multiplier
-                snhPlayerStats.PlayerSpeed = 1;
+                playerController.RestoreMovement();
 
                 // remove reference to basket
                 basketReference = null;
             }
-
-            // if holding object, drop it (spawn new object)
-            else if (isHoldingPickup)
+            else // if holding object, drop it (spawn new object)
+            if (isHoldingPickup)
             {
-                Vector3 currentLocation = new Vector3(playerTransform.position.x, playerTransform.position.y, playerTransform.position.z);
-                GameObject newPickup = Instantiate(pickUpPrefab, currentLocation, Quaternion.identity);
-                newPickup.GetComponent<SnHPickUpController>().SetPickUp(heldPickUp);
+                Vector3 currentLocation =
+                    new Vector3(playerTransform.position.x,
+                        playerTransform.position.y,
+                        playerTransform.position.z);
+                GameObject newPickup =
+                    Instantiate(pickUpPrefab,
+                    currentLocation,
+                    Quaternion.identity);
+                newPickup
+                    .GetComponent<SnHPickUpController>()
+                    .SetPickUp(heldPickUp);
 
-                onPickup.Fire(currentLocation);
+                onPickup.Fire (currentLocation);
 
                 heldPickUp = PickUpTypeEnum.noneType;
                 itemSprite.sprite = null;
@@ -182,10 +235,12 @@ public class SnHPlayerControlHandler : MonoBehaviour
         // ADD CODE
     }
 
-
     private int _GetBasketStatus()
     {
-        if (snhPlayerStats.otherObjectCollected != 0 || snhPlayerStats.TPCollected != 0)
+        if (
+            playerStatsManager.GetPlayerStats().otherObjectCollected != 0 ||
+            playerStatsManager.GetPlayerStats().TPCollected != 0
+        )
         {
             return 1;
         }
@@ -194,7 +249,6 @@ public class SnHPlayerControlHandler : MonoBehaviour
             return 0;
         }
     }
-
 
     // button pressed. drop pickup or pickup basket
     private void InMyBasketZone()
@@ -205,17 +259,23 @@ public class SnHPlayerControlHandler : MonoBehaviour
         if (isHoldingPickup)
         {
             // correct pickup
-            if (heldPickUp == (PickUpTypeEnum)gameConstants.OtherIndex || heldPickUp == PickUpTypeEnum.toiletPaper)
+            if (
+                heldPickUp == (PickUpTypeEnum) gameConstants.OtherIndex ||
+                heldPickUp == PickUpTypeEnum.toiletPaper
+            )
             {
                 // add to the playerstats
                 if (heldPickUp == PickUpTypeEnum.toiletPaper)
                 {
-                    snhPlayerStats.TPCollected += 1;
+                    playerStatsManager.GetPlayerStats().TPCollected += 1;
                 }
                 else
                 {
-                    snhPlayerStats.otherObjectCollected += 1;
+                    playerStatsManager.GetPlayerStats().otherObjectCollected +=
+                        1;
                 }
+
+                playerStatsManager.GetPlayerStats().score = computeScore();
 
                 // no longer holding any pickups
                 isHoldingPickup = false;
@@ -225,16 +285,14 @@ public class SnHPlayerControlHandler : MonoBehaviour
                 itemSprite.sprite = null;
                 itemBubble.SetActive(false);
             }
-
-            // wrong pickup
             else
+            // wrong pickup
             {
                 bC.WrongPickupAdded();
             }
         }
-
-        // pickup basket
         else
+        // pickup basket
         {
             // make basket inactive in the hierarchy and store the reference here
             basketReference = zoneObject;
@@ -245,12 +303,24 @@ public class SnHPlayerControlHandler : MonoBehaviour
             itemSprite.sprite = basketSprites[_GetBasketStatus()];
 
             // compute player slowed multiplier
-            snhPlayerStats.PlayerSpeed = Mathf.Pow(snhPlayerStats.SlowMultiplier, (snhPlayerStats.TPCollected + snhPlayerStats.otherObjectCollected));
+            playerController
+                .SlowMovement(Mathf
+                    .Pow(constants.SlowMovementFactor,
+                    (
+                    playerStatsManager.GetPlayerStats().TPCollected +
+                    playerStatsManager.GetPlayerStats().otherObjectCollected
+                    )));
 
             zoneObject = null;
         }
     }
 
+    private int computeScore()
+    {
+        double percent = (double)(playerStatsManager.GetPlayerStats().TPCollected+playerStatsManager.GetPlayerStats().otherObjectCollected)/gameConstants.collectTotal;
+        percent = Math.Truncate(percent * 100) / 100;
+        return (int) percent * 100;
+    }
 
     // button pressed. steal if possible
     private void NotMyBasketZone()
@@ -265,19 +335,18 @@ public class SnHPlayerControlHandler : MonoBehaviour
             // add to my stats
             if (heldPickUp == PickUpTypeEnum.toiletPaper)
             {
-                snhPlayerStats.TPCollected += 1;
+                playerStatsManager.GetPlayerStats().TPCollected += 1;
             }
             else
             {
-                snhPlayerStats.otherObjectCollected += 1;
+                playerStatsManager.GetPlayerStats().otherObjectCollected += 1;
             }
 
             // display the item bubble
-            itemSprite.sprite = otherSprites[(int)heldPickUp];
+            itemSprite.sprite = otherSprites[(int) heldPickUp];
             itemBubble.SetActive(true);
         }
     }
-
 
     // button pressed. pickup item and destroy it in scene.
     private void InPickUpZone()
@@ -288,7 +357,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
         heldPickUp = pC.pickupType;
 
         // display the item
-        itemSprite.sprite = otherSprites[(int)heldPickUp];
+        itemSprite.sprite = otherSprites[(int) heldPickUp];
         itemBubble.SetActive(true);
 
         // is holding item
@@ -303,7 +372,6 @@ public class SnHPlayerControlHandler : MonoBehaviour
         // reset the reference to the game object back to null
         zoneObject = null;
     }
-
 
     // button pressed. give items to earn coins or get scolded for giving the wrong thing
     private void InNPCZone()

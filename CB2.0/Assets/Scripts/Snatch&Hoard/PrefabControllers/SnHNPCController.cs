@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class SnHNPCController : MonoBehaviour
 {
-    private SnHPlayerControlHandler playerHandler;
 
     public int engagedWithPlayer;
 
@@ -42,6 +41,8 @@ public class SnHNPCController : MonoBehaviour
 
     private int minQuantity = 3;
     private int maxQuantity = 5;
+
+    private PlayerStatsManager collidedPlayerStatsManager;
 
     // called by the NPC Manager
     public void onStart()
@@ -89,18 +90,18 @@ public class SnHNPCController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && engagedWithPlayer == -1)
         {
-            engagedWithPlayer = collision.GetComponent<SnHPlayerControlHandler>().playerID;
-            playerHandler = collision.GetComponent<SnHPlayerControlHandler>();
+            engagedWithPlayer = collision.GetComponent<PlayerStatsManager>().GetPlayerStats().playerID;
+            collidedPlayerStatsManager = collision.GetComponent<PlayerStatsManager>();
         }
     }
 
     // player exits zone
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && engagedWithPlayer == collision.GetComponent<SnHPlayerControlHandler>().playerID)
+        if (collision.CompareTag("Player") && engagedWithPlayer == collision.GetComponent<PlayerStatsManager>().GetPlayerStats().playerID)
         {
             engagedWithPlayer = -1;
-            playerHandler = null;
+            collidedPlayerStatsManager = null;
 
             if (!isThinking)
             {
@@ -129,7 +130,7 @@ public class SnHNPCController : MonoBehaviour
         if (quantityRemaining == 0)
         {
             // give coin
-            playerHandler.snhPlayerStats.coinsCollected += 1;
+            collidedPlayerStatsManager.GetPlayerStats().coins += 1;
 
             // remove expected pickup
             expectedPickup = PickUpTypeEnum.noneType;

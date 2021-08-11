@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6567364565040959673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -107,7 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77ff8e2d39ec08343944940836166b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uniquePlayerStats: {fileID: 0}
+  playerID: 4
+  players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
   gameConstants: {fileID: 11400000, guid: 745d923f243db894391ca4f44d005fd7, type: 2}
   avatar: {fileID: 6273308454317549254}
   otherObject: {fileID: 7630463235738819766}
@@ -115,11 +116,6 @@ MonoBehaviour:
   coinsCollected: {fileID: 3000621475609880075}
   TPcollected: {fileID: 4820510737378014718}
   otherCollected: {fileID: 768689969366901776}
-  avatars:
-  - {fileID: 21300000, guid: 5fbfe959217badf438a6b4ffb50703f9, type: 3}
-  - {fileID: 21300000, guid: 2059c02864ed6ef4cbf3ede41fe4b8d4, type: 3}
-  - {fileID: 21300000, guid: 15df2e56fa34f734c8be2977c93c6943, type: 3}
-  - {fileID: 21300000, guid: 0e9b960a6f34a9d4ab6de67db34129bc, type: 3}
   itemSprites:
   - {fileID: 4395249556266771183, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}
   - {fileID: 1422259861377778311, guid: 4796d08844ed5a746b6d4afc30009f38, type: 3}

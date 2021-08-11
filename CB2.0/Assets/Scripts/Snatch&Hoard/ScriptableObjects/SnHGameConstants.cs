@@ -13,6 +13,8 @@ public class SnHGameConstants : ScriptableObject
     public int OtherIndex;
     public int CollectOther;
 
+    public int collectTotal = 12;
+
     // colours to indicate in basket if completed
     public Color incompleteBackgroundColor = new Color(91, 91, 91);
     public Color completeBackgroundColor = new Color(67, 173, 92);

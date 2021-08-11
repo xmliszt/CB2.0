@@ -8,7 +8,7 @@ public class SnHPlayerStats : ScriptableObject
 {
     // unique player information
     public int playerID;
-    public bool isActive;
+    
     public string playerName;
     public Color playerAccent;
     public int playerAvatar;
@@ -18,23 +18,9 @@ public class SnHPlayerStats : ScriptableObject
 
     // collectible items
     public int coinsCollected;
-    public int TPCollected;
-    public int otherObjectCollected;
+    
 
     // player speed
     public float PlayerSpeed; // curerntly unused
     public float SlowMultiplier = 0.9f;
-
-    public enum ZoneType
-    {
-        pickUpZone = 0, // handled
-        myBasketZone = 1, // handled
-        otherBasketZone = 2, // handled
-        VMZone = 3,
-        NPCZone = 4,
-        CheckoutZone = 5,
-        NotInAnyZone = 6
-    }
-
-    public ZoneType zoneType;
 }

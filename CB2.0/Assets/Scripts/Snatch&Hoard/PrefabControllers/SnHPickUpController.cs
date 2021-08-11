@@ -25,7 +25,7 @@ public class SnHPickUpController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && engagedWithPlayer == -1)
         {
-            engagedWithPlayer = collision.GetComponent<SnHPlayerControlHandler>().playerID;
+            engagedWithPlayer = collision.GetComponent<PlayerStatsManager>().GetPlayerStats().playerID;
         }
     }
 
@@ -33,7 +33,7 @@ public class SnHPickUpController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && engagedWithPlayer != -1)
         {
-            if (collision.GetComponent<SnHPlayerControlHandler>().playerID == engagedWithPlayer)
+            if (collision.GetComponent<PlayerStatsManager>().GetPlayerStats().playerID == engagedWithPlayer)
             {
                 engagedWithPlayer = -1;
             }

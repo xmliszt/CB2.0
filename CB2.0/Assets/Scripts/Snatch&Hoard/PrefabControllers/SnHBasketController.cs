@@ -6,7 +6,12 @@ using UnityEngine.UI;
 // no manager
 public class SnHBasketController : MonoBehaviour
 {
-    public SnHPlayerStats snhPlayerStats;
+    public Players players;
+
+    public int playerID;
+
+    private PlayerStats snhPlayerStats;
+
     public SnHGameConstants gameConstants;
 
     // belongs to
@@ -23,9 +28,13 @@ public class SnHBasketController : MonoBehaviour
 
     // to switch on and off when another player is nearby
     public GameObject Unselected;
+
     public GameObject OwnedSelected;
+
     public GameObject OwnedSelectedCorrect;
+
     public GameObject OwnedSelectedWrong;
+
     public GameObject NotOwnedSelected;
 
     // unselected
@@ -33,21 +42,40 @@ public class SnHBasketController : MonoBehaviour
 
     // owned and selected
     public SpriteRenderer OwnedSelectedAvatar;
+
     public SpriteRenderer TPBackground;
+
     public Text TPCollected;
+
     public SpriteRenderer OtherItem;
+
     public SpriteRenderer OtherBackground;
+
     public Text OtherCollected;
 
     // not owned and selected
     public SpriteRenderer NotOwnedSelectedAvatar;
+
     public GameObject StealBubble;
 
     // sprite inserts
     public Sprite emptyBasket;
+
     public Sprite fullBasket;
+
     public List<Sprite> avatars;
+
     public List<Sprite> itemSprites;
+
+    private void Start()
+    {
+        if (players.GetPlayers().ContainsKey(playerID))
+        {
+            snhPlayerStats = players.GetPlayers()[playerID].playerStats;
+        } else {
+            gameObject.SetActive(false);
+        }
+    }
 
     public void onStart()
     {
@@ -64,7 +92,7 @@ public class SnHBasketController : MonoBehaviour
 
         // default the states for owned selected
         TPCollected.text = formatString(snhPlayerStats.TPCollected);
-        OtherItem.sprite = itemSprites[(int)gameConstants.OtherIndex];
+        OtherItem.sprite = itemSprites[(int) gameConstants.OtherIndex];
         OtherCollected.text = formatString(snhPlayerStats.otherObjectCollected);
 
         // no one interacting with the basket
@@ -83,7 +111,8 @@ public class SnHBasketController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && engagedWithPlayer == -1)
         {
-            engagedWithPlayer = collision.GetComponent<SnHPlayerControlHandler>().playerID;
+            engagedWithPlayer =
+                collision.GetComponent<PlayerStatsManager>().GetPlayerStats().playerID;
 
             if (engagedWithPlayer == belongsToPlayer)
             {
@@ -101,7 +130,10 @@ public class SnHBasketController : MonoBehaviour
     {
         if (collision.CompareTag("Player") && engagedWithPlayer != -1)
         {
-            if (collision.GetComponent<SnHPlayerControlHandler>().playerID == engagedWithPlayer)
+            if (
+                collision.GetComponent<PlayerStatsManager>().GetPlayerStats().playerID ==
+                engagedWithPlayer
+            )
             {
                 engagedWithPlayer = -1;
 
@@ -138,7 +170,6 @@ public class SnHBasketController : MonoBehaviour
         StealBubble.SetActive(false);
     }
 
-
     public void WrongPickupAdded()
     {
         OwnedSelectedCorrect.SetActive(false);
@@ -154,7 +185,10 @@ public class SnHBasketController : MonoBehaviour
     public PickUpTypeEnum StolenFrom()
     {
         // when there are both TP and other to steal from
-        if (snhPlayerStats.TPCollected != 0 && snhPlayerStats.otherObjectCollected != 0)
+        if (
+            snhPlayerStats.TPCollected != 0 &&
+            snhPlayerStats.otherObjectCollected != 0
+        )
         {
             int selected = Random.Range(0, 1);
             if (selected == 0)
@@ -166,32 +200,33 @@ public class SnHBasketController : MonoBehaviour
             else
             {
                 snhPlayerStats.otherObjectCollected -= 1;
-                Debug.Log("Other object stolen from" + belongsToPlayer.ToString());
+                Debug
+                    .Log("Other object stolen from" +
+                    belongsToPlayer.ToString());
                 return (PickUpTypeEnum) gameConstants.OtherIndex;
             }
         }
-        
-        // only can steal toilet paper
-        else if (snhPlayerStats.TPCollected != 0)
+        else // only can steal toilet paper
+        if (snhPlayerStats.TPCollected != 0)
         {
             snhPlayerStats.TPCollected -= 1;
             Debug.Log("TP stolen from" + belongsToPlayer.ToString());
             return PickUpTypeEnum.toiletPaper;
         }
-
-        // only can steal other object
         else
+        // only can steal other object
         {
             snhPlayerStats.otherObjectCollected -= 1;
             Debug.Log("Other object stolen from" + belongsToPlayer.ToString());
-            return (PickUpTypeEnum)gameConstants.OtherIndex;
+            return (PickUpTypeEnum) gameConstants.OtherIndex;
         }
     }
 
     // checks if the basket can be stolen from
     public void CanBeStolenFrom()
     {
-        int totalItems = snhPlayerStats.TPCollected + snhPlayerStats.otherObjectCollected;
+        int totalItems =
+            snhPlayerStats.TPCollected + snhPlayerStats.otherObjectCollected;
         if (totalItems > 0)
         {
             StealBubble.SetActive(true);
@@ -219,7 +254,7 @@ public class SnHBasketController : MonoBehaviour
         {
             TPBackground.color = gameConstants.incompleteBackgroundColor;
         }
-        
+
         if (snhPlayerStats.otherObjectCollected == gameConstants.CollectOther)
         {
             OtherBackground.color = gameConstants.completeBackgroundColor;
@@ -230,7 +265,8 @@ public class SnHBasketController : MonoBehaviour
         }
 
         // check if there are items in the basket
-        int total_items = snhPlayerStats.TPCollected + snhPlayerStats.otherObjectCollected;
+        int total_items =
+            snhPlayerStats.TPCollected + snhPlayerStats.otherObjectCollected;
         if (total_items == 0)
         {
             Basket.sprite = emptyBasket;
@@ -239,7 +275,6 @@ public class SnHBasketController : MonoBehaviour
         {
             Basket.sprite = fullBasket;
         }
-
     }
 
     private string formatString(int score)
