@@ -2304,6 +2304,7 @@ MonoBehaviour:
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   onDrop: {fileID: 11400000, guid: 06e4f8faa4e4bfa459b5f5dd70c498b4, type: 2}
   onPickup: {fileID: 11400000, guid: ac123c6361be10049a4b48de47222c6d, type: 2}
+  OnGameOver: {fileID: 11400000, guid: 79c3fd9388a40c84f8df7c3ea48e7ae0, type: 2}
   gameConstants: {fileID: 11400000, guid: 745d923f243db894391ca4f44d005fd7, type: 2}
   playerTransform: {fileID: 5928543010023413212}
   pickUpPrefab: {fileID: 7944020771668740015, guid: 909070fe02901d04cb935ea1ddf6850c, type: 3}
