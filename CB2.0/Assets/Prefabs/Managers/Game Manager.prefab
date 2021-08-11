@@ -239,6 +239,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2ce66a47f85f2864a831bcc1ca2b7b9e, type: 2}
   - {fileID: 11400000, guid: 8c121b204a3abc5498941aea02a93471, type: 2}
   - {fileID: 11400000, guid: bc4244fe3ed76274198eb2e416b3b8c8, type: 2}
+  - {fileID: 11400000, guid: 026f2c5700da59046a3d63199cee9abf, type: 2}
   gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
   minigameSequence: 

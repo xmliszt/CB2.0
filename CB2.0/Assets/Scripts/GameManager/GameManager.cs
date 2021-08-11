@@ -223,6 +223,9 @@ public class GameManager : MonoBehaviour
                 onStartUGS.Fire();
                 SceneManager.LoadScene("UnlimitedGroupSize");
                 break;
+            case GameStats.Scene.snatchAndHoard:
+                SceneManager.LoadScene("Snatch&Hoard");
+                break;
             case GameStats.Scene.awardCeremony:
                 SceneManager.LoadScene("RewardCeremony");
                 break;
