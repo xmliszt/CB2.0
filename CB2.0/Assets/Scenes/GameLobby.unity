@@ -2634,6 +2634,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MusicChanger
       objectReference: {fileID: 0}
+    - target: {fileID: 4821703187556692612, guid: e0bf8fa170c40d040afbe6a2cc0f0b8f, type: 3}
+      propertyPath: constants
+      value: 
+      objectReference: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
     - target: {fileID: 4821703187556692615, guid: e0bf8fa170c40d040afbe6a2cc0f0b8f, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2678,6 +2682,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4821703187783052087, guid: e0bf8fa170c40d040afbe6a2cc0f0b8f, type: 3}
+      propertyPath: constants
+      value: 
+      objectReference: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0bf8fa170c40d040afbe6a2cc0f0b8f, type: 3}
 --- !u!1001 &5016938863634267358
@@ -2744,6 +2752,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5052182000065906039, guid: 841d8be76c9efc341bd02f152e51c419, type: 3}
+      propertyPath: constants
+      value: 
+      objectReference: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
+    - target: {fileID: 5052182000121199097, guid: 841d8be76c9efc341bd02f152e51c419, type: 3}
+      propertyPath: constants
+      value: 
+      objectReference: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
     - target: {fileID: 5052182000121199098, guid: 841d8be76c9efc341bd02f152e51c419, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -2801,6 +2817,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 932628341, guid: d49c9dc3f558f8a48bd98d893393ad55, type: 3}
+      propertyPath: constants
+      value: 
+      objectReference: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
+    - target: {fileID: 1639259851, guid: d49c9dc3f558f8a48bd98d893393ad55, type: 3}
+      propertyPath: constants
+      value: 
+      objectReference: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
     - target: {fileID: 8024802979247952914, guid: d49c9dc3f558f8a48bd98d893393ad55, type: 3}
       propertyPath: m_Name
       value: Reception

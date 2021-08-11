@@ -216,7 +216,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &880750087
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2628,6 +2628,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RechargeBar
       objectReference: {fileID: 0}
+    - target: {fileID: 8019169163125603721, guid: 5290cb0ae00586d4d897f8a5a3d67cb7, type: 3}
+      propertyPath: constants
+      value: 
+      objectReference: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
     - target: {fileID: 8019169163125603723, guid: 5290cb0ae00586d4d897f8a5a3d67cb7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
