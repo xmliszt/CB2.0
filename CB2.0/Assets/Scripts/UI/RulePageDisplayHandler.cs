@@ -22,6 +22,5 @@ public class RulePageDisplayHandler : MonoBehaviour
 
     public void Pause() {
         isPaused = !isPaused;
-        Debug.Log(string.Format("Paused: {0} | Shown Rule: {1}", isPaused, hasShownRule));
     }
 }

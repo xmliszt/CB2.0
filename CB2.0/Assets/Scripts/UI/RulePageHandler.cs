@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class RulePageHandler : MonoBehaviour
 {
@@ -9,19 +9,22 @@ public class RulePageHandler : MonoBehaviour
 
     public Players players;
 
-    private Image rulePageImage;
+    private VideoPlayer rulePageVideoPlayer;
 
     private bool isWaitingForPlayer = false;
 
     private bool isPaused = false;
 
-    private void Start()
+    private void Awake()
     {
-        rulePageImage = GetComponent<Image>();
+        rulePageVideoPlayer = GetComponent<VideoPlayer>();
+        rulePageVideoPlayer.Prepare();
     }
 
     public void PauseTime()
     {
+        rulePageVideoPlayer.Stop();
+        rulePageVideoPlayer.Play();
         isPaused = !isPaused;
         if (isPaused)
         {
@@ -35,6 +38,7 @@ public class RulePageHandler : MonoBehaviour
 
     public void ResumeTime()
     {
+        rulePageVideoPlayer.Stop();
         Time.timeScale = 1;
         isPaused = false;
     }

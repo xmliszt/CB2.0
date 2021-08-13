@@ -41,6 +41,7 @@ TagManager:
   - Decor
   - GameSelector
   - Checkout
+  - NPC
   layers:
   - Default
   - TransparentFX
