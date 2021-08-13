@@ -2070,10 +2070,9 @@ MonoBehaviour:
   thoughtBubbleRenderer: {fileID: 5316216624820595615}
   stunnedIconRenderer: {fileID: 1154388671340012776, guid: 5667b2d77745636459eb2d99f680d3be, type: 3}
   playerSprite: {fileID: 5928543010023413211}
-  stsInventory: {fileID: 11400000, guid: 74d8b3db86992584ea7327fea47d9d8a, type: 2}
   completionBarFill: {fileID: 1493112486702988680}
-  Pizza: {fileID: 11400000, guid: bb6ef4a3fd7e19046bbaf34bf20fdd13, type: 2}
-  Cake: {fileID: 11400000, guid: bb683ce3267a6444084e676beec6d2d1, type: 2}
+  Pizza: {fileID: 11400000, guid: 4efa4b80cd723ac4a89ed50ceaed1a9d, type: 2}
+  Cake: {fileID: 11400000, guid: cd6e50f3303b1434ea22c046b7ca1c55, type: 2}
   PizzaSprite: {fileID: 4923117685646026947}
   CakeSprite: {fileID: 4823949455357959056}
   droppedPizzaPrefab: {fileID: 5612514872177990907, guid: 5c136cba944160941a72347e381bcce6, type: 3}

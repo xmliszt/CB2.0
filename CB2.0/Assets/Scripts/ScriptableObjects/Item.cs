@@ -16,6 +16,9 @@ public class Item : ScriptableObject
         trash = 4,
 
         shopItem = 5,
+
+        cake = 6,
+        pizza = 7
     }
 
     public ItemType itemType;

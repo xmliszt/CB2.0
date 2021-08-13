@@ -106,8 +106,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5612514872177990917}
   - component: {fileID: 5612514872177990906}
-  - component: {fileID: 8201679230559298618}
   - component: {fileID: 1480286891157959924}
+  - component: {fileID: 108676676632025905}
   m_Layer: 0
   m_Name: Dropped Pizza
   m_TagString: DroppedPizza
@@ -157,20 +157,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.58533645, y: 0.46439284}
   m_EdgeRadius: 0
---- !u!114 &8201679230559298618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5612514872177990907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7b2b80d772132644aa975beb423f732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodMeta: {fileID: 0}
-  spriteRenderer: {fileID: 5612514871705697085}
 --- !u!114 &1480286891157959924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +169,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb205ae74b8264eb1121043f2907c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &108676676632025905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5612514872177990907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f457720eff9f54441830b68c03039999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemMeta: {fileID: 11400000, guid: 4efa4b80cd723ac4a89ed50ceaed1a9d, type: 2}
+  spriteRenderer: {fileID: 5612514871705697085}
 --- !u!1 &5612514873028920345
 GameObject:
   m_ObjectHideFlags: 0

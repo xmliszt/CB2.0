@@ -43,8 +43,6 @@ public class STSControlHandler : MonoBehaviour
 
     private bool playerInvisible = false;
 
-    public STSPlayerInventory stsInventory;
-
     public Image completionBarFill;
 
     private PlayerController playerController;
@@ -66,9 +64,9 @@ public class STSControlHandler : MonoBehaviour
     private GameObject InteractableObject;
 
     [Header("Food Items")]
-    public STSFood Pizza;
+    public Item Pizza;
 
-    public STSFood Cake;
+    public Item Cake;
 
     public SpriteRenderer PizzaSprite;
 
@@ -129,7 +127,7 @@ public class STSControlHandler : MonoBehaviour
 
         CakeSprite.enabled = false;
         PizzaSprite.enabled = false;
-        stsInventory.holdingItem = false;
+        playerStatsManager.GetPlayerStats().item = null;
         completionBarFill.color =
             playerStatsManager.GetPlayerStats().playerAccent;
     }
@@ -160,17 +158,15 @@ public class STSControlHandler : MonoBehaviour
         if (zoneType == ZoneType.npcCake)
         {
             if (
-                stsInventory.holdingItem &&
-                stsInventory.inventoryItemType ==
-                STSPlayerInventory.InventoryItemType.cake
+                playerStatsManager.GetPlayerStats().item &&
+                playerStatsManager.GetPlayerStats().item.itemType ==
+                Item.ItemType.cake
             )
             {
                 playerStatsManager.GetPlayerStats().coins++;
                 playerAudioController.PlaySFX(SFXType.coin);
 
-                stsInventory.inventoryItemType =
-                    STSPlayerInventory.InventoryItemType.nullItem;
-                stsInventory.holdingItem = false;
+                playerStatsManager.GetPlayerStats().item = null;
 
                 InteractableObject.GetComponent<Customer>().PlayerGaveFood();
 
@@ -187,16 +183,14 @@ public class STSControlHandler : MonoBehaviour
         if (zoneType == ZoneType.npcPizza)
         {
             if (
-                stsInventory.holdingItem &&
-                stsInventory.inventoryItemType ==
-                STSPlayerInventory.InventoryItemType.pizza
+                playerStatsManager.GetPlayerStats().item &&
+                playerStatsManager.GetPlayerStats().item.itemType ==
+                Item.ItemType.pizza
             )
             {
                 playerStatsManager.GetPlayerStats().coins++;
                 playerAudioController.PlaySFX(SFXType.coin);
-                stsInventory.inventoryItemType =
-                    STSPlayerInventory.InventoryItemType.nullItem;
-                stsInventory.holdingItem = false;
+                playerStatsManager.GetPlayerStats().item = null;
 
                 InteractableObject.GetComponent<Customer>().PlayerGaveFood();
 
@@ -289,16 +283,13 @@ public class STSControlHandler : MonoBehaviour
     public void onPickUpDrop()
     {
         // if not holding item, check
-        if (!stsInventory.holdingItem)
+        if (!playerStatsManager.GetPlayerStats().item)
         {
             // Check taking item from grocer
             if (zoneType == ZoneType.grocerCake)
             {
                 playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
-                stsInventory.stsFood = Cake;
-                stsInventory.holdingItem = true;
-                stsInventory.inventoryItemType =
-                    STSPlayerInventory.InventoryItemType.cake;
+                playerStatsManager.GetPlayerStats().item = Cake;
 
                 CakeSprite.enabled = true;
 
@@ -308,10 +299,7 @@ public class STSControlHandler : MonoBehaviour
             if (zoneType == ZoneType.grocerPizza)
             {
                 playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
-                stsInventory.stsFood = Pizza;
-                stsInventory.holdingItem = true;
-                stsInventory.inventoryItemType =
-                    STSPlayerInventory.InventoryItemType.pizza;
+                playerStatsManager.GetPlayerStats().item = Pizza;
 
                 PizzaSprite.enabled = true;
 
@@ -326,10 +314,7 @@ public class STSControlHandler : MonoBehaviour
                 InteractableObject
                     .GetComponent<InteractableGameObjects>()
                     .DestroyThis();
-                stsInventory.stsFood = Cake;
-                stsInventory.holdingItem = true;
-                stsInventory.inventoryItemType =
-                    STSPlayerInventory.InventoryItemType.cake;
+                playerStatsManager.GetPlayerStats().item = Cake;
 
                 CakeSprite.enabled = true;
 
@@ -343,10 +328,7 @@ public class STSControlHandler : MonoBehaviour
                 InteractableObject
                     .GetComponent<InteractableGameObjects>()
                     .DestroyThis();
-                stsInventory.stsFood = Pizza;
-                stsInventory.holdingItem = true;
-                stsInventory.inventoryItemType =
-                    STSPlayerInventory.InventoryItemType.pizza;
+                playerStatsManager.GetPlayerStats().item = Pizza;
 
                 PizzaSprite.enabled = true;
 
@@ -372,16 +354,16 @@ public class STSControlHandler : MonoBehaviour
 
     private void DropItem()
     {
-        if (stsInventory.holdingItem)
+        if (playerStatsManager.GetPlayerStats().item)
         {
             thoughtBubbleRenderer.enabled = true;
             playerDoingActivity = false;
 
-            STSFood _food = stsInventory.stsFood;
-            stsInventory.stsFood = null;
+            Item _food = playerStatsManager.GetPlayerStats().item;
+            playerStatsManager.GetPlayerStats().item = null;
             GameObject droppedFoodPrefab;
 
-            if ((int) _food.foodType == 1)
+            if (_food.itemType == Item.ItemType.pizza)
             {
                 droppedFoodPrefab = droppedPizzaPrefab;
             }
@@ -399,12 +381,10 @@ public class STSControlHandler : MonoBehaviour
                     droppedFoodPrefab.transform.position.z) *
                 0.2f,
                 droppedFoodPrefab.transform.rotation);
-            dropped.GetComponent<CollectableFood>().SetFood(_food);
+            dropped.GetComponent<CollectableItem>().SetItem(_food);
 
             CakeSprite.enabled = false;
             PizzaSprite.enabled = false;
-
-            stsInventory.holdingItem = false;
         }
     }
 

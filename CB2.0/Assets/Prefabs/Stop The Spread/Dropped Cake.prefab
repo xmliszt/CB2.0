@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4037778933554880242}
   - component: {fileID: 4037778933554880269}
-  - component: {fileID: 304148866992941005}
   - component: {fileID: 7017086591122224899}
+  - component: {fileID: 1014246905124418290}
   m_Layer: 0
   m_Name: Dropped Cake
   m_TagString: DroppedCake
@@ -61,20 +61,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.58533645, y: 0.46439284}
   m_EdgeRadius: 0
---- !u!114 &304148866992941005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4037778933554880268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7b2b80d772132644aa975beb423f732, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  foodMeta: {fileID: 0}
-  spriteRenderer: {fileID: 4037778934027352266}
 --- !u!114 &7017086591122224899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,6 +73,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05cb205ae74b8264eb1121043f2907c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1014246905124418290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037778933554880268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f457720eff9f54441830b68c03039999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemMeta: {fileID: 11400000, guid: cd6e50f3303b1434ea22c046b7ca1c55, type: 2}
+  spriteRenderer: {fileID: 4037778934027352266}
 --- !u!1 &4037778934027352263
 GameObject:
   m_ObjectHideFlags: 0
