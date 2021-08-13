@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviour
             playerStats.ready = false;
             playerStats.coins = 0;
             playerStats.score = 0;
-            playerStats.inventory.ClearItem();
+            playerStats.item = null;
         }
     }
 
@@ -173,7 +173,7 @@ public class GameManager : MonoBehaviour
             playerStats.coins = 0;
             playerStats.masks = 0;
             playerStats.ready = false;
-            playerStats.inventory.ClearItem();
+            playerStats.item = null;
         }
     }
 

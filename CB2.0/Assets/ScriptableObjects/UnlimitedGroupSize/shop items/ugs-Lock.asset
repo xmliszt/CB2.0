@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ugs-Lock
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 21300000, guid: 74e3b8e93e8e7a44ab51ee1606677599, type: 3}
-  cost: 8
+  cost: 5
   unlimited: 1
   stock: 0
   itemName: lock

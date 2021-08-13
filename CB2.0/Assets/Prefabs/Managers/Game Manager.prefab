@@ -240,9 +240,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8c121b204a3abc5498941aea02a93471, type: 2}
   - {fileID: 11400000, guid: bc4244fe3ed76274198eb2e416b3b8c8, type: 2}
   - {fileID: 11400000, guid: 026f2c5700da59046a3d63199cee9abf, type: 2}
+  - {fileID: 11400000, guid: 5341841522e14d644b85e60b923272ca, type: 2}
+  - {fileID: 11400000, guid: e1c6bbbb2893a0142b61644984968c72, type: 2}
+  - {fileID: 11400000, guid: 40fa4919ae272924d82328df242bd168, type: 2}
+  - {fileID: 11400000, guid: a5f7f4fcd6887ac46b9943fbb89bf1d2, type: 2}
+  - {fileID: 11400000, guid: 1145df7f96148834b9f3cab48eed291a, type: 2}
+  - {fileID: 11400000, guid: 3224b5925b01cf0448afd756495c7787, type: 2}
+  - {fileID: 11400000, guid: d08dcb2e02f5d8a4d8f0001e36db8fa4, type: 2}
+  - {fileID: 11400000, guid: 0c5818f2e9511c04e8ffd319da893774, type: 2}
+  - {fileID: 11400000, guid: 556e9a36fe316fc409d9761355cb920e, type: 2}
+  - {fileID: 11400000, guid: 2b171420059baa14ebe9e9d21c065f20, type: 2}
+  - {fileID: 11400000, guid: 4902f6f865f5cd440a4848211a4bc915, type: 2}
+  - {fileID: 11400000, guid: a57b11546de277b49a82749d7e420eee, type: 2}
+  - {fileID: 11400000, guid: f1feca84d36da944e9ab1c0d2f847c74, type: 2}
+  - {fileID: 11400000, guid: f2ce192f70cd46e499a98775d90e7b51, type: 2}
   gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
-  minigameSequence: 
   onReturnGameLobby: {fileID: 11400000, guid: 14beae4149f480d4d9a2ef638cc9c8d4, type: 2}
   onStartSTS: {fileID: 11400000, guid: fc3200a3c6b03c34fbb84f06e1b74c94, type: 2}
   onStartUGS: {fileID: 11400000, guid: 5a482cca73ee298428bb11fb022be068, type: 2}

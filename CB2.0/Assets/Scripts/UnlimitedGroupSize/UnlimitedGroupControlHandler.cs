@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class UnlimitedGroupControlHandler : MonoBehaviour
 {
     public GameConstants constants;
+
     public PlayerRelocateGameEvent playerRelocateGameEvent;
 
     [Header("Item Types")]
@@ -13,30 +14,41 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     [Header("Grab Attributes")]
     public GameObject grabDetect;
+
     public bool held = false;
 
     [Header("Player Attributes")]
     public SpriteRenderer thoughtBubbleRenderer;
+
     public GameObject rechargeBarObject;
 
     [Header("Physical Item Prefab")]
     public GameObject swabStickPrefab;
 
     private ShopHandler shopHandler;
+
     private GameObject pickedItem; // the item player picked up
 
-    private PlayerInventory inventory;
     private PlayerStatsManager playerStatsManager;
+
     private PlayerZoneManager playerZoneManager;
+
     private PlayerController playerController;
+
     private PlayerAudioController playerAudioController;
 
     private int layerMask;
+
     private EntertainmentController entertainmentController;
+
     private bool available = true;
+
     private Item shopItem;
+
     private RechargeBar rechargeBar;
+
     private bool isGameStarted = false;
+
     private float initialPlayerSpeed;
 
     private void Awake()
@@ -56,7 +68,6 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         thoughtBubbleRenderer.enabled = false;
         GetComponent<SpriteOutlined>()
             .EnableOutline(playerStatsManager.GetPlayerStats());
-        inventory = playerStatsManager.GetPlayerStats().inventory;
     }
 
     private void Update()
@@ -98,7 +109,6 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                     entertainmentController.fromPlayer == gameObject
                 )
                 {
-                    
                     // Slow down player & Disable dash
                     playerController.SlowMovement(constants.slowFactor);
                     playerController.DisableDash();
@@ -134,9 +144,11 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                 deselectEntertainment();
             }
 
-            if (!held 
-            && entertainmentController 
-            && entertainmentController.fromPlayer == gameObject)
+            if (
+                !held &&
+                entertainmentController &&
+                entertainmentController.fromPlayer == gameObject
+            )
             {
                 // Player resumes normal speed and dash
                 playerController.RestoreMovement();
@@ -155,9 +167,9 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     public void OnUse()
     {
-        if (inventory.hasItem())
+        if (playerStatsManager.GetPlayerStats().item)
         {
-            Item currentItem = inventory.GetCurrentItem();
+            Item currentItem = playerStatsManager.GetPlayerStats().item;
             Vector2 idleDirection = playerController.GetIdleDirection();
             switch (currentItem.itemType)
             {
@@ -173,10 +185,9 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                         {
                             playerAudioController.PlaySFX(SFXType._lock);
                             entertainmentController.SetLock();
-                            inventory.useItem();
+                            playerStatsManager.GetPlayerStats().item = null;
                             thoughtBubbleRenderer.enabled = false;
-                        }
-                        // Check if entertainment already has the existing upgrade
+                        } // Check if entertainment already has the existing upgrade
                         else if (
                             currentItem.itemName == "upgrade" &&
                             !entertainmentController.upgraded
@@ -184,7 +195,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                         {
                             playerAudioController.PlaySFX(SFXType._lock);
                             entertainmentController.SetUpgrade();
-                            inventory.useItem();
+                            playerStatsManager.GetPlayerStats().item = null;
                             thoughtBubbleRenderer.enabled = false;
                         }
                     }
@@ -203,45 +214,50 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
     public void OnShop()
     {
         if (
-            !inventory.hasItem() &&
+            !playerStatsManager.GetPlayerStats().item &&
             playerZoneManager.GetZone() == PlayerZoneManager.ZoneType.ugsShop
         )
         {
             ShopItem boughtItem = shopHandler.BuyItem(gameObject);
 
-            switch (boughtItem.itemName)
-            {
-                case "lock":
-                    shopItem = shopItemList[0];
-                    break;
-                case "upgrade":
-                    shopItem = shopItemList[1];
-                    break;
-                default:
-                    break;
-            }
-
             if (boughtItem != null)
             {
+                switch (boughtItem.itemName)
+                {
+                    case "lock":
+                        shopItem = shopItemList[0];
+                        break;
+                    case "upgrade":
+                        shopItem = shopItemList[1];
+                        break;
+                    default:
+                        break;
+                }
                 playerAudioController.PlaySFX(SFXType._lock);
-                inventory.SetItem (shopItem);
+                playerStatsManager.GetPlayerStats().item = shopItem;
 
                 thoughtBubbleRenderer.sprite = shopItem.thoughtBubbleSprite;
                 thoughtBubbleRenderer.enabled = true;
 
-                Debug.Log(playerStatsManager.GetPlayerStats().coins);
-                Item currentItem = inventory.GetCurrentItem();
+                Item currentItem = playerStatsManager.GetPlayerStats().item;
             }
         }
     }
 
     public void OnHold(InputAction.CallbackContext context)
     {
-        if (entertainmentController)
+
+        if (context.performed)
         {
-            playerAudioController.PlaySFX(SFXType.drop);
+            Debug.Log("Performed");
+            held = !held;
+            if (entertainmentController)
+            {
+                playerAudioController.PlaySFX(SFXType.drop);
+            }
         }
-        held = context.ReadValueAsButton();
+
+        // held = context.ReadValueAsButton();
     }
 
     public void SetPickedItem(GameObject _pickedItem)
@@ -292,11 +308,14 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         int playerID = playerStatsManager.GetPlayerStats().playerID;
 
         // Edge case: To detach entertainment object from player when attacked
-        deselectEntertainment();
+        if (entertainmentController) deselectEntertainment();
         held = false;
         entertainmentController = null;
-        
-        playerRelocateGameEvent.Fire(playerID, FindObjectOfType<UnlimitedGroupManager>().GetPlayerLocation(playerID));
+
+        playerRelocateGameEvent
+            .Fire(playerID,
+            FindObjectOfType<UnlimitedGroupManager>()
+                .GetPlayerLocation(playerID));
     }
 
     public void onMinigameStart()
@@ -309,7 +328,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
     // Reset all minigame-specific player appearance
     public void onMinigameOver()
     {
-        inventory.ClearItem();
+        playerStatsManager.GetPlayerStats().item = null;
         thoughtBubbleRenderer.enabled = false;
         rechargeBarObject.SetActive(false);
         grabDetect.SetActive(false);

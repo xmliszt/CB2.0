@@ -40,10 +40,15 @@ public class SpriteOutlined : MonoBehaviour
     public void TurnOnRainbowEffect(int playerID)
     {
         if (_playerStats.playerID == playerID) isRainbowEffect = true;
-        StartCoroutine(TurnOffRainbowEffect());
+        StartCoroutine(RainbowOff());
     }
 
-    IEnumerator TurnOffRainbowEffect()
+    public void TurnOffRainbowEffect()
+    {
+        StartCoroutine(RainbowOff());
+    }
+
+    IEnumerator RainbowOff()
     {
         yield return new WaitForSeconds(constants.shopItemEffectDuration);
         isRainbowEffect = false;

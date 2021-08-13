@@ -74,8 +74,6 @@ public class STSControlHandler : MonoBehaviour
 
     public SpriteRenderer CakeSprite;
 
-    private STSItem stsItem;
-
     [Header("Physical Item Prefab")]
     public GameObject droppedPizzaPrefab;
 
@@ -132,7 +130,6 @@ public class STSControlHandler : MonoBehaviour
         CakeSprite.enabled = false;
         PizzaSprite.enabled = false;
         stsInventory.holdingItem = false;
-        stsItem = stsInventory.stsItem;
         completionBarFill.color =
             playerStatsManager.GetPlayerStats().playerAccent;
     }
@@ -298,7 +295,7 @@ public class STSControlHandler : MonoBehaviour
             if (zoneType == ZoneType.grocerCake)
             {
                 playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
-                stsItem.SetFood (Cake);
+                stsInventory.stsFood = Cake;
                 stsInventory.holdingItem = true;
                 stsInventory.inventoryItemType =
                     STSPlayerInventory.InventoryItemType.cake;
@@ -311,7 +308,7 @@ public class STSControlHandler : MonoBehaviour
             if (zoneType == ZoneType.grocerPizza)
             {
                 playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
-                stsItem.SetFood (Pizza);
+                stsInventory.stsFood = Pizza;
                 stsInventory.holdingItem = true;
                 stsInventory.inventoryItemType =
                     STSPlayerInventory.InventoryItemType.pizza;
@@ -329,7 +326,7 @@ public class STSControlHandler : MonoBehaviour
                 InteractableObject
                     .GetComponent<InteractableGameObjects>()
                     .DestroyThis();
-                stsItem.SetFood (Cake);
+                stsInventory.stsFood = Cake;
                 stsInventory.holdingItem = true;
                 stsInventory.inventoryItemType =
                     STSPlayerInventory.InventoryItemType.cake;
@@ -346,7 +343,7 @@ public class STSControlHandler : MonoBehaviour
                 InteractableObject
                     .GetComponent<InteractableGameObjects>()
                     .DestroyThis();
-                stsItem.SetFood (Pizza);
+                stsInventory.stsFood = Pizza;
                 stsInventory.holdingItem = true;
                 stsInventory.inventoryItemType =
                     STSPlayerInventory.InventoryItemType.pizza;
@@ -380,7 +377,8 @@ public class STSControlHandler : MonoBehaviour
             thoughtBubbleRenderer.enabled = true;
             playerDoingActivity = false;
 
-            STSFood _food = stsItem.UseFood();
+            STSFood _food = stsInventory.stsFood;
+            stsInventory.stsFood = null;
             GameObject droppedFoodPrefab;
 
             if ((int) _food.foodType == 1)
@@ -433,15 +431,15 @@ public class STSControlHandler : MonoBehaviour
         }
 
         // play audio
-        if(zoneType == ZoneType.computer)
+        if (zoneType == ZoneType.computer)
         {
             playerAudioController.PlaySFX(SFXType.computer);
         }
-        if(zoneType == ZoneType.dumbbell)
+        if (zoneType == ZoneType.dumbbell)
         {
             playerAudioController.PlaySFX(SFXType.gym);
         }
-        if(zoneType == ZoneType.karaoke)
+        if (zoneType == ZoneType.karaoke)
         {
             playerAudioController.PlaySFX(SFXType.karaoke);
         }

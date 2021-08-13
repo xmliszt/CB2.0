@@ -1,43 +1,5 @@
 using UnityEngine;
 
-[System.Serializable]
-public class PlayerInventory
-{
-    public PlayerInventory()
-    {
-        item = null;
-    }
-
-    public Item item;
-
-    public Item GetCurrentItem()
-    {
-        return item;
-    }
-
-    public void SetItem(Item _item)
-    {
-        item = _item;
-    }
-
-    public void ClearItem()
-    {
-        item = null;
-    }
-
-    public Item useItem()
-    {
-        Item _item = item;
-        item = null;
-        return _item;
-    }
-
-    public bool hasItem()
-    {
-        return item != null;
-    }
-}
-
 [
     CreateAssetMenu(
         fileName = "PlayerStats",
@@ -58,7 +20,7 @@ public class PlayerStats : ScriptableObject
 
     public RuntimeAnimatorController animatorController;
 
-    public PlayerInventory inventory = new PlayerInventory();
+    public Item item;
 
     public int coins;
 

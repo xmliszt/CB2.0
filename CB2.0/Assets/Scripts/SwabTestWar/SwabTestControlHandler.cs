@@ -33,8 +33,6 @@ public class SwabTestControlHandler : MonoBehaviour
 
     private GameObject pickedItem; // the item player picked up
 
-    private PlayerInventory inventory;
-
     private PlayerStatsManager playerStatsManager;
 
     private PlayerZoneManager playerZoneManager;
@@ -61,43 +59,44 @@ public class SwabTestControlHandler : MonoBehaviour
         stunnedIconRenderer.enabled = false;
         GetComponent<SpriteOutlined>()
             .EnableOutline(playerStatsManager.GetPlayerStats());
-        inventory = playerStatsManager.GetPlayerStats().inventory;
     }
 
     private void Update()
     {
         // auto pick
-
         if (!isGameEnded)
         {
             if (
                 playerZoneManager.GetZone() ==
                 PlayerZoneManager.ZoneType.droppedItem &&
-                !inventory.hasItem() &&
+                !playerStatsManager.GetPlayerStats().item &&
                 autoPickEnabled
             )
             {
                 // pick up dropped item
-                Item _item =
-                    pickedItem.GetComponent<CollectableItem>().itemMeta;
-                inventory.SetItem (_item);
-                thoughtBubbleRenderer.sprite = _item.thoughtBubbleSprite;
-                thoughtBubbleRenderer.enabled = true;
-                Destroy (pickedItem);
+                if (pickedItem)
+                {
+                    Item _item =
+                        pickedItem.GetComponent<CollectableItem>().itemMeta;
+                    playerStatsManager.GetPlayerStats().item = _item;
+                    thoughtBubbleRenderer.sprite = _item.thoughtBubbleSprite;
+                    thoughtBubbleRenderer.enabled = true;
+                    Destroy (pickedItem);
+                }
             }
         }
     }
 
     public void OnUse()
     {
-        if (inventory.hasItem())
+        if (playerStatsManager.GetPlayerStats().item != null)
         {
-            Item currentItem = inventory.GetCurrentItem();
+            Item currentItem = playerStatsManager.GetPlayerStats().item;
             Vector2 idleDirection = playerController.GetIdleDirection();
             if (currentItem.itemType == Item.ItemType.swabStick)
             {
                 playerAudioController.PlaySFX(SFXType.shoot);
-                inventory.useItem();
+                playerStatsManager.GetPlayerStats().item = null;
                 GameObject stick =
                     Instantiate(swabStickPrefab,
                     transform.position +
@@ -149,8 +148,7 @@ public class SwabTestControlHandler : MonoBehaviour
                 )
                 {
                     playerAudioController.PlaySFX(SFXType.submitResult);
-                    inventory.useItem();
-                    inventory.SetItem (trash);
+                    playerStatsManager.GetPlayerStats().item = trash;
                     thoughtBubbleRenderer.sprite = trash.thoughtBubbleSprite;
                     thoughtBubbleRenderer.enabled = true;
 
@@ -166,7 +164,7 @@ public class SwabTestControlHandler : MonoBehaviour
                     PlayerZoneManager.ZoneType.dustbin
                 )
                 {
-                    inventory.useItem();
+                    playerStatsManager.GetPlayerStats().item = null;
                     thoughtBubbleRenderer.enabled = false;
 
                     // Gain 1 coin!
@@ -183,7 +181,7 @@ public class SwabTestControlHandler : MonoBehaviour
                 )
                 {
                     playerAudioController.PlaySFX(SFXType._lock);
-                    inventory.useItem();
+                    playerStatsManager.GetPlayerStats().item = null;
                     thoughtBubbleRenderer.enabled = false;
                     testStationProcessor.OnLock (gameObject);
                 }
@@ -193,7 +191,7 @@ public class SwabTestControlHandler : MonoBehaviour
 
     public void onPickUpDrop()
     {
-        if (!inventory.hasItem())
+        if (!playerStatsManager.GetPlayerStats().item)
         {
             if (
                 playerZoneManager.GetZone() !=
@@ -206,7 +204,7 @@ public class SwabTestControlHandler : MonoBehaviour
                     PlayerZoneManager.ZoneType.swabStickCollection
                 )
                 {
-                    inventory.SetItem (swabStick);
+                    playerStatsManager.GetPlayerStats().item = swabStick;
                     thoughtBubbleRenderer.sprite =
                         swabStick.thoughtBubbleSprite;
                     thoughtBubbleRenderer.enabled = true;
@@ -256,14 +254,14 @@ public class SwabTestControlHandler : MonoBehaviour
     public void onShop()
     {
         if (
-            !inventory.hasItem() &&
+            !playerStatsManager.GetPlayerStats().item &&
             playerZoneManager.GetZone() == PlayerZoneManager.ZoneType.shop
         )
         {
             ShopItem boughtItem = shopHandler.BuyItem(gameObject);
             if (boughtItem != null)
             {
-                inventory.SetItem (shopItem);
+                playerStatsManager.GetPlayerStats().item = shopItem;
                 thoughtBubbleRenderer.sprite = shopItem.thoughtBubbleSprite;
                 thoughtBubbleRenderer.enabled = true;
             }
@@ -274,16 +272,17 @@ public class SwabTestControlHandler : MonoBehaviour
     {
         playerAudioController.PlaySFX(SFXType.drop);
         testStationProcessor.OnLoadTestSample(transform.GetInstanceID());
-        inventory.useItem();
+        playerStatsManager.GetPlayerStats().item = null;
         thoughtBubbleRenderer.enabled = false;
     }
 
     private void DropItem()
     {
         // drop item
-        if (inventory.hasItem())
+        if (playerStatsManager.GetPlayerStats().item)
         {
-            Item _item = inventory.useItem();
+            Item _item = playerStatsManager.GetPlayerStats().item;
+            playerStatsManager.GetPlayerStats().item = null;
             Vector2 idleDirection = playerController.GetIdleDirection();
             GameObject dropped =
                 Instantiate(droppedItemPrefab,
@@ -301,7 +300,7 @@ public class SwabTestControlHandler : MonoBehaviour
     private void PickUpTestResult()
     {
         testStationProcessor.OnRetrieveTestResult(transform.GetInstanceID());
-        inventory.SetItem (testResult);
+        playerStatsManager.GetPlayerStats().item = testResult;
         thoughtBubbleRenderer.sprite = testResult.thoughtBubbleSprite;
         thoughtBubbleRenderer.enabled = true;
     }
@@ -340,7 +339,7 @@ public class SwabTestControlHandler : MonoBehaviour
     public void OnSwabStickHit()
     {
         playerAudioController.PlaySFX(SFXType.hit);
-        inventory.SetItem (testSample);
+        playerStatsManager.GetPlayerStats().item = testSample;
         thoughtBubbleRenderer.sprite = testSample.thoughtBubbleSprite;
         thoughtBubbleRenderer.enabled = true;
     }

@@ -1,43 +1,5 @@
 using UnityEngine;
 
-[System.Serializable]
-public class STSItem
-{
-    public STSFood stsFood;
-
-    public STSItem()
-    {
-        stsFood = null;
-    }
-
-    public STSFood GetCurrentItem()
-    {
-        return stsFood;
-    }
-
-    public void SetFood(STSFood _stsFood)
-    {
-        stsFood = _stsFood;
-    }
-
-    public void ClearFood()
-    {
-        stsFood = null;
-    }
-
-    public STSFood UseFood()
-    {
-        STSFood _stsFood = stsFood;
-        stsFood = null;
-        return _stsFood;
-    }
-
-    public bool hasFood()
-    {
-        return stsFood != null;
-    }
-}
-
 [
     CreateAssetMenu(
         fileName = "STSPlayerInventory",
@@ -59,5 +21,5 @@ public class STSPlayerInventory : ScriptableObject
 
     public bool holdingItem = false;
 
-    public STSItem stsItem = new STSItem();
+    public STSFood stsFood;
 }
