@@ -20,10 +20,10 @@ MonoBehaviour:
   animatorController: {fileID: 9100000, guid: ba47bc509b1cb5847a9262ae1453904e, type: 2}
   inventory:
     item: {fileID: 0}
-  coins: 4
+  coins: 0
   score: 0
-  masks: 0
-  ready: 1
-  TPCollected: 1
-  otherObjectCollected: 1
+  masks: 4
+  ready: 0
+  TPCollected: 0
+  otherObjectCollected: 0
   zoneType: 6

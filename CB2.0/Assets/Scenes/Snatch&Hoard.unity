@@ -189,7 +189,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 13736930}
         m_TargetAssemblyTypeName: SpawnedPickupManager, Assembly-CSharp
-        m_MethodName: PickupDestroyed
+        m_MethodName: PickupAdded
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -217,7 +217,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 13736930}
         m_TargetAssemblyTypeName: SpawnedPickupManager, Assembly-CSharp
-        m_MethodName: PickupAdded
+        m_MethodName: PickupDestroyed
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -290,6 +290,12 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         playerController.RestoreMovement();
         playerController.EnableDash();
         int playerID = playerStatsManager.GetPlayerStats().playerID;
+
+        // Edge case: To detach entertainment object from player when attacked
+        deselectEntertainment();
+        held = false;
+        entertainmentController = null;
+        
         playerRelocateGameEvent.Fire(playerID, FindObjectOfType<UnlimitedGroupManager>().GetPlayerLocation(playerID));
     }
 
