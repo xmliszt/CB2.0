@@ -144,11 +144,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                 deselectEntertainment();
             }
 
-            if (
-                !held &&
-                entertainmentController &&
-                entertainmentController.fromPlayer == gameObject
-            )
+            if (!held)
             {
                 // Player resumes normal speed and dash
                 playerController.RestoreMovement();
@@ -247,17 +243,17 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
     public void OnHold(InputAction.CallbackContext context)
     {
 
-        if (context.performed)
-        {
-            Debug.Log("Performed");
-            held = !held;
-            if (entertainmentController)
-            {
-                playerAudioController.PlaySFX(SFXType.drop);
-            }
-        }
+        // if (context.performed)
+        // {
+        //     Debug.Log("Performed");
+        //     held = !held;
+        //     if (entertainmentController)
+        //     {
+        //         playerAudioController.PlaySFX(SFXType.drop);
+        //     }
+        // }
 
-        // held = context.ReadValueAsButton();
+        held = context.ReadValueAsButton();
     }
 
     public void SetPickedItem(GameObject _pickedItem)
