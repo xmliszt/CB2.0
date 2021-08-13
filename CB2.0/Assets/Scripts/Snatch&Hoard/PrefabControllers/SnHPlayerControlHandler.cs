@@ -55,6 +55,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     private bool onPowerUpEffect = false;
 
+    private bool isGameStarted = false;
+
     private void Awake()
     {
         playerStatsManager = GetComponent<PlayerStatsManager>();
@@ -64,6 +66,7 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     public void onMinigameStart()
     {
+        isGameStarted = true;
         itemBubble.SetActive(false);
         playerID = playerStatsManager.GetPlayerStats().playerID;
         isHoldingBasket = false;
@@ -71,15 +74,18 @@ public class SnHPlayerControlHandler : MonoBehaviour
         heldPickUp = PickUpTypeEnum.noneType;
         playerStatsManager.GetPlayerStats().TPCollected = 0;
         playerStatsManager.GetPlayerStats().otherObjectCollected = 0;
-        playerStatsManager.GetPlayerStats().zoneType = PlayerStats.ZoneType.NotInAnyZone;
+        playerStatsManager.GetPlayerStats().zoneType =
+            PlayerStats.ZoneType.NotInAnyZone;
     }
 
     // reset player things when time ends
     public void onMinigameOver()
     {
+        isGameStarted = false;
         playerStatsManager.GetPlayerStats().TPCollected = 0;
         playerStatsManager.GetPlayerStats().otherObjectCollected = 0;
-        playerStatsManager.GetPlayerStats().zoneType = PlayerStats.ZoneType.NotInAnyZone;
+        playerStatsManager.GetPlayerStats().zoneType =
+            PlayerStats.ZoneType.NotInAnyZone;
         itemBubble.SetActive(false);
         playerController.EnableDash();
         playerController.RestoreMovement();
@@ -88,108 +94,110 @@ public class SnHPlayerControlHandler : MonoBehaviour
     // entering zones
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        // entered basket zone
-        if (collision.CompareTag("Basket"))
+        if (isGameStarted)
         {
-            // basket not engaged with anyone
-            if (
-                collision
-                    .GetComponent<SnHBasketController>()
-                    .engagedWithPlayer ==
-                playerStatsManager.GetPlayerStats().playerID
-            )
+            // entered basket zone
+            if (collision.CompareTag("Basket"))
             {
-                // implicitly not holding my basket
+                // basket not engaged with anyone
                 if (
-                    playerStatsManager.GetPlayerStats().playerID ==
-                    collision.GetComponent<SnHBasketController>().playerID
+                    collision
+                        .GetComponent<SnHBasketController>()
+                        .engagedWithPlayer ==
+                    playerStatsManager.GetPlayerStats().playerID
                 )
                 {
-                    playerStatsManager.GetPlayerStats().zoneType =
-                        PlayerStats.ZoneType.myBasketZone;
-                    zoneObject = collision.gameObject;
-                } // not my basket and i am not holding anything
-                else if (
-                    playerStatsManager.GetPlayerStats().playerID !=
-                    collision.GetComponent<SnHBasketController>().playerID &&
+                    // implicitly not holding my basket
+                    if (
+                        playerStatsManager.GetPlayerStats().playerID ==
+                        collision.GetComponent<SnHBasketController>().playerID
+                    )
+                    {
+                        playerStatsManager.GetPlayerStats().zoneType =
+                            PlayerStats.ZoneType.myBasketZone;
+                        zoneObject = collision.gameObject;
+                    } // not my basket and i am not holding anything
+                    else if (
+                        playerStatsManager.GetPlayerStats().playerID !=
+                        collision
+                            .GetComponent<SnHBasketController>()
+                            .playerID &&
+                        !isHoldingBasket &&
+                        !isHoldingPickup
+                    )
+                    {
+                        playerStatsManager.GetPlayerStats().zoneType =
+                            PlayerStats.ZoneType.otherBasketZone;
+                        zoneObject = collision.gameObject;
+                    }
+                }
+            } // entered pickup zone
+            else if (collision.CompareTag("Pickup"))
+            {
+                // not holding anything and pickup is not engaged by anyone
+                if (
                     !isHoldingBasket &&
-                    !isHoldingPickup
+                    !isHoldingPickup &&
+                    collision
+                        .GetComponent<SnHPickUpController>()
+                        .engagedWithPlayer ==
+                    playerStatsManager.GetPlayerStats().playerID
                 )
                 {
                     playerStatsManager.GetPlayerStats().zoneType =
-                        PlayerStats.ZoneType.otherBasketZone;
+                        PlayerStats.ZoneType.pickUpZone;
+                    zoneObject = collision.gameObject;
+                }
+            } // entered NPC zone
+            else if (collision.CompareTag("NPC"))
+            {
+                if (
+                    collision
+                        .GetComponent<SnHNPCController>()
+                        .engagedWithPlayer ==
+                    playerStatsManager.GetPlayerStats().playerID
+                )
+                {
+                    playerStatsManager.GetPlayerStats().zoneType =
+                        PlayerStats.ZoneType.NPCZone;
                     zoneObject = collision.gameObject;
                 }
             }
-        } // entered pickup zone
-        else if (collision.CompareTag("Pickup"))
-        {
-            // not holding anything and pickup is not engaged by anyone
-            if (
-                !isHoldingBasket &&
-                !isHoldingPickup &&
-                collision
-                    .GetComponent<SnHPickUpController>()
-                    .engagedWithPlayer ==
-                playerStatsManager.GetPlayerStats().playerID
-            )
+            else if (collision.CompareTag("Shop"))
             {
                 playerStatsManager.GetPlayerStats().zoneType =
-                    PlayerStats.ZoneType.pickUpZone;
+                    PlayerStats.ZoneType.shopZone;
                 zoneObject = collision.gameObject;
-            }
-        } // entered NPC zone
-        else if (collision.CompareTag("NPC"))
-        {
-            if (
-                collision.GetComponent<SnHNPCController>().engagedWithPlayer ==
-                playerStatsManager.GetPlayerStats().playerID
-            )
+            } // entered checkout zone
+            else if (collision.CompareTag("Checkout"))
             {
-                playerStatsManager.GetPlayerStats().zoneType =
-                    PlayerStats.ZoneType.NPCZone;
-                zoneObject = collision.gameObject;
+                if (
+                    collision
+                        .GetComponent<SnHCheckoutController>()
+                        .engagedWithPlayer ==
+                    playerStatsManager.GetPlayerStats().playerID
+                )
+                {
+                    playerStatsManager.GetPlayerStats().zoneType =
+                        PlayerStats.ZoneType.CheckoutZone;
+                    zoneObject = collision.gameObject;
+                }
             }
+            // ADD MORE ZONES HANDLING
         }
-        else if (collision.CompareTag("Shop"))
-        {
-            playerStatsManager.GetPlayerStats().zoneType =
-                PlayerStats.ZoneType.shopZone;
-            zoneObject = collision.gameObject;
-        } // entered checkout zone
-        else if (collision.CompareTag("Checkout"))
-        {
-            if (
-                collision
-                    .GetComponent<SnHCheckoutController>()
-                    .engagedWithPlayer ==
-                playerStatsManager.GetPlayerStats().playerID
-            )
-            {
-                playerStatsManager.GetPlayerStats().zoneType =
-                    PlayerStats.ZoneType.CheckoutZone;
-                zoneObject = collision.gameObject;
-            }
-        }
-        // ADD MORE ZONES HANDLING
     }
 
     // exiting zones
     public void OnTriggerExit2D(Collider2D collision)
     {
-        playerStatsManager.GetPlayerStats().zoneType =
-            PlayerStats.ZoneType.NotInAnyZone;
-        zoneObject = null;
+        if (isGameStarted)
+        {
+            playerStatsManager.GetPlayerStats().zoneType =
+                PlayerStats.ZoneType.NotInAnyZone;
+            zoneObject = null;
+        }
     }
 
-    // // button press: use item
-    // // ADD INCOMPLETE CODE
-    // public void OnUsePower()
-    // {
-    //     // ADD CODE
-    // }
-    // button press: pick or drop items
-    // ADD INCOMPLETE CODE
     public void OnPickDropItem()
     {
         // in my basket zone
@@ -434,7 +442,6 @@ public class SnHPlayerControlHandler : MonoBehaviour
             // {
             //     playerStatsManager.GetPlayerStats().otherObjectCollected += 1;
             // }
-
             // display the item
             itemSprite.sprite = otherSprites[(int) heldPickUp];
             itemBubble.SetActive(true);
