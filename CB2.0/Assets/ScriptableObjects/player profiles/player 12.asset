@@ -15,16 +15,14 @@ MonoBehaviour:
   playerID: 0
   playerName: Lucy
   selected: 0
-  playerAccent: {r: 0.3294118, g: 0.36434835, b: 0.8862745, a: 1}
+  playerAccent: {r: 0.9811321, g: 0.24528302, b: 0.60426784, a: 1}
   playerAvatar: {fileID: 21300000, guid: 3f8d655f61edfef478adc75e20576bdf, type: 3}
   animatorController: {fileID: 9100000, guid: fe6d6c0871522d14cb80281d25bd19de, type: 2}
-  inventory:
-    item: {fileID: 0}
+  item: {fileID: 0}
   coins: 0
   score: 0
   masks: 0
   ready: 0
-  isActive: 0
   TPCollected: 0
   otherObjectCollected: 0
   zoneType: 0

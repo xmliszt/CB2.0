@@ -15,16 +15,14 @@ MonoBehaviour:
   playerID: 0
   playerName: Edward
   selected: 0
-  playerAccent: {r: 0.3294118, g: 0.36434835, b: 0.8862745, a: 1}
+  playerAccent: {r: 0.8862745, g: 0.50857747, b: 0.3294118, a: 1}
   playerAvatar: {fileID: 21300000, guid: 0b390023a31fdaa44aa2c43db8a7c93e, type: 3}
   animatorController: {fileID: 9100000, guid: fb5d72ba996200c4c9956e3e3d38ca9b, type: 2}
-  inventory:
-    item: {fileID: 0}
+  item: {fileID: 0}
   coins: 0
   score: 0
   masks: 0
   ready: 0
-  isActive: 0
   TPCollected: 0
   otherObjectCollected: 0
   zoneType: 0

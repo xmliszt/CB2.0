@@ -161,7 +161,7 @@ public class SnHNPCController : MonoBehaviour
         yield return new WaitForSeconds(sleepfor);
 
         // finished thinking. set required pickup sprite and type
-        int itemIDX = Random.Range(1, 5);
+        int itemIDX = Random.Range(1, 3);
         RightItemSprite.sprite = itemSprites[itemIDX]; 
         LeftItemSprite.sprite = itemSprites[itemIDX];
         expectedPickup = (PickUpTypeEnum)itemIDX;

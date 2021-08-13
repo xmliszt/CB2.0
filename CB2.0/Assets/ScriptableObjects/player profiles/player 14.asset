@@ -15,16 +15,14 @@ MonoBehaviour:
   playerID: 0
   playerName: Old Man Josh
   selected: 0
-  playerAccent: {r: 0.3294118, g: 0.36434835, b: 0.8862745, a: 1}
+  playerAccent: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
   playerAvatar: {fileID: 21300000, guid: 5e4e6e3fe1d8af9488b436b3db5bfabb, type: 3}
   animatorController: {fileID: 9100000, guid: 473dd1f5e00cae64fb4d5e5c7838fe2d, type: 2}
-  inventory:
-    item: {fileID: 0}
+  item: {fileID: 0}
   coins: 0
   score: 0
   masks: 0
   ready: 0
-  isActive: 0
   TPCollected: 0
   otherObjectCollected: 0
   zoneType: 0

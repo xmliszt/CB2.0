@@ -15,16 +15,14 @@ MonoBehaviour:
   playerID: 0
   playerName: Rob
   selected: 0
-  playerAccent: {r: 0.3294118, g: 0.36434835, b: 0.8862745, a: 1}
+  playerAccent: {r: 0.13011748, g: 0.6415094, b: 0.57742864, a: 1}
   playerAvatar: {fileID: 21300000, guid: b45c29f98ed0723499055f63e3d52230, type: 3}
   animatorController: {fileID: 9100000, guid: d6f633849044ae34eb207e213dbdbbf5, type: 2}
-  inventory:
-    item: {fileID: 0}
+  item: {fileID: 0}
   coins: 0
   score: 0
   masks: 0
   ready: 0
-  isActive: 0
   TPCollected: 0
   otherObjectCollected: 0
   zoneType: 0

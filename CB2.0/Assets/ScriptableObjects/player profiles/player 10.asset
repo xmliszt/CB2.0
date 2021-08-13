@@ -15,7 +15,7 @@ MonoBehaviour:
   playerID: 0
   playerName: Dan
   selected: 0
-  playerAccent: {r: 0.3294118, g: 0.36434835, b: 0.8862745, a: 1}
+  playerAccent: {r: 0.46199715, g: 0.5471698, b: 0.47674072, a: 1}
   playerAvatar: {fileID: 21300000, guid: 2daf47117642edb42b9f577859b8e7ba, type: 3}
   animatorController: {fileID: 9100000, guid: bff774afae77cac459f79a950ba29b3c, type: 2}
   item: {fileID: 0}

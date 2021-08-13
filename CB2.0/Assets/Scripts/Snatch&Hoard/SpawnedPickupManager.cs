@@ -65,11 +65,11 @@ public class SpawnedPickupManager : MonoBehaviour
     // remove the reference from the list
     public void PickupDestroyed(Vector3 destroyedPickupPosition)
     {
-        foreach (List<Vector3> pu in spawnMap.Values)
+        foreach (SPZC pu in spawnMap.Keys)
         {
-            if (pu.Contains(destroyedPickupPosition))
+            if (destroyedPickupPosition.x >= pu.xMin && destroyedPickupPosition.x <= pu.xMax && destroyedPickupPosition.y >= pu.yMin && destroyedPickupPosition.y <= pu.yMax)
             {
-                pu.Remove(destroyedPickupPosition);
+                spawnMap[pu].Remove(destroyedPickupPosition);
             }
         }
     }

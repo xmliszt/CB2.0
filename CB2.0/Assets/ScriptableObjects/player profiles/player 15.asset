@@ -12,19 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f589a6d5dcfacb94fb780302a70367b4, type: 3}
   m_Name: player 15
   m_EditorClassIdentifier: 
-  playerID: 0
+  playerID: 1
   playerName: Old Woman Jenny
-  selected: 0
-  playerAccent: {r: 0.3294118, g: 0.36434835, b: 0.8862745, a: 1}
+  selected: 1
+  playerAccent: {r: 0.11725702, g: 0.8018868, b: 0.48749557, a: 1}
   playerAvatar: {fileID: 21300000, guid: e8ef2597bc442d64890b63ec28c32e23, type: 3}
   animatorController: {fileID: 9100000, guid: acc29a7c705a15b468bee994d38f90f9, type: 2}
-  inventory:
-    item: {fileID: 0}
+  item: {fileID: 0}
   coins: 0
   score: 0
   masks: 0
   ready: 0
-  isActive: 0
   TPCollected: 0
   otherObjectCollected: 0
   zoneType: 0

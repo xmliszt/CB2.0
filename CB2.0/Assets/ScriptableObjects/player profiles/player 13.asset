@@ -15,16 +15,14 @@ MonoBehaviour:
   playerID: 0
   playerName: Molly
   selected: 0
-  playerAccent: {r: 0.3294118, g: 0.36434835, b: 0.8862745, a: 1}
+  playerAccent: {r: 0.5505093, g: 0.14297791, b: 0.5943396, a: 1}
   playerAvatar: {fileID: 21300000, guid: 022f0498f5767034eba7309b74356d6b, type: 3}
   animatorController: {fileID: 9100000, guid: 6e75a38bf6de1974cad585922ca0c9b2, type: 2}
-  inventory:
-    item: {fileID: 0}
+  item: {fileID: 0}
   coins: 0
   score: 0
   masks: 0
   ready: 0
-  isActive: 0
   TPCollected: 0
   otherObjectCollected: 0
   zoneType: 0

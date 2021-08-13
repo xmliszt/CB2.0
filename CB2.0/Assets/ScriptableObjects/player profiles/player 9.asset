@@ -15,16 +15,14 @@ MonoBehaviour:
   playerID: 0
   playerName: Conference Woman
   selected: 0
-  playerAccent: {r: 0.3294118, g: 0.36434835, b: 0.8862745, a: 1}
+  playerAccent: {r: 0.4525115, g: 0.079832695, b: 0.735849, a: 1}
   playerAvatar: {fileID: 21300000, guid: b6b540e6f7b9f7046a13859135699680, type: 3}
   animatorController: {fileID: 9100000, guid: 5ce940322bcd78740a7207146551f0be, type: 2}
-  inventory:
-    item: {fileID: 0}
+  item: {fileID: 0}
   coins: 0
   score: 0
   masks: 0
   ready: 0
-  isActive: 0
   TPCollected: 0
   otherObjectCollected: 0
   zoneType: 0
