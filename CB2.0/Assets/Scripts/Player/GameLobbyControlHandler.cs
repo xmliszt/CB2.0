@@ -68,9 +68,11 @@ public class GameLobbyControlHandler : MonoBehaviour
             {
                 onMinigameDeSelected.Fire (minigameSelectorEntered);
                 minigameIndexSelected.Remove (minigameSelectorEntered);
+                playerAudioController.PlaySFX(SFXType.drop);
             }
             else
             {
+                playerAudioController.PlaySFX(SFXType.shoot);
                 onMinigameSelected.Fire (minigameSelectorEntered);
                 minigameIndexSelected.Add (minigameSelectorEntered);
             }
@@ -80,6 +82,10 @@ public class GameLobbyControlHandler : MonoBehaviour
             PlayerZoneManager.ZoneType.tutorialModeBtn
         )
         {
+            if (gameStats.tutorialModeOn)
+                playerAudioController.PlaySFX(SFXType.ready1);
+            else
+                playerAudioController.PlaySFX(SFXType.ready4);
             gameStats.tutorialModeOn = !gameStats.tutorialModeOn;
         }
     }

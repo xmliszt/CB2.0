@@ -36,8 +36,8 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false; // Whether character is currently dashing
 
     // All minigame handlers
-
     private PlayerStatsManager playerStatsManager;
+
     private PlayerAudioController playerAudioController;
 
     private GameLobbyControlHandler gameLobbyControlHandler;
@@ -290,9 +290,9 @@ public class PlayerController : MonoBehaviour
 
     public void onPause(InputAction.CallbackContext context)
     {
-        
         if (context.performed && !isPausedExecuted)
         {
+            playerAudioController.PlaySFX(SFXType._lock);
             onGamePaused.Fire();
             isPausedExecuted = true;
             StartCoroutine(removePausedExecuted());
@@ -304,7 +304,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.2f);
         isPausedExecuted = false;
     }
-    
+
     public Vector2 GetIdleDirection()
     {
         return idleDirection;
