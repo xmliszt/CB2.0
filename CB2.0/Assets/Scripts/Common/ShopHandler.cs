@@ -1,13 +1,17 @@
 using UnityEngine;
+using TMPro;
 
 public class ShopHandler : MonoBehaviour
 {
     public ShopItem shopItem;
 
+    public TMP_Text coinTxt;
+
     public SpriteRenderer indicator;
 
     private void Start() {
         indicator.sprite = shopItem.itemSprite;
+        coinTxt.text = shopItem.cost.ToString();
     }
 
     public ShopItem BuyItem(GameObject player)
