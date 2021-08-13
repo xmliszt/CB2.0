@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class STSControlHandler : MonoBehaviour
 {
+    public GameStats gameStats;
+
     private bool activityOnCooldown = false;
 
     public GameEvent STSTearDown;
@@ -81,6 +83,8 @@ public class STSControlHandler : MonoBehaviour
 
     private PlayerAudioController playerAudioController;
 
+    private ControlKeyIndicatorHandler controlKeyIndicatorHandler;
+
     private enum ZoneType
     {
         dumbbell = 0,
@@ -106,6 +110,7 @@ public class STSControlHandler : MonoBehaviour
         playerAudioController = GetComponent<PlayerAudioController>();
         playerController = GetComponent<PlayerController>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
+        controlKeyIndicatorHandler = GetComponent<ControlKeyIndicatorHandler>();
         delay = stsGameConstants.activityDelay;
 
         allActivities =
@@ -501,38 +506,71 @@ public class STSControlHandler : MonoBehaviour
     )
     {
         InteractableObject = otherGameObject;
-
+        Debug.Log (otherTag);
         switch (otherTag)
         {
             case "Dumbbell":
                 zoneType = ZoneType.dumbbell;
+                if (gameStats.tutorialModeOn)
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.west);
                 break;
             case "Computer":
                 zoneType = ZoneType.computer;
+                if (gameStats.tutorialModeOn)
+                {
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.west);
+                }
                 break;
             case "Karaoke":
                 zoneType = ZoneType.karaoke;
+                if (gameStats.tutorialModeOn)
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.west);
                 break;
             case "ToiletPaper":
                 zoneType = ZoneType.toiletPaper;
+                if (gameStats.tutorialModeOn)
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.west);
                 break;
             case "GrocerCake":
                 zoneType = ZoneType.grocerCake;
+                if (gameStats.tutorialModeOn)
+                    if (gameStats.tutorialModeOn)
+                        controlKeyIndicatorHandler
+                            .TurnOnIndicator(ControllerKeyType.south);
                 break;
             case "GrocerPizza":
                 zoneType = ZoneType.grocerPizza;
+                if (gameStats.tutorialModeOn)
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.south);
                 break;
             case "NPCCake":
                 zoneType = ZoneType.npcCake;
+                if (gameStats.tutorialModeOn)
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.west);
                 break;
             case "NPCPizza":
                 zoneType = ZoneType.npcPizza;
+                if (gameStats.tutorialModeOn)
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.west);
                 break;
             case "DroppedCake":
                 zoneType = ZoneType.droppedCake;
+                if (gameStats.tutorialModeOn)
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.south);
                 break;
             case "DroppedPizza":
                 zoneType = ZoneType.droppedPizza;
+                if (gameStats.tutorialModeOn)
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.south);
                 break;
             case "PlayerOneHome":
                 zoneType = ZoneType.playerOneHome;
@@ -548,6 +586,9 @@ public class STSControlHandler : MonoBehaviour
                 break;
             case "Shop":
                 zoneType = ZoneType.shop;
+                if (gameStats.tutorialModeOn)
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.north);
                 break;
         }
     }
@@ -556,6 +597,8 @@ public class STSControlHandler : MonoBehaviour
     {
         zoneType = ZoneType.nullType;
         InteractableObject = null;
+        if (gameStats.tutorialModeOn)
+            controlKeyIndicatorHandler.TurnOffIndiciator();
     }
 
     // Birthday event will override all other activities
@@ -647,16 +690,19 @@ public class STSControlHandler : MonoBehaviour
     // Reset all minigame-specific player appearance
     public void onMinigameOver()
     {
-        StopAllCoroutines();
-        thoughtBubbleRenderer.enabled = false;
-        stunnedIconRenderer.enabled = false;
-        CakeSprite.enabled = false;
-        PizzaSprite.enabled = false;
-        completionBar.gameObject.SetActive(false);
-        var tempColor = playerSprite.color;
-        tempColor.a = 1.0f;
-        playerSprite.color = tempColor;
-        playerSprite.enabled = true;
-        STSTearDown.Fire();
+        if (gameStats.GetCurrentScene() == GameStats.Scene.stopTheSpread)
+        {
+            StopAllCoroutines();
+            thoughtBubbleRenderer.enabled = false;
+            stunnedIconRenderer.enabled = false;
+            CakeSprite.enabled = false;
+            PizzaSprite.enabled = false;
+            completionBar.gameObject.SetActive(false);
+            var tempColor = playerSprite.color;
+            tempColor.a = 1.0f;
+            playerSprite.color = tempColor;
+            playerSprite.enabled = true;
+            STSTearDown.Fire();
+        }
     }
 }

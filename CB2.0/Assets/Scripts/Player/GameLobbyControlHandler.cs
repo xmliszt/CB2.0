@@ -23,14 +23,17 @@ public class GameLobbyControlHandler : MonoBehaviour
 
     private PlayerAudioController playerAudioController;
 
+    public GameStats gameStats;
+
     private void Awake()
     {
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerZoneManager = GetComponent<PlayerZoneManager>();
         playerAudioController = GetComponent<PlayerAudioController>();
         minigameIndexSelected = new List<int>(4);
-        for (int i = 0; i < 4; i ++) {
-            minigameIndexSelected.Add(i);
+        for (int i = 0; i < 4; i++)
+        {
+            minigameIndexSelected.Add (i);
         }
     }
 
@@ -63,16 +66,21 @@ public class GameLobbyControlHandler : MonoBehaviour
         {
             if (minigameIndexSelected.Contains(minigameSelectorEntered))
             {
-                Debug.Log("DeSelected " + minigameSelectorEntered.ToString());
                 onMinigameDeSelected.Fire (minigameSelectorEntered);
-                minigameIndexSelected.Remove(minigameSelectorEntered);
+                minigameIndexSelected.Remove (minigameSelectorEntered);
             }
             else
             {
-                Debug.Log("Selected " + minigameSelectorEntered.ToString());
                 onMinigameSelected.Fire (minigameSelectorEntered);
-                minigameIndexSelected.Add(minigameSelectorEntered);
+                minigameIndexSelected.Add (minigameSelectorEntered);
             }
+        }
+        if (
+            playerZoneManager.GetZone() ==
+            PlayerZoneManager.ZoneType.tutorialModeBtn
+        )
+        {
+            gameStats.tutorialModeOn = !gameStats.tutorialModeOn;
         }
     }
 

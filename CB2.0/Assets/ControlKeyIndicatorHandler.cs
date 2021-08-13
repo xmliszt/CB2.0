@@ -5,13 +5,15 @@ public class ControlKeyIndicatorHandler : MonoBehaviour
 {
     public List<ControllerKey> controllerKeys;
 
-    public SpriteRenderer xboxSpriteRenderer;
-    public SpriteRenderer psSpriteRenderer;
+    public SpriteRenderer genericSpriteRenderer;
+    // public SpriteRenderer xboxSpriteRenderer;
+    // public SpriteRenderer psSpriteRenderer;
 
     private void Start()
     {
-        xboxSpriteRenderer.enabled = false;
-        psSpriteRenderer.enabled = false;
+        // xboxSpriteRenderer.enabled = false;
+        // psSpriteRenderer.enabled = false;
+        genericSpriteRenderer.enabled = false;
     }
 
     private Sprite GetSpriteFromKey(
@@ -36,15 +38,12 @@ public class ControlKeyIndicatorHandler : MonoBehaviour
     public void TurnOnIndicator(ControllerKeyType keyType)
     {
     
-        xboxSpriteRenderer.sprite = GetSpriteFromKey(ControllerType.xbox, keyType);
-        psSpriteRenderer.sprite = GetSpriteFromKey(ControllerType.playStation, keyType);
-        xboxSpriteRenderer.enabled = true;
-        psSpriteRenderer.enabled = true;
+        genericSpriteRenderer.sprite = GetSpriteFromKey(ControllerType.generic, keyType);
+        genericSpriteRenderer.enabled = true;
     }
 
     public void TurnOffIndiciator()
     {
-        xboxSpriteRenderer.enabled = false;
-        psSpriteRenderer.enabled = false;
+        genericSpriteRenderer.enabled = false;
     }
 }

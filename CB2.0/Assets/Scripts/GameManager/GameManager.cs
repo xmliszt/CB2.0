@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         minigameSelection = new Dictionary<GameStats.Scene, bool>();
         playerInputManager = PlayerInputManager.instance;
         gameStats.SetCurrentScene(GameStats.Scene.gameLobby);
+        gameStats.tutorialModeOn = false;
         foreach (PlayerStats playerStats in playerProfiles)
         {
             playerStats.selected = false;

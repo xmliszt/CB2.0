@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 
 public class UnlimitedGroupControlHandler : MonoBehaviour
 {
+    public GameStats gameStats;
+
     public GameConstants constants;
 
     public PlayerRelocateGameEvent playerRelocateGameEvent;
@@ -37,6 +39,8 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     private PlayerAudioController playerAudioController;
 
+    private ControlKeyIndicatorHandler controlKeyIndicatorHandler;
+
     private int layerMask;
 
     private EntertainmentController entertainmentController;
@@ -57,6 +61,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerZoneManager = GetComponent<PlayerZoneManager>();
+        controlKeyIndicatorHandler = GetComponent<ControlKeyIndicatorHandler>();
 
         rechargeBar = rechargeBarObject.GetComponent<RechargeBar>();
         layerMask = LayerMask.GetMask("Entertainments");
@@ -68,6 +73,10 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         thoughtBubbleRenderer.enabled = false;
         GetComponent<SpriteOutlined>()
             .EnableOutline(playerStatsManager.GetPlayerStats());
+        if (gameStats.tutorialModeOn)
+        {
+            controlKeyIndicatorHandler.TurnOnIndicator(ControllerKeyType.south);
+        }
     }
 
     private void Update()
@@ -96,6 +105,11 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                             .GetComponent<EntertainmentController>();
                     if (!entertainmentController.fromPlayer)
                     {
+                        if (gameStats.tutorialModeOn)
+                        {
+                            controlKeyIndicatorHandler
+                                .TurnOnIndicator(ControllerKeyType.east);
+                        }
                         entertainmentController.fromPlayer = gameObject;
                         entertainmentController.SetSpriteOutline();
                         available = false;
@@ -116,6 +130,17 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                     // Move entertainment object
                     entertainmentController.MoveItem();
                 }
+                else if (
+                    entertainmentController !=
+                    grabCheck
+                        .collider
+                        .gameObject
+                        .GetComponent<EntertainmentController>() &&
+                    entertainmentController.fromPlayer == gameObject
+                )
+                {
+                    deselectEntertainment();
+                }
             }
             else
             // Object out of range: Deselect
@@ -129,26 +154,58 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                 }
             }
 
-            // Edge case where player is detecting another entertainment: Deselect
-            if (
-                grabCheck.collider != null &&
-                grabCheck.collider.tag == "Entertainments" &&
-                entertainmentController !=
-                grabCheck
-                    .collider
-                    .gameObject
-                    .GetComponent<EntertainmentController>() &&
-                entertainmentController.fromPlayer == gameObject
-            )
-            {
-                deselectEntertainment();
-            }
-
             if (!held)
             {
                 // Player resumes normal speed and dash
                 playerController.RestoreMovement();
                 playerController.EnableDash();
+            }
+            if (playerStatsManager.GetPlayerStats().item != null)
+            {
+                if (
+                    gameStats.tutorialModeOn &&
+                    entertainmentController &&
+                    playerStatsManager.GetPlayerStats().item.itemName ==
+                    "lock" &&
+                    !entertainmentController.locked
+                )
+                {
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.west);
+                }
+                else if (
+                    gameStats.tutorialModeOn &&
+                    entertainmentController &&
+                    playerStatsManager.GetPlayerStats().item.itemName ==
+                    "upgrade" &&
+                    !entertainmentController.upgraded
+                )
+                {
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.west);
+                }
+            }
+            else
+            {
+                if (
+                    gameStats.tutorialModeOn &&
+                    playerZoneManager.GetZone() ==
+                    PlayerZoneManager.ZoneType.ugsShop
+                )
+                {
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.north);
+                }
+                else if (
+                    rechargeBar.GetRecharge() >= constants.shootEnergy &&
+                    playerStatsManager.GetPlayerStats() &&
+                    !held &&
+                    gameStats.tutorialModeOn
+                )
+                {
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.south);
+                }
             }
         }
     }
@@ -242,7 +299,6 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     public void OnHold(InputAction.CallbackContext context)
     {
-
         // if (context.performed)
         // {
         //     Debug.Log("Performed");
@@ -252,7 +308,6 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         //         playerAudioController.PlaySFX(SFXType.drop);
         //     }
         // }
-
         held = context.ReadValueAsButton();
     }
 
@@ -288,6 +343,10 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
             stickMovementScript.fromPlayer = gameObject;
             stickMovementScript.direction = idleDirection;
             stickMovementScript.StartFlying();
+            if (gameStats.tutorialModeOn)
+            {
+                controlKeyIndicatorHandler.TurnOffIndiciator();
+            }
         }
     }
 
@@ -316,20 +375,26 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     public void onMinigameStart()
     {
-        rechargeBarObject.SetActive(true);
-        grabDetect.SetActive(true);
-        isGameStarted = true;
+        if (gameStats.GetCurrentScene() == GameStats.Scene.unlimitedGroupSize)
+        {
+            rechargeBarObject.SetActive(true);
+            grabDetect.SetActive(true);
+            isGameStarted = true;
+        }
     }
 
     // Reset all minigame-specific player appearance
     public void onMinigameOver()
     {
-        playerStatsManager.GetPlayerStats().item = null;
-        thoughtBubbleRenderer.enabled = false;
-        rechargeBarObject.SetActive(false);
-        grabDetect.SetActive(false);
-        isGameStarted = false;
-        playerController.RestoreMovement();
-        playerController.EnableDash();
+        if (gameStats.GetCurrentScene() == GameStats.Scene.unlimitedGroupSize)
+        {
+            playerStatsManager.GetPlayerStats().item = null;
+            thoughtBubbleRenderer.enabled = false;
+            rechargeBarObject.SetActive(false);
+            grabDetect.SetActive(false);
+            isGameStarted = false;
+            playerController.RestoreMovement();
+            playerController.EnableDash();
+        }
     }
 }

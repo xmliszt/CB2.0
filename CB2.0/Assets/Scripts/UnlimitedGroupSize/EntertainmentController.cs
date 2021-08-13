@@ -129,21 +129,17 @@ public class EntertainmentController : MonoBehaviour
     public void AddScore(PlayerStats playerStats) {
         
         assignedPlayerStats = playerStats;
-        
+    
         inZone = true;
-
         assignedPlayerStats.score += attractLevel;
 
-        Debug.Log(assignedPlayerStats.score);
     }
 
     public void RemoveScore(PlayerStats playerStats) {
         
         inZone = false;
-
         assignedPlayerStats = playerStats;
         assignedPlayerStats.score -= attractLevel;
-        Debug.Log(assignedPlayerStats.score);
         assignedPlayerStats = null;
 
     }

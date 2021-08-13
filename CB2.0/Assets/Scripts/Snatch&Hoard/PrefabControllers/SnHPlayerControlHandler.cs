@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SnHPlayerControlHandler : MonoBehaviour
 {
+    public GameStats gameStats;
+
     public SingleIntegerGameEvent firePowerup;
 
     public GameConstants constants;
@@ -49,6 +51,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     private PlayerAudioController playerAudioController;
 
+    private ControlKeyIndicatorHandler controlKeyIndicatorHandler;
+
     private PlayerController playerController;
 
     private int playerID;
@@ -62,33 +66,40 @@ public class SnHPlayerControlHandler : MonoBehaviour
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerAudioController = GetComponent<PlayerAudioController>();
         playerController = GetComponent<PlayerController>();
+        controlKeyIndicatorHandler = GetComponent<ControlKeyIndicatorHandler>();
     }
 
     public void onMinigameStart()
     {
-        isGameStarted = true;
-        itemBubble.SetActive(false);
-        playerID = playerStatsManager.GetPlayerStats().playerID;
-        isHoldingBasket = false;
-        isHoldingPickup = false;
-        heldPickUp = PickUpTypeEnum.noneType;
-        playerStatsManager.GetPlayerStats().TPCollected = 0;
-        playerStatsManager.GetPlayerStats().otherObjectCollected = 0;
-        playerStatsManager.GetPlayerStats().zoneType =
-            PlayerStats.ZoneType.NotInAnyZone;
+        if (gameStats.GetCurrentScene() == GameStats.Scene.snatchAndHoard)
+        {
+            isGameStarted = true;
+            itemBubble.SetActive(false);
+            playerID = playerStatsManager.GetPlayerStats().playerID;
+            isHoldingBasket = false;
+            isHoldingPickup = false;
+            heldPickUp = PickUpTypeEnum.noneType;
+            playerStatsManager.GetPlayerStats().TPCollected = 0;
+            playerStatsManager.GetPlayerStats().otherObjectCollected = 0;
+            playerStatsManager.GetPlayerStats().zoneType =
+                PlayerStats.ZoneType.NotInAnyZone;
+        }
     }
 
     // reset player things when time ends
     public void onMinigameOver()
     {
-        isGameStarted = false;
-        playerStatsManager.GetPlayerStats().TPCollected = 0;
-        playerStatsManager.GetPlayerStats().otherObjectCollected = 0;
-        playerStatsManager.GetPlayerStats().zoneType =
-            PlayerStats.ZoneType.NotInAnyZone;
-        itemBubble.SetActive(false);
-        playerController.EnableDash();
-        playerController.RestoreMovement();
+        if (gameStats.GetCurrentScene() == GameStats.Scene.snatchAndHoard)
+        {
+            isGameStarted = false;
+            playerStatsManager.GetPlayerStats().TPCollected = 0;
+            playerStatsManager.GetPlayerStats().otherObjectCollected = 0;
+            playerStatsManager.GetPlayerStats().zoneType =
+                PlayerStats.ZoneType.NotInAnyZone;
+            itemBubble.SetActive(false);
+            playerController.EnableDash();
+            playerController.RestoreMovement();
+        }
     }
 
     // entering zones
@@ -113,6 +124,9 @@ public class SnHPlayerControlHandler : MonoBehaviour
                         collision.GetComponent<SnHBasketController>().playerID
                     )
                     {
+                        if (gameStats.tutorialModeOn)
+                            controlKeyIndicatorHandler
+                                .TurnOnIndicator(ControllerKeyType.south);
                         playerStatsManager.GetPlayerStats().zoneType =
                             PlayerStats.ZoneType.myBasketZone;
                         zoneObject = collision.gameObject;
@@ -129,6 +143,16 @@ public class SnHPlayerControlHandler : MonoBehaviour
                         playerStatsManager.GetPlayerStats().zoneType =
                             PlayerStats.ZoneType.otherBasketZone;
                         zoneObject = collision.gameObject;
+                        if (
+                            zoneObject
+                                .GetComponent<SnHBasketController>()
+                                .canBeStolenFromBool &&
+                            gameStats.tutorialModeOn
+                        )
+                        {
+                            controlKeyIndicatorHandler
+                                .TurnOnIndicator(ControllerKeyType.south);
+                        }
                     }
                 }
             } // entered pickup zone
@@ -144,6 +168,9 @@ public class SnHPlayerControlHandler : MonoBehaviour
                     playerStatsManager.GetPlayerStats().playerID
                 )
                 {
+                    if (gameStats.tutorialModeOn)
+                        controlKeyIndicatorHandler
+                            .TurnOnIndicator(ControllerKeyType.south);
                     playerStatsManager.GetPlayerStats().zoneType =
                         PlayerStats.ZoneType.pickUpZone;
                     zoneObject = collision.gameObject;
@@ -161,10 +188,26 @@ public class SnHPlayerControlHandler : MonoBehaviour
                     playerStatsManager.GetPlayerStats().zoneType =
                         PlayerStats.ZoneType.NPCZone;
                     zoneObject = collision.gameObject;
+                    if (
+                        gameStats.tutorialModeOn &&
+                        heldPickUp ==
+                        zoneObject
+                            .GetComponent<SnHNPCController>()
+                            .expectedPickup
+                    )
+                    {
+                        controlKeyIndicatorHandler
+                            .TurnOnIndicator(ControllerKeyType.south);
+                    }
                 }
             }
             else if (collision.CompareTag("Shop"))
             {
+                if (gameStats.tutorialModeOn)
+                {
+                    controlKeyIndicatorHandler
+                        .TurnOnIndicator(ControllerKeyType.north);
+                }
                 playerStatsManager.GetPlayerStats().zoneType =
                     PlayerStats.ZoneType.shopZone;
                 zoneObject = collision.gameObject;
@@ -178,6 +221,21 @@ public class SnHPlayerControlHandler : MonoBehaviour
                     playerStatsManager.GetPlayerStats().playerID
                 )
                 {
+                    if (
+                        gameStats.tutorialModeOn &&
+                        (
+                        playerStatsManager.GetPlayerStats().TPCollected >=
+                        gameConstants.CollectTP &&
+                        playerStatsManager
+                            .GetPlayerStats()
+                            .otherObjectCollected >=
+                        gameConstants.CollectOther
+                        )
+                    )
+                    {
+                        controlKeyIndicatorHandler
+                            .TurnOnIndicator(ControllerKeyType.south);
+                    }
                     playerStatsManager.GetPlayerStats().zoneType =
                         PlayerStats.ZoneType.CheckoutZone;
                     zoneObject = collision.gameObject;
@@ -195,6 +253,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
             playerStatsManager.GetPlayerStats().zoneType =
                 PlayerStats.ZoneType.NotInAnyZone;
             zoneObject = null;
+            if (gameStats.tutorialModeOn)
+                controlKeyIndicatorHandler.TurnOffIndiciator();
         }
     }
 

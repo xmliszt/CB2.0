@@ -6,6 +6,8 @@ public class SwabTestControlHandler : MonoBehaviour
 {
     public GameConstants constants;
 
+    public GameStats gameStats;
+
     [Header("Item Types")]
     public Item swabStick;
 
@@ -37,6 +39,8 @@ public class SwabTestControlHandler : MonoBehaviour
 
     private PlayerZoneManager playerZoneManager;
 
+    private ControlKeyIndicatorHandler controlKeyIndicatorHandler;
+
     private PlayerController playerController;
 
     private PlayerAudioController playerAudioController;
@@ -51,6 +55,7 @@ public class SwabTestControlHandler : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         playerStatsManager = GetComponent<PlayerStatsManager>();
         playerZoneManager = GetComponent<PlayerZoneManager>();
+        controlKeyIndicatorHandler = GetComponent<ControlKeyIndicatorHandler>();
     }
 
     private void Start()
@@ -63,9 +68,9 @@ public class SwabTestControlHandler : MonoBehaviour
 
     private void Update()
     {
-        // auto pick
         if (!isGameEnded)
         {
+            // auto pick
             if (
                 playerZoneManager.GetZone() ==
                 PlayerZoneManager.ZoneType.droppedItem &&
@@ -82,6 +87,104 @@ public class SwabTestControlHandler : MonoBehaviour
                     thoughtBubbleRenderer.sprite = _item.thoughtBubbleSprite;
                     thoughtBubbleRenderer.enabled = true;
                     Destroy (pickedItem);
+                }
+            }
+
+            // tutorial mode
+            if (gameStats.tutorialModeOn)
+            {
+                switch (playerZoneManager.GetZone())
+                {
+                    case PlayerZoneManager.ZoneType.swabStickCollection:
+                        if (playerStatsManager.GetPlayerStats().item == null)
+                        {
+                            controlKeyIndicatorHandler
+                                .TurnOnIndicator(ControllerKeyType.south);
+                        }
+                        break;
+                    case PlayerZoneManager.ZoneType.testStation:
+                        if (playerStatsManager.GetPlayerStats().item == null)
+                        {
+                            if (testStationProcessor.testStationInfo.isComplete)
+                            {
+                                controlKeyIndicatorHandler
+                                    .TurnOnIndicator(ControllerKeyType.south);
+                            }
+                        }
+                        else
+                        {
+                            if (
+                                playerStatsManager
+                                    .GetPlayerStats()
+                                    .item
+                                    .itemType ==
+                                Item.ItemType.testSample ||
+                                playerStatsManager
+                                    .GetPlayerStats()
+                                    .item
+                                    .itemType ==
+                                Item.ItemType.shopItem
+                            )
+                            {
+                                controlKeyIndicatorHandler
+                                    .TurnOnIndicator(ControllerKeyType.west);
+                            }
+                        }
+                        break;
+                    case PlayerZoneManager.ZoneType.submissionStation:
+                        if (
+                            playerStatsManager.GetPlayerStats().item.itemType ==
+                            Item.ItemType.testResult
+                        )
+                        {
+                            controlKeyIndicatorHandler
+                                .TurnOnIndicator(ControllerKeyType.west);
+                        }
+                        break;
+                    case PlayerZoneManager.ZoneType.dustbin:
+                        if (playerStatsManager.GetPlayerStats().item != null)
+                        {
+                            if (
+                                playerStatsManager
+                                    .GetPlayerStats()
+                                    .item
+                                    .itemType ==
+                                Item.ItemType.trash
+                            )
+                            {
+                                controlKeyIndicatorHandler
+                                    .TurnOnIndicator(ControllerKeyType.west);
+                            }
+                        }
+                        break;
+                    case PlayerZoneManager.ZoneType.shop:
+                        if (playerStatsManager.GetPlayerStats().item == null)
+                        {
+                            controlKeyIndicatorHandler
+                                .TurnOnIndicator(ControllerKeyType.north);
+                        }
+                        break;
+                    default:
+                        if (playerStatsManager.GetPlayerStats().item != null)
+                        {
+                            if (
+                                playerStatsManager
+                                    .GetPlayerStats()
+                                    .item
+                                    .itemType ==
+                                Item.ItemType.swabStick
+                            )
+                            {
+                                controlKeyIndicatorHandler
+                                    .TurnOnIndicator(ControllerKeyType.west);
+                            }
+                        }
+                        else
+                        {
+                            Debug.Log("swab test turn off indicator");
+                            controlKeyIndicatorHandler.TurnOffIndiciator();
+                        }
+                        break;
                 }
             }
         }
@@ -363,14 +466,18 @@ public class SwabTestControlHandler : MonoBehaviour
 
     public void onMinigameStart()
     {
-        isGameEnded = false;
+        if (gameStats.GetCurrentScene() == GameStats.Scene.swabTestWar)
+            isGameEnded = false;
     }
 
     // Reset all minigame-specific player appearance
     public void onMinigameOver()
     {
-        thoughtBubbleRenderer.enabled = false;
-        stunnedIconRenderer.enabled = false;
-        isGameEnded = true;
+        if (gameStats.GetCurrentScene() == GameStats.Scene.swabTestWar)
+        {
+            thoughtBubbleRenderer.enabled = false;
+            stunnedIconRenderer.enabled = false;
+            isGameEnded = true;
+        }
     }
 }

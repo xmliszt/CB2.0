@@ -19,6 +19,8 @@ public class GameStats : ScriptableObject
         awardCeremony = 5,
     }
 
+    public bool tutorialModeOn = false;
+
     private Scene currentScene;
 
     public void SetCurrentScene(Scene _scene)

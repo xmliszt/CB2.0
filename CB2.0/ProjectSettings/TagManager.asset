@@ -42,6 +42,7 @@ TagManager:
   - GameSelector
   - Checkout
   - NPC
+  - TutorialModeBtn
   layers:
   - Default
   - TransparentFX

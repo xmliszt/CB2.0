@@ -17,8 +17,6 @@ public class EntertainmentDetection : MonoBehaviour
         if (other.CompareTag("Entertainments") && !zoneFull)
         {
             zoneFull = true;
-            Debug.Log("ENTERTAINMENT ENTERS ZONE");
-
             // Update score
             entertainmentController =
                 other.gameObject.GetComponent<EntertainmentController>();
@@ -37,8 +35,6 @@ public class EntertainmentDetection : MonoBehaviour
         )
         {
             zoneFull = false;
-            Debug.Log("ENTERTAINMENT LEAVE ZONE");
-
             // Remove score
             if (players.GetPlayers().ContainsKey(playerID))
                 entertainmentController
