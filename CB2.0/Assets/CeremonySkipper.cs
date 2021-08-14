@@ -46,20 +46,17 @@ public class CeremonySkipper : MonoBehaviour
 
     private void Update()
     {
+        foreach (int playerID in players.GetPlayers().Keys)
+        {
+            int idx = playerID - 1;
+            if (exitedPlayers[playerID] != null)
+            {
+                exitedPlayerImages[playerID - 1].enabled = true;
+            }
+        }
         if (exitCount == players.GetPlayers().Count)
         {
             StartCoroutine(startTransitionToLobby());
-        }
-        else
-        {
-            foreach (int playerID in players.GetPlayers().Keys)
-            {
-                int idx = playerID - 1;
-                if (exitedPlayers[playerID] != null)
-                {
-                    exitedPlayerImages[playerID - 1].enabled = true;
-                }
-            }
         }
     }
 

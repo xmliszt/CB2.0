@@ -296,9 +296,9 @@ public class PlayerController : MonoBehaviour
             {
                 if (playerAudioController)
                     playerAudioController.PlaySFX(SFXType._lock);
-                onGamePaused.Fire();
-                isPausedExecuted = true;
                 StartCoroutine(removePausedExecuted());
+                isPausedExecuted = true;
+                onGamePaused.Fire();
             }
         }
     }
