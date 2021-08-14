@@ -61,8 +61,11 @@ public class PlayerController : MonoBehaviour
 
     private bool isPausedExecuted = false;
 
+    private PhotonView photonView;
+
     private void Awake()
     {
+        photonView = GetComponent<PhotonView>();
         DontDestroyOnLoad (gameObject);
     }
 
@@ -139,8 +142,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    [PunRPC]
     public void OnMove(InputAction.CallbackContext context)
+    {
+        photonView.RPC("RPCMove", RpcTarget.AllBuffered, context);
+    }
+
+    [PunRPC]
+    private void RPCMove(InputAction.CallbackContext context)
     {
         if (!disabled)
         {
@@ -151,8 +159,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    [PunRPC]
     public void OnDash(InputAction.CallbackContext context)
+    {
+        photonView.RPC("RPCDash", RpcTarget.AllBuffered, context);
+    }
+
+    [PunRPC]
+    private void RPCDash(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -183,8 +196,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    [PunRPC]
     public void OnUse(InputAction.CallbackContext context)
+    {
+        photonView.RPC("RPCUse", RpcTarget.AllBuffered, context);
+    }
+
+    [PunRPC]
+    private void RPCUse(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -214,8 +232,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    [PunRPC]
     public void OnPickdrop(InputAction.CallbackContext context)
+    {
+        photonView.RPC("RPCPickdrop", RpcTarget.AllBuffered, context);
+    }
+
+    [PunRPC]
+    private void RPCPickdrop(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -249,8 +272,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    [PunRPC]
     public void OnShop(InputAction.CallbackContext context)
+    {
+        photonView.RPC("RPCShop", RpcTarget.AllBuffered, context);
+    }
+
+    [PunRPC]
+    private void RPCShop(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -280,8 +308,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    [PunRPC]
     public void OnHold(InputAction.CallbackContext context)
+    {
+        photonView.RPC("RPCHold", RpcTarget.AllBuffered, context);
+    }
+
+    [PunRPC]
+    private void RPCHold(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
@@ -300,8 +333,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    [PunRPC]
     public void onPause(InputAction.CallbackContext context)
+    {
+        photonView.RPC("RPCPause", RpcTarget.AllBuffered, context);
+    }
+
+    [PunRPC]
+    private void RPCPause(InputAction.CallbackContext context)
     {
         if (!disabled)
         {
