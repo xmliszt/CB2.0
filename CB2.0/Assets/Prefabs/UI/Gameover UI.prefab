@@ -601,7 +601,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Activities Done
+  m_text: '% Grocery Completed'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 30b3a0ea07202214a9ec7215db0a68c3, type: 2}
   m_sharedMaterial: {fileID: -8883814654007483391, guid: 30b3a0ea07202214a9ec7215db0a68c3, type: 2}
@@ -1509,7 +1509,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860689855997613045, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -372
+      value: -381
+      objectReference: {fileID: 0}
+    - target: {fileID: 860689855997613045, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000012875
       objectReference: {fileID: 0}
     - target: {fileID: 860689856382832821, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
       propertyPath: m_fontSize
@@ -1545,7 +1549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 860689856829523222, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -222
+      value: -230.99998
       objectReference: {fileID: 0}
     - target: {fileID: 1259266264649623855, guid: 840d49c86dc7bc249aeb9dda5c812ef8, type: 3}
       propertyPath: m_RootOrder

@@ -14,9 +14,13 @@ public class GameManager : MonoBehaviour
 
     public Players players;
 
+    public PlayerLocation[] playerLocations;
+
     private List<GameStats.Scene> minigameSequence;
 
     private Dictionary<GameStats.Scene, bool> minigameSelection;
+
+    public PlayerRelocateGameEvent playerRelocateGameEvent;
 
     public GameEvent onReturnGameLobby;
 
@@ -64,19 +68,40 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private Vector3 GetPlayerLocation(int playerID)
+    {
+        foreach (PlayerLocation playerLocation in playerLocations)
+        {
+            if (playerLocation.playerID == playerID)
+            {
+                return playerLocation.location.position;
+            }
+        }
+        return Vector3.zero;
+    }
+
     public void OnPlayerJoined(PlayerInput playerInput)
     {
         onPlayerJoinedEvent.Fire();
         int playerID = playerInput.playerIndex + 1;
-        Debug.Log(string.Format("Player {0} joined", playerID));
         if (playerObjects == null)
             playerObjects = new Dictionary<int, Transform>();
         playerObjects[playerID] = playerInput.gameObject.transform;
-        PlayerStats newPlayerStats = SwitchPlayerProfile(playerID); // assign one profile to the joined player
+        playerRelocateGameEvent.Fire(playerID, GetPlayerLocation(playerID));
         if (!players.PlayerExist(playerID))
-            players.AddPlayer(newPlayerStats, playerInput);
-        else
-            players.UpdatePlayer(playerID, newPlayerStats);
+        {
+            PlayerStats newPlayerStats = SwitchPlayerProfile(playerID); // assign one profile to the joined player
+            players.AddPlayer (newPlayerStats, playerInput);
+        }
+
+        playerInput
+            .gameObject
+            .GetComponent<PlayerController>()
+            .EnableController();
+        playerInput
+            .gameObject
+            .GetComponent<PlayerController>()
+            .EnableMovement();
         DontDestroyOnLoad(playerInput.gameObject);
     }
 
@@ -129,7 +154,7 @@ public class GameManager : MonoBehaviour
             }
             lastIdx++;
         }
-        
+
         playerObjects[playerID]
             .GetComponent<PlayerStatsManager>()
             .SetPlayerStats(selectedPlayerStats);
@@ -183,19 +208,22 @@ public class GameManager : MonoBehaviour
     {
         if (playerInputManager.playerCount < 2)
         {
-            onDisplayWarningText.Fire("Game cannot be started. Need at least 2 players.");
+            onDisplayWarningText
+                .Fire("Game cannot be started. Need at least 2 players.");
         }
         else
         {
-            foreach(GameStats.Scene sceneType in minigameSelection.Keys)
+            foreach (GameStats.Scene sceneType in minigameSelection.Keys)
             {
                 if (minigameSelection[sceneType] == true)
                 {
-                    minigameSequence.Add(sceneType);
+                    minigameSequence.Add (sceneType);
                 }
             }
-            if (minigameSequence.Count == 0) {
-                onDisplayWarningText.Fire("Game cannot be started. Need at least 1 game selected.");
+            if (minigameSequence.Count == 0)
+            {
+                onDisplayWarningText
+                    .Fire("Game cannot be started. Need at least 1 game selected.");
                 return;
             }
             minigameSequence.Add(GameStats.Scene.awardCeremony); // always have award ceremony at the end of the game

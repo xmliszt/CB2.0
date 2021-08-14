@@ -499,7 +499,7 @@ Canvas:
   m_GameObject: {fileID: 4466614252303060089}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -508,8 +508,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1298843805
+  m_SortingOrder: 5000
   m_TargetDisplay: 0
 --- !u!114 &4466614252303060090
 MonoBehaviour:
