@@ -16,7 +16,7 @@ MonoBehaviour:
   maxSliderVal: 3
   doingActivityInterval: 0.25
   intervals: 12
-  activityCooldownTime: 5
+  activityCooldownTime: 7
   customerHungryTime: 5
   AISpeed: 1100
   AIFastSpeed: 1450

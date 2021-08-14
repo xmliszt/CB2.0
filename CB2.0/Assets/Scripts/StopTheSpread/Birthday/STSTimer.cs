@@ -46,6 +46,19 @@ public class STSTimer : MonoBehaviour
         timerSprite.enabled = false;
     }
 
+    public void showTimer()
+    {
+        if (!birthdayEventDone) 
+        { 
+            timerSprite.enabled = true;
+        }
+    }
+
+    public void hideTimer()
+    {
+        timerSprite.enabled = false;
+    }
+
     public void BirthdayEventActivated()
     {
         timerSprite.enabled = true;

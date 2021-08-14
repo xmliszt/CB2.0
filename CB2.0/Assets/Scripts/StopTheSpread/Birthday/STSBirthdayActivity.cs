@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class STSBirthdayActivity : MonoBehaviour
 {
@@ -35,6 +36,16 @@ public class STSBirthdayActivity : MonoBehaviour
 
     private BoxCollider2D[] playerDoors;
 
+    [Header("Player Panels")]
+    public SpriteRenderer player1Panel;
+    public SpriteRenderer player2Panel;
+    public SpriteRenderer player3Panel;
+    public SpriteRenderer player4Panel;
+
+    private SpriteRenderer changingPanel;
+
+    private float panelAlpha = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +53,11 @@ public class STSBirthdayActivity : MonoBehaviour
         playerDoors = new BoxCollider2D[4] { player1Door, player2Door, player3Door, player4Door };
         stsGameManager = FindObjectOfType<STSGameManager>();
         numberOfPlayers = stsGameManager.GetNumberPlayers();
+
+        player1Panel.enabled = false;
+        player2Panel.enabled = false;
+        player3Panel.enabled = false;
+        player4Panel.enabled = false;
     }
 
     // Update is called once per frame
@@ -49,7 +65,7 @@ public class STSBirthdayActivity : MonoBehaviour
     {
         if (birthdayEventOngoing)
         {
-            for(int i = 0; i < numberOfPlayers; i++)
+            for (int i = 0; i < numberOfPlayers; i++)
             {
                 if (playersPresent[i] == true)
                 {
@@ -66,6 +82,16 @@ public class STSBirthdayActivity : MonoBehaviour
 
             allPresent = 0;
         }
+    }
+
+    IEnumerator blinkPanel()
+    {
+        while (birthdayEventOngoing)
+        {
+            changingPanel.enabled = !changingPanel.enabled;
+            yield return new WaitForSeconds(0.5f);
+        }
+        yield break;
     }
 
     IEnumerator ActivateBirthdayEvent()
@@ -95,6 +121,29 @@ public class STSBirthdayActivity : MonoBehaviour
         birthdayEventOngoing = true;
         playerChosen = Random.Range(1, numberOfPlayers+1);
 
+        if(playerChosen == 1)
+        {
+            player1Panel.enabled = true;
+            changingPanel = player1Panel;
+        }
+        if (playerChosen == 2)
+        {
+            player2Panel.enabled = true;
+            changingPanel = player2Panel;
+        }
+        if (playerChosen == 3)
+        {
+            player3Panel.enabled = true;
+            changingPanel = player3Panel;
+        }
+        if (playerChosen == 4)
+        {
+            player4Panel.enabled = true;
+            changingPanel = player4Panel;
+        }
+
+        StartCoroutine(blinkPanel());
+
         birthdayGameEvent.Fire(playerChosen);
     }
 
@@ -102,6 +151,13 @@ public class STSBirthdayActivity : MonoBehaviour
     {
         playerDoors[playerChosen - 1].gameObject.SetActive(false);
         birthdayEventOngoing = false;
+
+        player1Panel.enabled = false;
+        player2Panel.enabled = false;
+        player3Panel.enabled = false;
+        player4Panel.enabled = false;
+        changingPanel = null;
+
         celebrationsUnderway = false;
 
         // give score to players that are present in the room
@@ -140,7 +196,7 @@ public class STSBirthdayActivity : MonoBehaviour
         }
         catch
         {
-            Debug.LogWarning("Not yet birthday event");
+            Debug.LogWarning("Ignore this, not yet birthday event");
         }
     }
 
@@ -155,7 +211,7 @@ public class STSBirthdayActivity : MonoBehaviour
         }
         catch
         {
-            Debug.LogWarning("Not yet birthday event");
+            Debug.LogWarning("Ignore this, not yet birthday event");
         }
     }
 }

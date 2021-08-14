@@ -39,4 +39,9 @@ public class Customer : MonoBehaviour
             StartCoroutine(receivedFood());
         }
     }
+
+    public bool isCustomerFull()
+    {
+        return isSatisfied;
+    }
 }

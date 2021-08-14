@@ -150,7 +150,7 @@ public class STSControlHandler : MonoBehaviour
 
             thoughtBubbleRenderer.sprite =
                 allActivities[desiredActivity].thoughtBubbleSprite;
-            if (!playerDoingActivity)
+            if (!playerDoingActivity && !playerStatsManager.GetPlayerStats().item)
             {
                 thoughtBubbleRenderer.enabled = true;
             }
@@ -162,7 +162,10 @@ public class STSControlHandler : MonoBehaviour
     {
         if (zoneType == ZoneType.npcCake)
         {
+            bool customerFull = InteractableObject.GetComponent<Customer>().isCustomerFull();
             if (
+                !birthdayEventOngoing &&
+                !customerFull &&
                 playerStatsManager.GetPlayerStats().item &&
                 playerStatsManager.GetPlayerStats().item.itemType ==
                 Item.ItemType.cake
@@ -187,7 +190,10 @@ public class STSControlHandler : MonoBehaviour
 
         if (zoneType == ZoneType.npcPizza)
         {
+            bool customerFull = InteractableObject.GetComponent<Customer>().isCustomerFull();
             if (
+                !birthdayEventOngoing &&
+                !customerFull &&
                 playerStatsManager.GetPlayerStats().item &&
                 playerStatsManager.GetPlayerStats().item.itemType ==
                 Item.ItemType.pizza
@@ -312,33 +318,36 @@ public class STSControlHandler : MonoBehaviour
                 playerDoingActivity = true;
             }
 
-            // try to pick up dropped food item
-            if (zoneType == ZoneType.droppedCake)
+            if (!birthdayEventOngoing)
             {
-                playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
-                InteractableObject
-                    .GetComponent<InteractableGameObjects>()
-                    .DestroyThis();
-                playerStatsManager.GetPlayerStats().item = Cake;
+                // try to pick up dropped food item
+                if (zoneType == ZoneType.droppedCake)
+                {
+                    playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
+                    InteractableObject
+                        .GetComponent<InteractableGameObjects>()
+                        .DestroyThis();
+                    playerStatsManager.GetPlayerStats().item = Cake;
 
-                CakeSprite.enabled = true;
+                    CakeSprite.enabled = true;
 
-                thoughtBubbleRenderer.enabled = false;
-                playerDoingActivity = true;
-            }
+                    thoughtBubbleRenderer.enabled = false;
+                    playerDoingActivity = true;
+                }
 
-            if (zoneType == ZoneType.droppedPizza)
-            {
-                playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
-                InteractableObject
-                    .GetComponent<InteractableGameObjects>()
-                    .DestroyThis();
-                playerStatsManager.GetPlayerStats().item = Pizza;
+                if (zoneType == ZoneType.droppedPizza)
+                {
+                    playerAudioController.PlaySFX(SFXType.drop); // pick up same sound
+                    InteractableObject
+                        .GetComponent<InteractableGameObjects>()
+                        .DestroyThis();
+                    playerStatsManager.GetPlayerStats().item = Pizza;
 
-                PizzaSprite.enabled = true;
+                    PizzaSprite.enabled = true;
 
-                thoughtBubbleRenderer.enabled = false;
-                playerDoingActivity = true;
+                    thoughtBubbleRenderer.enabled = false;
+                    playerDoingActivity = true;
+                }
             }
         }
         else
@@ -359,37 +368,40 @@ public class STSControlHandler : MonoBehaviour
 
     private void DropItem()
     {
-        if (playerStatsManager.GetPlayerStats().item)
+        if (!birthdayEventOngoing)
         {
-            thoughtBubbleRenderer.enabled = true;
-            playerDoingActivity = false;
-
-            Item _food = playerStatsManager.GetPlayerStats().item;
-            playerStatsManager.GetPlayerStats().item = null;
-            GameObject droppedFoodPrefab;
-
-            if (_food.itemType == Item.ItemType.pizza)
+            if (playerStatsManager.GetPlayerStats().item)
             {
-                droppedFoodPrefab = droppedPizzaPrefab;
-            }
-            else
-            {
-                droppedFoodPrefab = droppedCakePrefab;
-            }
+                thoughtBubbleRenderer.enabled = true;
+                playerDoingActivity = false;
 
-            Vector2 idleDirection = playerController.GetIdleDirection();
-            GameObject dropped =
-                Instantiate(droppedFoodPrefab,
-                transform.position +
-                new Vector3(idleDirection.x,
-                    idleDirection.y,
-                    droppedFoodPrefab.transform.position.z) *
-                0.2f,
-                droppedFoodPrefab.transform.rotation);
-            dropped.GetComponent<CollectableItem>().SetItem(_food);
+                Item _food = playerStatsManager.GetPlayerStats().item;
+                playerStatsManager.GetPlayerStats().item = null;
+                GameObject droppedFoodPrefab;
 
-            CakeSprite.enabled = false;
-            PizzaSprite.enabled = false;
+                if (_food.itemType == Item.ItemType.pizza)
+                {
+                    droppedFoodPrefab = droppedPizzaPrefab;
+                }
+                else
+                {
+                    droppedFoodPrefab = droppedCakePrefab;
+                }
+
+                Vector2 idleDirection = playerController.GetIdleDirection();
+                GameObject dropped =
+                    Instantiate(droppedFoodPrefab,
+                    transform.position +
+                    new Vector3(idleDirection.x,
+                        idleDirection.y,
+                        droppedFoodPrefab.transform.position.z) *
+                    0.2f,
+                    droppedFoodPrefab.transform.rotation);
+                dropped.GetComponent<CollectableItem>().SetItem(_food);
+
+                CakeSprite.enabled = false;
+                PizzaSprite.enabled = false;
+            }
         }
     }
 
@@ -445,8 +457,16 @@ public class STSControlHandler : MonoBehaviour
                 completionBar.value = 0;
                 completionBar.gameObject.SetActive(false);
 
-                // stop audio
-                playerAudioController.StopSFX();
+                if (birthdayEventOngoing)
+                {
+                    thoughtBubbleRenderer.enabled = true;
+                    GetComponentInChildren<STSTimer>().showTimer();
+                }
+                else
+                { 
+                    // stop audio
+                    playerAudioController.StopSFX();
+                }
 
                 yield break;
             }
@@ -464,8 +484,17 @@ public class STSControlHandler : MonoBehaviour
 
         activityOnCooldown = true;
 
-        // stop audio
-        playerAudioController.StopSFX();
+        if (birthdayEventOngoing)
+        {
+            thoughtBubbleRenderer.enabled = true;
+            GetComponentInChildren<STSTimer>().showTimer();
+        }
+
+        if (!birthdayEventOngoing)
+        {
+            // stop audio
+            playerAudioController.StopSFX();
+        }
 
         StartCoroutine(ActivityCooldown());
     }
@@ -506,7 +535,6 @@ public class STSControlHandler : MonoBehaviour
     )
     {
         InteractableObject = otherGameObject;
-        Debug.Log (otherTag);
         switch (otherTag)
         {
             case "Dumbbell":
@@ -607,6 +635,9 @@ public class STSControlHandler : MonoBehaviour
         birthdayEventOngoing = true;
         GetComponentInChildren<STSTimer>().BirthdayEventActivated();
 
+        CakeSprite.enabled = false;
+        PizzaSprite.enabled = false;
+
         // it's my birthday
         if (birthdayChild == playerID)
         {
@@ -622,6 +653,12 @@ public class STSControlHandler : MonoBehaviour
                 otherPeopleBirthday.thoughtBubbleSprite;
             thoughtBubbleRenderer.enabled = true;
             activityOnCooldown = true;
+        }
+
+        if (playerDoingActivity && !playerStatsManager.GetPlayerStats().item)
+        {
+            thoughtBubbleRenderer.enabled = false;
+            GetComponentInChildren<STSTimer>().hideTimer();
         }
 
         StartCoroutine(BirthdayTimeout());
@@ -648,11 +685,28 @@ public class STSControlHandler : MonoBehaviour
     {
         if (birthdayEventOngoing)
         {
+            if(playerStatsManager.GetPlayerStats().item &&
+                playerStatsManager.GetPlayerStats().item.itemType ==
+                Item.ItemType.pizza)
+            {
+                PizzaSprite.enabled = true;
+                thoughtBubbleRenderer.enabled = false;
+            }
+
+            else if (playerStatsManager.GetPlayerStats().item &&
+                playerStatsManager.GetPlayerStats().item.itemType ==
+                Item.ItemType.cake) 
+            {
+                CakeSprite.enabled = true;
+                thoughtBubbleRenderer.enabled = false;
+            }
+
             playerAudioController.StopSFX();
             GetComponentInChildren<STSTimer>().BirthdayEventCompleted();
             activityOnCooldown = false;
             birthdayEventOngoing = false;
             generateActivity();
+            GetComponentInChildren<STSTimer>().hideTimer();
         }
     }
 
