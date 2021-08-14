@@ -30,8 +30,6 @@ public class UIUpdater : MonoBehaviour
     {
         if (players.GetPlayers().ContainsKey(playerID))
         {
-            Debug.Log("UI START");
-            
             playerStats = players.GetPlayers()[playerID].playerStats;
 
             _enabled = true;
