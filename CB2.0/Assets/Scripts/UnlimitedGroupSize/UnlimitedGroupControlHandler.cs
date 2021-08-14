@@ -116,6 +116,11 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                         entertainmentController.SetSpriteOutline();
                         available = false;
                     }
+                    // Entertainment is not available, setting it back to null
+                    else
+                    {
+                        entertainmentController = null;
+                    }
                 }
 
                 // Can check if entertainment controller is "held" too
@@ -162,7 +167,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                 playerController.RestoreMovement();
                 playerController.EnableDash();
 
-                // Edge case: Entertainment controller does not belong to you
+                // Edge case: Entertainment controller does not belong to you but it is assigned to you
                 if (entertainmentController != null && entertainmentController.fromPlayer != gameObject)
                 {
                     deselectEntertainment();
