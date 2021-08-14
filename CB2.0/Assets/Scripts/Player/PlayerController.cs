@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -59,6 +60,11 @@ public class PlayerController : MonoBehaviour
     private bool dashDisabled = false;
 
     private bool isPausedExecuted = false;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad (gameObject);
+    }
 
     private void Start()
     {
@@ -133,6 +139,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void OnMove(InputAction.CallbackContext context)
     {
         if (!disabled)
@@ -144,6 +151,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void OnDash(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -175,6 +183,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void OnUse(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -205,6 +214,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void OnPickdrop(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -239,6 +249,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void OnShop(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -269,6 +280,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void OnHold(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -288,6 +300,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void onPause(InputAction.CallbackContext context)
     {
         if (!disabled)

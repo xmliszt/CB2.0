@@ -4,12 +4,12 @@ using UnityEngine.InputSystem;
 
 public class PlayerInfo {
     public PlayerStats playerStats;
-    public PlayerInput playerInput;
+    public GameObject player;
 
-    public PlayerInfo(PlayerStats _playerStats, PlayerInput _playerInput)
+    public PlayerInfo(PlayerStats _playerStats, GameObject _player)
     {
         playerStats = _playerStats;
-        playerInput = _playerInput;
+        player = _player;
     }
 }
 
@@ -27,14 +27,14 @@ public class Players : ScriptableObject
     {
         return players.ContainsKey(playerID);
     }
-    public void AddPlayer(PlayerStats playerStats, PlayerInput playerInput)
+    public void AddPlayer(PlayerStats playerStats, GameObject player)
     {
-        players[playerStats.playerID] = new PlayerInfo(playerStats, playerInput);
+        players[playerStats.playerID] = new PlayerInfo(playerStats, player);
     }
 
-    public void UpdatePlayer(int playerID, PlayerInput playerInput)
+    public void UpdatePlayer(int playerID, GameObject player)
     {
-        players[playerID].playerInput = playerInput;
+        players[playerID].player = player;
     }
 
     public void UpdatePlayer(int playerID, PlayerStats playerStats)

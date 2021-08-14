@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using Photon.Realtime;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject playerPrefab;
+
     // The list of player profiles to select from
     public PlayerStats[] playerProfiles;
 
@@ -62,10 +66,38 @@ public class GameManager : MonoBehaviour
             playerStats.ready = false;
         }
         onGameLobbyInitialized.Fire();
-        foreach (PlayerInfo playerInfo in players.GetPlayers().Values)
+        SpawnPlayer();
+    }
+
+    private void Update() {
+        // check update of shared Players scriptable objects and update locally
+        Dictionary<int, Player> players = PhotonNetwork.CurrentRoom.Players;
+        foreach (KeyValuePair<int, Player> player in players)
         {
-            OnPlayerJoined(playerInfo.playerInput);
+            Debug.Log(string.Format("{0}: {1}", player.Key, player.Value.NickName));
         }
+    }
+
+    private void SpawnPlayer()
+    {
+        int playerID = PhotonNetwork.CurrentRoom.PlayerCount;
+        if (playerObjects == null)
+            playerObjects = new Dictionary<int, Transform>();
+        GameObject player =
+            PhotonNetwork
+                .Instantiate(playerPrefab.name,
+                GetPlayerLocation(playerID),
+                playerPrefab.transform.rotation);
+        playerObjects[playerID] = player.transform;
+        playerRelocateGameEvent.Fire(playerID, GetPlayerLocation(playerID));
+        onPlayerJoinedEvent.Fire();
+        if (!players.PlayerExist(playerID))
+        {
+            PlayerStats newPlayerStats = SwitchPlayerProfile(playerID); // assign one profile to the joined player
+            players.AddPlayer (newPlayerStats, player);
+        }
+        player.GetComponent<PlayerController>().EnableController();
+        player.GetComponent<PlayerController>().EnableMovement();
     }
 
     private Vector3 GetPlayerLocation(int playerID)
@@ -78,31 +110,6 @@ public class GameManager : MonoBehaviour
             }
         }
         return Vector3.zero;
-    }
-
-    public void OnPlayerJoined(PlayerInput playerInput)
-    {
-        onPlayerJoinedEvent.Fire();
-        int playerID = playerInput.playerIndex + 1;
-        if (playerObjects == null)
-            playerObjects = new Dictionary<int, Transform>();
-        playerObjects[playerID] = playerInput.gameObject.transform;
-        playerRelocateGameEvent.Fire(playerID, GetPlayerLocation(playerID));
-        if (!players.PlayerExist(playerID))
-        {
-            PlayerStats newPlayerStats = SwitchPlayerProfile(playerID); // assign one profile to the joined player
-            players.AddPlayer (newPlayerStats, playerInput);
-        }
-
-        playerInput
-            .gameObject
-            .GetComponent<PlayerController>()
-            .EnableController();
-        playerInput
-            .gameObject
-            .GetComponent<PlayerController>()
-            .EnableMovement();
-        DontDestroyOnLoad(playerInput.gameObject);
     }
 
     public void OnPlayerLeft(PlayerInput playerInput)
@@ -206,7 +213,7 @@ public class GameManager : MonoBehaviour
     // Call this to start the minigame
     public void OnStartMiniGame()
     {
-        if (playerInputManager.playerCount < 2)
+        if (PhotonNetwork.CurrentRoom.PlayerCount < 2)
         {
             onDisplayWarningText
                 .Fire("Game cannot be started. Need at least 2 players.");

@@ -65,7 +65,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.1
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
@@ -97,7 +97,7 @@ Material:
     - _FaceColor: {r: 1, g: 1, b: 1, a: 1}
     - _GlowColor: {r: 85.445015, g: 85.445015, b: 85.445015, a: 1}
     - _MaskCoord: {r: 0, g: 0, b: 32767, a: 32767}
-    - _OutlineColor: {r: 1, g: 1, b: 1, a: 0.79607844}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 0.79607844}
     - _ReflectFaceColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectOutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
@@ -1027,6 +1027,20 @@ MonoBehaviour:
       m_Height: 63
     m_Scale: 1
     m_AtlasIndex: 0
+  - m_Index: 104
+    m_Metrics:
+      m_Width: 54
+      m_Height: 63
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 63
+      m_HorizontalAdvance: 63
+    m_GlyphRect:
+      m_X: 220
+      m_Y: 457
+      m_Width: 54
+      m_Height: 63
+    m_Scale: 1
+    m_AtlasIndex: 0
   - m_Index: 115
     m_Metrics:
       m_Width: 54
@@ -1097,20 +1111,6 @@ MonoBehaviour:
       m_Height: 63
     m_Scale: 1
     m_AtlasIndex: 0
-  - m_Index: 104
-    m_Metrics:
-      m_Width: 54
-      m_Height: 63
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 63
-      m_HorizontalAdvance: 63
-    m_GlyphRect:
-      m_X: 220
-      m_Y: 457
-      m_Width: 54
-      m_Height: 63
-    m_Scale: 1
-    m_AtlasIndex: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 32
@@ -1131,6 +1131,10 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 46
     m_GlyphIndex: 92
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 47
+    m_GlyphIndex: 104
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 48
@@ -1383,10 +1387,6 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 124
     m_GlyphIndex: 153
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 47
-    m_GlyphIndex: 104
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: 6402237685700810280}
