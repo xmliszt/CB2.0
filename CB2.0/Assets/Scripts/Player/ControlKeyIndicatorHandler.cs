@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class ControlKeyIndicatorHandler : MonoBehaviour
 {
+    public GameStats gameStats;
+
     public List<ControllerKey> controllerKeys;
 
     public SpriteRenderer genericSpriteRenderer;
+
     // public SpriteRenderer xboxSpriteRenderer;
     // public SpriteRenderer psSpriteRenderer;
-
     private void Start()
     {
         // xboxSpriteRenderer.enabled = false;
@@ -16,7 +18,8 @@ public class ControlKeyIndicatorHandler : MonoBehaviour
         genericSpriteRenderer.enabled = false;
     }
 
-    private Sprite GetSpriteFromKey(
+    private Sprite
+    GetSpriteFromKey(
         ControllerType controllerType,
         ControllerKeyType controllerKeyType
     )
@@ -37,8 +40,16 @@ public class ControlKeyIndicatorHandler : MonoBehaviour
 
     public void TurnOnIndicator(ControllerKeyType keyType)
     {
-    
-        genericSpriteRenderer.sprite = GetSpriteFromKey(ControllerType.generic, keyType);
+        if (gameStats.controllerType == ControllerType.generic)
+        {
+            genericSpriteRenderer.sprite =
+                GetSpriteFromKey(ControllerType.generic, keyType);
+        }
+        else if (gameStats.controllerType == ControllerType.keyboard)
+        {
+            genericSpriteRenderer.sprite =
+                GetSpriteFromKey(ControllerType.keyboard, keyType);
+        }
         genericSpriteRenderer.enabled = true;
     }
 

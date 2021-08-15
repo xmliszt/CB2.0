@@ -82,6 +82,15 @@ public class PlayerController : MonoBehaviourPun
         unlimitedGroupControlHandler =
             GetComponent<UnlimitedGroupControlHandler>();
 
+        if (gameStats.controllerType == ControllerType.generic)
+        {
+            playerInput.SwitchCurrentControlScheme("Gamepad");
+        }
+        else if (gameStats.controllerType == ControllerType.keyboard)
+        {
+            playerInput.SwitchCurrentControlScheme("Keyboard");
+        }
+
         DontDestroyOnLoad (gameObject);
     }
 
@@ -409,43 +418,46 @@ public class PlayerController : MonoBehaviourPun
         }
     }
 
-    public void onPause(InputAction.CallbackContext context)
-    {
-        if (!disabled)
-        {
-            if (context.performed && !isPausedExecuted)
-            {
-                photonView.RPC("RPCPause", RpcTarget.AllBuffered);
-            }
-        }
-    }
-
-    [PunRPC]
-    private void RPCPause()
-    {
-        if (playerAudioController) playerAudioController.PlaySFX(SFXType._lock);
-        StartCoroutine(removePausedExecuted());
-        isPausedExecuted = true;
-        isPaused = !isPaused;
-        if (isPaused)
-        {
-            DisableController();
-            DisableMovement();
-            DisableDash();
-        } else {
-            EnableController();
-            EnableMovement();
-            EnableDash();
-        }
-        onGamePaused.Fire();
-    }
-
-    IEnumerator removePausedExecuted()
-    {
-        yield return new WaitForSecondsRealtime(0.5f);
-        isPausedExecuted = false;
-    }
-
+    // public void onPause(InputAction.CallbackContext context)
+    // {
+    //     if (!disabled)
+    //     {
+    //         if (context.performed)
+    //         {
+    //             photonView.RPC("RPCPause", RpcTarget.AllBuffered);
+    //         }
+    //     }
+    // }
+    // [PunRPC]
+    // private void RPCPause()
+    // {
+    //     if (!isPausedExecuted)
+    //     {
+    //         if (playerAudioController)
+    //             playerAudioController.PlaySFX(SFXType._lock);
+    //         isPausedExecuted = true;
+    //         StartCoroutine(removePausedExecuted());
+    //         isPaused = !isPaused;
+    //         if (isPaused)
+    //         {
+    //             DisableController();
+    //             DisableMovement();
+    //             DisableDash();
+    //         }
+    //         else
+    //         {
+    //             EnableController();
+    //             EnableMovement();
+    //             EnableDash();
+    //         }
+    //         onGamePaused.Fire();
+    //     }
+    // }
+    // IEnumerator removePausedExecuted()
+    // {
+    //     yield return new WaitForSecondsRealtime(0.5f);
+    //     isPausedExecuted = false;
+    // }
     public Vector2 GetIdleDirection()
     {
         return idleDirection;

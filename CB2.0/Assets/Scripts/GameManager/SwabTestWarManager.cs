@@ -20,7 +20,6 @@ public class SwabTestWarManager : MonoBehaviour
 
     private void Awake() {
         PhotonNetwork.IsMessageQueueRunning = true;
-        PhotonNetwork.Instantiate("ItemSpawner", Vector3.zero, Quaternion.identity);
     }
     void Start()
     {

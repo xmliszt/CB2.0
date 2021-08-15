@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviourPunCallbacks
 {
+    public GameStats gameStats;
+
     [SerializeField]
     private string gameVersion = "1.0";
 
@@ -24,6 +26,9 @@ public class MainMenuController : MonoBehaviourPunCallbacks
     private TMP_Text warningTextForUsername;
 
     [SerializeField]
+    private TMP_Text warningTextForController;
+
+    [SerializeField]
     private GameObject usernameSubmitButton;
 
     [SerializeField]
@@ -31,6 +36,19 @@ public class MainMenuController : MonoBehaviourPunCallbacks
 
     [SerializeField]
     private TMP_InputField createGameInput;
+
+    [SerializeField]
+    private Button keyboardBtn;
+
+    [SerializeField]
+    private Button gamepadBtn;
+
+    [SerializeField]
+    private TMP_Text youAreUsing;
+
+    [SerializeField]
+
+    private TMP_Text joinRoomWarning;
 
     private void Awake()
     {
@@ -55,13 +73,23 @@ public class MainMenuController : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        PhotonNetwork.CurrentRoom.EmptyRoomTtl = 0;
         PhotonNetwork.LoadLevel("GameLobby");
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        joinRoomWarning.enabled = true;
+        joinRoomWarning.text = message;   
     }
 
     void Start()
     {
+        youAreUsing.text = "You are using: ...";
+        joinRoomWarning.enabled = false;
         usernameSubmitButton.SetActive(false);
         warningTextForUsername.enabled = false;
+        warningTextForController.enabled = false;
         gameMainPanel.SetActive(false);
         userStartPanel.SetActive(true);
     }
@@ -82,9 +110,17 @@ public class MainMenuController : MonoBehaviourPunCallbacks
 
     public void SubmitUsername()
     {
-        userStartPanel.SetActive(false);
-        gameMainPanel.SetActive(true);
-        PhotonNetwork.NickName = usernameInput.text;
+        if (gameStats.controllerType != ControllerType.nullType)
+        {
+            warningTextForController.enabled = false;
+            userStartPanel.SetActive(false);
+            gameMainPanel.SetActive(true);
+            PhotonNetwork.NickName = usernameInput.text;
+        }
+        else
+        {
+            warningTextForController.enabled = true;
+        }
     }
 
     public void CreateNewRoom()
@@ -96,8 +132,18 @@ public class MainMenuController : MonoBehaviourPunCallbacks
 
     public void JoinRoom()
     {
-        RoomOptions roomOptions = new RoomOptions();
-        roomOptions.MaxPlayers = 4;
-        PhotonNetwork.JoinOrCreateRoom(joinGameInput.text, roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinRoom(joinGameInput.text);
+    }
+
+    public void onKeyboardSelected()
+    {
+        gameStats.controllerType = ControllerType.keyboard;
+        youAreUsing.text = "You are using: keyboard";
+    }
+
+    public void onGamepadSelected()
+    {
+        gameStats.controllerType = ControllerType.generic;
+        youAreUsing.text = "You are using: controller";
     }
 }

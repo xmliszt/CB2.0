@@ -272,7 +272,7 @@ public class STSControlHandler : MonoBehaviour
         }
     }
 
-    public bool GetPlayerInvisibilty()
+    public bool GetPlayerInvisibility()
     {
         return playerInvisible;
     }

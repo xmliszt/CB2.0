@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
-public class SpawnedPickupManager : MonoBehaviour
+public class SpawnedPickupManager : MonoBehaviourPun
 {
     // read the spawn zone info
     public SnHGameConstants snhGameConstants;
@@ -59,39 +60,44 @@ public class SpawnedPickupManager : MonoBehaviour
                             .spawnFrequency);
                 int selectedSpawnZone =
                     Random.Range(0, snhGameConstants.spawnZones.Length - 1);
-
-                // spawn if less than limit
-                if (
-                    spawnMap[snhGameConstants.spawnZones[selectedSpawnZone]]
-                        .Count <
-                    snhGameConstants.spawnPerZone
-                )
-                {
-                    // select zone
-                    SPZC zone = snhGameConstants.spawnZones[selectedSpawnZone];
-                    float x = Random.Range(zone.xMin, zone.xMax);
-                    float y = Random.Range(zone.yMin, zone.yMax);
-                    Vector3 location = new Vector3(x, y, 0);
-
-                    // select item type
-                    PickUpTypeEnum _pickupType =
-                        Spawnable[Random.Range(0, Spawnable.Length)];
-
-                    // instantiate and set the pickup type
-                    GameObject SpawnedPickup =
-                        Instantiate(pickupPrefab,
-                        location,
-                        pickupPrefab.transform.rotation,
-                        parent);
-                    SpawnedPickup
-                        .GetComponent<SnHPickUpController>()
-                        .SetPickUp(_pickupType);
-
-                    // save to list
-                    spawnMap[snhGameConstants.spawnZones[selectedSpawnZone]]
-                        .Add(SpawnedPickup.transform.position);
-                }
+                photonView
+                    .RPC("SpawnItem", RpcTarget.AllBuffered, selectedSpawnZone);
             }
+        }
+    }
+
+    [PunRPC]
+    private void SpawnItem(int index)
+    {
+        // spawn if less than limit
+        if (
+            spawnMap[snhGameConstants.spawnZones[index]].Count <
+            snhGameConstants.spawnPerZone
+        )
+        {
+            // select zone
+            SPZC zone = snhGameConstants.spawnZones[index];
+            float x = Random.Range(zone.xMin, zone.xMax);
+            float y = Random.Range(zone.yMin, zone.yMax);
+            Vector3 location = new Vector3(x, y, 0);
+
+            // select item type
+            PickUpTypeEnum _pickupType =
+                Spawnable[Random.Range(0, Spawnable.Length)];
+
+            // instantiate and set the pickup type
+            GameObject SpawnedPickup =
+                Instantiate(pickupPrefab,
+                location,
+                pickupPrefab.transform.rotation,
+                parent);
+            SpawnedPickup
+                .GetComponent<SnHPickUpController>()
+                .SetPickUp(_pickupType);
+
+            // save to list
+            spawnMap[snhGameConstants.spawnZones[index]]
+                .Add(SpawnedPickup.transform.position);
         }
     }
 

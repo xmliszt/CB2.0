@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
-public class SnHNPCController : MonoBehaviour
+public class SnHNPCController : MonoBehaviourPun
 {
 
     public int engagedWithPlayer;
@@ -162,12 +163,19 @@ public class SnHNPCController : MonoBehaviour
 
         // finished thinking. set required pickup sprite and type
         int itemIDX = Random.Range(1, 3);
+        // determine the required quantity
+        int qnty = Random.Range(minQuantity, maxQuantity);
+        
+        photonView.RPC("SetThinkingItem", RpcTarget.AllBuffered, itemIDX, qnty);
+    }
+
+    [PunRPC]
+    private void SetThinkingItem(int itemIDX, int qnty)
+    {
         RightItemSprite.sprite = itemSprites[itemIDX]; 
         LeftItemSprite.sprite = itemSprites[itemIDX];
         expectedPickup = (PickUpTypeEnum)itemIDX;
 
-        // determine the required quantity
-        int qnty = Random.Range(minQuantity, maxQuantity);
         quantityRemaining = qnty;
         RightItemQuantity.text = quantityRemaining.ToString();
         LeftItemQuantity.text = quantityRemaining.ToString();
@@ -177,7 +185,7 @@ public class SnHNPCController : MonoBehaviour
 
         // set bool
         isThinking = false;
-    }
+    }    
 
 
     // up, right: right

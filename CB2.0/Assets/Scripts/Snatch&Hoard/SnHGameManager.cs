@@ -22,6 +22,7 @@ public class SnHGameManager : MonoBehaviour
     private void Awake()
     {
         PhotonNetwork.IsMessageQueueRunning = true;
+        PhotonNetwork.Instantiate("SpawnedPickupManager", Vector3.zero, Quaternion.identity);
     }
 
     // Start is called before the first frame update

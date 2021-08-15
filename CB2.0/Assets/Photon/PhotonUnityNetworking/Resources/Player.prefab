@@ -814,7 +814,7 @@ SpriteRenderer:
   m_SortingLayerID: 1298843805
   m_SortingLayer: 5
   m_SortingOrder: 999
-  m_Sprite: {fileID: 21300000, guid: 67056685529fa704283602564904f071, type: 3}
+  m_Sprite: {fileID: 6922841037977209965, guid: 9f7142c78760ba34797135c0a966701b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1521,23 +1521,7 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c6099530-4586-4205-9254-6f3d0968aa72
     m_ActionName: gameplay/hold[/Keyboard/period]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 562434371}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: onPause
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: a69fffbb-92ec-4125-ba3a-62eba4458103
-    m_ActionName: gameplay/pause[/XInputControllerWindows/start,/Keyboard/escape]
-  m_NeverAutoSwitchControlSchemes: 1
+  m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: gameplay
   m_SplitScreenIndex: -1
@@ -2417,11 +2401,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 984a52cfde6b6c2448685fbd9a521b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
   controllerKeys:
   - {fileID: 11400000, guid: b37222062390cb445b32682a31736a60, type: 2}
   - {fileID: 11400000, guid: 5ac1d1d4940447e498ec7a214ae1782c, type: 2}
   - {fileID: 11400000, guid: 44e76f635d52ff44bb5267cd5f0185de, type: 2}
   - {fileID: 11400000, guid: 45f48b1d279953144bcd776b954130c0, type: 2}
+  - {fileID: 11400000, guid: 4ae85a9ce27a6944a9ca20ce55885b2a, type: 2}
+  - {fileID: 11400000, guid: eb8d057582526be4d88274c0c77e0e25, type: 2}
+  - {fileID: 11400000, guid: 99b3710d60c382942ba957d64a200e6c, type: 2}
+  - {fileID: 11400000, guid: e88e502564d69974796bc4dcc8472b51, type: 2}
   genericSpriteRenderer: {fileID: 2825782474682453454}
 --- !u!114 &4680640624108649468
 MonoBehaviour:

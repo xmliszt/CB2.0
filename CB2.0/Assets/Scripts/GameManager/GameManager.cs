@@ -1,8 +1,9 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviourPun
 {
@@ -222,6 +223,7 @@ public class GameManager : MonoBehaviourPun
             gameStats.SetCurrentScene(minigameSequence[0]);
             currentMinigameSceneIdx = 0;
             GameStats.Scene firstScene = gameStats.GetCurrentScene();
+            PhotonNetwork.CurrentRoom.IsOpen = false;
             LoadMinigame (firstScene);
         }
     }
@@ -265,12 +267,20 @@ public class GameManager : MonoBehaviourPun
         if (nextSceneIdx == minigameSequence.Count)
         {
             currentMinigameSceneIdx = 0;
-            PhotonNetwork.Disconnect();
-            foreach(PlayerInfo player in players.GetPlayers().Values)
+            foreach (PlayerInfo player in players.GetPlayers().Values)
             {
                 Destroy(player.player);
             }
-            PhotonNetwork.LoadLevel("MainMenu");
+            try
+            {
+                PhotonNetwork.Disconnect();
+                SceneManager.LoadScene("MainMenu");
+            }
+            catch (Exception e)
+            {
+                Debug.Log (e);
+                SceneManager.LoadScene("MainMenu");
+            }
             Destroy (gameObject);
         }
         else

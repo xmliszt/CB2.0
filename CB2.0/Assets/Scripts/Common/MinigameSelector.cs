@@ -33,23 +33,37 @@ public class MinigameSelector : MonoBehaviour
         for (int i = 0; i < minigameList.Length; i++)
         {
             minigameScriptList[i].SetMinigameIndex(i);
-            minigameImageList[i].sprite =
-                minigameList[i].minigameSelectedSprite;
-            onMinigameSelected.Fire(minigameList[i].minigameType);
+            if (i == 0)
+            {
+                minigameImageList[i].sprite =
+                    minigameList[i].minigameSelectedSprite;
+                onMinigameSelected.Fire(minigameList[i].minigameType);
+            }
+            else
+            {
+                minigameImageList[i].sprite =
+                    minigameList[i].minigameDeselectedSprite;
+            }
         }
     }
 
     public void SelectMinigame(int minigameIndex)
     {
-        minigameImageList[minigameIndex].sprite =
-            minigameList[minigameIndex].minigameSelectedSprite;
-        onMinigameSelected.Fire(minigameList[minigameIndex].minigameType);
+        if (minigameIndex == 0)
+        {
+            minigameImageList[minigameIndex].sprite =
+                minigameList[minigameIndex].minigameSelectedSprite;
+            onMinigameSelected.Fire(minigameList[minigameIndex].minigameType);
+        }
     }
 
     public void DeselectMinigame(int minigameIndex)
     {
-        minigameImageList[minigameIndex].sprite =
-            minigameList[minigameIndex].minigameDeselectedSprite;
-        onMinigameDeselected.Fire(minigameList[minigameIndex].minigameType);
+        if (minigameIndex == 0)
+        {
+            minigameImageList[minigameIndex].sprite =
+                minigameList[minigameIndex].minigameDeselectedSprite;
+            onMinigameDeselected.Fire(minigameList[minigameIndex].minigameType);
+        }
     }
 }

@@ -31,9 +31,7 @@ public class PlayerInfoEditor : MonoBehaviour
             playerID.text =playerStats.playerName;
             playerID.color = playerStats.playerAccent;
             playerScore.text = playerStats.score.ToString();
-            playerScore.fontSize = 100 - (playerStats.GetRank() - 1) * 10;
             playerMaskObtained.text = "+" + rewardToObtained.ToString();
-            playerMaskObtained.fontSize = 100 - (playerStats.GetRank() - 1) * 10;
             playerCurrentTotalMasks.text =playerStats.masks.ToString();
         }
     }

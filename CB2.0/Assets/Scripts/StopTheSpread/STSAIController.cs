@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Pathfinding;
+using Photon.Pun;
 using UnityEngine;
 
-public class STSAIController : MonoBehaviour
+public class STSAIController : MonoBehaviourPun
 {
     public Transform target;
 
@@ -94,9 +95,18 @@ public class STSAIController : MonoBehaviour
                 target = STSWayPoints[curWaypoint];
             }
 
-            seeker
-                .StartPath(transform.position, target.position, OnPathComplete);
+            photonView
+                .RPC("seekerStartPath",
+                RpcTarget.AllBuffered,
+                transform.position,
+                target.position);
         }
+    }
+
+    [PunRPC]
+    private void seekerStartPath(Vector3 position, Vector3 targetPosition)
+    {
+        seeker.StartPath (position, targetPosition, OnPathComplete);
     }
 
     public void PauseAI()
@@ -325,7 +335,7 @@ public class STSAIController : MonoBehaviour
             bool playerInvisible =
                 collision
                     .GetComponent<STSControlHandler>()
-                    .GetPlayerInvisibilty();
+                    .GetPlayerInvisibility();
             if (!playerInvisible)
             {
                 playerIsHome =

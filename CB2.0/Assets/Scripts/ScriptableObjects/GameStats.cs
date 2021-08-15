@@ -32,4 +32,6 @@ public class GameStats : ScriptableObject
     {
         return currentScene;
     }
+
+    public ControllerType controllerType = ControllerType.nullType;
 }

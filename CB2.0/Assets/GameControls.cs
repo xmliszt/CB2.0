@@ -65,14 +65,6 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
-                },
-                {
-                    ""name"": ""pause"",
-                    ""type"": ""Button"",
-                    ""id"": ""a69fffbb-92ec-4125-ba3a-62eba4458103"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -262,28 +254,6 @@ public class @GameControls : IInputActionCollection, IDisposable
                     ""action"": ""hold"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c44edc6e-04b9-49eb-86a9-46264d7a1123"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""keyboard"",
-                    ""action"": ""pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""69eb69ed-4923-4b26-8ca5-aab2c8a18399"",
-                    ""path"": ""<Gamepad>/start"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""pause"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -321,7 +291,6 @@ public class @GameControls : IInputActionCollection, IDisposable
         m_gameplay_move = m_gameplay.FindAction("move", throwIfNotFound: true);
         m_gameplay_shop = m_gameplay.FindAction("shop", throwIfNotFound: true);
         m_gameplay_hold = m_gameplay.FindAction("hold", throwIfNotFound: true);
-        m_gameplay_pause = m_gameplay.FindAction("pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -377,7 +346,6 @@ public class @GameControls : IInputActionCollection, IDisposable
     private readonly InputAction m_gameplay_move;
     private readonly InputAction m_gameplay_shop;
     private readonly InputAction m_gameplay_hold;
-    private readonly InputAction m_gameplay_pause;
     public struct GameplayActions
     {
         private @GameControls m_Wrapper;
@@ -388,7 +356,6 @@ public class @GameControls : IInputActionCollection, IDisposable
         public InputAction @move => m_Wrapper.m_gameplay_move;
         public InputAction @shop => m_Wrapper.m_gameplay_shop;
         public InputAction @hold => m_Wrapper.m_gameplay_hold;
-        public InputAction @pause => m_Wrapper.m_gameplay_pause;
         public InputActionMap Get() { return m_Wrapper.m_gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -416,9 +383,6 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @hold.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHold;
                 @hold.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHold;
                 @hold.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnHold;
-                @pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
-                @pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
-                @pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -441,9 +405,6 @@ public class @GameControls : IInputActionCollection, IDisposable
                 @hold.started += instance.OnHold;
                 @hold.performed += instance.OnHold;
                 @hold.canceled += instance.OnHold;
-                @pause.started += instance.OnPause;
-                @pause.performed += instance.OnPause;
-                @pause.canceled += instance.OnPause;
             }
         }
     }
@@ -474,6 +435,5 @@ public class @GameControls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnShop(InputAction.CallbackContext context);
         void OnHold(InputAction.CallbackContext context);
-        void OnPause(InputAction.CallbackContext context);
     }
 }

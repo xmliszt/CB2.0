@@ -14,13 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SwabTestWar.unity
     guid: 6dc12788614e687479ba97c9abcce8f7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/StopTheSpread.unity
     guid: d7a79227cf836364382f4a6e1b62e6dc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Snatch&Hoard.unity
     guid: 2939c36da6587cd47bbfbe5b0d507d62
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/UnlimitedGroupSize.unity
     guid: f081ff15103cf4c498aafff90a166138
   - enabled: 1

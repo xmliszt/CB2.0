@@ -530,6 +530,7 @@ GameObject:
   - component: {fileID: 3225076066665476195}
   - component: {fileID: 4351773332098772745}
   - component: {fileID: 138405273344207034}
+  - component: {fileID: 2765306170922122793}
   m_Layer: 7
   m_Name: NPCs
   m_TagString: NPC
@@ -682,6 +683,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   spriteRenderer: {fileID: 1210317570725649542}
+--- !u!114 &2765306170922122793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2966863024233677018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3289939593984897831
 GameObject:
   m_ObjectHideFlags: 0
