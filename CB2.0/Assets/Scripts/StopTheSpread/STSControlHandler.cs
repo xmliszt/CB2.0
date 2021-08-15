@@ -486,7 +486,7 @@ public class STSControlHandler : MonoBehaviour
             else
             {
                 completionBar.value += stsGameConstants.doingActivityInterval;
-                yield return new WaitForSeconds(1);
+                yield return new WaitForSeconds(0.25f);
                 count++;
                 if (zoneType == ZoneType.nullType)
                 {

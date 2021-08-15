@@ -256,6 +256,7 @@ public class SwabTestControlHandler : MonoBehaviour
                     thoughtBubbleRenderer.enabled = true;
 
                     // Log 1 completed swab test
+                    Debug.LogFormat("Player {0} score + 1", playerStatsManager.GetPlayerStats().playerID);
                     playerStatsManager.GetPlayerStats().score++;
                 }
             }

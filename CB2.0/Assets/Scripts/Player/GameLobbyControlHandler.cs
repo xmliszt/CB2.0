@@ -46,7 +46,7 @@ public class GameLobbyControlHandler : MonoBehaviour
         {
             playerAudioController.PlaySFX(SFXType.changeOutfit);
             onPlayerChangeProfile
-                .Fire(playerStatsManager.GetPlayerStats().playerID, playerStatsManager.GetPlayerStats().name);
+                .Fire(playerStatsManager.GetPlayerStats().playerID, playerStatsManager.GetPlayerStats().playerName);
         }
         if (playerZoneManager.GetZone() == PlayerZoneManager.ZoneType.reception)
         {

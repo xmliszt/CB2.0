@@ -40,7 +40,7 @@ public class SnHPlayerStatsController : MonoBehaviour
 
             // first update of images to be used
             avatar.sprite = uniquePlayerStats.playerAvatar;
-            name.text = string.Format("{0}P", uniquePlayerStats.playerID);
+            name.text = uniquePlayerStats.playerName;
             name.color = uniquePlayerStats.playerAccent;
             otherObject.sprite = itemSprites[gameConstants.OtherIndex];
 

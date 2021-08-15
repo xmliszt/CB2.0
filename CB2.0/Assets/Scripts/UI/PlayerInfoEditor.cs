@@ -28,7 +28,7 @@ public class PlayerInfoEditor : MonoBehaviour
             rank.text = playerStats.GetRank().ToString();
             rank.color = playerStats.playerAccent;
             avatar.sprite = playerStats.playerAvatar;
-            playerID.text = string.Format("{0}P", playerStats.playerID);
+            playerID.text =playerStats.playerName;
             playerID.color = playerStats.playerAccent;
             playerScore.text = playerStats.score.ToString();
             playerScore.fontSize = 100 - (playerStats.GetRank() - 1) * 10;

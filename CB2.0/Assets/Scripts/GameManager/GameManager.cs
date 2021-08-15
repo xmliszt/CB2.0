@@ -265,10 +265,12 @@ public class GameManager : MonoBehaviourPun
         if (nextSceneIdx == minigameSequence.Count)
         {
             currentMinigameSceneIdx = 0;
-            gameStats.SetCurrentScene(GameStats.Scene.gameLobby);
-            ResetPlayerStatsCompletely();
-            onReturnGameLobby.Fire();
-            LoadMinigame(GameStats.Scene.gameLobby);
+            PhotonNetwork.Disconnect();
+            foreach(PlayerInfo player in players.GetPlayers().Values)
+            {
+                Destroy(player.player);
+            }
+            PhotonNetwork.LoadLevel("MainMenu");
             Destroy (gameObject);
         }
         else

@@ -272,6 +272,7 @@ MonoBehaviour:
   readyText: {fileID: 9199859328291403261}
   startText: {fileID: 9199859326555605470}
   OnCountDownStart: {fileID: 11400000, guid: 89bdce24897cc44428e022f9413c11ee, type: 2}
+  OnPause: {fileID: 11400000, guid: 0a12cbe82f61e3643a966e02a95b371a, type: 2}
 --- !u!114 &9199859326710747647
 MonoBehaviour:
   m_ObjectHideFlags: 0

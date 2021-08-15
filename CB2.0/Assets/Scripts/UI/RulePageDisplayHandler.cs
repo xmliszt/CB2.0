@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class RulePageDisplayHandler : MonoBehaviour
 {
+    public GameEvent onGamePause;
     private bool isPaused = false;
     private bool hasShownRule = false;
+
+    private void Start() {
+        onGamePause.Fire();
+        Pause();
+    }
 
     private void Update() {
         if (isPaused && !hasShownRule)

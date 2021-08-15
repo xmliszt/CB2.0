@@ -9,6 +9,8 @@ public class ReadyStart : MonoBehaviour
 
     public GameEvent OnCountDownStart;
 
+    public GameEvent OnPause;
+
     private int readyStartInterval = 2; // second
 
     public void PlayReadyStart()
@@ -25,6 +27,7 @@ public class ReadyStart : MonoBehaviour
         yield return new WaitForSeconds(readyStartInterval);
         startText.SetActive(true);
         OnCountDownStart.Fire();
+        OnPause.Fire(); // this is unpausing the game
     }
 
     private void Reset()

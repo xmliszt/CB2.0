@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Photon.Pun;
 using UnityEngine;
 
-public class ItemSpawner : MonoBehaviour
+public class ItemSpawner : MonoBehaviourPun
 {
     public GameObject itemPrefab;
 
@@ -42,16 +43,22 @@ public class ItemSpawner : MonoBehaviour
             {
                 yield return new WaitForSeconds(constants.spawnFrequency);
                 int index = Random.Range(0, locators.Length);
-                if (spawnMap[locators[index]] == null)
-                {
-                    Vector3 location = locators[index].position;
-                    GameObject itemSpawned =
-                        Instantiate(itemPrefab,
-                        location,
-                        itemPrefab.transform.rotation);
-                    spawnMap[locators[index]] = itemSpawned;
-                }
+                photonView.RPC("SpawnItem", RpcTarget.AllBuffered, index);
             }
+        }
+    }
+
+    [PunRPC]
+    private void SpawnItem(int locatorIdx)
+    {
+        if (spawnMap[locators[locatorIdx]] == null)
+        {
+            Vector3 location = locators[locatorIdx].position;
+            GameObject itemSpawned =
+                Instantiate(itemPrefab,
+                location,
+                itemPrefab.transform.rotation);
+            spawnMap[locators[locatorIdx]] = itemSpawned;
         }
     }
 }

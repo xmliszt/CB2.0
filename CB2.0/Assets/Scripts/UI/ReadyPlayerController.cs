@@ -33,8 +33,7 @@ public class ReadyPlayerController : MonoBehaviour
             PlayerInfo _info = playerInfo.Value;
             playerReadyCG[idx].alpha = 0;
             playerReadyImages[idx].sprite = _info.playerStats.playerAvatar;
-            playerReadyText[idx].text =
-                string.Format("{0}P", _info.playerStats.playerID);
+            playerReadyText[idx].text = _info.playerStats.playerName;
             playerReadyText[idx].color = _info.playerStats.playerAccent;
         }
     }

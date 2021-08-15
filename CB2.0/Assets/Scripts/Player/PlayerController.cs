@@ -415,7 +415,7 @@ public class PlayerController : MonoBehaviourPun
         {
             if (context.performed && !isPausedExecuted)
             {
-                photonView.RPC("RPCPause", RpcTarget.AllBuffered, context);
+                photonView.RPC("RPCPause", RpcTarget.AllBuffered);
             }
         }
     }

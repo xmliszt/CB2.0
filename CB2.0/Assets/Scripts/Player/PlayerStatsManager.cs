@@ -17,8 +17,7 @@ public class PlayerStatsManager : MonoBehaviour
         GetComponent<SpriteOutlined>().EnableOutline(playerStats);
         playerAnimator.runtimeAnimatorController =
             playerStats.animatorController;
-        playerUIIndicatorText.text =
-            string.Format("{0}P", playerStats.playerID);
+        playerUIIndicatorText.text = playerStats.playerName;
         playerUIIndicatorText.color = playerStats.playerAccent;
     }
 

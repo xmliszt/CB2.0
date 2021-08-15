@@ -30,8 +30,6 @@ public class UIUpdater : MonoBehaviour
     {
         if (players.GetPlayers().ContainsKey(playerID))
         {
-            Debug.Log("UI START");
-            
             playerStats = players.GetPlayers()[playerID].playerStats;
 
             _enabled = true;
@@ -44,8 +42,7 @@ public class UIUpdater : MonoBehaviour
             boxCollider2D.size = new Vector2(width, height);
 
             // set player indicator
-            playerIndicatorText.text =
-                string.Format("{0}P", playerStats.playerID);
+            playerIndicatorText.text = playerStats.playerName;
             playerIndicatorText.color = playerStats.playerAccent;
 
             // set avatar
