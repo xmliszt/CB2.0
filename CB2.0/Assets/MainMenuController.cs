@@ -34,6 +34,7 @@ public class MainMenuController : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        PhotonNetwork.SendRate = 40;
         PhotonNetwork.AutomaticallySyncScene = true;
         PhotonNetwork.ConnectUsingSettings();
         PhotonNetwork.GameVersion = gameVersion;

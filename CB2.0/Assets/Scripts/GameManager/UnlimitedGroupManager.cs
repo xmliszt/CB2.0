@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using Photon.Pun;
 
 public class UnlimitedGroupManager : MonoBehaviour
@@ -12,6 +11,7 @@ public class UnlimitedGroupManager : MonoBehaviour
 
     private void Awake() {
         PhotonNetwork.IsMessageQueueRunning = true;
+        PhotonNetwork.Instantiate("EntertainmentSpawner", Vector3.zero, Quaternion.identity);
     }
     void Start()
     {
