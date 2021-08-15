@@ -47,6 +47,8 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     private bool available = true;
 
+    private bool entertainmentChanged = false;
+
     private Item shopItem;
 
     private RechargeBar rechargeBar;
@@ -114,6 +116,11 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                         entertainmentController.SetSpriteOutline();
                         available = false;
                     }
+                    // Entertainment is not available, setting it back to null
+                    else
+                    {
+                        entertainmentController = null;
+                    }
                 }
 
                 // Can check if entertainment controller is "held" too
@@ -159,6 +166,12 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                 // Player resumes normal speed and dash
                 playerController.RestoreMovement();
                 playerController.EnableDash();
+
+                // Edge case: Entertainment controller does not belong to you but it is assigned to you
+                if (entertainmentController != null && entertainmentController.fromPlayer != gameObject)
+                {
+                    deselectEntertainment();
+                }
             }
             if (playerStatsManager.GetPlayerStats().item != null)
             {
@@ -299,15 +312,6 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
 
     public void OnHold(InputAction.CallbackContext context)
     {
-        // if (context.performed)
-        // {
-        //     Debug.Log("Performed");
-        //     held = !held;
-        //     if (entertainmentController)
-        //     {
-        //         playerAudioController.PlaySFX(SFXType.drop);
-        //     }
-        // }
         held = context.ReadValueAsButton();
     }
 

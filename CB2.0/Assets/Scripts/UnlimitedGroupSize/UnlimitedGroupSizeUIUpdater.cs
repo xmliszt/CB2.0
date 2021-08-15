@@ -32,40 +32,6 @@ public class UnlimitedGroupSizeUIUpdater : MonoBehaviour
     void Start()
     {
         _enabled = true;
-        // GetComponent<CanvasGroup>().alpha = 1;
-        // if (players.GetPlayers().ContainsKey(playerID))
-        // {
-        //     Debug.Log("UI START");
-            
-        //     playerStats = players.GetPlayers()[playerID].playerStats;
-
-        //     _enabled = true;
-
-        //     // Set the size of trigger;
-        //     RectTransform rt = transform.GetComponent<RectTransform>();
-        //     float width = rt.sizeDelta.x;
-        //     float height = rt.sizeDelta.y;
-        //     boxCollider2D = GetComponent<BoxCollider2D>();
-        //     boxCollider2D.size = new Vector2(width, height);
-
-        //     // set player indicator
-        //     playerIndicatorText.text =
-        //         string.Format("{0}P", playerStats.playerID);
-        //     playerIndicatorText.color = playerStats.playerAccent;
-
-        //     // set avatar
-        //     playerAvatar.sprite = playerStats.playerAvatar;
-
-        //     // set background color
-        //     panelBackground.color = playerStats.playerAccent;
-        //     Color tmp = panelBackground.color;
-        //     panelBackground.color = new Color(tmp.r, tmp.g, tmp.b, 0.3f);
-        // }
-        // else
-        // {
-        //     _enabled = false;
-        //     GetComponent<CanvasGroup>().alpha = 0;
-        // }
     }
 
     // Update is called once per frame
