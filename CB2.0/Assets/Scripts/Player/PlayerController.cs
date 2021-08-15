@@ -290,19 +290,22 @@ public class PlayerController : MonoBehaviour
 
     public void onPause(InputAction.CallbackContext context)
     {
-        if (context.performed && !isPausedExecuted)
+        if (!disabled)
         {
-            if (playerAudioController)
-                playerAudioController.PlaySFX(SFXType._lock);
-            onGamePaused.Fire();
-            isPausedExecuted = true;
-            StartCoroutine(removePausedExecuted());
+            if (context.performed && !isPausedExecuted)
+            {
+                if (playerAudioController)
+                    playerAudioController.PlaySFX(SFXType._lock);
+                StartCoroutine(removePausedExecuted());
+                isPausedExecuted = true;
+                onGamePaused.Fire();
+            }
         }
     }
 
     IEnumerator removePausedExecuted()
     {
-        yield return new WaitForSecondsRealtime(0.2f);
+        yield return new WaitForSecondsRealtime(0.5f);
         isPausedExecuted = false;
     }
 

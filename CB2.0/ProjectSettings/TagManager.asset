@@ -43,6 +43,7 @@ TagManager:
   - Checkout
   - NPC
   - TutorialModeBtn
+  - CeremonyExit
   layers:
   - Default
   - TransparentFX
