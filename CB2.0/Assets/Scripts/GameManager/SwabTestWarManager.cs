@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 [System.Serializable]
 public class PlayerLocation
@@ -17,6 +18,10 @@ public class SwabTestWarManager : MonoBehaviour
     public Players players;
     public GameEvent onShowRulePage;
     public TestStation[] testStations;
+
+    private void Awake() {
+        PhotonNetwork.IsMessageQueueRunning = true;
+    }
     void Start()
     {
         foreach(KeyValuePair<int, PlayerInfo> player in players.GetPlayers())

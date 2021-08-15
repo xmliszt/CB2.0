@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-
 // Adapted from SwabStickMovement
 public class StickMovement : MonoBehaviour
 {
@@ -11,9 +10,16 @@ public class StickMovement : MonoBehaviour
 
     public GameObject fromPlayer;
 
+    private bool isPaused = false;
+
     public void StartFlying()
     {
         StartCoroutine(Fly());
+    }
+
+    public void PauseFlying()
+    {
+        isPaused = !isPaused;
     }
 
     IEnumerator Fly()
@@ -33,13 +39,20 @@ public class StickMovement : MonoBehaviour
         }
         while (true)
         {
-            yield return null;
-            transform
-                .Translate(Vector3.left *
-                constants.swabStickFlyingSpeed *
-                Time.deltaTime);
+            if (isPaused)
+            {
+                yield return null;
+            }
+            else
+            {
+                yield return null;
+                transform
+                    .Translate(Vector3.left *
+                    constants.swabStickFlyingSpeed *
+                    Time.deltaTime);
 
-            if (IsOutOfBound()) Destroy(gameObject);
+                if (IsOutOfBound()) Destroy(gameObject);
+            }
         }
     }
 
@@ -52,16 +65,23 @@ public class StickMovement : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            fromPlayer.GetComponent<UnlimitedGroupControlHandler>().OnStickHit();
-            other.gameObject.GetComponent<UnlimitedGroupControlHandler>().GetStickHit();
+            fromPlayer
+                .GetComponent<UnlimitedGroupControlHandler>()
+                .OnStickHit();
+            other
+                .gameObject
+                .GetComponent<UnlimitedGroupControlHandler>()
+                .GetStickHit();
             Destroy (gameObject);
         }
-
-        else if ((other.CompareTag("Wall")) 
-        || (other.CompareTag("Decor")) 
-        || (other.CompareTag("UGSShop")) 
-        || (other.CompareTag("Entertainments"))) {
-            Destroy(gameObject);
+        else if (
+            (other.CompareTag("Wall")) ||
+            (other.CompareTag("Decor")) ||
+            (other.CompareTag("UGSShop")) ||
+            (other.CompareTag("Entertainments"))
+        )
+        {
+            Destroy (gameObject);
         }
     }
 

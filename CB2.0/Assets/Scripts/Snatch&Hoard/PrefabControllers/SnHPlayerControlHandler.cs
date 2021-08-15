@@ -61,6 +61,8 @@ public class SnHPlayerControlHandler : MonoBehaviour
 
     private bool isGameStarted = false;
 
+    private bool isPaused = false;
+
     private void Awake()
     {
         playerStatsManager = GetComponent<PlayerStatsManager>();
@@ -375,9 +377,26 @@ public class SnHPlayerControlHandler : MonoBehaviour
         }
     }
 
+    public void Pause()
+    {
+        isPaused = !isPaused;
+    }
+
     private IEnumerator shutdownShopEffect()
     {
-        yield return new WaitForSeconds(constants.shopItemEffectDuration);
+        int count = 0;
+        while (count < constants.shopItemEffectDuration)
+        {
+            if (isPaused)
+            {
+                yield return null;
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+                count++;
+            }
+        }
         playerController.RestoreMovement();
         onPowerUpEffect = false;
     }

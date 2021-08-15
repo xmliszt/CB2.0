@@ -4,24 +4,35 @@ using UnityEngine;
 
 public class STSBirthdayActivity : MonoBehaviour
 {
-
     [Header("Game Events")]
     public SingleIntegerGameEvent birthdayGameEvent;
+
     public SingleIntegerGameEvent birthdayScoreEvent; // event will give score to players that are present
+
     public GameEvent birthdayComplete;
 
     [Header("Others")]
-
     public STSGameConstants stsGameConstants;
 
     private STSGameManager stsGameManager;
+
     private int numberOfPlayers;
+
     private int playerChosen;
 
     private bool birthdayEventOngoing = false;
 
     private bool[] playersPresent = new bool[4] { false, false, false, false };
-    private string[] allRooms = new string[4] { "Player 1 House", "Player 2 House", "Player 3 House", "Player 4 House" };
+
+    private string[]
+        allRooms =
+            new string[4]
+            {
+                "Player 1 House",
+                "Player 2 House",
+                "Player 3 House",
+                "Player 4 House"
+            };
 
     private int allPresent;
 
@@ -29,17 +40,24 @@ public class STSBirthdayActivity : MonoBehaviour
 
     [Header("Doors")]
     public BoxCollider2D player1Door;
+
     public BoxCollider2D player2Door;
+
     public BoxCollider2D player3Door;
+
     public BoxCollider2D player4Door;
 
     private BoxCollider2D[] playerDoors;
+
+    private bool isPaused = false;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(ActivateBirthdayEvent());
-        playerDoors = new BoxCollider2D[4] { player1Door, player2Door, player3Door, player4Door };
+        playerDoors =
+            new BoxCollider2D[4]
+            { player1Door, player2Door, player3Door, player4Door };
         stsGameManager = FindObjectOfType<STSGameManager>();
         numberOfPlayers = stsGameManager.GetNumberPlayers();
     }
@@ -49,18 +67,18 @@ public class STSBirthdayActivity : MonoBehaviour
     {
         if (birthdayEventOngoing)
         {
-            for(int i = 0; i < numberOfPlayers; i++)
+            for (int i = 0; i < numberOfPlayers; i++)
             {
                 if (playersPresent[i] == true)
                 {
                     allPresent++;
                 }
             }
-            if(allPresent == numberOfPlayers && !celebrationsUnderway)
+            if (allPresent == numberOfPlayers && !celebrationsUnderway)
             {
                 allPresent = 0;
                 celebrationsUnderway = true;
-                playerDoors[playerChosen-1].gameObject.SetActive(true);
+                playerDoors[playerChosen - 1].gameObject.SetActive(true);
                 BeginBirthdayCelebration();
             }
 
@@ -68,22 +86,48 @@ public class STSBirthdayActivity : MonoBehaviour
         }
     }
 
+    public void PauseBirthdayEvent()
+    {
+        isPaused = !isPaused;
+    }
+
     IEnumerator ActivateBirthdayEvent()
     {
-        while (true)
+        int count = 0;
+        while (count < stsGameConstants.waitForBirthday)
         {
-            yield return new WaitForSeconds(stsGameConstants.waitForBirthday);
-            if (!birthdayEventOngoing)
+            if (!isPaused)
             {
-                invokeBirthdayGameEvent();
-                StartCoroutine(birthdayTimeout());
+                yield return new WaitForSeconds(1);
+                count++;
             }
+            else
+            {
+                yield return null;
+            }
+        }
+        if (!birthdayEventOngoing)
+        {
+            invokeBirthdayGameEvent();
+            StartCoroutine(birthdayTimeout());
         }
     }
 
     IEnumerator birthdayTimeout()
     {
-        yield return new WaitForSeconds(stsGameConstants.birthdayInterval * 8);
+        int counter = 0;
+        while (counter < stsGameConstants.birthdayInterval * 8)
+        {
+            if (isPaused)
+            {
+                yield return null;
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+                counter++;
+            }
+        }
         if (birthdayEventOngoing)
         {
             OnBirthdayEventOver();
@@ -93,9 +137,9 @@ public class STSBirthdayActivity : MonoBehaviour
     private void invokeBirthdayGameEvent()
     {
         birthdayEventOngoing = true;
-        playerChosen = Random.Range(1, numberOfPlayers+1);
+        playerChosen = Random.Range(1, numberOfPlayers + 1);
 
-        birthdayGameEvent.Fire(playerChosen);
+        birthdayGameEvent.Fire (playerChosen);
     }
 
     private void OnBirthdayEventOver()
@@ -124,7 +168,19 @@ public class STSBirthdayActivity : MonoBehaviour
 
     IEnumerator CarryingOutBirthdayCelebration()
     {
-        yield return new WaitForSeconds(stsGameConstants.birthdaySongDuration);
+        int counter = 0;
+        while (counter < stsGameConstants.birthdaySongDuration)
+        {
+            if (isPaused)
+            {
+                yield return null;
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+                counter++;
+            }
+        }
         birthdayComplete.Fire();
         OnBirthdayEventOver();
     }
@@ -135,7 +191,7 @@ public class STSBirthdayActivity : MonoBehaviour
         {
             if (allRooms[playerChosen - 1] == roomName)
             {
-                playersPresent[playerID-1] = true;
+                playersPresent[playerID - 1] = true;
             }
         }
         catch
@@ -150,7 +206,7 @@ public class STSBirthdayActivity : MonoBehaviour
         {
             if (allRooms[playerChosen - 1] == roomName)
             {
-                playersPresent[playerID-1] = false;
+                playersPresent[playerID - 1] = false;
             }
         }
         catch

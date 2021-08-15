@@ -1,6 +1,6 @@
 using System.Collections;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class CountdownTimer : MonoBehaviour
 {
@@ -9,25 +9,29 @@ public class CountdownTimer : MonoBehaviour
     public GameEvent OnBGMPitchUp;
 
     public GameEvent OnBGMPitchDown;
+
     public GameConstants constants;
 
     public TMP_Text countdownText;
+
     public Color initializedColor;
 
     [Header("Last 10 seconds warning color")]
-
     public Color lastTenSecondsColor;
 
     private CanvasGroup canvas;
 
     private int totalSeconds;
 
-    private void Start() {
+    private bool isPaused = false;
+
+    private void Start()
+    {
         canvas = GetComponent<CanvasGroup>();
         canvas.alpha = 0;
         ResetTimer();
     }
-    
+
     public void StartCountdown()
     {
         ResetTimer();
@@ -35,18 +39,30 @@ public class CountdownTimer : MonoBehaviour
         StartCoroutine(RunTimer());
     }
 
+    public void PauseCountdown()
+    {
+        isPaused = !isPaused;
+    }
+
     IEnumerator RunTimer()
     {
         while (totalSeconds > 0)
         {
-            yield return new WaitForSeconds(1);
-            totalSeconds --;
-            if (totalSeconds <= 10)
+            if (!isPaused)
             {
-                OnBGMPitchUp.Fire();
-                countdownText.color = lastTenSecondsColor;
+                yield return new WaitForSeconds(1);
+                totalSeconds--;
+                if (totalSeconds <= 10)
+                {
+                    OnBGMPitchUp.Fire();
+                    countdownText.color = lastTenSecondsColor;
+                }
+                ShowTime();
             }
-            ShowTime();
+            else
+            {
+                yield return null;
+            }
         }
         OnBGMPitchDown.Fire();
         OnGameOver.Fire();
@@ -59,6 +75,7 @@ public class CountdownTimer : MonoBehaviour
         countdownText.color = initializedColor;
         canvas.alpha = 0;
     }
+
     private void ShowTime()
     {
         int minutes = totalSeconds / 60;

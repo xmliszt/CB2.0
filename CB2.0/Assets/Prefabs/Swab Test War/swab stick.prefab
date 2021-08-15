@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6488087500066331416}
   - component: {fileID: 6488087500066331419}
   - component: {fileID: 5853785624507807556}
+  - component: {fileID: -6372470399760476198}
   m_Layer: 0
   m_Name: swab stick
   m_TagString: SwabStick
@@ -122,3 +123,31 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &-6372470399760476198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6488087500066331418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0a12cbe82f61e3643a966e02a95b371a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6488087500066331419}
+        m_TargetAssemblyTypeName: SwabStickMovement, Assembly-CSharp
+        m_MethodName: PauseFlying
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

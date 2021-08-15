@@ -55,5 +55,5 @@ MonoBehaviour:
     location: {fileID: 0}
   - playerID: 4
     location: {fileID: 0}
-  playerPrefab: {fileID: 5928543010023413209, guid: 96096627dfb6dee47b0ecfb8cd094df4, type: 3}
+  playerPrefab: {fileID: 5928543010023413209, guid: 6285c5eaf65c2d64aa1abe576315907e, type: 3}
   players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}

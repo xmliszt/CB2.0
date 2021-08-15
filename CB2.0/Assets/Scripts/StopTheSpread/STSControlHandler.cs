@@ -85,6 +85,8 @@ public class STSControlHandler : MonoBehaviour
 
     private ControlKeyIndicatorHandler controlKeyIndicatorHandler;
 
+    private bool isPaused = false;
+
     private enum ZoneType
     {
         dumbbell = 0,
@@ -277,7 +279,19 @@ public class STSControlHandler : MonoBehaviour
 
     IEnumerator InvisibilityTimeUp(float duration)
     {
-        yield return new WaitForSeconds(duration);
+        int count = 0;
+        while (count < duration)
+        {
+            if (isPaused)
+            {
+                yield return null;
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+                count++;
+            }
+        }
 
         var tempColor = playerSprite.color;
         tempColor.a = 1f;
@@ -353,7 +367,19 @@ public class STSControlHandler : MonoBehaviour
 
     IEnumerator EnableAutoPickUp(float delay)
     {
-        yield return new WaitForSeconds(delay);
+        int count = 0;
+        while (count < delay)
+        {
+            if (isPaused)
+            {
+                yield return null;
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+                count++;
+            }
+        }
         autoPickEnabled = true;
     }
 
@@ -399,8 +425,25 @@ public class STSControlHandler : MonoBehaviour
         {
             thoughtBubbleRenderer.sprite = doingNothing.thoughtBubbleSprite;
         }
-        yield return new WaitForSeconds(stsGameConstants.activityCooldownTime);
+        int count = 0;
+        while (count < stsGameConstants.activityCooldownTime)
+        {
+            if (isPaused)
+            {
+                yield return null;
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+                count++;
+            }
+        }
         generateActivity();
+    }
+
+    public void Pause()
+    {
+        isPaused = !isPaused;
     }
 
     IEnumerator UsingInteractable()
@@ -433,25 +476,32 @@ public class STSControlHandler : MonoBehaviour
         playerDoingActivity = true;
 
         // wait for 3 seconds, check every 0.5s if the person is out of the box
-        for (int i = 0; i < stsGameConstants.intervals; i++)
+        int count = 0;
+        while (count < stsGameConstants.intervals)
         {
-            completionBar.value += stsGameConstants.doingActivityInterval;
-            yield return new WaitForSeconds(stsGameConstants
-                        .doingActivityInterval);
-            if (zoneType == ZoneType.nullType)
+            if (isPaused)
             {
-                playerDoingActivity = false;
+                yield return null;
+            }
+            else
+            {
+                completionBar.value += stsGameConstants.doingActivityInterval;
+                yield return new WaitForSeconds(1);
+                count++;
+                if (zoneType == ZoneType.nullType)
+                {
+                    playerDoingActivity = false;
 
-                completionBar.value = 0;
-                completionBar.gameObject.SetActive(false);
+                    completionBar.value = 0;
+                    completionBar.gameObject.SetActive(false);
 
-                // stop audio
-                playerAudioController.StopSFX();
+                    // stop audio
+                    playerAudioController.StopSFX();
 
-                yield break;
+                    yield break;
+                }
             }
         }
-
         completionBar.value = 0;
         completionBar.gameObject.SetActive(false);
 
@@ -494,7 +544,19 @@ public class STSControlHandler : MonoBehaviour
 
     IEnumerator EnabledControllerAgain(float duration)
     {
-        yield return new WaitForSeconds(duration);
+        int count = 0;
+        while (count < duration)
+        {
+            if (isPaused)
+            {
+                yield return null;
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+                count++;
+            }
+        }
         gameObject.GetComponent<PlayerController>().EnableController();
         playerSprite.enabled = true;
         thoughtBubbleRenderer.enabled = true;
@@ -658,7 +720,19 @@ public class STSControlHandler : MonoBehaviour
 
     IEnumerator BirthdayTimeout()
     {
-        yield return new WaitForSeconds(stsGameConstants.birthdayInterval * 8);
+        int count = 0;
+        while (count < stsGameConstants.birthdayInterval * 8)
+        {
+            if (isPaused)
+            {
+                yield return null;
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+                count++;
+            }
+        }
         ResetBirthdayValues();
     }
 

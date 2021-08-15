@@ -65,11 +65,10 @@ public class PlayerController : MonoBehaviourPun
 
     private bool isPausedExecuted = false;
 
-    private PhotonView photonView;
+    private bool isPaused = false;
 
     private void Awake()
     {
-        photonView = GetComponent<PhotonView>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
@@ -82,11 +81,16 @@ public class PlayerController : MonoBehaviourPun
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
         unlimitedGroupControlHandler =
             GetComponent<UnlimitedGroupControlHandler>();
+
         DontDestroyOnLoad (gameObject);
     }
 
     private void Start()
     {
+        if (!photonView.IsMine)
+        {
+            playerInput.DeactivateInput();
+        }
         if (playerStatsManager.GetPlayerStats() != null)
         {
             UpdateAnimator();
@@ -306,7 +310,6 @@ public class PlayerController : MonoBehaviourPun
     {
         if (context.performed)
         {
-            Debug.Log(string.Format("Player {0} pick up / drop", photonView.CreatorActorNr));
             photonView.RPC("RPCPickdrop", RpcTarget.AllBuffered);
         }
     }
@@ -316,7 +319,6 @@ public class PlayerController : MonoBehaviourPun
     {
         if (playerReadyHandler)
         {
-             Debug.Log(string.Format("Player {0} get ready", photonView.CreatorActorNr));
             playerReadyHandler.OnPlayerReady();
         }
         if (!disabled)
@@ -424,6 +426,17 @@ public class PlayerController : MonoBehaviourPun
         if (playerAudioController) playerAudioController.PlaySFX(SFXType._lock);
         StartCoroutine(removePausedExecuted());
         isPausedExecuted = true;
+        isPaused = !isPaused;
+        if (isPaused)
+        {
+            DisableController();
+            DisableMovement();
+            DisableDash();
+        } else {
+            EnableController();
+            EnableMovement();
+            EnableDash();
+        }
         onGamePaused.Fire();
     }
 

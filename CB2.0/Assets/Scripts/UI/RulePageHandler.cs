@@ -26,20 +26,11 @@ public class RulePageHandler : MonoBehaviour
         rulePageVideoPlayer.Stop();
         rulePageVideoPlayer.Play();
         isPaused = !isPaused;
-        if (isPaused)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
     }
 
     public void ResumeTime()
     {
         rulePageVideoPlayer.Stop();
-        Time.timeScale = 1;
         isPaused = false;
     }
 

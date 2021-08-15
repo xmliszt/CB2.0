@@ -245,6 +245,7 @@ GameObject:
   - component: {fileID: 11902138062250456}
   - component: {fileID: 2684862963172615813}
   - component: {fileID: 341967374177981101}
+  - component: {fileID: 6803520816951132696}
   m_Layer: 0
   m_Name: Countdown Timer
   m_TagString: Untagged
@@ -339,6 +340,34 @@ MonoBehaviour:
   countdown8: {fileID: -1218091386679899035, guid: 0486e0f01e530fb41a3d63aabe2f548d, type: 3}
   timerSprite: {fileID: 2684862963172615813}
   stsGameConstants: {fileID: 11400000, guid: e3ab69074ca3dd94da1cdd8d42748062, type: 2}
+--- !u!114 &6803520816951132696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642704012214574736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0a12cbe82f61e3643a966e02a95b371a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 341967374177981101}
+        m_TargetAssemblyTypeName: STSTimer, Assembly-CSharp
+        m_MethodName: PauseTimer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &807933170605296479
 GameObject:
   m_ObjectHideFlags: 0
@@ -2111,6 +2140,7 @@ MonoBehaviour:
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   onGamePaused: {fileID: 11400000, guid: 0a12cbe82f61e3643a966e02a95b371a, type: 2}
   dashParticleGameEvent: {fileID: 11400000, guid: b3f39252519740843a5ee14e2800faab, type: 2}
+  playerSwitchProfile: {fileID: 0}
 --- !u!114 &789055899533834128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2125,7 +2155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onMiniGameStart: {fileID: 11400000, guid: 257b63261c3b66748b39167a72d68f31, type: 2}
   onSwitchBGM: {fileID: 11400000, guid: 459071618b31fd04ebd14d67828b0626, type: 2}
-  onPlayerChangeProfile: {fileID: 11400000, guid: 903bb142c1a0cb3488d4295dda7fe04d, type: 2}
+  onPlayerChangeProfile: {fileID: 0}
   onMinigameSelected: {fileID: 11400000, guid: 2bfdbeb24e492eb4cb3fb0d091bd4f62, type: 2}
   onMinigameDeSelected: {fileID: 11400000, guid: 261ae0d73b1953d41b5cfde274877b82, type: 2}
   gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}

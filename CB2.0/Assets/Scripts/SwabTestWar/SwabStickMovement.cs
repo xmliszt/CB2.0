@@ -9,10 +9,18 @@ public class SwabStickMovement : MonoBehaviour
 
     public GameObject fromPlayer;
 
+    private bool isPaused = false;
+
     public void StartFlying()
     {
         StartCoroutine(Fly());
     }
+
+    public void PauseFlying()
+    {
+        isPaused = !isPaused;
+    }
+
 
     IEnumerator Fly()
     {
@@ -31,13 +39,20 @@ public class SwabStickMovement : MonoBehaviour
         }
         while (true)
         {
-            yield return null;
-            transform
-                .Translate(Vector3.left *
-                constants.swabStickFlyingSpeed *
-                Time.deltaTime);
+            if (isPaused)
+            {
+                yield return null;
+            }
+            else
+            {
+                yield return null;
+                transform
+                    .Translate(Vector3.left *
+                    constants.swabStickFlyingSpeed *
+                    Time.deltaTime);
 
-            if (IsOutOfBound()) Destroy(gameObject);
+                if (IsOutOfBound()) Destroy(gameObject);
+            }
         }
     }
 

@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 13736930}
   - component: {fileID: 13736932}
   - component: {fileID: 13736931}
+  - component: {fileID: 13736933}
   m_Layer: 0
   m_Name: SpawnablePickups
   m_TagString: Untagged
@@ -219,6 +220,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SpawnedPickupManager, Assembly-CSharp
         m_MethodName: PickupDestroyed
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &13736933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13736928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0a12cbe82f61e3643a966e02a95b371a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 13736930}
+        m_TargetAssemblyTypeName: SpawnedPickupManager, Assembly-CSharp
+        m_MethodName: PauseSpawning
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5260,6 +5289,86 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1136682649}
+    - target: {fileID: 4728250661121989805, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728250661121989805, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728250661121989805, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728250661121989805, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728250661121989805, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363741189506173345, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363741189506173345, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363741189506173345, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363741189506173345, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363741189506173345, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363741189860462800, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363741189860462800, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363741189860462800, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363741189860462800, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5363741189860462800, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464855556015183750, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464855556015183750, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464855556015183750, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464855556015183750, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464855556015183750, guid: 689854c633652d8479bc929e23200ed8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 689854c633652d8479bc929e23200ed8, type: 3}
 --- !u!224 &1228947106 stripped

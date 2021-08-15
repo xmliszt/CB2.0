@@ -1236,6 +1236,7 @@ GameObject:
   - component: {fileID: 7199450588496940006}
   - component: {fileID: 2326755631581257984}
   - component: {fileID: 2767339858650415684}
+  - component: {fileID: 454299847488355278}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1536,8 +1537,8 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a69fffbb-92ec-4125-ba3a-62eba4458103
     m_ActionName: gameplay/pause[/XInputControllerWindows/start,/Keyboard/escape]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: keyboard
+  m_NeverAutoSwitchControlSchemes: 1
+  m_DefaultControlScheme: 
   m_DefaultActionMap: gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -2611,6 +2612,46 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 2
     LayerIndex: 0
+--- !u!114 &454299847488355278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928543010023413209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0a12cbe82f61e3643a966e02a95b371a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -7255464171494784920}
+        m_TargetAssemblyTypeName: STSControlHandler, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5105910600123761347}
+        m_TargetAssemblyTypeName: SnHPlayerControlHandler, Assembly-CSharp
+        m_MethodName: Pause
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6663720610430123126
 GameObject:
   m_ObjectHideFlags: 0
@@ -3235,13 +3276,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5290cb0ae00586d4d897f8a5a3d67cb7, type: 3}
---- !u!224 &1268114124365238247 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8019169163125603723, guid: 5290cb0ae00586d4d897f8a5a3d67cb7, type: 3}
-  m_PrefabInstance: {fileID: 9138068411969712748}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1268114124365238244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8019169163125603720, guid: 5290cb0ae00586d4d897f8a5a3d67cb7, type: 3}
+  m_PrefabInstance: {fileID: 9138068411969712748}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1268114124365238247 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8019169163125603723, guid: 5290cb0ae00586d4d897f8a5a3d67cb7, type: 3}
   m_PrefabInstance: {fileID: 9138068411969712748}
   m_PrefabAsset: {fileID: 0}

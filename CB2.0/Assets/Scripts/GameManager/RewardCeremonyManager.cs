@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class RewardCeremonyManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class RewardCeremonyManager : MonoBehaviour
     public GameObject playerPrefab;
     public Players players;
 
+    private void Awake() {
+        PhotonNetwork.IsMessageQueueRunning = true;
+    }
     void Start()
     {
         OnStart.Fire();

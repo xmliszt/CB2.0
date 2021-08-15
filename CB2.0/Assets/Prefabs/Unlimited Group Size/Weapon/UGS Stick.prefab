@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3414588065788968598}
   - component: {fileID: 2618157050859606730}
   - component: {fileID: 8796831882463362302}
+  - component: {fileID: 5966655583654402910}
   m_Layer: 0
   m_Name: UGS Stick
   m_TagString: SwabStick
@@ -122,3 +123,31 @@ MonoBehaviour:
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   direction: {x: 0, y: 0}
   fromPlayer: {fileID: 0}
+--- !u!114 &5966655583654402910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3414588065788968596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0a12cbe82f61e3643a966e02a95b371a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8796831882463362302}
+        m_TargetAssemblyTypeName: StickMovement, Assembly-CSharp
+        m_MethodName: PauseFlying
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

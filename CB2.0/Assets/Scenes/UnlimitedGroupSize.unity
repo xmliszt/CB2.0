@@ -671,6 +671,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 484964154}
     m_Modifications:
+    - target: {fileID: 4466614251114998588, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466614251114998588, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466614251114998588, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466614251114998588, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466614251544907965, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466614251544907965, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466614251544907965, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466614251544907965, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466614252282197015, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 201.29999
+      objectReference: {fileID: 0}
     - target: {fileID: 4466614252303060088, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -763,6 +799,22 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 709914843}
+    - target: {fileID: 4466614253074267051, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466614253074267051, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466614253074267051, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4466614253074267051, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd2d254d89ded06489b1af03095b9bdc, type: 3}
 --- !u!224 &364444868 stripped
@@ -1282,6 +1334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 692074928}
   - component: {fileID: 692074927}
+  - component: {fileID: 692074929}
   m_Layer: 0
   m_Name: EntertainmentSpawner
   m_TagString: Untagged
@@ -1342,6 +1395,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &692074929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692074926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0a12cbe82f61e3643a966e02a95b371a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 692074927}
+        m_TargetAssemblyTypeName: EntertainmentSpawner, Assembly-CSharp
+        m_MethodName: PauseSpawning
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &709914841
 GameObject:
   m_ObjectHideFlags: 0
@@ -3506,6 +3587,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 484964154}
     m_Modifications:
+    - target: {fileID: 131443501, guid: f294752dc5840674a9dd0c8cefd0daec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1643539026, guid: f294752dc5840674a9dd0c8cefd0daec, type: 3}
       propertyPath: m_VideoClip
       value: 

@@ -272,9 +272,10 @@ GameObject:
   - component: {fileID: 7208038361440692003}
   - component: {fileID: 6704426479595958990}
   - component: {fileID: 6424899187082134912}
+  - component: {fileID: 7208038361975394894}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: SDA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -356,7 +357,11 @@ MonoBehaviour:
   childSprite: {fileID: 7208038362373509950}
   animator: {fileID: 7208038362373509949}
   stsGameConstants: {fileID: 11400000, guid: e3ab69074ca3dd94da1cdd8d42748062, type: 2}
-  STSWayPoints: []
+  STSWayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   shocked: {fileID: 7512189465966945313}
 --- !u!60 &7208038361440692003
 PolygonCollider2D:
@@ -435,6 +440,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7208038361975394894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7208038361440692009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac42d1e10049b04793a6ac041a7149d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0a12cbe82f61e3643a966e02a95b371a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7208038361440692014}
+        m_TargetAssemblyTypeName: STSAIController, Assembly-CSharp
+        m_MethodName: PauseAI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7208038362373509951
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,7 +493,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7208038362373509951}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

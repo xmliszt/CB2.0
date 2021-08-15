@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviourPun
 
     private void Awake()
     {
-        PhotonNetwork.AutomaticallySyncScene = true;
         DontDestroyOnLoad (gameObject);
     }
 
@@ -71,7 +70,8 @@ public class GameManager : MonoBehaviourPun
                 GetPlayerLocation(playerID),
                 playerPrefab.transform.rotation);
         playerObjects[playerID] = player.transform;
-        PlayerStats newPlayerStats = SwitchPlayerProfile(playerID, PhotonNetwork.NickName); // assign one profile to the joined player
+        PlayerStats newPlayerStats =
+            SwitchPlayerProfile(playerID, PhotonNetwork.NickName); // assign one profile to the joined player
         players.AddPlayer (newPlayerStats, player);
         player.GetComponent<PlayerController>().EnableController();
         player.GetComponent<PlayerController>().EnableMovement();
@@ -228,28 +228,32 @@ public class GameManager : MonoBehaviourPun
 
     public void LoadMinigame(GameStats.Scene sceneTag)
     {
-        switch (sceneTag)
+        if (PhotonNetwork.IsMasterClient)
         {
-            case GameStats.Scene.gameLobby:
-                PhotonNetwork.LoadLevel("GameLobby");
-                break;
-            case GameStats.Scene.swabTestWar:
-                PhotonNetwork.LoadLevel("SwabTestWar");
-                break;
-            case GameStats.Scene.stopTheSpread:
-                onStartSTS.Fire();
-                PhotonNetwork.LoadLevel("StopTheSpread");
-                break;
-            case GameStats.Scene.unlimitedGroupSize:
-                onStartUGS.Fire();
-                PhotonNetwork.LoadLevel("UnlimitedGroupSize");
-                break;
-            case GameStats.Scene.snatchAndHoard:
-                PhotonNetwork.LoadLevel("Snatch&Hoard");
-                break;
-            case GameStats.Scene.awardCeremony:
-                PhotonNetwork.LoadLevel("RewardCeremony");
-                break;
+            PhotonNetwork.IsMessageQueueRunning = false;
+            switch (sceneTag)
+            {
+                case GameStats.Scene.gameLobby:
+                    PhotonNetwork.LoadLevel("GameLobby");
+                    break;
+                case GameStats.Scene.swabTestWar:
+                    PhotonNetwork.LoadLevel("SwabTestWar");
+                    break;
+                case GameStats.Scene.stopTheSpread:
+                    onStartSTS.Fire();
+                    PhotonNetwork.LoadLevel("StopTheSpread");
+                    break;
+                case GameStats.Scene.unlimitedGroupSize:
+                    onStartUGS.Fire();
+                    PhotonNetwork.LoadLevel("UnlimitedGroupSize");
+                    break;
+                case GameStats.Scene.snatchAndHoard:
+                    PhotonNetwork.LoadLevel("Snatch&Hoard");
+                    break;
+                case GameStats.Scene.awardCeremony:
+                    PhotonNetwork.LoadLevel("RewardCeremony");
+                    break;
+            }
         }
     }
 

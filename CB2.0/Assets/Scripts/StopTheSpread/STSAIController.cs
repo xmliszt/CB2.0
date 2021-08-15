@@ -55,6 +55,8 @@ public class STSAIController : MonoBehaviour
 
     private bool allowChase = false;
 
+    private bool isPaused = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -95,6 +97,11 @@ public class STSAIController : MonoBehaviour
             seeker
                 .StartPath(transform.position, target.position, OnPathComplete);
         }
+    }
+
+    public void PauseAI()
+    {
+        isPaused = !isPaused;
     }
 
     void OnPathComplete(Path p)
@@ -160,146 +167,152 @@ public class STSAIController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (allowChase)
+        if (!isPaused)
         {
-            if (path == null)
+            if (allowChase)
             {
-                return;
-            }
-
-            if (currentWaypoint >= path.vectorPath.Count)
-            {
-                reachedEndOfPath = true;
-                return;
-            }
-            else
-            {
-                reachedEndOfPath = false;
-            }
-
-            if (!scoutingMode)
-            {
-                animator.SetBool("isIdle", false);
-
-                Vector2 direction =
-                    ((Vector2) path.vectorPath[currentWaypoint] - rb.position)
-                        .normalized;
-
-                //Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - new Vector2(transform.position.x, transform.position.y)).normalized;
-                Vector2 force;
-
-                if (!isChasing)
+                if (path == null)
                 {
-                    force =
-                        direction * stsGameConstants.AISpeed * Time.deltaTime;
+                    return;
+                }
+
+                if (currentWaypoint >= path.vectorPath.Count)
+                {
+                    reachedEndOfPath = true;
+                    return;
                 }
                 else
                 {
-                    force =
-                        direction *
-                        stsGameConstants.AIFastSpeed *
-                        Time.deltaTime;
+                    reachedEndOfPath = false;
                 }
 
-                rb.AddForce (force);
-
-                if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+                if (!scoutingMode)
                 {
-                    if (direction.x > 0)
-                    {
-                        if (AIDirection == 3)
-                        {
-                            changeDirection++;
-                        }
-                        else
-                        {
-                            changeDirection = 0;
-                        }
-                        AIDirection = 3;
-                    }
-                    else
-                    {
-                        if (AIDirection == 2)
-                        {
-                            changeDirection++;
-                        }
-                        else
-                        {
-                            changeDirection = 0;
-                        }
-                        AIDirection = 2;
-                    }
-                    animator.SetFloat("right", direction.x);
-                    animator.SetFloat("up", 0);
-                }
-                else
-                {
-                    if (direction.y > 0)
-                    {
-                        if (AIDirection == 1)
-                        {
-                            changeDirection++;
-                        }
-                        else
-                        {
-                            changeDirection = 0;
-                        }
-                        AIDirection = 1;
-                    }
-                    else
-                    {
-                        if (AIDirection == 0)
-                        {
-                            changeDirection++;
-                        }
-                        else
-                        {
-                            changeDirection = 0;
-                        }
-                        AIDirection = 0;
-                    }
-                    animator.SetFloat("up", direction.y);
-                    animator.SetFloat("right", 0);
-                }
-
-                if (changeDirection == 5)
-                {
-                    UpdateFacingDirection();
-                }
-
-                float distance =
-                    Vector2
-                        .Distance(rb.position,
-                        path.vectorPath[currentWaypoint]);
-
-                if (distance < nextWaypointDistance)
-                {
-                    currentWaypoint++;
-                }
-            }
-
-            if (scoutingMode)
-            {
-                animator.SetFloat("up", 0);
-                animator.SetFloat("right", 0);
-                animator.SetBool("isIdle", true);
-
-                UpdateFacingDirection();
-
-                if (canChangeDirection)
-                {
-                    StartCoroutine(AIScouting());
-                }
-
-                if (scoutingTime >= 4)
-                {
-                    scoutingMode = false;
-                    patrolMode = true;
                     animator.SetBool("isIdle", false);
-                    animator.SetBool("idleUp", false);
-                    animator.SetBool("idleDown", false);
-                    animator.SetBool("idleLeft", false);
-                    animator.SetBool("idleRight", false);
+
+                    Vector2 direction =
+                        (
+                        (Vector2) path.vectorPath[currentWaypoint] - rb.position
+                        ).normalized;
+
+                    //Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - new Vector2(transform.position.x, transform.position.y)).normalized;
+                    Vector2 force;
+
+                    if (!isChasing)
+                    {
+                        force =
+                            direction *
+                            stsGameConstants.AISpeed *
+                            Time.deltaTime;
+                    }
+                    else
+                    {
+                        force =
+                            direction *
+                            stsGameConstants.AIFastSpeed *
+                            Time.deltaTime;
+                    }
+
+                    rb.AddForce (force);
+
+                    if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+                    {
+                        if (direction.x > 0)
+                        {
+                            if (AIDirection == 3)
+                            {
+                                changeDirection++;
+                            }
+                            else
+                            {
+                                changeDirection = 0;
+                            }
+                            AIDirection = 3;
+                        }
+                        else
+                        {
+                            if (AIDirection == 2)
+                            {
+                                changeDirection++;
+                            }
+                            else
+                            {
+                                changeDirection = 0;
+                            }
+                            AIDirection = 2;
+                        }
+                        animator.SetFloat("right", direction.x);
+                        animator.SetFloat("up", 0);
+                    }
+                    else
+                    {
+                        if (direction.y > 0)
+                        {
+                            if (AIDirection == 1)
+                            {
+                                changeDirection++;
+                            }
+                            else
+                            {
+                                changeDirection = 0;
+                            }
+                            AIDirection = 1;
+                        }
+                        else
+                        {
+                            if (AIDirection == 0)
+                            {
+                                changeDirection++;
+                            }
+                            else
+                            {
+                                changeDirection = 0;
+                            }
+                            AIDirection = 0;
+                        }
+                        animator.SetFloat("up", direction.y);
+                        animator.SetFloat("right", 0);
+                    }
+
+                    if (changeDirection == 5)
+                    {
+                        UpdateFacingDirection();
+                    }
+
+                    float distance =
+                        Vector2
+                            .Distance(rb.position,
+                            path.vectorPath[currentWaypoint]);
+
+                    if (distance < nextWaypointDistance)
+                    {
+                        currentWaypoint++;
+                    }
+                }
+
+                if (scoutingMode)
+                {
+                    animator.SetFloat("up", 0);
+                    animator.SetFloat("right", 0);
+                    animator.SetBool("isIdle", true);
+
+                    UpdateFacingDirection();
+
+                    if (canChangeDirection)
+                    {
+                        StartCoroutine(AIScouting());
+                    }
+
+                    if (scoutingTime >= 4)
+                    {
+                        scoutingMode = false;
+                        patrolMode = true;
+                        animator.SetBool("isIdle", false);
+                        animator.SetBool("idleUp", false);
+                        animator.SetBool("idleDown", false);
+                        animator.SetBool("idleLeft", false);
+                        animator.SetBool("idleRight", false);
+                    }
                 }
             }
         }

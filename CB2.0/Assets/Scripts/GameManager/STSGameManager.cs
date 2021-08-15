@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 public class STSGameManager : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class STSGameManager : MonoBehaviour
     // Keep track of the spawned player gameobject
     private Dictionary<int, Transform> playerObjects;
 
+    private void Awake() {
+        PhotonNetwork.IsMessageQueueRunning = true;
+    }
     void Start()
     {
         foreach(KeyValuePair<int, PlayerInfo> player in players.GetPlayers())

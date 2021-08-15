@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 public class UnlimitedGroupManager : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class UnlimitedGroupManager : MonoBehaviour
     public PlayerLocation[] playerLocations;
     public Players players;
     public GameEvent onShowRulePage;
+
+    private void Awake() {
+        PhotonNetwork.IsMessageQueueRunning = true;
+    }
     void Start()
     {
         foreach(KeyValuePair<int, PlayerInfo> player in players.GetPlayers())
