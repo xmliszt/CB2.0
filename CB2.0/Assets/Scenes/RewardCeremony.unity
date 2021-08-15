@@ -2085,7 +2085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
       propertyPath: closingConversations.Array.data[6].text
-      value: This game is created by..
+      value: This game was created by..
       objectReference: {fileID: 0}
     - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
       propertyPath: closingConversations.Array.data[7].text
