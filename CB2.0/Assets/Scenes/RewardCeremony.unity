@@ -2067,6 +2067,278 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 32037363}
     m_Modifications:
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.size
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[3].text
+      value: Thanks For Playing CB2.0!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[4].text
+      value: We Hope to See You Again!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[5].text
+      value: GoodBye <3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[6].text
+      value: This game is created by..
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[7].text
+      value: Li Yuxuan Game Lead Developer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[8].text
+      value: Peh Wei Ting, Jeslyn Game Developer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[9].text
+      value: Lim Yang Zhi Game Developer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[10].text
+      value: Kuah Wee Ping Game Developer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[11].text
+      value: A production of 50.033 Game Design & Development
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[12].text
+      value: Special thanks to
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[13].text
+      value: Our Prof, Natalie Agus
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[14].text
+      value: Our Prof, Natalie Agus
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[3].textColor.b
+      value: 0.41072896
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[3].textColor.g
+      value: 0.084104665
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[3].textColor.r
+      value: 0.8490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[4].textColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[4].textColor.g
+      value: 0.65827984
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[4].textColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[5].textColor.b
+      value: 0.3392267
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[5].textColor.g
+      value: 0.032840855
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[5].textColor.r
+      value: 0.7735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[6].textColor.b
+      value: 0.3392267
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[6].textColor.g
+      value: 0.032840855
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[6].textColor.r
+      value: 0.7735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[7].textColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[7].textColor.g
+      value: 0.65882355
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[7].textColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[8].textColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[8].textColor.b
+      value: 0.3392267
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[8].textColor.g
+      value: 0.032840855
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[8].textColor.r
+      value: 0.7735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[9].textColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[9].textColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[9].textColor.g
+      value: 0.65882355
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[9].textColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[10].textColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[10].textColor.b
+      value: 0.3392267
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[10].textColor.g
+      value: 0.032840855
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[10].textColor.r
+      value: 0.7735849
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[11].textColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[11].textColor.b
+      value: 0.77254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[11].textColor.g
+      value: 0.16594976
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[11].textColor.r
+      value: 0.031372536
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[12].textColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[12].textColor.b
+      value: 0.77254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[12].textColor.g
+      value: 0.16594976
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[12].textColor.r
+      value: 0.031372536
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[13].textColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[13].textColor.b
+      value: 0.77254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[13].textColor.g
+      value: 0.16594976
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[13].textColor.r
+      value: 0.031372536
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[14].textColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[14].textColor.b
+      value: 0.77254903
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[14].textColor.g
+      value: 0.16594976
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[14].textColor.r
+      value: 0.031372536
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[3].delayInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[4].delayInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[5].delayInSeconds
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[6].delayInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[7].delayInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[8].delayInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[9].delayInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[10].delayInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[11].delayInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[12].delayInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[13].delayInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4065216738651912823, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
+      propertyPath: closingConversations.Array.data[14].delayInSeconds
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4065216738834332185, guid: d31d3f47d34f4de4996c15228b7b0a68, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
