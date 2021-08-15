@@ -12,15 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f589a6d5dcfacb94fb780302a70367b4, type: 3}
   m_Name: player 5
   m_EditorClassIdentifier: 
+  statsID: 4
   playerID: 0
-  playerName: Bob
+  playerName: 
   selected: 0
   playerAccent: {r: 1, g: 0.5525874, b: 0, a: 1}
   playerAvatar: {fileID: 21300000, guid: 0e9b960a6f34a9d4ab6de67db34129bc, type: 3}
   animatorController: {fileID: 9100000, guid: 978d84862e71d2c4eb11fe1f20d85b90, type: 2}
-  inventory:
-    item: {fileID: 0}
+  item: {fileID: 0}
   coins: 0
   score: 0
   masks: 0
   ready: 0
+  TPCollected: 0
+  otherObjectCollected: 0
+  zoneType: 0

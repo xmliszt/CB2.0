@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3483710355379515714}
   - component: {fileID: 3483710355379515726}
-  - component: {fileID: 578437572}
   - component: {fileID: 3483710355950317705}
   - component: {fileID: 557944637}
   - component: {fileID: 482615541342253250}
   - component: {fileID: 3483710355950317704}
   - component: {fileID: 3483710355950317706}
   - component: {fileID: 5844008357624694676}
+  - component: {fileID: 8483785332795397634}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -58,34 +58,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ResetPlayerStatsCompletely
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &578437572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3483710355379515717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: daa0041421649bf4db2282ac0649815a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 903bb142c1a0cb3488d4295dda7fe04d, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3483710355950317704}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: OnPlayerSwitchProfile
-        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -276,6 +248,34 @@ MonoBehaviour:
       - m_Target: {fileID: 3483710355950317704}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: onMinigameDeSelected
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8483785332795397634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3483710355379515717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3997f52950a9764a848a2c59c958256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 41681bde9aa37f04087b60831805dab1, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3483710355950317704}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnPlayerSwitchProfile
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

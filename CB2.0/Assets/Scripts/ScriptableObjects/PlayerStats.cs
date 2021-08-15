@@ -8,6 +8,7 @@ using UnityEngine;
 ]
 public class PlayerStats : ScriptableObject
 {
+    public int statsID;
     public int playerID;
 
     public string playerName;

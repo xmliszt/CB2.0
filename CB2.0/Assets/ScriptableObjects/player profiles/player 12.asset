@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f589a6d5dcfacb94fb780302a70367b4, type: 3}
   m_Name: player 12
   m_EditorClassIdentifier: 
+  statsID: 11
   playerID: 0
   playerName: Lucy
   selected: 0

@@ -39,6 +39,21 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - OnDash
+  - OnHold
+  - OnMove
+  - onPause
+  - OnPickdrop
+  - OnShop
+  - OnUse
+  - RPCDash
+  - RPCHold
+  - RPCMove
+  - RPCPause
+  - RPCPickdrop
+  - RPCShop
+  - RPCUse
+  - RPCUpdatePlayerStats
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

@@ -11,7 +11,7 @@ public class GameLobbyControlHandler : MonoBehaviour
 
     public GameEvent onSwitchBGM;
 
-    public SingleIntegerGameEvent onPlayerChangeProfile;
+    public IntegerStringGameEvent onPlayerChangeProfile;
 
     public SingleIntegerGameEvent onMinigameSelected;
 
@@ -46,7 +46,7 @@ public class GameLobbyControlHandler : MonoBehaviour
         {
             playerAudioController.PlaySFX(SFXType.changeOutfit);
             onPlayerChangeProfile
-                .Fire(playerStatsManager.GetPlayerStats().playerID);
+                .Fire(playerStatsManager.GetPlayerStats().playerID, playerStatsManager.GetPlayerStats().name);
         }
         if (playerZoneManager.GetZone() == PlayerZoneManager.ZoneType.reception)
         {

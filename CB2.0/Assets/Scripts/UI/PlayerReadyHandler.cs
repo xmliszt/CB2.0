@@ -23,6 +23,7 @@ public class PlayerReadyHandler : MonoBehaviour
         {
             if (!playerStatsManager.GetPlayerStats().ready)
             {
+                Debug.Log(string.Format("Player {0} is getting ready!", playerStatsManager.GetPlayerStats().playerID));
                 int readyIdx = GetCurrentReadyCount();
                 playerAudioController.PlayReadySFX(readyIdx);
                 playerStatsManager.GetPlayerStats().ready = true;

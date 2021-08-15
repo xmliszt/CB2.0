@@ -297,18 +297,9 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
         }
     }
 
-    public void OnHold(InputAction.CallbackContext context)
+    public void OnHold(bool value)
     {
-        // if (context.performed)
-        // {
-        //     Debug.Log("Performed");
-        //     held = !held;
-        //     if (entertainmentController)
-        //     {
-        //         playerAudioController.PlaySFX(SFXType.drop);
-        //     }
-        // }
-        held = context.ReadValueAsButton();
+        held = value;
     }
 
     public void SetPickedItem(GameObject _pickedItem)

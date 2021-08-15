@@ -1536,8 +1536,8 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a69fffbb-92ec-4125-ba3a-62eba4458103
     m_ActionName: gameplay/pause[/XInputControllerWindows/start,/Keyboard/escape]
-  m_NeverAutoSwitchControlSchemes: 1
-  m_DefaultControlScheme: 
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: keyboard
   m_DefaultActionMap: gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -2109,10 +2109,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09e37154eda3bb84f8d6759d76787332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  players: {fileID: 11400000, guid: ce4fcefec52bcc947ba76fb06cd9ed42, type: 2}
   gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
   constants: {fileID: 11400000, guid: cfdfc4cb01819cc4595b6c3e3f875518, type: 2}
   onGamePaused: {fileID: 11400000, guid: 0a12cbe82f61e3643a966e02a95b371a, type: 2}
   dashParticleGameEvent: {fileID: 11400000, guid: b3f39252519740843a5ee14e2800faab, type: 2}
+  playerSwitchProfile: {fileID: 11400000, guid: 41681bde9aa37f04087b60831805dab1, type: 2}
 --- !u!114 &789055899533834128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2127,7 +2129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onMiniGameStart: {fileID: 11400000, guid: 257b63261c3b66748b39167a72d68f31, type: 2}
   onSwitchBGM: {fileID: 11400000, guid: 459071618b31fd04ebd14d67828b0626, type: 2}
-  onPlayerChangeProfile: {fileID: 11400000, guid: 903bb142c1a0cb3488d4295dda7fe04d, type: 2}
+  onPlayerChangeProfile: {fileID: 11400000, guid: 41681bde9aa37f04087b60831805dab1, type: 2}
   onMinigameSelected: {fileID: 11400000, guid: 2bfdbeb24e492eb4cb3fb0d091bd4f62, type: 2}
   onMinigameDeSelected: {fileID: 11400000, guid: 261ae0d73b1953d41b5cfde274877b82, type: 2}
   gameStats: {fileID: 11400000, guid: 5e74f915bc7544e4f9ed7883f30cbdf5, type: 2}
@@ -2592,22 +2594,22 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 1
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: vertical
   - Type: 1
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: horizontal
   - Type: 1
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: speed
   - Type: 1
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: horizontal_idle
   - Type: 1
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: vertical_idle
   m_SynchronizeLayers:
-  - SynchronizeType: 1
+  - SynchronizeType: 2
     LayerIndex: 0
 --- !u!1 &6663720610430123126
 GameObject:

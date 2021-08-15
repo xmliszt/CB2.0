@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
-using Photon.Realtime;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviourPun
 {
     public GameObject playerPrefab;
 
@@ -47,6 +45,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        PhotonNetwork.AutomaticallySyncScene = true;
         DontDestroyOnLoad (gameObject);
     }
 
@@ -59,45 +58,35 @@ public class GameManager : MonoBehaviour
         playerInputManager = PlayerInputManager.instance;
         gameStats.SetCurrentScene(GameStats.Scene.gameLobby);
         gameStats.tutorialModeOn = false;
-        foreach (PlayerStats playerStats in playerProfiles)
-        {
-            playerStats.selected = false;
-            playerStats.playerID = 0;
-            playerStats.ready = false;
-        }
         onGameLobbyInitialized.Fire();
         SpawnPlayer();
-    }
-
-    private void Update() {
-        // check update of shared Players scriptable objects and update locally
-        Dictionary<int, Player> players = PhotonNetwork.CurrentRoom.Players;
-        foreach (KeyValuePair<int, Player> player in players)
-        {
-            Debug.Log(string.Format("{0}: {1}", player.Key, player.Value.NickName));
-        }
     }
 
     private void SpawnPlayer()
     {
         int playerID = PhotonNetwork.CurrentRoom.PlayerCount;
-        if (playerObjects == null)
-            playerObjects = new Dictionary<int, Transform>();
         GameObject player =
             PhotonNetwork
                 .Instantiate(playerPrefab.name,
                 GetPlayerLocation(playerID),
                 playerPrefab.transform.rotation);
         playerObjects[playerID] = player.transform;
-        playerRelocateGameEvent.Fire(playerID, GetPlayerLocation(playerID));
-        onPlayerJoinedEvent.Fire();
-        if (!players.PlayerExist(playerID))
-        {
-            PlayerStats newPlayerStats = SwitchPlayerProfile(playerID); // assign one profile to the joined player
-            players.AddPlayer (newPlayerStats, player);
-        }
+        PlayerStats newPlayerStats = SwitchPlayerProfile(playerID, PhotonNetwork.NickName); // assign one profile to the joined player
+        players.AddPlayer (newPlayerStats, player);
         player.GetComponent<PlayerController>().EnableController();
         player.GetComponent<PlayerController>().EnableMovement();
+        playerRelocateGameEvent.Fire(playerID, GetPlayerLocation(playerID));
+        onPlayerJoinedEvent.Fire();
+    }
+
+    public void AddPlayer(GameObject player)
+    {
+        PlayerStats playerStats =
+            player.GetComponent<PlayerStatsManager>().GetPlayerStats();
+        int playerID = playerStats.playerID;
+        Debug.Log(string.Format("Player {0} added!", playerID));
+        playerObjects[playerID] = player.transform;
+        players.AddPlayer (playerStats, player);
     }
 
     private Vector3 GetPlayerLocation(int playerID)
@@ -112,24 +101,17 @@ public class GameManager : MonoBehaviour
         return Vector3.zero;
     }
 
-    public void OnPlayerLeft(PlayerInput playerInput)
+    public void OnPlayerSwitchProfile(int playerID, string playerName)
     {
-        int playerID = playerInput.playerIndex + 1;
-        Debug.Log(string.Format("Player {0} left", playerID));
-        ClearPlayerProfileAssignment (playerID);
-        players.RemovePlayer (playerID);
-    }
-
-    public void OnPlayerSwitchProfile(int playerID)
-    {
-        PlayerStats newPlayerStats = SwitchPlayerProfile(playerID);
+        Debug.Log(string.Format("Switching profile for Player {0}", playerID));
+        PlayerStats newPlayerStats = SwitchPlayerProfile(playerID, playerName);
         players.UpdatePlayer (playerID, newPlayerStats);
     }
 
     // Switch a character for a given player
     // Will set the current player's character to be unselected, remove playerID
     // Choose the next available character to assign to this player
-    public PlayerStats SwitchPlayerProfile(int playerID)
+    public PlayerStats SwitchPlayerProfile(int playerID, string playerName)
     {
         PlayerStats selectedPlayerStats = null;
 
@@ -142,6 +124,7 @@ public class GameManager : MonoBehaviour
             {
                 playerStats.selected = false;
                 playerStats.playerID = 0;
+                playerStats.playerName = "";
                 lastIdx = idx;
             }
         }
@@ -156,6 +139,7 @@ public class GameManager : MonoBehaviour
             {
                 playerStats.playerID = playerID;
                 playerStats.selected = true;
+                playerStats.playerName = playerName;
                 selectedPlayerStats = playerStats;
                 break;
             }
@@ -207,6 +191,7 @@ public class GameManager : MonoBehaviour
             playerStats.masks = 0;
             playerStats.ready = false;
             playerStats.item = null;
+            playerStats.playerName = "";
         }
     }
 
@@ -246,24 +231,24 @@ public class GameManager : MonoBehaviour
         switch (sceneTag)
         {
             case GameStats.Scene.gameLobby:
-                SceneManager.LoadScene("GameLobby");
+                PhotonNetwork.LoadLevel("GameLobby");
                 break;
             case GameStats.Scene.swabTestWar:
-                SceneManager.LoadScene("SwabTestWar");
+                PhotonNetwork.LoadLevel("SwabTestWar");
                 break;
             case GameStats.Scene.stopTheSpread:
                 onStartSTS.Fire();
-                SceneManager.LoadScene("StopTheSpread");
+                PhotonNetwork.LoadLevel("StopTheSpread");
                 break;
             case GameStats.Scene.unlimitedGroupSize:
                 onStartUGS.Fire();
-                SceneManager.LoadScene("UnlimitedGroupSize");
+                PhotonNetwork.LoadLevel("UnlimitedGroupSize");
                 break;
             case GameStats.Scene.snatchAndHoard:
-                SceneManager.LoadScene("Snatch&Hoard");
+                PhotonNetwork.LoadLevel("Snatch&Hoard");
                 break;
             case GameStats.Scene.awardCeremony:
-                SceneManager.LoadScene("RewardCeremony");
+                PhotonNetwork.LoadLevel("RewardCeremony");
                 break;
         }
     }

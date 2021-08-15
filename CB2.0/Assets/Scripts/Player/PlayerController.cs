@@ -4,8 +4,10 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPun
 {
+    public Players players;
+
     public GameStats gameStats;
 
     public GameConstants constants;
@@ -13,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public GameEvent onGamePaused;
 
     public ParticleGameEvent dashParticleGameEvent;
+
+    public IntegerStringGameEvent playerSwitchProfile;
 
     private PlayerInput playerInput;
 
@@ -66,11 +70,6 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         photonView = GetComponent<PhotonView>();
-        DontDestroyOnLoad (gameObject);
-    }
-
-    private void Start()
-    {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         playerInput = GetComponent<PlayerInput>();
@@ -83,8 +82,28 @@ public class PlayerController : MonoBehaviour
         gameLobbyControlHandler = GetComponent<GameLobbyControlHandler>();
         unlimitedGroupControlHandler =
             GetComponent<UnlimitedGroupControlHandler>();
-        animator.runtimeAnimatorController =
-            playerStatsManager.GetPlayerStats().animatorController;
+        DontDestroyOnLoad (gameObject);
+    }
+
+    private void Start()
+    {
+        if (playerStatsManager.GetPlayerStats() != null)
+        {
+            UpdateAnimator();
+            photonView
+                .RPC("RPCUpdatePlayerStats",
+                RpcTarget.AllBuffered,
+                playerStatsManager.GetPlayerStats().statsID);
+        }
+    }
+
+    private void UpdateAnimator()
+    {
+        if (animator)
+        {
+            animator.runtimeAnimatorController =
+                playerStatsManager.GetPlayerStats().animatorController;
+        }
     }
 
     private void Update()
@@ -104,6 +123,58 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("vertical", finalInputMovement.y);
         animator.SetFloat("speed", finalInputMovement.magnitude);
         if (finalInputMovement.magnitude == 0) isIdle = true;
+    }
+
+    [PunRPC]
+    private void RPCUpdatePlayerStats(int playerStatsIndex)
+    {
+        if (!photonView.IsMine)
+        {
+            int remotePlayerID = photonView.CreatorActorNr;
+            Debug
+                .Log(string
+                    .Format("Remote player {0} stats received: {1}",
+                    remotePlayerID,
+                    playerStatsIndex.ToString()));
+            PlayerStats _stats =
+                FindObjectOfType<GameManager>()
+                    .playerProfiles[playerStatsIndex];
+            if (_stats.selected && _stats.playerID == remotePlayerID)
+            {
+                // already have a profile, skip this update step
+                Debug
+                    .Log(string
+                        .Format("Player {0} already has a profile. Skip updating",
+                        remotePlayerID));
+            }
+            else
+            {
+                while (_stats.selected)
+                {
+                    if (_stats.playerID < remotePlayerID)
+                    {
+                        playerStatsIndex++;
+                        _stats =
+                            FindObjectOfType<GameManager>()
+                                .playerProfiles[playerStatsIndex];
+                    }
+                    else
+                    {
+                        // incoming takes priority
+                        playerSwitchProfile
+                            .Fire(_stats.playerID, _stats.playerName);
+                        _stats.playerID = remotePlayerID;
+                        break;
+                    }
+                }
+                _stats.playerID = photonView.CreatorActorNr;
+                _stats.selected = true;
+                _stats.playerName = photonView.Owner.NickName;
+                playerStatsManager.SetPlayerStats (_stats);
+                UpdateAnimator();
+                FindObjectOfType<GameManager>().AddPlayer(this.gameObject);
+            }
+        }
     }
 
     private Vector2 GetDirection()
@@ -144,214 +215,216 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        photonView.RPC("RPCMove", RpcTarget.AllBuffered, context);
-    }
-
-    [PunRPC]
-    private void RPCMove(InputAction.CallbackContext context)
-    {
         if (!disabled)
         {
             isIdle = false;
             Vector2 movement = context.ReadValue<Vector2>();
-            rawInputMovement =
-                new Vector3(movement.x, movement.y, transform.position.z);
+            photonView.RPC("RPCMove", RpcTarget.AllBuffered, movement);
         }
+    }
+
+    [PunRPC]
+    private void RPCMove(Vector2 movement)
+    {
+        rawInputMovement =
+            new Vector3(movement.x, movement.y, transform.position.z);
     }
 
     public void OnDash(InputAction.CallbackContext context)
     {
-        photonView.RPC("RPCDash", RpcTarget.AllBuffered, context);
+        if (context.performed)
+        {
+            photonView.RPC("RPCDash", RpcTarget.AllBuffered);
+        }
     }
 
     [PunRPC]
-    private void RPCDash(InputAction.CallbackContext context)
+    private void RPCDash()
     {
-        if (context.performed)
+        if (!disabled && !dashDisabled)
         {
-            if (!disabled && !dashDisabled)
+            if (!isDashing && !isIdle)
             {
-                if (!isDashing && !isIdle)
+                if (playerAudioController)
+                    playerAudioController.PlaySFX(SFXType.dash);
+                isDashing = true;
+
+                dashDirection = direction;
+
+                // remember the most recent dash direction for removal
+                if (!isIdle && rb)
                 {
-                    if (playerAudioController)
-                        playerAudioController.PlaySFX(SFXType.dash);
-                    isDashing = true;
-
-                    dashDirection = direction;
-
-                    // remember the most recent dash direction for removal
-                    if (!isIdle && rb)
-                    {
-                        rb
-                            .AddForce(dashDirection * constants.playerDashSpeed,
-                            ForceMode2D.Impulse);
-                        dashParticleGameEvent
-                            .Fire(ParticleManager.ParticleTag.dash,
-                            transform.position -
-                            Vector3.up * constants.dashParticleOffset);
-                    }
-                    isDashing = false;
+                    rb
+                        .AddForce(dashDirection * constants.playerDashSpeed,
+                        ForceMode2D.Impulse);
+                    dashParticleGameEvent
+                        .Fire(ParticleManager.ParticleTag.dash,
+                        transform.position -
+                        Vector3.up * constants.dashParticleOffset);
                 }
+                isDashing = false;
             }
         }
     }
 
     public void OnUse(InputAction.CallbackContext context)
     {
-        photonView.RPC("RPCUse", RpcTarget.AllBuffered, context);
+        if (context.performed)
+        {
+            photonView.RPC("RPCUse", RpcTarget.AllBuffered);
+        }
     }
 
     [PunRPC]
-    private void RPCUse(InputAction.CallbackContext context)
+    private void RPCUse()
     {
-        if (context.performed)
+        if (!disabled)
         {
-            if (!disabled)
+            switch (gameStats.GetCurrentScene())
             {
-                switch (gameStats.GetCurrentScene())
-                {
-                    case GameStats.Scene.gameLobby:
-                        if (gameLobbyControlHandler)
-                            gameLobbyControlHandler.OnUse();
-                        break;
-                    case GameStats.Scene.swabTestWar:
-                        if (swabTestControlHandler)
-                            swabTestControlHandler.OnUse();
-                        break;
-                    case GameStats.Scene.stopTheSpread:
-                        if (stsControlHandler) stsControlHandler.OnUse();
-                        break;
-                    case GameStats.Scene.unlimitedGroupSize:
-                        if (unlimitedGroupControlHandler)
-                            unlimitedGroupControlHandler.OnUse();
-                        break;
-                    default:
-                        break;
-                }
+                case GameStats.Scene.gameLobby:
+                    if (gameLobbyControlHandler)
+                        gameLobbyControlHandler.OnUse();
+                    break;
+                case GameStats.Scene.swabTestWar:
+                    if (swabTestControlHandler) swabTestControlHandler.OnUse();
+                    break;
+                case GameStats.Scene.stopTheSpread:
+                    if (stsControlHandler) stsControlHandler.OnUse();
+                    break;
+                case GameStats.Scene.unlimitedGroupSize:
+                    if (unlimitedGroupControlHandler)
+                        unlimitedGroupControlHandler.OnUse();
+                    break;
+                default:
+                    break;
             }
         }
     }
 
     public void OnPickdrop(InputAction.CallbackContext context)
     {
-        photonView.RPC("RPCPickdrop", RpcTarget.AllBuffered, context);
+        if (context.performed)
+        {
+            Debug.Log(string.Format("Player {0} pick up / drop", photonView.CreatorActorNr));
+            photonView.RPC("RPCPickdrop", RpcTarget.AllBuffered);
+        }
     }
 
     [PunRPC]
-    private void RPCPickdrop(InputAction.CallbackContext context)
+    private void RPCPickdrop()
     {
-        if (context.performed)
+        if (playerReadyHandler)
         {
-            if (playerReadyHandler)
+             Debug.Log(string.Format("Player {0} get ready", photonView.CreatorActorNr));
+            playerReadyHandler.OnPlayerReady();
+        }
+        if (!disabled)
+        {
+            switch (gameStats.GetCurrentScene())
             {
-                playerReadyHandler.OnPlayerReady();
-            }
-            if (!disabled)
-            {
-                switch (gameStats.GetCurrentScene())
-                {
-                    case GameStats.Scene.swabTestWar:
-                        if (swabTestControlHandler)
-                            swabTestControlHandler.onPickUpDrop();
-                        break;
-                    case GameStats.Scene.stopTheSpread:
-                        if (stsControlHandler) stsControlHandler.onPickUpDrop();
-                        break;
-                    case GameStats.Scene.unlimitedGroupSize:
-                        if (unlimitedGroupControlHandler)
-                            unlimitedGroupControlHandler.OnPickUpDrop();
-                        break;
-                    case GameStats.Scene.snatchAndHoard:
-                        if (snHPlayerControlHandler)
-                            snHPlayerControlHandler.OnPickDropItem();
-                        break;
-                    default:
-                        break;
-                }
+                case GameStats.Scene.swabTestWar:
+                    if (swabTestControlHandler)
+                        swabTestControlHandler.onPickUpDrop();
+                    break;
+                case GameStats.Scene.stopTheSpread:
+                    if (stsControlHandler) stsControlHandler.onPickUpDrop();
+                    break;
+                case GameStats.Scene.unlimitedGroupSize:
+                    if (unlimitedGroupControlHandler)
+                        unlimitedGroupControlHandler.OnPickUpDrop();
+                    break;
+                case GameStats.Scene.snatchAndHoard:
+                    if (snHPlayerControlHandler)
+                        snHPlayerControlHandler.OnPickDropItem();
+                    break;
+                default:
+                    break;
             }
         }
     }
 
     public void OnShop(InputAction.CallbackContext context)
     {
-        photonView.RPC("RPCShop", RpcTarget.AllBuffered, context);
+        if (context.performed)
+        {
+            photonView.RPC("RPCShop", RpcTarget.AllBuffered);
+        }
     }
 
     [PunRPC]
-    private void RPCShop(InputAction.CallbackContext context)
+    private void RPCShop()
     {
-        if (context.performed)
+        if (!disabled)
         {
-            if (!disabled)
+            switch (gameStats.GetCurrentScene())
             {
-                switch (gameStats.GetCurrentScene())
-                {
-                    case GameStats.Scene.swabTestWar:
-                        if (swabTestControlHandler)
-                            swabTestControlHandler.onShop();
-                        break;
-                    case GameStats.Scene.stopTheSpread:
-                        if (stsControlHandler) stsControlHandler.onShop();
-                        break;
-                    case GameStats.Scene.unlimitedGroupSize:
-                        if (unlimitedGroupControlHandler)
-                            unlimitedGroupControlHandler.OnShop();
-                        break;
-                    case GameStats.Scene.snatchAndHoard:
-                        if (snHPlayerControlHandler)
-                            snHPlayerControlHandler.OnShop();
-                        break;
-                    default:
-                        break;
-                }
+                case GameStats.Scene.swabTestWar:
+                    if (swabTestControlHandler) swabTestControlHandler.onShop();
+                    break;
+                case GameStats.Scene.stopTheSpread:
+                    if (stsControlHandler) stsControlHandler.onShop();
+                    break;
+                case GameStats.Scene.unlimitedGroupSize:
+                    if (unlimitedGroupControlHandler)
+                        unlimitedGroupControlHandler.OnShop();
+                    break;
+                case GameStats.Scene.snatchAndHoard:
+                    if (snHPlayerControlHandler)
+                        snHPlayerControlHandler.OnShop();
+                    break;
+                default:
+                    break;
             }
         }
     }
 
     public void OnHold(InputAction.CallbackContext context)
     {
-        photonView.RPC("RPCHold", RpcTarget.AllBuffered, context);
+        if (context.performed)
+        {
+            photonView
+                .RPC("RPCHold",
+                RpcTarget.AllBuffered,
+                context.ReadValueAsButton());
+        }
     }
 
     [PunRPC]
-    private void RPCHold(InputAction.CallbackContext context)
+    private void RPCHold(bool value)
     {
-        if (context.performed)
+        if (!disabled)
         {
-            if (!disabled)
+            switch (gameStats.GetCurrentScene())
             {
-                switch (gameStats.GetCurrentScene())
-                {
-                    case GameStats.Scene.unlimitedGroupSize:
-                        if (unlimitedGroupControlHandler)
-                            unlimitedGroupControlHandler.OnHold(context);
-                        break;
-                    default:
-                        break;
-                }
+                case GameStats.Scene.unlimitedGroupSize:
+                    if (unlimitedGroupControlHandler)
+                        unlimitedGroupControlHandler.OnHold(value);
+                    break;
+                default:
+                    break;
             }
         }
     }
 
     public void onPause(InputAction.CallbackContext context)
     {
-        photonView.RPC("RPCPause", RpcTarget.AllBuffered, context);
-    }
-
-    [PunRPC]
-    private void RPCPause(InputAction.CallbackContext context)
-    {
         if (!disabled)
         {
             if (context.performed && !isPausedExecuted)
             {
-                if (playerAudioController)
-                    playerAudioController.PlaySFX(SFXType._lock);
-                StartCoroutine(removePausedExecuted());
-                isPausedExecuted = true;
-                onGamePaused.Fire();
+                photonView.RPC("RPCPause", RpcTarget.AllBuffered, context);
             }
         }
+    }
+
+    [PunRPC]
+    private void RPCPause()
+    {
+        if (playerAudioController) playerAudioController.PlaySFX(SFXType._lock);
+        StartCoroutine(removePausedExecuted());
+        isPausedExecuted = true;
+        onGamePaused.Fire();
     }
 
     IEnumerator removePausedExecuted()
