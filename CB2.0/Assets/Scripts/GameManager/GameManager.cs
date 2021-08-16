@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame()
     {
-        onReturnGameLobby.Fire();
+       Application.Quit();
     }
 
     private void Start()
