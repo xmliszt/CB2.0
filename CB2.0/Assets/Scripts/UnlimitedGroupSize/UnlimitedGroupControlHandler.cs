@@ -138,6 +138,7 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
                     entertainmentController.MoveItem();
                 }
                 else if (
+                    entertainmentController != null &&
                     entertainmentController !=
                     grabCheck
                         .collider
@@ -392,6 +393,9 @@ public class UnlimitedGroupControlHandler : MonoBehaviour
     {
         if (gameStats.GetCurrentScene() == GameStats.Scene.unlimitedGroupSize)
         {
+            held = false;
+            available = true;
+            entertainmentController = null;
             playerStatsManager.GetPlayerStats().item = null;
             thoughtBubbleRenderer.enabled = false;
             rechargeBarObject.SetActive(false);

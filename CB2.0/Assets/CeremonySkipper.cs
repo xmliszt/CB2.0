@@ -54,10 +54,20 @@ public class CeremonySkipper : MonoBehaviour
                 exitedPlayerImages[playerID - 1].enabled = true;
             }
         }
+        int exitCount = 0;
+        foreach (int playerID in exitedPlayers.Keys)
+        {
+            if (exitedPlayers[playerID] != null)
+            {
+                exitCount ++;
+            }
+        }
+
         if (exitCount == players.GetPlayers().Count)
         {
             StartCoroutine(startTransitionToLobby());
         }
+
     }
 
     private IEnumerator startTransitionToLobby()
@@ -79,7 +89,6 @@ public class CeremonySkipper : MonoBehaviour
                     .GetComponent<PlayerStatsManager>()
                     .GetPlayerStats();
             exitedPlayers[_stats.playerID] = _stats;
-            exitCount++;
             other
                 .gameObject
                 .GetComponent<PlayerController>()

@@ -57,8 +57,8 @@ public class GameManager : MonoBehaviour
         gameStats.tutorialModeOn = false;
         foreach (PlayerStats playerStats in playerProfiles)
         {
-            playerStats.selected = false;
-            playerStats.playerID = 0;
+            // playerStats.selected = false;
+            // playerStats.playerID = 0;
             playerStats.ready = false;
         }
         onGameLobbyInitialized.Fire();
@@ -155,6 +155,11 @@ public class GameManager : MonoBehaviour
             lastIdx++;
         }
 
+        foreach(int _id in playerObjects.Keys)
+        {
+            Debug.LogFormat("Player Objects Key: {0}", _id);
+        }
+        Debug.LogFormat("PlayerID {0} trying to access playerObjects", playerID);
         playerObjects[playerID]
             .GetComponent<PlayerStatsManager>()
             .SetPlayerStats(selectedPlayerStats);
@@ -193,8 +198,8 @@ public class GameManager : MonoBehaviour
     {
         foreach (PlayerStats playerStats in playerProfiles)
         {
-            playerStats.selected = false;
-            playerStats.playerID = 0;
+            // playerStats.selected = false;
+            // playerStats.playerID = 0;
             playerStats.score = 0;
             playerStats.coins = 0;
             playerStats.masks = 0;
