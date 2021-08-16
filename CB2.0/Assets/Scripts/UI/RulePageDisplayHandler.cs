@@ -7,6 +7,10 @@ public class RulePageDisplayHandler : MonoBehaviour
     private bool isPaused = false;
     private bool hasShownRule = false;
 
+    public GameEvent onReturnGameLobby;
+
+    public GameEvent onPause;
+
     private void Update() {
         if (isPaused && !hasShownRule)
         {
@@ -18,6 +22,13 @@ public class RulePageDisplayHandler : MonoBehaviour
             GetComponent<Canvas>().enabled = false;
             hasShownRule = false;
         }
+    }
+
+    public void QuitGame()
+    {
+        // Application.Quit();
+        onPause.Fire();
+        onReturnGameLobby.Fire();
     }
 
     public void Pause() {

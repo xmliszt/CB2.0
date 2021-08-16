@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     // The list of player profiles to select from
     public PlayerStats[] playerProfiles;
+    
 
     // The scriptable objects that will be remembered throughout the game
     public GameStats gameStats;
@@ -44,6 +45,11 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad (gameObject);
+    }
+
+    public void QuitGame()
+    {
+        onReturnGameLobby.Fire();
     }
 
     private void Start()
@@ -264,6 +270,16 @@ public class GameManager : MonoBehaviour
                 SceneManager.LoadScene("RewardCeremony");
                 break;
         }
+    }
+
+    public void GoBackGameLobby()
+    {
+        currentMinigameSceneIdx = 0;
+        gameStats.SetCurrentScene(GameStats.Scene.gameLobby);
+        ResetPlayerStatsCompletely();
+        onReturnGameLobby.Fire();
+        LoadMinigame(GameStats.Scene.gameLobby);
+        Destroy (gameObject);
     }
 
     public void OnPlayNextMinigame()
